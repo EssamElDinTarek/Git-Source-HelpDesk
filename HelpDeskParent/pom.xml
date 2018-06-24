@@ -132,8 +132,8 @@
 		</pluginManagement>
 	</build>
 	<modules>
-		<module>../HelpDeskCommonLib</module>
-		<module>../HelpDeskIntegrationAPI</module>
-		<module>../HelpDeskService</module>
+		<module>HelpDeskCommonLib</module>
+		<module>HelpDeskIntegrationAPI</module>
+		<module>HelpDeskService</module>
 	</modules>
 </project>

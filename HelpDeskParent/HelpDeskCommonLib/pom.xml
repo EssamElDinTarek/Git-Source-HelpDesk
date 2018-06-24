@@ -5,11 +5,10 @@
     <artifactId>HelpDeskParent</artifactId>
     <groupId>com.sbm.helpdesk</groupId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
 
-  <groupId>com.sbm.helpdesk</groupId>
   <artifactId>HelpDeskCommonLib</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>HelpDeskCommonLib</name>
   <!-- FIXME change it to the project's website -->

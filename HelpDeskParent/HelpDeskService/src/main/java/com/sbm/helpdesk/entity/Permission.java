@@ -2,114 +2,93 @@ package com.sbm.helpdesk.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 
 /**
- * The persistent class for the PERMISSION database table.
+ * The persistent class for the PERMISSIONS database table.
  * 
  */
 @Entity
-@Table(name="PERMISSION")
+@Table(name="PERMISSIONS")
 @NamedQuery(name="Permission.findAll", query="SELECT p FROM Permission p")
-public class Permission implements Serializable {
+public class Permission extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="PERMISSION_ID_GENERATOR" , sequenceName="permission_seq" )
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERMISSION_ID_GENERATOR")
-	@Column(unique=true, nullable=false)
-	private long id;
+	@SequenceGenerator(name="PERMISSIONS_PERMISSIONID_GENERATOR" )
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERMISSIONS_PERMISSIONID_GENERATOR")
+	@Column(name="PERMISSION_ID", unique=true, nullable=false, precision=22)
+	private long permissionId;
 
-	@Column(nullable=false, precision=9)
-	private BigDecimal code;
+	@Column(length=200)
+	private String description;
 
-	@Column(name="NAME_AR", length=50)
-	private String nameAr;
+	@Column(name="PERMISSION_NAME", length=200)
+	private String permissionName;
 
-	@Column(name="NAME_EN", length=50)
-	private String nameEn;
-
-	//bi-directional many-to-one association to Menu
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="MENU_ID", nullable=false)
-	private Menu menu;
-
-	//bi-directional many-to-many association to Group
-	@ManyToMany
-	@JoinTable(
-		name="USER_GROUP_PERMISSION"
-		, joinColumns={
-			@JoinColumn(name="PERMISSION_ID", nullable=false)
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="GROUP_ID", nullable=false)
-			}
-		)
-	private List<Group> groups;
-
-	//bi-directional many-to-many association to User
-	@ManyToMany(mappedBy="permissions")
-	private List<User> users;
+	//bi-directional many-to-many association to Hdrole
+	   @JoinTable(name = "ROLE_PERMISSIONS", joinColumns = {
+		        @JoinColumn(name = "PERMISSION_ID", referencedColumnName = "PERMISSION_ID")}, inverseJoinColumns = {
+		        @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")})
+		    @ManyToMany
+	private List<Hdrole> hdroles;
 
 	public Permission() {
 	}
 
-	public long getId() {
-		return this.id;
+	public long getPermissionId() {
+		return this.permissionId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setPermissionId(long permissionId) {
+		this.permissionId = permissionId;
 	}
 
-	public BigDecimal getCode() {
-		return this.code;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setCode(BigDecimal code) {
-		this.code = code;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getNameAr() {
-		return this.nameAr;
+	public String getPermissionName() {
+		return this.permissionName;
 	}
 
-	public void setNameAr(String nameAr) {
-		this.nameAr = nameAr;
+	public void setPermissionName(String permissionName) {
+		this.permissionName = permissionName;
 	}
 
-	public String getNameEn() {
-		return this.nameEn;
+	public List<Hdrole> getHdroles() {
+		return this.hdroles;
 	}
 
-	public void setNameEn(String nameEn) {
-		this.nameEn = nameEn;
+	public void setHdroles(List<Hdrole> hdroles) {
+		this.hdroles = hdroles;
 	}
 
-	public Menu getMenu() {
-		return this.menu;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (permissionId ^ (permissionId >>> 32));
+		return result;
 	}
 
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
-
-	public List<Group> getGroups() {
-		return this.groups;
-	}
-
-	public void setGroups(List<Group> groups) {
-		this.groups = groups;
-	}
-
-	public List<User> getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Permission other = (Permission) obj;
+		if (permissionId != other.permissionId)
+			return false;
+		return true;
 	}
 
 }

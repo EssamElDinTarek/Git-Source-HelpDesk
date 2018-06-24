@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sbm.helpdesk.dao.UserDao;
-import com.sbm.helpdesk.entity.User;
+import com.sbm.helpdesk.entity.Hduser;;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userDao.findByEmail(email);
+    	Hduser user = userDao.findByEmail(email);
 
         if (user != null) {
             return user;

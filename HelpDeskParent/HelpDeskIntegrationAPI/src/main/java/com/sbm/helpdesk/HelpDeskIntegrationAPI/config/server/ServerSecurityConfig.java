@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.sbm.helpdesk.HelpDeskIntegrationAPI.config.encryption.Encoders;
-
+ 
 @Configuration
 @EnableWebSecurity
 @Import(Encoders.class)
@@ -41,7 +41,7 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     	// TODO Auto-generated method stub
     	 http.
          authorizeRequests()
-             .antMatchers("/","/api/user/login/", "/resources/**")
+             .antMatchers("/","/api/user/login/", "/resources/**","/hello")
                  .permitAll()
              .and()
              .formLogin()

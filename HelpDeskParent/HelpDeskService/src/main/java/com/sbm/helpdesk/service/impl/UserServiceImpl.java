@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 
 import com.sbm.helpdesk.dao.UserDao;
 import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.User;
+import com.sbm.helpdesk.entity.Hduser;
 import com.sbm.helpdesk.service.UserService;
 
 @Service
-public class UserServiceImpl extends BasicServiceImpl<UserDTO, User> implements UserService{
+public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implements UserService{
 	
 	@Autowired
 	private UserDao userDao;
 	
-	private User _user = new User();
+	private Hduser _user = new Hduser();
 		
 	public UserServiceImpl() {}
 
@@ -36,7 +36,7 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, User> implements 
 	@Override
 	@Transactional(readOnly = true)
 	public List<UserDTO> listUsers() {
-		List<User> userListResult =  userDao.listUsers();
+		List<Hduser> userListResult =  userDao.listUsers();
 		List<UserDTO> userDtoList =  userListResult.stream().
 				map(item -> convertToDTO(item, new UserDTO())).collect(Collectors.toList());
 		return userDtoList;
@@ -59,7 +59,7 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, User> implements 
 	@Override
 	protected void configureMapperLocally()
 	{
-		modelMapper.addMappings(new PropertyMap<User, UserDTO>() {
+		modelMapper.addMappings(new PropertyMap<Hduser, UserDTO>() {
 			protected void configure() {
 				map().setUsername(source.getUsername());
 				}

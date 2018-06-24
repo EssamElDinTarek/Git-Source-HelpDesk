@@ -2,16 +2,16 @@ package com.sbm.helpdesk.dao;
 
 import java.util.List;
 
-import com.sbm.helpdesk.entity.User;
+import com.sbm.helpdesk.entity.Hduser;
 
-public interface UserDao extends GenericDao<User> {
+public interface UserDao extends GenericDao<Hduser> {
 
-	User add(User user);
+	Hduser add(Hduser user);
 
-	List<User> listUsers();
+	List<Hduser> listUsers();
 	
-	User login(String email, String password);
+	Hduser login(String email, String password);
 	
-	User findByEmail(String email);
+	Hduser findByEmail(String email);
 
 }

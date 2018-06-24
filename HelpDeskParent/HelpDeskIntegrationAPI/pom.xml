@@ -7,6 +7,7 @@
 		<artifactId>HelpDeskParent</artifactId>
 		<groupId>com.sbm.helpdesk</groupId>
 		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
 
 	<artifactId>HelpDeskIntegrationAPI</artifactId>
