@@ -23,6 +23,11 @@ public class Stepprocess extends BaseEntity implements Serializable {
 	@Column(length=200)
 	private String process;
 
+	//bi-directional many-to-one association to Component
+	@ManyToOne
+	@JoinColumn(name="COMPONENT_ID")
+	private Component component;
+
 	//bi-directional many-to-one association to Step
 	@ManyToOne
 	@JoinColumn(name="STEP_ID")
@@ -45,6 +50,14 @@ public class Stepprocess extends BaseEntity implements Serializable {
 
 	public void setProcess(String process) {
 		this.process = process;
+	}
+
+	public Component getComponent() {
+		return this.component;
+	}
+
+	public void setComponent(Component component) {
+		this.component = component;
 	}
 
 	public Step getStep() {

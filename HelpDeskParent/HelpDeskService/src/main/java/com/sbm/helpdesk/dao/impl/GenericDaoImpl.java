@@ -2,9 +2,14 @@ package com.sbm.helpdesk.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sbm.helpdesk.dao.GenericDao;
@@ -78,7 +83,16 @@ public class GenericDaoImpl<T> implements GenericDao<T>
 	{
 		return this.entityManager.merge(t);
 	}
-
+	
+	
+	   @Override
+	    public List<T> findAll() {
+	        CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
+	        CriteriaQuery<T> cq = builder.createQuery(type);
+	        Root<T> root = cq.from(type);
+	        cq.select(root);
+	        return this.entityManager.createQuery(cq).getResultList();
+	    }
 	
 
 }

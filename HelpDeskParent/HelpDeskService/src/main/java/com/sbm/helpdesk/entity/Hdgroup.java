@@ -25,8 +25,12 @@ public class Hdgroup extends BaseEntity implements Serializable {
 	@Column(name="GROUP_NAME", length=200)
 	private String groupName;
 
-	@Column(name="PRIVILEGE_ID", precision=22)
-	private BigDecimal privilegeId;
+	 
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="PRIVILEGE_ID")
+	private Privilege privilege;
+
 
 	//bi-directional many-to-one association to GroupSubcomponent
 	@OneToMany(mappedBy="hdgroup")
@@ -43,29 +47,13 @@ public class Hdgroup extends BaseEntity implements Serializable {
 		    @ManyToMany
 	private List<Hduser> hdusers;
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (groupId ^ (groupId >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Hdgroup other = (Hdgroup) obj;
-		if (groupId != other.groupId)
-			return false;
-		return true;
-	}
+	
 
 	public Hdgroup() {
+	}
+
+	public Hdgroup(String groupName) {
+		this.groupName=groupName;
 	}
 
 	public long getGroupId() {
@@ -84,13 +72,7 @@ public class Hdgroup extends BaseEntity implements Serializable {
 		this.groupName = groupName;
 	}
 
-	public BigDecimal getPrivilegeId() {
-		return this.privilegeId;
-	}
-
-	public void setPrivilegeId(BigDecimal privilegeId) {
-		this.privilegeId = privilegeId;
-	}
+ 
 
 	public List<GroupSubcomponent> getGroupSubcomponents() {
 		return this.groupSubcomponents;
@@ -129,5 +111,35 @@ public class Hdgroup extends BaseEntity implements Serializable {
 	public void setHdusers(List<Hduser> hdusers) {
 		this.hdusers = hdusers;
 	}
+	public Privilege getPrivilege() {
+		return this.privilege;
+	}
 
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (groupId ^ (groupId >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Hdgroup other = (Hdgroup) obj;
+		if (groupId != other.groupId)
+			return false;
+		return true;
+	}
 }

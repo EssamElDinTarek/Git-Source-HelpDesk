@@ -1,5 +1,7 @@
 package com.sbm.helpdesk.dao;
 
+import java.util.List;
+
 public interface GenericDao<T>
 {
 
@@ -37,6 +39,15 @@ public interface GenericDao<T>
 	 * @return the t
 	 */
 	T update(T t);
+	
+	/**
+	 * get all.
+	 *
+	 * 
+	 *             
+	 * @return the t
+	 */
+	List<T> findAll();
 
 }
 

@@ -34,6 +34,10 @@ public class Ticket extends BaseEntity implements Serializable {
 	@Column(length=255)
 	private String title;
 
+	//bi-directional many-to-one association to Attachment
+	@OneToMany(mappedBy="ticket")
+	private List<Attachment> attachments;
+
 	//bi-directional many-to-one association to Hduser
 	@ManyToOne
 	@JoinColumn(name="CREATOR_ID")
@@ -45,8 +49,26 @@ public class Ticket extends BaseEntity implements Serializable {
 	private Project project;
 
 	//bi-directional many-to-many association to Status
-	 @ManyToMany(mappedBy = "tickets")
+	@ManyToMany
+	@JoinTable(
+		name="TICKET_STATUS"
+		, joinColumns={
+			@JoinColumn(name="TICKET_ID")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="STATUS_ID")
+			}
+		)
 	private List<Status> statuses;
+
+	//bi-directional many-to-one association to Ticket
+	@ManyToOne
+	@JoinColumn(name="STEP_ID")
+	private Ticket ticket;
+
+	//bi-directional many-to-one association to Ticket
+	@OneToMany(mappedBy="ticket")
+	private List<Ticket> tickets;
 
 	//bi-directional many-to-one association to TicketPriority
 	@ManyToOne
@@ -114,6 +136,28 @@ public class Ticket extends BaseEntity implements Serializable {
 		this.title = title;
 	}
 
+	public List<Attachment> getAttachments() {
+		return this.attachments;
+	}
+
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
+	}
+
+	public Attachment addAttachment(Attachment attachment) {
+		getAttachments().add(attachment);
+		attachment.setTicket(this);
+
+		return attachment;
+	}
+
+	public Attachment removeAttachment(Attachment attachment) {
+		getAttachments().remove(attachment);
+		attachment.setTicket(null);
+
+		return attachment;
+	}
+
 	public Hduser getHduser() {
 		return this.hduser;
 	}
@@ -136,6 +180,36 @@ public class Ticket extends BaseEntity implements Serializable {
 
 	public void setStatuses(List<Status> statuses) {
 		this.statuses = statuses;
+	}
+
+	public Ticket getTicket() {
+		return this.ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	public List<Ticket> getTickets() {
+		return this.tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+
+	public Ticket addTicket(Ticket ticket) {
+		getTickets().add(ticket);
+		ticket.setTicket(this);
+
+		return ticket;
+	}
+
+	public Ticket removeTicket(Ticket ticket) {
+		getTickets().remove(ticket);
+		ticket.setTicket(null);
+
+		return ticket;
 	}
 
 	public TicketPriority getTicketPriority() {
@@ -204,28 +278,6 @@ public class Ticket extends BaseEntity implements Serializable {
 		workitem.setTicket(null);
 
 		return workitem;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (ticketId ^ (ticketId >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ticket other = (Ticket) obj;
-		if (ticketId != other.ticketId)
-			return false;
-		return true;
 	}
 
 }

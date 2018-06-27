@@ -31,6 +31,10 @@ public class Component extends BaseEntity implements Serializable {
 		    @ManyToMany
 	private List<Hdgroup> hdgroups;
 
+	//bi-directional many-to-one association to Stepprocess
+	@OneToMany(mappedBy="component")
+	private List<Stepprocess> stepprocesses;
+
 	//bi-directional many-to-one association to Subcomponent
 	@OneToMany(mappedBy="component")
 	private List<Subcomponent> subcomponents;
@@ -60,6 +64,28 @@ public class Component extends BaseEntity implements Serializable {
 
 	public void setHdgroups(List<Hdgroup> hdgroups) {
 		this.hdgroups = hdgroups;
+	}
+
+	public List<Stepprocess> getStepprocesses() {
+		return this.stepprocesses;
+	}
+
+	public void setStepprocesses(List<Stepprocess> stepprocesses) {
+		this.stepprocesses = stepprocesses;
+	}
+
+	public Stepprocess addStepprocess(Stepprocess stepprocess) {
+		getStepprocesses().add(stepprocess);
+		stepprocess.setComponent(this);
+
+		return stepprocess;
+	}
+
+	public Stepprocess removeStepprocess(Stepprocess stepprocess) {
+		getStepprocesses().remove(stepprocess);
+		stepprocess.setComponent(null);
+
+		return stepprocess;
 	}
 
 	public List<Subcomponent> getSubcomponents() {

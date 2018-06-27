@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -33,6 +34,20 @@ public class Workitem extends BaseEntity implements Serializable {
 
 	@Column(precision=22)
 	private BigDecimal ticketstatus;
+
+	//bi-directional many-to-one association to Attachment
+	@OneToMany(mappedBy="workitem")
+	private List<Attachment> attachments;
+
+	//bi-directional many-to-one association to Hduser
+	@ManyToOne
+	@JoinColumn(name="USER_ID")
+	private Hduser hduser;
+
+	//bi-directional many-to-one association to Step
+	@ManyToOne
+	@JoinColumn(name="STEP_ID")
+	private Step step;
 
 	//bi-directional many-to-one association to Ticket
 	@ManyToOne
@@ -82,12 +97,26 @@ public class Workitem extends BaseEntity implements Serializable {
 		this.ticketstatus = ticketstatus;
 	}
 
-	public Ticket getTicket() {
-		return this.ticket;
+	public List<Attachment> getAttachments() {
+		return this.attachments;
 	}
 
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
+	}
+
+	public Attachment addAttachment(Attachment attachment) {
+		getAttachments().add(attachment);
+		attachment.setWorkitem(this);
+
+		return attachment;
+	}
+
+	public Attachment removeAttachment(Attachment attachment) {
+		getAttachments().remove(attachment);
+		attachment.setWorkitem(null);
+
+		return attachment;
 	}
 
 	@Override
@@ -110,6 +139,30 @@ public class Workitem extends BaseEntity implements Serializable {
 		if (itemId != other.itemId)
 			return false;
 		return true;
+	}
+
+	public Hduser getHduser() {
+		return this.hduser;
+	}
+
+	public void setHduser(Hduser hduser) {
+		this.hduser = hduser;
+	}
+
+	public Step getStep() {
+		return this.step;
+	}
+
+	public void setStep(Step step) {
+		this.step = step;
+	}
+
+	public Ticket getTicket() {
+		return this.ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
 }

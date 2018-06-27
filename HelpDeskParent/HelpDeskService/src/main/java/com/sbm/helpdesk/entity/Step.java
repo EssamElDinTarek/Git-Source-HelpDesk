@@ -32,6 +32,10 @@ public class Step extends BaseEntity implements Serializable {
 	@OneToMany(mappedBy="step")
 	private List<WorkflowStep> workflowSteps;
 
+	//bi-directional many-to-one association to Workitem
+	@OneToMany(mappedBy="step")
+	private List<Workitem> workitems;
+
 	public Step() {
 	}
 
@@ -94,6 +98,29 @@ public class Step extends BaseEntity implements Serializable {
 
 		return workflowStep;
 	}
+
+	public List<Workitem> getWorkitems() {
+		return this.workitems;
+	}
+
+	public void setWorkitems(List<Workitem> workitems) {
+		this.workitems = workitems;
+	}
+
+	public Workitem addWorkitem(Workitem workitem) {
+		getWorkitems().add(workitem);
+		workitem.setStep(this);
+
+		return workitem;
+	}
+
+	public Workitem removeWorkitem(Workitem workitem) {
+		getWorkitems().remove(workitem);
+		workitem.setStep(null);
+
+		return workitem;
+	}
+
 
 	@Override
 	public int hashCode() {

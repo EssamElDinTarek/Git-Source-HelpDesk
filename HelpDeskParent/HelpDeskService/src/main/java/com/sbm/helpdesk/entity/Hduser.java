@@ -41,6 +41,10 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	@Column(name="USER_PASSWORD", length=200)
 	private String userPassword;
 
+	//bi-directional many-to-one association to Attachment
+	@OneToMany(mappedBy="hduser")
+	private List<Attachment> attachments;
+
 	//bi-directional many-to-many association to Hdgroup
 	@ManyToMany(mappedBy="hdusers")
 	private List<Hdgroup> hdgroups;
@@ -61,6 +65,10 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	//bi-directional many-to-one association to Ticketcomment
 	@OneToMany(mappedBy="hduser")
 	private List<Ticketcomment> ticketcomments;
+
+	//bi-directional many-to-one association to Workitem
+	@OneToMany(mappedBy="hduser")
+	private List<Workitem> workitems;
 
 	public Hduser() {
 	}
@@ -111,6 +119,28 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+
+	public List<Attachment> getAttachments() {
+		return this.attachments;
+	}
+
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
+	}
+
+	public Attachment addAttachment(Attachment attachment) {
+		getAttachments().add(attachment);
+		attachment.setHduser(this);
+
+		return attachment;
+	}
+
+	public Attachment removeAttachment(Attachment attachment) {
+		getAttachments().remove(attachment);
+		attachment.setHduser(null);
+
+		return attachment;
 	}
 
 	public List<Hdgroup> getHdgroups() {
@@ -179,6 +209,29 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 		ticketcomment.setHduser(null);
 
 		return ticketcomment;
+	}
+	
+
+	public List<Workitem> getWorkitems() {
+		return this.workitems;
+	}
+
+	public void setWorkitems(List<Workitem> workitems) {
+		this.workitems = workitems;
+	}
+
+	public Workitem addWorkitem(Workitem workitem) {
+		getWorkitems().add(workitem);
+		workitem.setHduser(this);
+
+		return workitem;
+	}
+
+	public Workitem removeWorkitem(Workitem workitem) {
+		getWorkitems().remove(workitem);
+		workitem.setHduser(null);
+
+		return workitem;
 	}
 
 	@Override
