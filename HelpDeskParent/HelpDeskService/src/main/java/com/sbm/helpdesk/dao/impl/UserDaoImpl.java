@@ -27,8 +27,8 @@ public class UserDaoImpl extends GenericDaoImpl<Hduser>  implements UserDao{
 	public Hduser login(String email, String password) {
 		try {
 			Query q = entityManager.createNamedQuery("Hduser.findByEmailAndPassword", Hduser.class);
-			q.setParameter("email", email);
-			q.setParameter("password", password);
+			q.setParameter("emailAddress", email);
+			q.setParameter("userPassword", password);
 			return (Hduser) q.getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,7 +41,7 @@ public class UserDaoImpl extends GenericDaoImpl<Hduser>  implements UserDao{
 	public Hduser findByEmail(String email) {
 		try {
 			Query q = entityManager.createNamedQuery("Hduser.findByEmail", Hduser.class);
-			q.setParameter("email", email);
+			q.setParameter("emailAddress", email);
 			Hduser userObj = (Hduser) q.getSingleResult();
 			return userObj;
 		} catch (Exception e) {
