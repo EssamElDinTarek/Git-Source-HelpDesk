@@ -28,7 +28,11 @@ public class HdgroupDTO extends BaseDTO  {
 
 	private PrivilegeDTO privilege;
 
- 
+	private List<SubcomponentDTO> subcomponents;
+	
+	private List<ComponentDTO> components;
+	
+	private List<HduserDTO> hdusers;
 
 	public long getGroupId() {
 		return groupId;
@@ -58,6 +62,34 @@ public class HdgroupDTO extends BaseDTO  {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
+	public List<SubcomponentDTO> getSubcomponents() {
+		return subcomponents;
+	}
+	
+	public void setSubcomponents(List<SubcomponentDTO> subcomponents) {
+		this.subcomponents = subcomponents;
+	}
+
+	public List<ComponentDTO> getComponents() {
+		return components;
+	}
+
+	public void setComponents(List<ComponentDTO> components) {
+		this.components = components;
+	}
+
+	public List<HduserDTO> getHdusers() {
+		return hdusers;
+	}
+
+	public void setHdusers(List<HduserDTO> hdusers) {
+		this.hdusers = hdusers;
+	}
+	
+	
+
 
 	 
 	

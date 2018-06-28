@@ -23,15 +23,23 @@ public class Subcomponent extends BaseEntity implements Serializable {
 
 	@Column(name="SUBCOMPONENT_NAME", length=200)
 	private String subcomponentName;
-
-	//bi-directional many-to-one association to GroupSubcomponent
-	@OneToMany(mappedBy="subcomponent")
-	private List<GroupSubcomponent> groupSubcomponents;
-
 	//bi-directional many-to-one association to Component
 	@ManyToOne
 	@JoinColumn(name="COMPONENT_ID")
 	private Component component;
+
+	//bi-directional many-to-many association to Hdgroup
+	@ManyToMany
+	@JoinTable(
+		name="GROUP_SUBCOMPONENT"
+		, joinColumns={
+			@JoinColumn(name="SUBCOMPONENT_ID", nullable=false)
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="GROUP_ID", nullable=false)
+			}
+		)
+	private List<Hdgroup> hdgroups;
 
 	public Subcomponent() {
 	}
@@ -52,36 +60,21 @@ public class Subcomponent extends BaseEntity implements Serializable {
 		this.subcomponentName = subcomponentName;
 	}
 
-	public List<GroupSubcomponent> getGroupSubcomponents() {
-		return this.groupSubcomponents;
-	}
-
-	public void setGroupSubcomponents(List<GroupSubcomponent> groupSubcomponents) {
-		this.groupSubcomponents = groupSubcomponents;
-	}
-
-	public GroupSubcomponent addGroupSubcomponent(GroupSubcomponent groupSubcomponent) {
-		getGroupSubcomponents().add(groupSubcomponent);
-		groupSubcomponent.setSubcomponent(this);
-
-		return groupSubcomponent;
-	}
-
-	public GroupSubcomponent removeGroupSubcomponent(GroupSubcomponent groupSubcomponent) {
-		getGroupSubcomponents().remove(groupSubcomponent);
-		groupSubcomponent.setSubcomponent(null);
-
-		return groupSubcomponent;
-	}
-
 	public Component getComponent() {
 		return this.component;
 	}
 
+	
 	public void setComponent(Component component) {
 		this.component = component;
 	}
+	public List<Hdgroup> getHdgroups() {
+		return this.hdgroups;
+	}
 
+	public void setHdgroups(List<Hdgroup> hdgroups) {
+		this.hdgroups = hdgroups;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

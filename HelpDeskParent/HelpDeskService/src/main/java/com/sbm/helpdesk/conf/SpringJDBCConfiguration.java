@@ -32,8 +32,8 @@ public class SpringJDBCConfiguration
 	       DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	       dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 	       dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");//change url
-	       dataSource.setUsername("shura");//change userid
-	       dataSource.setPassword("java");//change pwd
+	       dataSource.setUsername("helpdesk");//change userid
+	       dataSource.setPassword("sbm123");//change pwd
 	       
 	       return dataSource;
 	   }

@@ -10,8 +10,8 @@ public class ComponentDTO extends BaseDTO  {
 	
 	private long componentId;
 	private String componentName;
-	private Set<Hdgroup> hdgroups;
-	private Set<Subcomponent> subcomponents;
+//	private Set<Hdgroup> hdgroups;
+//	private Set<Subcomponent> subcomponents;
 	public long getComponentId() {
 		return componentId;
 	}
@@ -24,18 +24,18 @@ public class ComponentDTO extends BaseDTO  {
 	public void setComponentName(String componentName) {
 		this.componentName = componentName;
 	}
-	public Set<Hdgroup> getHdgroups() {
-		return hdgroups;
-	}
-	public void setHdgroups(Set<Hdgroup> hdgroups) {
-		this.hdgroups = hdgroups;
-	}
-	public Set<Subcomponent> getSubcomponents() {
-		return subcomponents;
-	}
-	public void setSubcomponents(Set<Subcomponent> subcomponents) {
-		this.subcomponents = subcomponents;
-	}
+//	public Set<Hdgroup> getHdgroups() {
+//		return hdgroups;
+//	}
+//	public void setHdgroups(Set<Hdgroup> hdgroups) {
+//		this.hdgroups = hdgroups;
+//	}
+//	public Set<Subcomponent> getSubcomponents() {
+//		return subcomponents;
+//	}
+//	public void setSubcomponents(Set<Subcomponent> subcomponents) {
+//		this.subcomponents = subcomponents;
+//	}
 	
 	
 }
