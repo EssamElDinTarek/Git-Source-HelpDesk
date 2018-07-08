@@ -12,7 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="TICKET")
-@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
+@NamedQueries({
+	@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t"),
+	@NamedQuery(name="Ticket.findByTicketNumber", query="SELECT t FROM Ticket t where t.ticketnumber=:arg1"),
+	@NamedQuery(name="Ticket.findByProjectName", query="SELECT t FROM Ticket t join t.project p where p.name=:arg1")
+})
+
 public class Ticket extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,9 +30,12 @@ public class Ticket extends BaseEntity implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date creationdate;
 
+	@Column(name="TICKET_NUMBER",length=50)
+	private String ticketnumber;
+
 	@Column(length=255)
 	private String description;
-
+	
 	@Column(length=255)
 	private String status;
 
@@ -39,17 +47,17 @@ public class Ticket extends BaseEntity implements Serializable {
 	private List<Attachment> attachments;
 
 	//bi-directional many-to-one association to Hduser
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="CREATOR_ID")
 	private Hduser hduser;
 
 	//bi-directional many-to-one association to Project
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="PROJECT_ID")
 	private Project project;
 
 	//bi-directional many-to-many association to Status
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="TICKET_STATUS"
 		, joinColumns={
@@ -62,7 +70,7 @@ public class Ticket extends BaseEntity implements Serializable {
 	private List<Status> statuses;
 
 	//bi-directional many-to-one association to Ticket
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="STEP_ID")
 	private Ticket ticket;
 
@@ -71,17 +79,17 @@ public class Ticket extends BaseEntity implements Serializable {
 	private List<Ticket> tickets;
 
 	//bi-directional many-to-one association to TicketPriority
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="PRIORITY_ID")
 	private TicketPriority ticketPriority;
 
 	//bi-directional many-to-one association to TicketSeverity
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="SEVERITY_ID")
 	private TicketSeverity ticketSeverity;
 
 	//bi-directional many-to-one association to Workflow
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="WORKFLOW_ID")
 	private Workflow workflow;
 
@@ -279,5 +287,15 @@ public class Ticket extends BaseEntity implements Serializable {
 
 		return workitem;
 	}
+
+	public String getTicketnumber() {
+		return ticketnumber;
+	}
+
+	public void setTicketnumber(String ticketnumber) {
+		this.ticketnumber = ticketnumber;
+	}
+
+	
 
 }

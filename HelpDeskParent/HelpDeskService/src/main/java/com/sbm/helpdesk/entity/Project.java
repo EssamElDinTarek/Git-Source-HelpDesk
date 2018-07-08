@@ -11,7 +11,11 @@ import java.util.List;
  */
 @Entity
 @Table(name="PROJECT")
-@NamedQuery(name="Project.findAll", query="SELECT p FROM Project p")
+@NamedQueries({
+	@NamedQuery(name="Project.findAll", query="SELECT p FROM Project p"),
+	@NamedQuery(name="Project.findProjectByName", query="SELECT p FROM Project p where name=:arg1")
+})
+
 public class Project extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +34,7 @@ public class Project extends BaseEntity implements Serializable {
 	private Portfolio portfolio;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="project")
+	@OneToMany(mappedBy = "project")
 	private List<Ticket> tickets;
 
 	public Project() {

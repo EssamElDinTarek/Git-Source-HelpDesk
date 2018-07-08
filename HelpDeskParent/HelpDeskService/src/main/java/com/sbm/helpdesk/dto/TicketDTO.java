@@ -14,13 +14,16 @@ public class TicketDTO extends BaseDTO  {
 	private String description;
 	private String status;
 	private String title;
-	private Set<Attachment> attachments;
-	private Hduser hduser;
-	private Project project;
-	private Set<Status> statuses;
-	private Workflow workflow;
-	private Set<Ticketcomment> ticketcomments;
-	private Set<Workitem> workitems;
+	private String ticketnumber;
+	//private Set<AttachmentDTO> attachments;
+	//private HduserDTO hduser;
+	//private ProjectDTO project;
+	//private Set<StatusDTO> statuses;
+	//private WorkflowDTO workflow;
+	//private Set<TicketcommentDTO> ticketcomments;
+	//private Set<WorkitemDTO> workitems;
+	//private TicketPriorityDTO ticketPriority;
+	//private TicketSeverityDTO ticketSeverity;
 	public long getTicketId() {
 		return ticketId;
 	}
@@ -51,48 +54,15 @@ public class TicketDTO extends BaseDTO  {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Set<Attachment> getAttachments() {
-		return attachments;
+	public String getTicketnumber() {
+		return ticketnumber;
 	}
-	public void setAttachments(Set<Attachment> attachments) {
-		this.attachments = attachments;
+	public void setTicketnumber(String ticketnumber) {
+		this.ticketnumber = ticketnumber;
 	}
-	public Hduser getHduser() {
-		return hduser;
-	}
-	public void setHduser(Hduser hduser) {
-		this.hduser = hduser;
-	}
-	public Project getProject() {
-		return project;
-	}
-	public void setProject(Project project) {
-		this.project = project;
-	}
-	public Set<Status> getStatuses() {
-		return statuses;
-	}
-	public void setStatuses(Set<Status> statuses) {
-		this.statuses = statuses;
-	}
-	public Workflow getWorkflow() {
-		return workflow;
-	}
-	public void setWorkflow(Workflow workflow) {
-		this.workflow = workflow;
-	}
-	public Set<Ticketcomment> getTicketcomments() {
-		return ticketcomments;
-	}
-	public void setTicketcomments(Set<Ticketcomment> ticketcomments) {
-		this.ticketcomments = ticketcomments;
-	}
-	public Set<Workitem> getWorkitems() {
-		return workitems;
-	}
-	public void setWorkitems(Set<Workitem> workitems) {
-		this.workitems = workitems;
-	}
+	
+	
+	
 	
 	
 }
