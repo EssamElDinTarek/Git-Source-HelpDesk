@@ -22,8 +22,8 @@ public class TicketDTO extends BaseDTO  {
 	//private WorkflowDTO workflow;
 	//private Set<TicketcommentDTO> ticketcomments;
 	//private Set<WorkitemDTO> workitems;
-	//private TicketPriorityDTO ticketPriority;
-	//private TicketSeverityDTO ticketSeverity;
+	private TicketPriorityDTO ticketPriority;
+	private TicketSeverityDTO ticketSeverity;
 	public long getTicketId() {
 		return ticketId;
 	}
