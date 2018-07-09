@@ -40,8 +40,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		return new CommonsMultipartResolver();
 	}
 	
-	@Override
+	/*@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) { 
 	        configurer.enable();
-	}
+	}*/
 }

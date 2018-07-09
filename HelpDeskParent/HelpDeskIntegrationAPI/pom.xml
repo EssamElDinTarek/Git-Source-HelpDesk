@@ -238,7 +238,7 @@
 							<outputDirectory>${basedir}/target/HelpDeskIntegrationAPI/resources/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>../HelpDeskUIPresentation/dist</directory>
+									<directory>../ShuraUIPresentation/dist</directory>
 								</resource>
 							</resources>
 						</configuration>
@@ -254,7 +254,7 @@
 							<outputDirectory>${basedir}/src/main/webapp/resources/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>../HelpDeskUIPresentation/dist</directory>
+									<directory>../ShuraUIPresentation/dist</directory>
 								</resource>
 							</resources>
 						</configuration>

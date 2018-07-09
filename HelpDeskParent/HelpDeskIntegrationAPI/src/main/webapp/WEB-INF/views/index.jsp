@@ -7,15 +7,17 @@
     <title>ShuraUIPresentation</title>
     <base href=".">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="/ShuraIntegrationAPI/resources/styles.bundle.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/HelpDeskIntegrationAPI/resources/favicon.ico">
+    <link href="/HelpDeskIntegrationAPI/resources/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </head>
 <body>
-    <app-root></app-root>
-    <script type="text/javascript" src="/ShuraIntegrationAPI/resources/inline.bundle.js"></script>
-    <script type="text/javascript" src="/ShuraIntegrationAPI/resources/polyfills.bundle.js"></script>
-    <script type="text/javascript" src="/ShuraIntegrationAPI/resources/main.bundle.js"></script>
-    <script type="text/javascript" src="/ShuraIntegrationAPI/resources/project.js"></script>
-	<script type="text/javascript" src="/ShuraIntegrationAPI/resources/scripts.bundle.js"></script>
-</body>
+    <app></app>
+<!--     <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/inline.js"></script>
+ -->    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/polyfills.js"></script>
+    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/main.js"></script>
+    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/runtime.js"></script>
+<!-- 	<script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/scripts.js"></script>
+ --></body>
 </html>
