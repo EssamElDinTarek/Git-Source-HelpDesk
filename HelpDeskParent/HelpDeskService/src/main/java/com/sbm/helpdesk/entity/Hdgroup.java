@@ -32,9 +32,6 @@ public class Hdgroup extends BaseEntity implements Serializable {
 	private Privilege privilege;
 
 
-	//bi-directional many-to-one association to GroupSubcomponent
-	@OneToMany(mappedBy="hdgroup")
-	private List<GroupSubcomponent> groupSubcomponents;
 
 	//bi-directional many-to-many association to Component
 	 @ManyToMany(mappedBy = "hdgroups")
@@ -47,7 +44,19 @@ public class Hdgroup extends BaseEntity implements Serializable {
 		    @ManyToMany
 	private List<Hduser> hdusers;
 
-	
+	//bi-directional many-to-many association to Subcomponent
+	@ManyToMany()
+	@JoinTable(
+			name="GROUP_SUBCOMPONENT"
+			, joinColumns={
+					@JoinColumn(name="GROUP_ID", nullable=false)
+				}
+			, inverseJoinColumns={
+					@JoinColumn(name="SUBCOMPONENT_ID", nullable=false)
+				
+				}
+			)
+	private List<Subcomponent> subcomponents;
 
 	public Hdgroup() {
 	}
@@ -74,27 +83,6 @@ public class Hdgroup extends BaseEntity implements Serializable {
 
  
 
-	public List<GroupSubcomponent> getGroupSubcomponents() {
-		return this.groupSubcomponents;
-	}
-
-	public void setGroupSubcomponents(List<GroupSubcomponent> groupSubcomponents) {
-		this.groupSubcomponents = groupSubcomponents;
-	}
-
-	public GroupSubcomponent addGroupSubcomponent(GroupSubcomponent groupSubcomponent) {
-		getGroupSubcomponents().add(groupSubcomponent);
-		groupSubcomponent.setHdgroup(this);
-
-		return groupSubcomponent;
-	}
-
-	public GroupSubcomponent removeGroupSubcomponent(GroupSubcomponent groupSubcomponent) {
-		getGroupSubcomponents().remove(groupSubcomponent);
-		groupSubcomponent.setHdgroup(null);
-
-		return groupSubcomponent;
-	}
 
 	public List<Component> getComponents() {
 		return this.components;
@@ -117,6 +105,14 @@ public class Hdgroup extends BaseEntity implements Serializable {
 
 	public void setPrivilege(Privilege privilege) {
 		this.privilege = privilege;
+	}
+
+	public List<Subcomponent> getSubcomponents() {
+		return this.subcomponents;
+	}
+
+	public void setSubcomponents(List<Subcomponent> subcomponents) {
+		this.subcomponents = subcomponents;
 	}
 
 	

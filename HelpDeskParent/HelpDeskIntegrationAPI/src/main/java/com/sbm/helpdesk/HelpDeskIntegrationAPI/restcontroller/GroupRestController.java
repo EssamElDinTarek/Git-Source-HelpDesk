@@ -46,9 +46,17 @@ public class GroupRestController {
 	@RequestMapping(value = "/assignPrivilge", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<BaseDTO> assignPrivilge(@RequestBody HdgroupDTO hdgroup){
-		HdgroupDTO newHdgroup = service.assignPrivilge(hdgroup);
-				return dtoProvider.addObj(newHdgroup);
+	public boolean assignPrivilge(@RequestBody HdgroupDTO hdgroup){
+	  service.assignPrivilge(hdgroup);
+				return true;
+	}
+	
+	@RequestMapping(value = "/assignSubcomponents", method = RequestMethod.POST, 
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public boolean assignGroupSubcomponents(@RequestBody HdgroupDTO hdgroupDTO){
+	  service.assignSubcomponents(hdgroupDTO); 
+				return true;
 	}
 //	
 //	@RequestMapping(value = "/user/login", method = RequestMethod.POST)

@@ -14,9 +14,9 @@ public class HduserDTO extends BaseDTO  {
 	private String lastName;
 	private String userName;
 	private String userPassword;
-	private Set<Attachment> attachments;
-	private Set<Hdgroup> hdgroups;
-	private Set<Hdrole> hdroles;
+	private Set<AttachmentDTO> attachments;
+//	private Set<HdgroupDTO> hdgroups;
+	private Set<HdroleDTO> hdroles;
 	private Team team;
 	private Set<Ticket> tickets;
 	private Set<Ticketcomment> ticketcomments;
@@ -56,22 +56,24 @@ public class HduserDTO extends BaseDTO  {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	public Set<Attachment> getAttachments() {
+
+	
+	public Set<AttachmentDTO> getAttachments() {
 		return attachments;
 	}
-	public void setAttachments(Set<Attachment> attachments) {
+	public void setAttachments(Set<AttachmentDTO> attachments) {
 		this.attachments = attachments;
 	}
-	public Set<Hdgroup> getHdgroups() {
-		return hdgroups;
-	}
-	public void setHdgroups(Set<Hdgroup> hdgroups) {
-		this.hdgroups = hdgroups;
-	}
-	public Set<Hdrole> getHdroles() {
+//	public Set<HdgroupDTO> getHdgroups() {
+//		return hdgroups;
+//	}
+//	public void setHdgroups(Set<HdgroupDTO> hdgroups) {
+//		this.hdgroups = hdgroups;
+//	}
+	public Set<HdroleDTO> getHdroles() {
 		return hdroles;
 	}
-	public void setHdroles(Set<Hdrole> hdroles) {
+	public void setHdroles(Set<HdroleDTO> hdroles) {
 		this.hdroles = hdroles;
 	}
 	public Team getTeam() {
