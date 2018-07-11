@@ -4,6 +4,7 @@ export const locale = {
         'NAV': {
 			'PERMISSION'     : 'Permission',
             'TICKETVIEW'     : 'Ticketview',
+            'TICKETS'     : 'Tickets',
             'WELCOME'     : 'Welcome',
             'APPLICATIONS': 'Applications',
             'DASHBOARDS'  : 'Dashboards',

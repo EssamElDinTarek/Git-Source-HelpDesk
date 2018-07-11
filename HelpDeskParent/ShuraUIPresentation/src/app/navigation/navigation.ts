@@ -17,13 +17,30 @@ export const navigation: FuseNavigation[] = [
                 url      : '/welcome'
             },
             {
-                id       : 'ticketview',
-                title    : 'Ticketview',
-                translate: 'NAV.TICKETVIEW',
-                type     : 'item',
-                icon     : 'face',
-                url      : '/ticketview'
+                id       : 'tickets',
+                title    : 'Tickets',
+                translate: 'NAV.TICKETS',
+                type     : 'collapsable',
+                icon     : 'apps',
+                children      : [
+                                    {
+                                        id       : 'ticketview',
+                                        title    : 'Ticketview',
+                                        translate: 'NAV.TICKETVIEW',
+                                        type     : 'item',
+                                        icon     : 'face',
+                                        url      : '/ticketview'
+                                    },{
+                                        id       : 'ticketview',
+                                        title    : 'Ticketview',
+                                        translate: 'NAV.TICKETVIEW',
+                                        type     : 'item',
+                                        icon     : 'face',
+                                        url      : '/ticketview'
+                                    }
+                ]
             },
+        
 			{
                 id       : 'Permission',
                 title    : 'Permission',

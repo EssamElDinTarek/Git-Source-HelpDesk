@@ -23,7 +23,7 @@ public class TicketSeverity extends BaseEntity implements Serializable {
 	private long severityId;
 
 	@Column(name="SEVERITY_NAME", precision=22)
-	private BigDecimal severityName;
+	private String severityName;
 
 	@Column(name="SEVRITY_TIME_CONSTRAINT", precision=22)
 	private BigDecimal sevrityTimeConstraint;
@@ -43,11 +43,11 @@ public class TicketSeverity extends BaseEntity implements Serializable {
 		this.severityId = severityId;
 	}
 
-	public BigDecimal getSeverityName() {
+	public String getSeverityName() {
 		return this.severityName;
 	}
 
-	public void setSeverityName(BigDecimal severityName) {
+	public void setSeverityName(String severityName) {
 		this.severityName = severityName;
 	}
 

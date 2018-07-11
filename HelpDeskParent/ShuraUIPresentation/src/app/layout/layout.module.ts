@@ -12,7 +12,7 @@ import { HorizontalLayout1Module } from 'app/layout/horizontal/layout-1/layout-1
         VerticalLayout2Module,
         VerticalLayout3Module,
 
-        HorizontalLayout1Module
+        HorizontalLayout1Module,
     ],
     exports: [
         VerticalLayout1Module,

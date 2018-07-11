@@ -16,7 +16,10 @@ import java.util.List;
  */
 @Entity
 @Table(name="HDUSER")
-@NamedQuery(name="Hduser.findAll", query="SELECT h FROM Hduser h")
+
+@NamedQueries({ @NamedQuery(name = "Hduser.findAll", query = "SELECT h FROM Hduser h"),
+	@NamedQuery(name = "Hduser.findByEmail", query = "SELECT h FROM Hduser h WHERE h.emailAddress =:emailAddress"),
+	@NamedQuery(name = "Hduser.findByEmailAndPassword", query = "SELECT u FROM Hduser u WHERE u.emailAddress =:emailAddress AND u.userPassword =:userPassword") })
 public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	private static final long serialVersionUID = 1L;
 
@@ -267,37 +270,37 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.userPassword;
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.emailAddress;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

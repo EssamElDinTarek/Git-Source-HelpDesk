@@ -11,8 +11,7 @@ import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
 import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
-
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {merge, Observable, of as observableOf} from 'rxjs';
@@ -26,12 +25,12 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
 })
 
 
-    export class TicketViewComponent implements OnInit ,  AfterViewInit {
-        constructor() { }
-    
+    export class TicketViewComponent implements OnInit,  AfterViewInit {
+       
+  
     ngOnInit(){}
        
-  displayedColumns = ['created', 'state', 'number', 'title'];
+  displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource = new MatTableDataSource();
 
@@ -62,9 +61,8 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
           // Flip flag to show that loading has finished.
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
-          this.resultsLength = data.total_count;
-
-          return data.items;
+          //this.resultsLength = data.total_count;
+          return data;
         }),
         catchError(() => {
           this.isLoadingResults = false;
@@ -76,27 +74,27 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
   }
 }
 
-export interface GithubApi {
-  items: GithubIssue[];
-  total_count: number;
-}
-
-export interface GithubIssue {
-  created_at: string;
-  number: string;
-  state: string;
+export interface TicketDetails {
+  ticketId: number;
+  creationdate: string;
+  description: string;
+  status: string;
   title: string;
+  ticketnumber: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
-export class ExampleHttpDao {
+export class ExampleHttpDao implements OnInit{
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient) {}
+    
+    ngOnInit(){}
 
-  getRepoIssues(sort: string, order: string, page: number): Observable<GithubApi> {
-    const href = 'https://api.github.com/search/issues';
+  getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
+    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/ticket';
     const requestUrl =
-        `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
+        `${href}?projectname=project1`;
 
-    return this.http.get<GithubApi>(requestUrl);
+    return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});
   }
 }

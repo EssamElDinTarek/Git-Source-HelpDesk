@@ -14,10 +14,12 @@
 </head>
 <body>
     <app></app>
-<!--     <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/inline.js"></script>
- -->    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/polyfills.js"></script>
+    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/inline.js"></script>
+    <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/polyfills.js"></script>
     <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/main.js"></script>
     <script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/runtime.js"></script>
-<!-- 	<script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/scripts.js"></script>
- --></body>
+	<script type="text/javascript" src="/HelpDeskIntegrationAPI/resources/scripts.js"></script>
+</body>
 </html>
+
+<%-- <%@ include file="../../resources/index.html"%> --%>

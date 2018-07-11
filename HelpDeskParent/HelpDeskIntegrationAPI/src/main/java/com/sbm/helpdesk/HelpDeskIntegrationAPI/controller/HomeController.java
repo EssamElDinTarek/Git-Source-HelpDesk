@@ -23,7 +23,7 @@ import com.sbm.helpdesk.service.TicketService;
 
 @Controller
 @CrossOrigin("*")
-public class HomeController {
+public class HomeController {/*
 
 	@RequestMapping(value= {"/hello"})
 	public ModelAndView hello(@RequestParam(required=false, defaultValue="World") String name) {
@@ -31,14 +31,14 @@ public class HomeController {
 		// Adds an objet to be used in home.jsp
 		ret.addObject("name", name);
 		return ret;
-	}
+	}*/
 	@Resource
 	private TicketService service;
 	
 	
 	@Resource
 	private RestDTOProvider dtoProvider;
-	
+	/*
 	@RequestMapping(value = "/ticket", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -60,7 +60,7 @@ public class HomeController {
 	public ResponseEntity<BaseDTO> getTicketByNumber(@PathVariable("ticketNumber")String ticketNumber ){
 		TicketDTO _ticket = service.getByTicketNumber(ticketNumber);
 				return dtoProvider.addObj(_ticket);
-	}
+	}*/
 	@RequestMapping(value = "/ticket", method = RequestMethod.GET, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody

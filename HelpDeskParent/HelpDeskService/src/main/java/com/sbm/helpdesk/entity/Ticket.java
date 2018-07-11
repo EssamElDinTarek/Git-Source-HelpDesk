@@ -17,7 +17,7 @@ import java.util.List;
 	@NamedQuery(name="Ticket.findByTicketNumber", query="SELECT t FROM Ticket t where t.ticketnumber=:arg1"),
 	@NamedQuery(name="Ticket.findByProjectName", query="SELECT t FROM Ticket t join t.project p where p.name=:arg1")
 })
-
+//
 public class Ticket extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
