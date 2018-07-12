@@ -28,8 +28,8 @@ public class TicketPriority extends BaseEntity implements Serializable {
 	private String priorityLevel;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="ticketPriority")
-	private List<Ticket> tickets;
+	/*@OneToMany(mappedBy="ticketPriority")
+	private List<Ticket> tickets;*/
 
 	public TicketPriority() {
 	}
@@ -58,7 +58,7 @@ public class TicketPriority extends BaseEntity implements Serializable {
 		this.priorityLevel = priorityLevel;
 	}
 
-	public List<Ticket> getTickets() {
+	/*public List<Ticket> getTickets() {
 		return this.tickets;
 	}
 
@@ -78,7 +78,7 @@ public class TicketPriority extends BaseEntity implements Serializable {
 		ticket.setTicketPriority(null);
 
 		return ticket;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

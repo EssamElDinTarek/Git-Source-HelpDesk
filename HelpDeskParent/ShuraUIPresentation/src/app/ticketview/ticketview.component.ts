@@ -25,7 +25,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
 })
 
 
-    export class TicketViewComponent implements OnInit,  AfterViewInit {
+    export class TicketViewComponent implements OnInit , AfterViewInit{
        
   
     ngOnInit(){}
@@ -74,7 +74,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
   }
 }
 
-export interface TicketDetails {
+export interface TicketDetails extends OnInit{
   ticketId: number;
   creationdate: string;
   description: string;
@@ -88,7 +88,7 @@ export class ExampleHttpDao implements OnInit{
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient) {}
     
-    ngOnInit(){}
+   ngOnInit(){}
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
     const href = 'http://localhost:8081/HelpDeskIntegrationAPI/ticket';

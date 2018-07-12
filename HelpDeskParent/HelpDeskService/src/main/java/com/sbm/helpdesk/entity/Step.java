@@ -25,7 +25,7 @@ public class Step extends BaseEntity implements Serializable {
 	private String step;
 
 	//bi-directional many-to-one association to Stepprocess
-	@OneToMany(mappedBy="step")
+	@OneToMany(mappedBy="step", fetch = FetchType.LAZY)
 	private List<Stepprocess> stepprocesses;
 
 	//bi-directional many-to-one association to WorkflowStep

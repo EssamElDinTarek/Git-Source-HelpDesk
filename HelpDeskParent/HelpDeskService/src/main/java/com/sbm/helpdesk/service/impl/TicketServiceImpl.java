@@ -23,6 +23,16 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Autowired
 	private ProjectDao projectDao;
 	
+	@Autowired
+	private WorkflowDao workflowDao;
+	
+	@Autowired
+	private TicketSeverityDao severityDao;
+	
+	@Autowired
+	private TicketPriorityDao priorityDao;
+	
+	
 	private Ticket ticket = new Ticket();
 		
 	public TicketServiceImpl() {}
@@ -31,6 +41,13 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Transactional
 	public TicketDTO addTicket(TicketDTO ticketDTO) {
 		ticket = convertToEntity(ticket, ticketDTO);
+		//TODO Delete
+		Project x = new Project();
+		x.setProjectId(1);
+		ticket.setProject(projectDao.findById(x.getProjectId()));
+		ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
+		ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
+		ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 		ticket = ticketDao.persist(ticket);
 		return convertToDTO(ticket, ticketDTO);
 	}
@@ -39,6 +56,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Transactional
 	public TicketDTO updateTicket(TicketDTO ticketDTO) {
 		ticket = convertToEntity(ticket, ticketDTO);
+		ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
+		ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
+		ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 		ticket = ticketDao.update(ticket);
 		return convertToDTO(ticket, ticketDTO);
 	}

@@ -9,7 +9,7 @@ public class TicketSeverityDTO extends BaseDTO  {
 	private static final long serialVersionUID = 6104011990509049339L;
 	
 	private long severityId;
-	private BigDecimal severityName;
+	private String severityName;
 	private BigDecimal sevrityTimeConstraint;
 	public long getSeverityId() {
 		return severityId;
@@ -17,10 +17,10 @@ public class TicketSeverityDTO extends BaseDTO  {
 	public void setSeverityId(long severityId) {
 		this.severityId = severityId;
 	}
-	public BigDecimal getSeverityName() {
+	public String getSeverityName() {
 		return severityName;
 	}
-	public void setSeverityName(BigDecimal severityName) {
+	public void setSeverityName(String severityName) {
 		this.severityName = severityName;
 	}
 	public BigDecimal getSevrityTimeConstraint() {

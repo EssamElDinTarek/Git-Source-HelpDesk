@@ -19,7 +19,7 @@ public class TicketDTO extends BaseDTO  {
 	//private HduserDTO hduser;
 	//private ProjectDTO project;
 	//private Set<StatusDTO> statuses;
-	//private WorkflowDTO workflow;
+	private WorkflowDTO workflow;
 	//private Set<TicketcommentDTO> ticketcomments;
 	//private Set<WorkitemDTO> workitems;
 	private TicketPriorityDTO ticketPriority;
@@ -59,6 +59,24 @@ public class TicketDTO extends BaseDTO  {
 	}
 	public void setTicketnumber(String ticketnumber) {
 		this.ticketnumber = ticketnumber;
+	}
+	public TicketPriorityDTO getTicketPriority() {
+		return ticketPriority;
+	}
+	public void setTicketPriority(TicketPriorityDTO ticketPriority) {
+		this.ticketPriority = ticketPriority;
+	}
+	public TicketSeverityDTO getTicketSeverity() {
+		return ticketSeverity;
+	}
+	public void setTicketSeverity(TicketSeverityDTO ticketSeverity) {
+		this.ticketSeverity = ticketSeverity;
+	}
+	public WorkflowDTO getWorkflow() {
+		return workflow;
+	}
+	public void setWorkflow(WorkflowDTO workflow) {
+		this.workflow = workflow;
 	}
 	
 	

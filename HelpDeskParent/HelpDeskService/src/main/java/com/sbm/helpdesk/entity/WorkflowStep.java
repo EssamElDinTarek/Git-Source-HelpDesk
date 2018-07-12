@@ -25,7 +25,7 @@ public class WorkflowStep extends BaseEntity implements Serializable {
 	private BigDecimal stepOrder;
 
 	//bi-directional many-to-one association to Step
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="STEP_ID")
 	private Step step;
 

@@ -10,8 +10,8 @@ public class WorkflowStepDTO extends BaseDTO  {
 	
 	private long id;
 	private BigDecimal stepOrder;
-	private Step step;
-	private Workflow workflow;
+	private StepDTO step;
+	//private WorkflowDTO workflow;
 	public long getId() {
 		return id;
 	}
@@ -24,17 +24,17 @@ public class WorkflowStepDTO extends BaseDTO  {
 	public void setStepOrder(BigDecimal stepOrder) {
 		this.stepOrder = stepOrder;
 	}
-	public Step getStep() {
+	public StepDTO getStep() {
 		return step;
 	}
-	public void setStep(Step step) {
+	public void setStep(StepDTO step) {
 		this.step = step;
 	}
-	public Workflow getWorkflow() {
+	/*public WorkflowDTO getWorkflow() {
 		return workflow;
 	}
-	public void setWorkflow(Workflow workflow) {
+	public void setWorkflow(WorkflowDTO workflow) {
 		this.workflow = workflow;
-	}
+	}*/
 	
 }

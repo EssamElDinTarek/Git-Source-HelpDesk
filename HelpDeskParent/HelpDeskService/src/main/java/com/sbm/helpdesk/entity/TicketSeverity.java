@@ -29,8 +29,8 @@ public class TicketSeverity extends BaseEntity implements Serializable {
 	private BigDecimal sevrityTimeConstraint;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="ticketSeverity")
-	private List<Ticket> tickets;
+	//@OneToMany(mappedBy="ticketSeverity")
+	//private List<Ticket> tickets;
 
 	public TicketSeverity() {
 	}
@@ -59,7 +59,7 @@ public class TicketSeverity extends BaseEntity implements Serializable {
 		this.sevrityTimeConstraint = sevrityTimeConstraint;
 	}
 
-	public List<Ticket> getTickets() {
+	/*public List<Ticket> getTickets() {
 		return this.tickets;
 	}
 
@@ -79,7 +79,7 @@ public class TicketSeverity extends BaseEntity implements Serializable {
 		ticket.setTicketSeverity(null);
 
 		return ticket;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

@@ -25,11 +25,11 @@ public class Workflow extends BaseEntity implements Serializable {
 	private String ticketType;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="workflow")
+	/*@OneToMany(mappedBy="workflow")
 	private List<Ticket> tickets;
-
+    */
 	//bi-directional many-to-one association to WorkflowStep
-	@OneToMany(mappedBy="workflow")
+	@OneToMany(mappedBy="workflow",fetch = FetchType.EAGER)
 	private List<WorkflowStep> workflowSteps;
 
 	public Workflow() {
@@ -51,7 +51,7 @@ public class Workflow extends BaseEntity implements Serializable {
 		this.ticketType = ticketType;
 	}
 
-	public List<Ticket> getTickets() {
+	/*public List<Ticket> getTickets() {
 		return this.tickets;
 	}
 
@@ -71,7 +71,7 @@ public class Workflow extends BaseEntity implements Serializable {
 		ticket.setWorkflow(null);
 
 		return ticket;
-	}
+	}*/
 
 	public List<WorkflowStep> getWorkflowSteps() {
 		return this.workflowSteps;
@@ -81,7 +81,7 @@ public class Workflow extends BaseEntity implements Serializable {
 		this.workflowSteps = workflowSteps;
 	}
 
-	public WorkflowStep addWorkflowStep(WorkflowStep workflowStep) {
+	/*public WorkflowStep addWorkflowStep(WorkflowStep workflowStep) {
 		getWorkflowSteps().add(workflowStep);
 		workflowStep.setWorkflow(this);
 
@@ -93,7 +93,7 @@ public class Workflow extends BaseEntity implements Serializable {
 		workflowStep.setWorkflow(null);
 
 		return workflowStep;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

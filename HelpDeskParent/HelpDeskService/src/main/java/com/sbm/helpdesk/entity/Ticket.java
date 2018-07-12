@@ -75,8 +75,8 @@ public class Ticket extends BaseEntity implements Serializable {
 	private Ticket ticket;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="ticket")
-	private List<Ticket> tickets;
+	//@OneToMany(mappedBy="ticket")
+	//private List<Ticket> tickets;
 
 	//bi-directional many-to-one association to TicketPriority
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -194,15 +194,15 @@ public class Ticket extends BaseEntity implements Serializable {
 		return this.ticket;
 	}
 
-	public void setTicket(Ticket ticket) {
+	/*public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
-	}
+	}*/
 
-	public List<Ticket> getTickets() {
+	/*public List<Ticket> getTickets() {
 		return this.tickets;
-	}
+	}*/
 
-	public void setTickets(List<Ticket> tickets) {
+/*	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 
@@ -218,7 +218,7 @@ public class Ticket extends BaseEntity implements Serializable {
 		ticket.setTicket(null);
 
 		return ticket;
-	}
+	}*/
 
 	public TicketPriority getTicketPriority() {
 		return this.ticketPriority;

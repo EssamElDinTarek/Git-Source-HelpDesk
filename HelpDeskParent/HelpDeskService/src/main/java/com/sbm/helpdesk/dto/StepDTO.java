@@ -11,8 +11,8 @@ public class StepDTO extends BaseDTO  {
 	
 	private long stepId;
 	private String step;
-	private Set<Stepprocess> stepprocesses;
-	private Set<WorkflowStep> workflowSteps;
+	private Set<StepprocessDTO> stepprocesses;
+	//private Set<WorkflowStepDTO> workflowSteps;
 	public long getStepId() {
 		return stepId;
 	}
@@ -25,17 +25,17 @@ public class StepDTO extends BaseDTO  {
 	public void setStep(String step) {
 		this.step = step;
 	}
-	public Set<Stepprocess> getStepprocesses() {
+	public Set<StepprocessDTO> getStepprocesses() {
 		return stepprocesses;
 	}
-	public void setStepprocesses(Set<Stepprocess> stepprocesses) {
+	public void setStepprocesses(Set<StepprocessDTO> stepprocesses) {
 		this.stepprocesses = stepprocesses;
 	}
-	public Set<WorkflowStep> getWorkflowSteps() {
+	/*public Set<WorkflowStepDTO> getWorkflowSteps() {
 		return workflowSteps;
 	}
-	public void setWorkflowSteps(Set<WorkflowStep> workflowSteps) {
+	public void setWorkflowSteps(Set<WorkflowStepDTO> workflowSteps) {
 		this.workflowSteps = workflowSteps;
-	}
+	}*/
 	
 }

@@ -1,40 +1,44 @@
 package com.sbm.helpdesk.dto;
 
-import java.util.Set;
+import java.util.List;
 
 import com.sbm.helpdesk.entity.*;
 
 public class WorkflowDTO extends BaseDTO  {
 
 	private static final long serialVersionUID = 6104011990509049339L;
-	
-	private Set<Workitem> workitems;
+	private long flowId;
 	private String ticketType;
-	private Set<Ticket> tickets;
-	private Set<WorkflowStep> workflowSteps;
-	public Set<Workitem> getWorkitems() {
-		return workitems;
-	}
-	public void setWorkitems(Set<Workitem> workitems) {
-		this.workitems = workitems;
-	}
+	//private Set<Ticket> tickets;
+	private List<WorkflowStepDTO> workflowSteps;
+	
+	
 	public String getTicketType() {
 		return ticketType;
 	}
 	public void setTicketType(String ticketType) {
 		this.ticketType = ticketType;
 	}
-	public Set<Ticket> getTickets() {
+	/*public Set<Ticket> getTickets() {
 		return tickets;
 	}
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
+	}*/
+	
+	public long getFlowId() {
+		return flowId;
 	}
-	public Set<WorkflowStep> getWorkflowSteps() {
+	public void setFlowId(long flowId) {
+		this.flowId = flowId;
+	}
+	public List<WorkflowStepDTO> getWorkflowSteps() {
 		return workflowSteps;
 	}
-	public void setWorkflowSteps(Set<WorkflowStep> workflowSteps) {
+	public void setWorkflowSteps(List<WorkflowStepDTO> workflowSteps) {
 		this.workflowSteps = workflowSteps;
 	}
+	
+	
 	
 }

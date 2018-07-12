@@ -7,7 +7,7 @@ public class StepprocessDTO extends BaseDTO  {
 	private static final long serialVersionUID = 6104011990509049339L;
 	private long processId;
 	private String process;
-	private Step step;
+	//private Step step;
 	public long getProcessId() {
 		return processId;
 	}
@@ -20,11 +20,11 @@ public class StepprocessDTO extends BaseDTO  {
 	public void setProcess(String process) {
 		this.process = process;
 	}
-	public Step getStep() {
+	/*public Step getStep() {
 		return step;
 	}
 	public void setStep(Step step) {
 		this.step = step;
-	}
+	}*/
 	
 }

@@ -12,11 +12,21 @@ import { ToolbarModule } from 'app/layout/components/toolbar/toolbar.module';
 
 import { VerticalLayout1Component } from 'app/layout/vertical/layout-1/layout-1.component';
 
+import {
+    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+    MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+    MatDialogModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,
+    MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
+    MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
+    MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
+    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
+} from '@angular/material';
+
 @NgModule({
     declarations: [
         VerticalLayout1Component
     ],
-    imports     : [
+    imports: [
         RouterModule,
 
         FuseSharedModule,
@@ -26,12 +36,18 @@ import { VerticalLayout1Component } from 'app/layout/vertical/layout-1/layout-1.
         FooterModule,
         NavbarModule,
         QuickPanelModule,
-        ToolbarModule
+        ToolbarModule,
+        MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+        MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+        MatDialogModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,
+        MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
+        MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
+        MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
+        MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
     ],
-    exports     : [
+    exports: [
         VerticalLayout1Component
     ]
 })
-export class VerticalLayout1Module
-{
+export class VerticalLayout1Module {
 }

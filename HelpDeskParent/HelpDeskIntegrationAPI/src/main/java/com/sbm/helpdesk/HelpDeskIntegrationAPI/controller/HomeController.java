@@ -19,7 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestDTOProvider;
 import com.sbm.helpdesk.dto.BaseDTO;
 import com.sbm.helpdesk.dto.TicketDTO;
+import com.sbm.helpdesk.dto.TicketPriorityDTO;
+import com.sbm.helpdesk.dto.TicketSeverityDTO;
+import com.sbm.helpdesk.dto.WorkflowDTO;
+import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
+import com.sbm.helpdesk.service.TicketSeverityService;
+import com.sbm.helpdesk.service.WorkflowService;
 
 @Controller
 @CrossOrigin("*")
@@ -35,10 +41,18 @@ public class HomeController {/*
 	@Resource
 	private TicketService service;
 	
+	@Resource
+	private WorkflowService wfservice;
 	
 	@Resource
+	private TicketSeverityService ticketSeverityservice;
+	
+	@Resource
+	private TicketPriorityService ticketPriorityservice;
+
+	@Resource
 	private RestDTOProvider dtoProvider;
-	/*
+	
 	@RequestMapping(value = "/ticket", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -60,13 +74,36 @@ public class HomeController {/*
 	public ResponseEntity<BaseDTO> getTicketByNumber(@PathVariable("ticketNumber")String ticketNumber ){
 		TicketDTO _ticket = service.getByTicketNumber(ticketNumber);
 				return dtoProvider.addObj(_ticket);
-	}*/
+	}
 	@RequestMapping(value = "/ticket", method = RequestMethod.GET, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public List<TicketDTO> getByProjectName(@RequestParam("projectname")String projectname ){
 		List<TicketDTO> _ticketList = service.getTicketByProjectName(projectname);
 				return _ticketList;
+	}
+	@RequestMapping(value = "/workflow", method = RequestMethod.GET, 
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<WorkflowDTO> getAllWorkflow( ){
+		List<WorkflowDTO> _workflowList = wfservice.getAllWorkflow();
+				return _workflowList;
+	}
+	
+	@RequestMapping(value = "/ticketseverity", method = RequestMethod.GET, 
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<TicketSeverityDTO> getAllTicketSeverity( ){
+		List<TicketSeverityDTO> _ticketSeverityList = ticketSeverityservice.getAllTicketSeverity();
+				return _ticketSeverityList;
+	}
+	
+	@RequestMapping(value = "/ticketpriority", method = RequestMethod.GET, 
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public List<TicketPriorityDTO> getAllTicketPriority( ){
+		List<TicketPriorityDTO> _ticketPriorityList = ticketPriorityservice.getAllTicketPriority();
+				return _ticketPriorityList;
 	}
 	
 	@RequestMapping(value= {"/","/index"})

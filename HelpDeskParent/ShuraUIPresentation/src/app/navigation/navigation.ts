@@ -31,12 +31,12 @@ export const navigation: FuseNavigation[] = [
                                         icon     : 'face',
                                         url      : '/ticketview'
                                     },{
-                                        id       : 'ticketview',
-                                        title    : 'Ticketview',
+                                        id       : 'createticket',
+                                        title    : 'Create Ticket',
                                         translate: 'NAV.TICKETVIEW',
                                         type     : 'item',
                                         icon     : 'face',
-                                        url      : '/ticketview'
+                                        url      : '/createticket'
                                     }
                 ]
             },
