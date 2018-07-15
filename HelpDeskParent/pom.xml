@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sbm.helpdesk</groupId>
-	<artifactId>HelpDeskParent</artifactId>
+	<groupId>com.sbm.helpdesk.parent</groupId>
+	<artifactId>com.sbm.helpdesk.parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>HelpDeskParent</name>
+	<name>com.sbm.helpdesk.parent</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -46,6 +46,28 @@
 			<artifactId>spring-web</artifactId>
 			<version>5.0.5.RELEASE</version>
 		</dependency>
+		
+		
+		<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+		
+		
 		<!-- Mysql Connector -->
 		<!-- <dependency> -->
 		<!-- <groupId>mysql</groupId> -->
@@ -130,8 +152,8 @@
 		</pluginManagement>
 	</build>
 	<modules>
-		<module>HelpDeskCommonLib</module>
-		<module>HelpDeskIntegrationAPI</module>
-		<module>HelpDeskService</module>
+		<module>com.sbm.helpdesk.common</module>
+		<module>com.sbm.helpdesk.integration</module>
+		<module>com.sbm.helpdesk.service</module>
 	</modules>
 </project>
