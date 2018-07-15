@@ -50,7 +50,7 @@ import { Location } from '../../../node_modules/@angular/common';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(DialogOverviewExampleDialog) child;
+  @ViewChild(DialogOverviewExampleDialog) child: DialogOverviewExampleDialog;
 
   constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog) {}
 
@@ -83,13 +83,14 @@ import { Location } from '../../../node_modules/@angular/common';
         })
       ).subscribe(data => this.dataSource.data = data);
   }
+  
   delete(ticket: TicketDetails): void {
     this.dataSource.data = this.dataSource.data.filter(h => h !== ticket);
     this.ticketService.deleteTicket(ticket).subscribe();
     location.reload;
   }
   openDialog(ticket: TicketDetails): void {
-    let dialogRef = this.dialog.open(DialogOverviewExample, {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
       data: { name: this.deleteComment }
     });
@@ -97,6 +98,9 @@ import { Location } from '../../../node_modules/@angular/common';
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
+      if (this.child.delete){
+        this.delete(ticket);
+      }
     });
   }
 
@@ -123,9 +127,9 @@ export class ExampleHttpDao implements OnInit{
    ngOnInit(){}
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
+    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/tickets';
     let identifier = "PROJECT_NAME";
-    let value = "sbmhelpdesk";
+    let value = "project1";
     const requestUrl =`${href}?identifier=`+identifier+`&value=`+value;
 
     return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});

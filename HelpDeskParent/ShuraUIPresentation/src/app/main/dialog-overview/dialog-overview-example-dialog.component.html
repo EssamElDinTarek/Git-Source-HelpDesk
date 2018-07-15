@@ -1,0 +1,11 @@
+<!--<h1 mat-dialog-title>Hi {{data.name}}</h1>-->
+<div mat-dialog-content>
+  <p>Are You sure you want to Delete That ticket?</p>
+  <!--<mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>-->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="Delete()">yes</button>
+  <button mat-button [mat-dialog-close]=true cdkFocusInitial>Ok</button>
+</div>

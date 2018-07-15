@@ -26,7 +26,7 @@ export class TicketService {
   getTicketSeverity(): Observable<TicketSeverity[]>
     {
 
-      return this._http.get<TicketSeverity[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketseverity', {
+      return this._http.get<TicketSeverity[]>('http://localhost:8081/HelpDeskIntegrationAPI/ticketseverity', {
         headers: this.headers
       })
         .pipe(
@@ -37,7 +37,7 @@ export class TicketService {
     getWorkflow(): Observable<Workflow[]>
     {
 
-      return this._http.get<Workflow[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/workflow', {
+      return this._http.get<Workflow[]>('http://localhost:8081/HelpDeskIntegrationAPI/workflow', {
         headers: this.headers
       })
         .pipe(
@@ -50,7 +50,7 @@ export class TicketService {
     getTicketPriority(): Observable<TicketPriority[]>
     {
 
-      return this._http.get<TicketPriority[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketpriority', {
+      return this._http.get<TicketPriority[]>('http://localhost:8081/HelpDeskIntegrationAPI/ticketpriority', {
         headers: this.headers
       })
         .pipe(
@@ -58,7 +58,7 @@ export class TicketService {
         );
     } 
     addTicket (ticket: Ticket): Observable<Ticket> {
-      return this._http.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', ticket, {
+      return this._http.post<Ticket>('http://localhost:8081/HelpDeskIntegrationAPI/ticket', ticket, {
         headers: this.headers
       })
         .pipe(
