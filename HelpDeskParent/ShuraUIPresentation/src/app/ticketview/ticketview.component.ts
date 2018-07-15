@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit , Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
+import {DialogOverviewExample, DialogOverviewExampleDialog} from '../main/dialog-overview/dialog-overview-example.component';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 
@@ -12,10 +12,15 @@ import { User } from '../models/user.model';
 import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {AfterViewInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {merge, Observable, of as observableOf} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators'
+import { AfterViewInit, ViewChild} from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { merge, Observable, of as observableOf} from 'rxjs';
+import { catchError, map, startWith, switchMap} from 'rxjs/operators'
+import { Ticket } from '../models/ticket';
+import { TicketService } from './ticketview.service';
+import { Location } from '../../../node_modules/@angular/common';
+
+
 
 @Component({
     selector: 'ticketview',
@@ -27,10 +32,15 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
 
     export class TicketViewComponent implements OnInit , AfterViewInit{
        
-  
-    ngOnInit(){}
+      deleteComment: string;
+    ngOnInit(){
+      this.ngAfterViewInit();
+     }
+
+    tickets: TicketDetails[];
+
        
-  displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber'];
+  displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber','item'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource = new MatTableDataSource();
 
@@ -40,8 +50,9 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(DialogOverviewExampleDialog) child;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.exampleDatabase = new ExampleHttpDao(this.http);
@@ -72,9 +83,30 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators'
         })
       ).subscribe(data => this.dataSource.data = data);
   }
+  delete(ticket: TicketDetails): void {
+    this.dataSource.data = this.dataSource.data.filter(h => h !== ticket);
+    this.ticketService.deleteTicket(ticket).subscribe();
+    location.reload;
+  }
+  openDialog(ticket: TicketDetails): void {
+    let dialogRef = this.dialog.open(DialogOverviewExample, {
+      width: '250px',
+      data: { name: this.deleteComment }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
 }
 
-export interface TicketDetails extends OnInit{
+//const ELEMENT_DATA: TicketDetails[] = [
+  //{ticketId: 1, creationdate: 'Hydrogen', description: 1.0079, status: 'H',title: 1.0079, ticketnumber: 'H'},
+//]
+
+export interface TicketDetails{
   ticketId: number;
   creationdate: string;
   description: string;
@@ -91,10 +123,14 @@ export class ExampleHttpDao implements OnInit{
    ngOnInit(){}
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
-    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/ticket';
-    const requestUrl =
-        `${href}?projectname=project1`;
+    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
+    let identifier = "PROJECT_NAME";
+    let value = "sbmhelpdesk";
+    const requestUrl =`${href}?identifier=`+identifier+`&value=`+value;
 
     return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});
   }
+
+
+
 }

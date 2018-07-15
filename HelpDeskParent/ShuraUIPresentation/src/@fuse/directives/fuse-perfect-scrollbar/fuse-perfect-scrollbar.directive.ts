@@ -6,7 +6,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as _ from 'lodash';
 
-import { FuseConfigService } from '@fuse/services/config.service';
+import { FuseConfigService } from '../../services/config.service';
 
 @Directive({
     selector: '[fusePerfectScrollbar]'

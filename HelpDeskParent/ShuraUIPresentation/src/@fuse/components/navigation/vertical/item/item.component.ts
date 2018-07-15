@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
-import { FuseNavigationItem } from '@fuse/types';
+import { FuseNavigationItem } from '../../../../types';
 
 @Component({
     selector   : 'fuse-nav-vertical-item',

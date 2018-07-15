@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TicketViewComponent } from './ticketview/ticketview.component';
 import { GroupPermComponent } from './group-perm/group-perm.component';
-import { CreateticketModule } from 'app/main/ticket/createticket/createticket.module';
+import { CreateticketModule } from './main/ticket/createticket/createticket.module';
 const appRoutes: Routes = [
     {
         path        : 'welcome',

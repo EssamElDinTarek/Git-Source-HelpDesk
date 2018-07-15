@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationService } from './navigation.service';
 
 @Component({
     selector     : 'fuse-navigation',

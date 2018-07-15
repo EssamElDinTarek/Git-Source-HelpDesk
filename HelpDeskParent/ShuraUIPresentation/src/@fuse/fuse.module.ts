@@ -1,13 +1,13 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-import { FUSE_CONFIG, FuseConfigService } from '@fuse/services/config.service';
-import { FuseCopierService } from '@fuse/services/copier.service';
-import { FuseMatchMediaService } from '@fuse/services/match-media.service';
-import { FuseMatSidenavHelperService } from '@fuse/directives/fuse-mat-sidenav/fuse-mat-sidenav.service';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
-import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
-import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { FUSE_CONFIG, FuseConfigService } from './services/config.service';
+import { FuseCopierService } from './services/copier.service';
+import { FuseMatchMediaService } from './services/match-media.service';
+import { FuseMatSidenavHelperService } from './directives/fuse-mat-sidenav/fuse-mat-sidenav.service';
+import { FuseNavigationService } from './components/navigation/navigation.service';
+import { FuseSidebarService } from './components/sidebar/sidebar.service';
+import { FuseSplashScreenService } from './services/splash-screen.service';
+import { FuseTranslationLoaderService } from './services/translation-loader.service';
 
 @NgModule({
     entryComponents: [],

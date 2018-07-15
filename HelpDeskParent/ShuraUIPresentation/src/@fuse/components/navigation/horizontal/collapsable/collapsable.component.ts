@@ -2,8 +2,8 @@ import { Component, HostBinding, HostListener, Input, OnDestroy, OnInit } from '
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseConfigService } from '@fuse/services/config.service';
+import { fuseAnimations } from '../../../../animations';
+import { FuseConfigService } from '../../../../services/config.service';
 
 @Component({
     selector   : 'fuse-nav-horizontal-collapsable',
