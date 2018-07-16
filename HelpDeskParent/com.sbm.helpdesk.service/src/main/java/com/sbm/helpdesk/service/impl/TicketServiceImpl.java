@@ -2,21 +2,16 @@ package com.sbm.helpdesk.service.impl;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
-
 import org.springframework.transaction.annotation.Transactional;
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sbm.helpdesk.dao.*;
-import com.sbm.helpdesk.dto.*;
-import com.sbm.helpdesk.entity.*;
 import com.sbm.helpdesk.service.*;
+import com.sbm.helpdesk.service.dao.*;
+import com.sbm.helpdesk.service.dto.*;
+import com.sbm.helpdesk.service.entity.*;
 
 @Service
 public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> implements TicketService{

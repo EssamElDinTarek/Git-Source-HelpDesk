@@ -5,13 +5,12 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sbm.helpdesk.dto.HdgroupDTO;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Component;
- 
-import com.sbm.helpdesk.entity.Hdgroup;
-import com.sbm.helpdesk.entity.Hduser;
-import com.sbm.helpdesk.entity.Privilege;
+import com.sbm.helpdesk.service.dto.HdgroupDTO;
+import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.service.entity.Component;
+import com.sbm.helpdesk.service.entity.Hdgroup;
+import com.sbm.helpdesk.service.entity.Hduser;
+import com.sbm.helpdesk.service.entity.Privilege;
 
 @Transactional
 public interface HdGroupService {

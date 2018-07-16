@@ -1,10 +1,11 @@
 package com.sbm.helpdesk.service;
 
 import java.util.List;
+import javax.transaction.Transactional;
 
-import com.sbm.helpdesk.dto.*;
-import com.sbm.helpdesk.entity.Ticket;
+import com.sbm.helpdesk.service.dto.*;
 
+@Transactional
 public interface TicketPriorityService {
 	
 	/*public TicketDTO addTicket(TicketDTO ticketDTO);

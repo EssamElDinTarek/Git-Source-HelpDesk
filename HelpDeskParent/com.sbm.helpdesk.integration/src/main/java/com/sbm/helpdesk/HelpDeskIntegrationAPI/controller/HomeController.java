@@ -17,20 +17,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestDTOProvider;
-import com.sbm.helpdesk.dto.BaseDTO;
-import com.sbm.helpdesk.dto.TicketDTO;
-import com.sbm.helpdesk.dto.TicketPriorityDTO;
-import com.sbm.helpdesk.dto.TicketSeverityDTO;
-import com.sbm.helpdesk.dto.WorkflowDTO;
+import com.sbm.helpdesk.common.constant.*;
+import com.sbm.helpdesk.common.dto.ResponseDTO;
+import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
 import com.sbm.helpdesk.service.TicketSeverityService;
 import com.sbm.helpdesk.service.WorkflowService;
-import com.sbm.helpdesk.constant.*;
+import com.sbm.helpdesk.service.dto.BaseDTO;
+import com.sbm.helpdesk.service.dto.TicketDTO;
+import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
+import com.sbm.helpdesk.service.dto.TicketSeverityDTO;
+import com.sbm.helpdesk.service.dto.WorkflowDTO;
+import com.sbm.helpdesk.service.facade.TicketPriorityServiceFacade;
+import com.sbm.helpdesk.service.facade.TicketServiceFacade;
 
 @Controller
 @CrossOrigin("*")
 public class HomeController {
+	
+	
+	@Resource
+	private TicketPriorityServiceFacade facadeService;
+	
+	@Resource
+	private TicketServiceFacade ticketfacadeService;
 	
 	@Resource
 	private TicketService service;
@@ -54,6 +65,12 @@ public class HomeController {
 		return dtoProvider.addObj(newTicket);
 	}
 
+	@RequestMapping(value = "/ticketnew", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO creatTicketnew(@RequestBody TicketDTO ticketdto) throws BusinessException {
+		
+		return ticketfacadeService.creatTicket(ticketdto);
+	}
 	@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> updateTicket(@RequestBody TicketDTO ticketdto) {
@@ -116,6 +133,12 @@ public class HomeController {
 		return _ticketPriorityList;
 	}
 
+	@RequestMapping(value = "/ticketprioritys", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllTicketPrioritys() {
+		
+		return facadeService.getAllTicketPriority();
+	}
 	@RequestMapping(value = { "/", "/index" })
 	public ModelAndView index(@RequestParam(required = false, defaultValue = "World") String name) {
 		ModelAndView ret = new ModelAndView("index");

@@ -1,11 +1,11 @@
 package com.sbm.helpdesk.service;
 
 import java.util.List;
+import javax.transaction.Transactional;
 
-import com.sbm.helpdesk.dto.*;
-import com.sbm.helpdesk.entity.Ticket;
-import com.sbm.helpdesk.entity.Workflow;
+import com.sbm.helpdesk.service.dto.*;
 
+@Transactional
 public interface WorkflowService {
 	
 	/*public TicketDTO addTicket(TicketDTO ticketDTO);

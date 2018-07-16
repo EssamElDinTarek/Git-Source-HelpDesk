@@ -1,12 +1,12 @@
 package com.sbm.helpdesk.service;
 
-
 import java.util.List;
+import javax.transaction.Transactional;
 
-import com.sbm.helpdesk.dto.ProjectDTO;
-import com.sbm.helpdesk.entity.Hduser;
+import com.sbm.helpdesk.service.dto.ProjectDTO;
+import com.sbm.helpdesk.service.entity.Hduser;
 
-
+@Transactional
 public interface ProjectService {
 	
  public void openProject(ProjectDTO projectDto);

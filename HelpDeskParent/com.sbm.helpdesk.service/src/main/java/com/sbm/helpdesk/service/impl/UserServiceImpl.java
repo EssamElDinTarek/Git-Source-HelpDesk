@@ -8,10 +8,10 @@ import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sbm.helpdesk.dao.UserDao;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Hduser;
 import com.sbm.helpdesk.service.UserService;
+import com.sbm.helpdesk.service.dao.UserDao;
+import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.service.entity.Hduser;
 
 @Service
 public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implements UserService{

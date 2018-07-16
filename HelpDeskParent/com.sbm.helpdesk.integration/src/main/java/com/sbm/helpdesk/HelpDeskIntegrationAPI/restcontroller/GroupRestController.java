@@ -1,62 +1,43 @@
 package com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller;
 
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.sbm.helpdesk.dto.BaseDTO;
-import com.sbm.helpdesk.dto.HdgroupDTO;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Hdgroup;
-import com.sbm.helpdesk.service.HdGroupService;
-import com.sbm.helpdesk.service.UserService;
-import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestProvider;
+import com.sbm.helpdesk.common.dto.*;
+import com.sbm.helpdesk.service.dto.*;
+import com.sbm.helpdesk.service.facade.*;
 
 @RestController
 @RequestMapping("/api/group")
 @CrossOrigin("*")
 public class GroupRestController {
 
-	@Resource
-	private HdGroupService service;
-	
 	
 	@Resource
-	private RestDTOProvider dtoProvider;
+	private GroupServiceFacade facadeService;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<BaseDTO> creatGroup(@RequestBody HdgroupDTO hdgroup){
-		HdgroupDTO newHdgroup = service.createGroup(hdgroup.getGroupName());
-				return dtoProvider.addObj(newHdgroup);
+	public ResponseDTO creatGroup(@RequestBody HdgroupDTO hdgroup){
+		return facadeService.creatGroup(hdgroup);
 	}
 	
 	@RequestMapping(value = "/assignPrivilge", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public boolean assignPrivilge(@RequestBody HdgroupDTO hdgroup){
-	  service.assignPrivilge(hdgroup);
-				return true;
+	public ResponseDTO assignPrivilge(@RequestBody HdgroupDTO hdgroup){
+		return facadeService.assignPrivilge(hdgroup);
 	}
 	
 	@RequestMapping(value = "/assignSubcomponents", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public boolean assignGroupSubcomponents(@RequestBody HdgroupDTO hdgroupDTO){
-	  service.assignSubcomponents(hdgroupDTO); 
-				return true;
+	public ResponseDTO assignGroupSubcomponents(@RequestBody HdgroupDTO hdgroupDTO){
+		return facadeService.assignGroupSubcomponents(hdgroupDTO); 
 	}
 //	
 //	@RequestMapping(value = "/user/login", method = RequestMethod.POST)
@@ -68,7 +49,7 @@ public class GroupRestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET,
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<HdgroupDTO>> getAllUsers() {
-		return dtoProvider.getObjList((List) service.listGroups());
+	public ResponseDTO getAllUsers() {
+		return facadeService.getAllUsers();
 	}
 }

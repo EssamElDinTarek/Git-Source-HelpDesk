@@ -1,28 +1,14 @@
 package com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller;
 
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.sbm.helpdesk.dto.BaseDTO;
-import com.sbm.helpdesk.dto.ProjectDTO;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Project;
-import com.sbm.helpdesk.service.HdGroupService;
-import com.sbm.helpdesk.service.ProjectService;
-import com.sbm.helpdesk.service.UserService;
-import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestProvider;
+import com.sbm.helpdesk.service.dto.*;
+import com.sbm.helpdesk.service.facade.ProjectServiceFacade;
+import com.sbm.helpdesk.common.dto.ResponseDTO;
 
 @RestController
 @RequestMapping("/api/project")
@@ -30,18 +16,16 @@ import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestProvider;
 public class ProjectController {
 
 	@Resource
-	private ProjectService service;
+	private ProjectServiceFacade facadeService;
 	
 	
-	@Resource
-	private RestDTOProvider dtoProvider;
+	
 	
 	@RequestMapping(value = "/open", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public String openProject(@RequestBody ProjectDTO projectDto){
-		service.openProject(projectDto);
-		return "Success";
+	public ResponseDTO openProject(@RequestBody ProjectDTO projectDto){
+		return facadeService.openProject(projectDto);
 	}
 	
 /*	@RequestMapping(value = "/assignPrivilge", method = RequestMethod.POST, 
