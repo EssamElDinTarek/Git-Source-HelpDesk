@@ -1,4 +1,4 @@
-package com.sbm.helpdesk.dao;
+package com.sbm.helpdesk.dto;
 
 import java.io.Serializable;
 
@@ -17,14 +17,14 @@ public class ResponseDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private StatusDTO status;
+	private ResponseStatusDTO status;
 	private Object data;
 
-	public StatusDTO getStatus() {
+	public ResponseStatusDTO getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusDTO status) {
+	public void setStatus(ResponseStatusDTO status) {
 		this.status = status;
 	}
 
@@ -47,7 +47,7 @@ public class ResponseDTO implements Serializable {
 	 */
 	public ResponseDTO(String statusCode,String statusMessageEN,String statusMessageAR, Object data) {
 		super();
-		this.status = new StatusDTO(statusCode,statusMessageEN,statusMessageAR,null);
+		this.status = new ResponseStatusDTO(statusCode,statusMessageEN,statusMessageAR,null);
 		this.data = data;
 	}
 	
@@ -58,7 +58,7 @@ public class ResponseDTO implements Serializable {
 	 * @param statusMessageAR
 	 * @param data
 	 */
-	public ResponseDTO(StatusDTO status, Object data) {
+	public ResponseDTO(ResponseStatusDTO status, Object data) {
 		super();
 		this.status = status;
 		this.data = data;
@@ -73,7 +73,7 @@ public class ResponseDTO implements Serializable {
 	 */
 	public ResponseDTO(String statusCode,String statusMessageEN,String statusMessageAR, String innerExceptionCode,String innerExceptionMessage) {
 		super();
-		this.status = new StatusDTO(statusCode, statusMessageEN, statusMessageAR, new StatusDetailsDTO(innerExceptionCode, innerExceptionMessage));
+		this.status = new ResponseStatusDTO(statusCode, statusMessageEN, statusMessageAR, new ResponseStatusDetailsDTO(innerExceptionCode, innerExceptionMessage));
 	}
 
 	@Override

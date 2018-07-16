@@ -1,4 +1,4 @@
-package com.sbm.helpdesk.dao;
+package com.sbm.helpdesk.dto;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Ahmed Magdy
  *
  */
-public class StatusDTO implements Serializable {
+public class ResponseStatusDTO implements Serializable {
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class StatusDTO implements Serializable {
 	private String statusCode;
 	private String statusMessageEN;
 	private String statusMessageAR;
-	private StatusDetailsDTO statusDetails;
+	private ResponseStatusDetailsDTO statusDetails;
 
 	public String getStatusCode() {
 		return statusCode;
@@ -43,16 +43,16 @@ public class StatusDTO implements Serializable {
 		this.statusMessageAR = statusMessageAR;
 	}
 
-	public StatusDetailsDTO getStatusDetails() {
+	public ResponseStatusDetailsDTO getStatusDetails() {
 		return statusDetails;
 	}
 
-	public void setStatusDetails(StatusDetailsDTO statusDetails) {
+	public void setStatusDetails(ResponseStatusDetailsDTO statusDetails) {
 		this.statusDetails = statusDetails;
 	}
 
-	public StatusDTO(String statusCode, String statusMessageEN,
-			String statusMessageAR, StatusDetailsDTO statusDetails) {
+	public ResponseStatusDTO(String statusCode, String statusMessageEN,
+			String statusMessageAR, ResponseStatusDetailsDTO statusDetails) {
 		super();
 		this.statusCode = statusCode;
 		this.statusMessageEN = statusMessageEN;
