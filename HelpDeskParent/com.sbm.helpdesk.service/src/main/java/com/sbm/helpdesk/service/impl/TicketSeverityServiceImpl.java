@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
+import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.*;
 import com.sbm.helpdesk.service.dao.*;
 import com.sbm.helpdesk.service.dto.*;
@@ -21,9 +24,19 @@ public class TicketSeverityServiceImpl extends BasicServiceImpl<TicketSeverityDT
 
 	@Override
 	@Transactional
-	public List<TicketSeverityDTO> getAllTicketSeverity() {
+	public List<TicketSeverityDTO> getAllTicketSeverity() throws BusinessException {
+		List<TicketSeverityDTO> result;
+		try {
 		List<TicketSeverity> ticketSeverityList = severityDao.findAll();
-		List<TicketSeverityDTO> list = ticketSeverityList.stream().map(item -> convertToDTO(item, new TicketSeverityDTO())).collect(Collectors.toList());
-		return list;
+		result = ticketSeverityList.stream().map(item -> convertToDTO(item, new TicketSeverityDTO())).collect(Collectors.toList());
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		return result;
 	}
 }

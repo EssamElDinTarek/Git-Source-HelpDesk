@@ -17,66 +17,124 @@ public class TicketServiceFacade {
 	@Autowired
 	private TicketService service;
 	
-	public ResponseDTO creatTicket(TicketDTO ticketdto) throws BusinessException {
+	public ResponseDTO creatTicket(TicketDTO ticketdto) throws ControllerException {
+		ResponseDTO result = null;
+		 try {
 		TicketDTO newTicket = service.addTicket(ticketdto);
 		if(newTicket == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 				"Ticket has been added successfully", 
 				"Ticket has been added successfully", null);
-		return new ResponseDTO(status, newTicket) ;
+		result = new ResponseDTO(status, newTicket) ;
+		 }catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		 }
+		 return result;
 	}
-	public ResponseDTO updateTicket(TicketDTO ticketdto) throws BusinessException {
-		TicketDTO _ticket = service.updateTicket(ticketdto);
-		if(_ticket == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	public ResponseDTO updateTicket(TicketDTO ticketdto) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+		TicketDTO ticket = service.updateTicket(ticketdto);
+		if(ticket == null)
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 				"Ticket has been updated successfully", 
 				"Ticket has been updated successfully", null);
-		return new ResponseDTO(status, _ticket) ;
+		result = new ResponseDTO(status, ticket) ;
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		 }
+		return result;
 	}
-	public ResponseDTO deleteTicket(Long ticketId) throws BusinessException {
+	public ResponseDTO deleteTicket(Long ticketId) throws ControllerException {
+		ResponseDTO result = null;
+		try {
 		service.deleteTicket(ticketId);
 		//TODO ResponseStatusDTO
-		return new ResponseDTO(null, "Sucsses") ;
+		result = new ResponseDTO(null, "Sucsses") ;
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		 }
+		return result;
 	}
 	
-	public ResponseDTO getTicketByIdentifier(String key, String value) throws BusinessException {
-		TicketDTO _ticket = null;
+	public ResponseDTO getTicketByIdentifier(String key, String value) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+		TicketDTO ticket = null;
 		switch (key) {
 		case IntegrationServicesConstant.TICKET_ID:
-			_ticket = service.getByTicketId(Long.parseLong(value));
+			ticket = service.getByTicketId(Long.parseLong(value));
 			break;
 		case IntegrationServicesConstant.TICKET_NUMBER:
-			_ticket = service.getByTicketNumber(value);
+			ticket = service.getByTicketNumber(value);
 			break;
 
 		}
-		/*if(_ticket == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);*/
+			if(ticket == null)
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
 		
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 				"Ticket has been retrived successfully", 
 				"Ticket has been retrived successfully", null);
 		
-		return new ResponseDTO(null, _ticket);
+		result = new ResponseDTO(status, ticket);
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		 }
+		return result;
 	}
 	
-	public ResponseDTO getTiketListByIdentifier(String key, String value) throws BusinessException {
-		List<TicketDTO> _ticketList = null;
+	public ResponseDTO getTiketListByIdentifier(String key, String value) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+		List<TicketDTO> ticketList = null;
 		switch (key) {
 		case IntegrationServicesConstant.PROJECT_NAME:
-			_ticketList = service.getTicketByProjectName(value);
+			ticketList = service.getTicketByProjectName(value);
 			break;
 		}
-		/*if(_ticketList == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);*/
+		if(ticketList == null)
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
 		
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 				"Tickets has been retrived successfully", 
 				"Tickets has been retrived successfully", null);
 		
-		return new ResponseDTO(null, _ticketList);
+		result = new ResponseDTO(status, ticketList);
+		
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+		 }
+		return result;
 	}
 	
 

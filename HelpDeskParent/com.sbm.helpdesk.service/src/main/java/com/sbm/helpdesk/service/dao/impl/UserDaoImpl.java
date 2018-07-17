@@ -6,6 +6,8 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
+import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.dao.UserDao;
 import com.sbm.helpdesk.service.entity.Hduser;
 
@@ -14,41 +16,50 @@ public class UserDaoImpl extends GenericDaoImpl<Hduser>  implements UserDao{
 
 
 	@Override
-	public Hduser add(Hduser user) {
+	public Hduser add(Hduser user) throws RespositoryException {
 		return persist(user);
 	}
 
 	@Override
-	public List<Hduser> listUsers() {
-		List<Hduser> users =  entityManager.createNamedQuery("Hduser.findAll", Hduser.class).getResultList();
+	public List<Hduser> listUsers() throws RespositoryException {
+		List<Hduser> users;
+		try {
+		users =  entityManager.createNamedQuery("Hduser.findAll", Hduser.class).getResultList();
+		}
+		catch(Exception e) {
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+		   }
 		return users;
 	}
 
 	@Override
-	public Hduser login(String email, String password) {
+	public Hduser login(String email, String password) throws RespositoryException {
+		
+		Hduser result = null;
 		try {
 			Query q = entityManager.createNamedQuery("Hduser.findByEmailAndPassword", Hduser.class);
 			q.setParameter("emailAddress", email);
 			q.setParameter("userPassword", password);
-			return (Hduser) q.getSingleResult();
+			result = (Hduser) q.getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
 		}
-		
+		return result;
 	}
 	
 	@Override
-	public Hduser findByEmail(String email) {
+	public Hduser findByEmail(String email) throws RespositoryException {
+		Hduser userObj = null;
 		try {
 			Query q = entityManager.createNamedQuery("Hduser.findByEmail", Hduser.class);
 			q.setParameter("emailAddress", email);
-			Hduser userObj = (Hduser) q.getSingleResult();
-			return userObj;
+			userObj = (Hduser) q.getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
 		}
+		return userObj;
 	}
 
 }
