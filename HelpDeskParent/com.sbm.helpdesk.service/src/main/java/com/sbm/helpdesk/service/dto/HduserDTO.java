@@ -14,7 +14,7 @@ public class HduserDTO extends BaseDTO  {
 	private String lastName;
 	private String userName;
 	private String userPassword;
-	private Set<AttachmentDTO> attachments;
+	//private Set<AttachmentDTO> attachments;
 //	private Set<HdgroupDTO> hdgroups;
 	private Set<HdroleDTO> hdroles;
 	private Team team;
@@ -58,12 +58,7 @@ public class HduserDTO extends BaseDTO  {
 	}
 
 	
-	public Set<AttachmentDTO> getAttachments() {
-		return attachments;
-	}
-	public void setAttachments(Set<AttachmentDTO> attachments) {
-		this.attachments = attachments;
-	}
+	
 //	public Set<HdgroupDTO> getHdgroups() {
 //		return hdgroups;
 //	}

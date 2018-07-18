@@ -9,9 +9,9 @@ public class AttachmentDTO extends BaseDTO  {
 	private long attachmentId;
 	private String description;
 	private String path;
-	private Hduser hduser;
-	private Ticket ticket;
-	private Workitem workitem;
+	private HduserDTO hduser;
+	private TicketDTO ticket;
+	private WorkitemDTO workitem;
 	
 	public long getAttachmentId() {
 		return attachmentId;
@@ -31,23 +31,24 @@ public class AttachmentDTO extends BaseDTO  {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public Hduser getHduser() {
+	public HduserDTO getHduser() {
 		return hduser;
 	}
-	public void setHduser(Hduser hduser) {
+	public void setHduser(HduserDTO hduser) {
 		this.hduser = hduser;
 	}
-	public Ticket getTicket() {
+	public TicketDTO getTicket() {
 		return ticket;
 	}
-	public void setTicket(Ticket ticket) {
+	public void setTicket(TicketDTO ticket) {
 		this.ticket = ticket;
 	}
-	public Workitem getWorkitem() {
+	public WorkitemDTO getWorkitem() {
 		return workitem;
 	}
-	public void setWorkitem(Workitem workitem) {
+	public void setWorkitem(WorkitemDTO workitem) {
 		this.workitem = workitem;
 	}
+	
 	
 }

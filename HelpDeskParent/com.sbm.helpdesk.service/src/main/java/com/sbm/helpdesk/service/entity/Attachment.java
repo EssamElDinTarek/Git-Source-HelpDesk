@@ -14,7 +14,9 @@ public class Attachment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ATTACHMENT_ID")
+	@SequenceGenerator(name="ATTACHMENT_ID_GENERATOR" )
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ATTACHMENT_ID_GENERATOR")
+	@Column(name="ATTACHMENT_ID", unique=true, nullable=false, precision=22)
 	private long attachmentId;
 
 	private String description;

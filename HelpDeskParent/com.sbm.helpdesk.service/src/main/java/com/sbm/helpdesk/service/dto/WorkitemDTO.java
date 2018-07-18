@@ -16,7 +16,7 @@ public class WorkitemDTO extends BaseDTO  {
 	private Date dateto;
 	private String description;
 	private BigDecimal ticketstatus;
-	private Set<Attachment> attachments;
+	//private Set<Attachment> attachments;
 	private Ticket ticket;
 	public long getItemId() {
 		return itemId;
@@ -48,12 +48,7 @@ public class WorkitemDTO extends BaseDTO  {
 	public void setTicketstatus(BigDecimal ticketstatus) {
 		this.ticketstatus = ticketstatus;
 	}
-	public Set<Attachment> getAttachments() {
-		return attachments;
-	}
-	public void setAttachments(Set<Attachment> attachments) {
-		this.attachments = attachments;
-	}
+	
 	public Ticket getTicket() {
 		return ticket;
 	}

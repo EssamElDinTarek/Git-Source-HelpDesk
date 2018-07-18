@@ -12,7 +12,7 @@ public class ProjectDTO extends BaseDTO  {
 	private long projectId;
 	private String name;
 	private Portfolio portfolio;
-	private Set<Ticket> tickets;
+	//private Set<Ticket> tickets;
 	public long getProjectId() {
 		return projectId;
 	}
@@ -31,12 +31,7 @@ public class ProjectDTO extends BaseDTO  {
 	public void setPortfolio(Portfolio portfolio) {
 		this.portfolio = portfolio;
 	}
-	public Set<Ticket> getTickets() {
-		return tickets;
-	}
-	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+	
 	
 	
 }
