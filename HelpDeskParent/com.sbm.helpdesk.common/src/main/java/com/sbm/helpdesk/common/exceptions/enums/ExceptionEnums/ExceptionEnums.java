@@ -10,7 +10,9 @@ public enum ExceptionEnums {
 	INVALID_OPERATION("helpdesk.controller.code.1003"),
 	INTERNAL_SERVER_ERROR("helpdesk.controller.code.500"),
 	
-	BUSINESS_ERROR("helpdesk.business.code.3000");
+	BUSINESS_ERROR("helpdesk.business.code.3000"),
+	
+	REPOSITORY_ERROR("helpdesk.repository.code.4000");
 	
 	private String code;
 	private String messageEn;
