@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 
-import { CreateticketModule } from './createticket/createticket.module';
+
 import { TicketlistModule } from './ticketlist/ticketlist.module';
+import { SubmitTicketModule } from './submitticket/submitTicket.module';
+
 
 @NgModule({
   imports: [
     
-    CreateticketModule,
+    SubmitTicketModule,
     TicketlistModule
   ]
 })

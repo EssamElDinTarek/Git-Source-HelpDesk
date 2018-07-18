@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DialogOverviewExample, DialogOverviewExampleDialog } from './dialog-overview-example.component';
+import { DialogOverviewExampleDialog } from './dialog-overview-example.component';
 
 
 import {
@@ -11,8 +11,8 @@ import {
   MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
   MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule, MatCommonModule
 } from '@angular/material';
-import { FormsModule } from '../../../../node_modules/@angular/forms';
-import { CommonModule } from '../../../../node_modules/@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const materialModules = [
  MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
@@ -26,11 +26,11 @@ const materialModules = [
 ];
 @NgModule({
   declarations: [
-    DialogOverviewExample,
+    
     DialogOverviewExampleDialog
 ],
 entryComponents: [
-  DialogOverviewExample,DialogOverviewExampleDialog
+  DialogOverviewExampleDialog
 ],
 imports: [
   FormsModule,MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
