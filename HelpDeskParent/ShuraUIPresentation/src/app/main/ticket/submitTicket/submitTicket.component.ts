@@ -18,7 +18,7 @@ import { FileData } from '../../../model/fileData';
 @Component({
     selector: 'app-submitTicket',
     template: `
-    <file-list [childfilesData]="filesData"></app-child>
+    <file-list [childfilesData]="filesData"></file-list>
   `,
     templateUrl: './submitTicket.component.html',
     styleUrls: ['./submitTicket.component.scss'],
