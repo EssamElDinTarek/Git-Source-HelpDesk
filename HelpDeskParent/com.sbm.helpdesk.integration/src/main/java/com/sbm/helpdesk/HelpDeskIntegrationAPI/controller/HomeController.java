@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,23 +15,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestDTOProvider;
-import com.sbm.helpdesk.dto.BaseDTO;
-import com.sbm.helpdesk.dto.TicketDTO;
-import com.sbm.helpdesk.dto.TicketPriorityDTO;
-import com.sbm.helpdesk.dto.TicketSeverityDTO;
-import com.sbm.helpdesk.dto.WorkflowDTO;
+import com.sbm.helpdesk.common.constant.*;
+import com.sbm.helpdesk.common.dto.ResponseDTO;
+import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
 import com.sbm.helpdesk.service.TicketSeverityService;
 import com.sbm.helpdesk.service.WorkflowService;
-import com.sbm.helpdesk.constant.*;
+import com.sbm.helpdesk.service.dto.BaseDTO;
+import com.sbm.helpdesk.service.dto.TicketDTO;
+import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
+import com.sbm.helpdesk.service.dto.TicketSeverityDTO;
+import com.sbm.helpdesk.service.dto.WorkflowDTO;
+import com.sbm.helpdesk.service.facade.TicketPriorityServiceFacade;
+import com.sbm.helpdesk.service.facade.TicketServiceFacade;
 
 @Controller
 @CrossOrigin("*")
 public class HomeController {
+	
+	
+	@Resource
+	private TicketPriorityServiceFacade facadeService;
+	
+	@Resource
+	private TicketServiceFacade ticketfacadeService;
 	
 	@Resource
 	private TicketService service;
@@ -47,13 +60,21 @@ public class HomeController {
 	@Resource
 	private RestDTOProvider dtoProvider;
 
-	@RequestMapping(value = "/ticket", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	
+	@RequestMapping(value = "/ticket", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	@ResponseBody
-	public ResponseEntity<BaseDTO> creatTicket(@RequestBody TicketDTO ticketdto) {
-		TicketDTO newTicket = service.addTicket(ticketdto);
-		return dtoProvider.addObj(newTicket);
+	public ResponseDTO creatTicket(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
+	         Model model) throws BusinessException, Exception {
+		return ticketfacadeService.creatTicket(files, ticket);
 	}
 
+	
+	@RequestMapping(value = "/ticketupdate", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@ResponseBody
+	public ResponseDTO creatTicketupdate(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
+	         Model model) throws BusinessException, Exception {
+		return ticketfacadeService.updateTicket(files, ticket);
+	}
 	@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> updateTicket(@RequestBody TicketDTO ticketdto) {
@@ -116,6 +137,12 @@ public class HomeController {
 		return _ticketPriorityList;
 	}
 
+	@RequestMapping(value = "/ticketprioritys", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllTicketPrioritys() {
+		
+		return facadeService.getAllTicketPriority();
+	}
 	@RequestMapping(value = { "/", "/index" })
 	public ModelAndView index(@RequestParam(required = false, defaultValue = "World") String name) {
 		ModelAndView ret = new ModelAndView("index");

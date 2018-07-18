@@ -8,10 +8,13 @@ import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sbm.helpdesk.dao.UserDao;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Hduser;
+import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
+import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.UserService;
+import com.sbm.helpdesk.service.dao.UserDao;
+import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.service.entity.Hduser;
 
 @Service
 public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implements UserService{
@@ -25,35 +28,67 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implement
 
 	@Override
 	@Transactional
-	public UserDTO add(UserDTO userDto) 
+	public UserDTO add(UserDTO userDto) throws BusinessException 
 	{
-		
+		UserDTO result = null;
+		try {
 		_user = convertToEntity(_user , userDto);
 		_user = userDao.add(_user);
-		return convertToDTO(_user,userDto);
+		result = convertToDTO(_user,userDto);
+		
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		
+		return result;
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<UserDTO> listUsers() {
+	public List<UserDTO> listUsers() throws BusinessException {
+		List<UserDTO> result;
+		try {
 		List<Hduser> userListResult =  userDao.listUsers();
-		List<UserDTO> userDtoList =  userListResult.stream().
+		result =  userListResult.stream().
 				map(item -> convertToDTO(item, new UserDTO())).collect(Collectors.toList());
-		return userDtoList;
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		return result;
 		 
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public UserDTO login(String email, String password) {
-		
+	public UserDTO login(String email, String password) throws BusinessException {
+		UserDTO result = null;
+		try {
 		_user = userDao.login(email, password);
 		if (_user == null) {
-			return new UserDTO(-1L);
+			result = new UserDTO(-1L);
 		}
 		 UserDTO userDto = new UserDTO();
-		 userDto =  convertToDTO(_user,userDto);
-		 return userDto;
+		 result =  convertToDTO(_user,userDto);
+		 
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		 return result;
 	}
 	
 	@Override

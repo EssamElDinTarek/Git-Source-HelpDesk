@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScans(value = { @ComponentScan("com.sbm.helpdesk.dao"), @ComponentScan("com.sbm.helpdesk.service"),
+@ComponentScans(value = { @ComponentScan("com.sbm.helpdesk.service..dao"), @ComponentScan("com.sbm.helpdesk.service"),
 		@ComponentScan("com.sbm.helpdesk.HelpDeskIntegrationAPI.*") })
 @ComponentScan(basePackages="com.sbm.helpdesk.*")
 @EnableWebMvc

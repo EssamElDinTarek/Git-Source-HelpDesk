@@ -5,21 +5,21 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sbm.helpdesk.dto.HdgroupDTO;
-import com.sbm.helpdesk.dto.UserDTO;
-import com.sbm.helpdesk.entity.Component;
- 
-import com.sbm.helpdesk.entity.Hdgroup;
-import com.sbm.helpdesk.entity.Hduser;
-import com.sbm.helpdesk.entity.Privilege;
+import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.service.dto.HdgroupDTO;
+import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.service.entity.Component;
+import com.sbm.helpdesk.service.entity.Hdgroup;
+import com.sbm.helpdesk.service.entity.Hduser;
+import com.sbm.helpdesk.service.entity.Privilege;
 
 @Transactional
 public interface HdGroupService {
- public HdgroupDTO createGroup(String groupName);
- public void assignPrivilge(HdgroupDTO hdgroupDTO);
- public void assignSubcomponents(HdgroupDTO hdgroupDTO);
- public void assignComponents(List<Component> components);
- public void assignHdusers(List<Hduser> hdusers);
- public List<HdgroupDTO> listGroups();
+ public HdgroupDTO createGroup(String groupName) throws BusinessException;
+ public void assignPrivilge(HdgroupDTO hdgroupDTO) throws BusinessException;
+ public void assignSubcomponents(HdgroupDTO hdgroupDTO) throws BusinessException;
+ public void assignComponents(List<Component> components) throws BusinessException;
+ public void assignHdusers(List<Hduser> hdusers) throws BusinessException;
+ public List<HdgroupDTO> listGroups() throws BusinessException;
 
 }
