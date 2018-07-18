@@ -27,10 +27,10 @@ const routes: Routes = [
   {
       path     : 'submitTicket',
       component: SubmitTicketComponent
-  }/* , {
+  } /* , {
     path     : 'submitTicket/:id',
     component: SubmitTicketComponent
-} */
+}  */
 ];
 @NgModule({
   declarations: [

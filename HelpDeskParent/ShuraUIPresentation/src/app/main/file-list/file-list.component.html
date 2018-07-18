@@ -1,4 +1,4 @@
-<mat-table #table [dataSource]="dataSource" [@animateStagger]="{value:'50'}">
+<mat-table #table [dataSource]="childFilesData" [@animateStagger]="{value:'50'}">
 
     <!-- Type Column -->
     <ng-container cdkColumnDef="icon">
@@ -29,7 +29,7 @@
     <!-- Modified Column -->
     <ng-container cdkColumnDef="modified">
         <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Modified</mat-header-cell>
-        <mat-cell *cdkCellDef="let row" fxHide fxShow.gt-md>{{row.modified}}</mat-cell>
+        <mat-cell *cdkCellDef="let row" fxHide fxShow.gt-md>{{row.ModifiedDate}}</mat-cell>
     </ng-container>
 
     <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>

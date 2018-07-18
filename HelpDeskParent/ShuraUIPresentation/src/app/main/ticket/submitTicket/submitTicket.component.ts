@@ -13,13 +13,13 @@ import { FileManagerService } from "../../../services/file-manager.service";
 import { fuseAnimations } from '@fuse/animations';
 import { RequestOptions } from '@angular/http';
 import { FileData } from '../../../model/fileData';
+import { FileListService } from '../../file-list/file-list.service';
+
+
 
 
 @Component({
     selector: 'app-submitTicket',
-    template: `
-    <file-list [childfilesData]="filesData"></file-list>
-  `,
     templateUrl: './submitTicket.component.html',
     styleUrls: ['./submitTicket.component.scss'],
     encapsulation: ViewEncapsulation.None,
@@ -50,7 +50,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
      *
      * @param {FormBuilder} _formBuilder
      */
-    constructor(private _fileManagerService: FileManagerService,private _formBuilder: FormBuilder, private _ticketService: TicketService, private route: ActivatedRoute,private router: Router) {
+    constructor(private _fileManagerService: FileManagerService,private _formBuilder: FormBuilder, private _ticketService: TicketService, private route: ActivatedRoute,private router: Router ,private fileListService: FileListService) {
         // Reactive form errors
         this.formErrors = {
             title: {},
@@ -66,10 +66,22 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
 
     ngOnInit(): void {
-        /* this.sub = this.route.params.subscribe(params => {
+
+        // --------------- essam ------------------
+
+        this.route.queryParams.subscribe((queryParams: Params) => {
+            let id = queryParams['id'];
+            console.log(id);
+          });
+
+
+
+
+
+        this.sub = this.route.params.subscribe(params => {
             this.updatedTicketId  = params['id'];
             console.log(this.updatedTicketId);
-         }); */
+         }); 
          this._fileManagerService.onFileSelected
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(selected => {
@@ -77,7 +89,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             //console.log("selected : " + JSON.stringify(selected) );
             //this.pathArr = selected.location.split('>');
         });
-        this.updatedTicketId = "1952";
+        
+       this.updatedTicketId = "1952";
         if (this.updatedTicketId != null && this.updatedTicketId.length > 0) {
             // update
 
@@ -204,9 +217,15 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
            file.ModifiedDate = files.item(i).lastModifiedDate;
            file.type = files.item(i).type;
            this.filesData.push(file);
+           this.addFilesData();
         }
                 
     }
+
+    addFilesData(): void {
+        debugger;
+            this.fileListService.viewFilesData(this.filesData);
+        }
 
 }
 

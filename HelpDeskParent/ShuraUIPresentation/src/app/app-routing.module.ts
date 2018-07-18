@@ -29,10 +29,10 @@ const appRoutes: Routes = [
     {
         path      : 'submitTicket',
         redirectTo: 'submitTicket'
-    }/* ,{
+    } ,{
         path      : 'submitTicket/:id',
         redirectTo: 'submitTicket'
-    } */
+    } 
 	
     // {
     //     path      : '**',

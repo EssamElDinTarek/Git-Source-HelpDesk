@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit, AfterViewInit, Input, OnChanges } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -7,8 +7,10 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { FileManagerService } from '../../services/file-manager.service';
 import { SubmitTicketComponent } from '../ticket/submitticket/submitTicket.component';
-import { MatTableDataSource } from '../../../../node_modules/@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import { FileData } from '../../model/fileData';
+import { FileListService } from './file-list.service';
+
 
 @Component({
     selector   : 'file-list',
@@ -17,9 +19,9 @@ import { FileData } from '../../model/fileData';
     animations : fuseAnimations
 })
 
-export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterViewInit
+export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterViewInit, OnChanges
 {
-    @Input() childfilesData : FileData[];
+    @Input('childFilesData') childFilesData : FileData[];
     submit :SubmitTicketComponent;
     files: any;
     
@@ -41,7 +43,7 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterVie
      */
     constructor(
         private _fileManagerService: FileManagerService,
-        private _fuseSidebarService: FuseSidebarService
+        private _fuseSidebarService: FuseSidebarService,private fileListService: FileListService
     )
     {
         // Set the private defaults
@@ -53,7 +55,7 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterVie
     // -----------------------------------------------------------------------------------------------------
 
     ngAfterViewInit(){
-        this.dataSource.data = this.childfilesData;
+       // this.dataSource.data = this.childfilesData;
     }
 
     /**
@@ -62,6 +64,8 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterVie
     ngOnInit(): void
     {
         //this.dataSource = new FilesDataSource(this._fileManagerService);
+
+        //this.childfilesData = this.fileListService.viewFilesData();
 
         this._fileManagerService.onFilesChanged
             .pipe(takeUntil(this._unsubscribeAll))
@@ -74,6 +78,9 @@ export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterVie
             .subscribe(selected => {
                 this.selected = selected;
             });
+    }
+    ngOnChanges(): void{
+        console.log(this.childFilesData);
     }
 
     /**
