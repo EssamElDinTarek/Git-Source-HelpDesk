@@ -54,6 +54,7 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implement
 		List<UserDTO> result;
 		try {
 		List<Hduser> userListResult =  userDao.listUsers();
+		System.out.println("Hello2: "+userListResult.get(0).getTeam() + "  and: " + userListResult.get(0).getProjects().get(0).getName());
 		result =  userListResult.stream().
 				map(item -> convertToDTO(item, new UserDTO())).collect(Collectors.toList());
 		}catch(RespositoryException e) {
@@ -99,6 +100,25 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implement
 				map().setUsername(source.getUsername());
 				}
 		});
+	}
+	
+	@Override
+	public UserDTO getUserByEmailAddress(String emailAddress) throws BusinessException {
+		UserDTO result;
+		try {
+			Hduser user = userDao.findByEmail(emailAddress);
+			System.out.println("Test2: " + user.getProjects().toString());
+			UserDTO userDTO = new UserDTO();
+			result =  convertToDTO(user,userDTO);
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		 return result;
 	}
 
 }

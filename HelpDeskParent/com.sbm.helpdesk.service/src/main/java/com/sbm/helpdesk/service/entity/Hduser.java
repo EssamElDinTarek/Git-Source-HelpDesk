@@ -6,6 +6,7 @@ import javax.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -72,6 +73,13 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	//bi-directional many-to-one association to Workitem
 	@OneToMany(mappedBy="hduser")
 	private List<Workitem> workitems;
+	
+	//bi-directional many-to-many association to Projects
+		 @JoinTable(name = "USER_PROJECT", joinColumns = {
+			        @JoinColumn(name = "USER_ID")}, inverseJoinColumns = {
+			        @JoinColumn(name = "PROJECT_ID")})
+		 @ManyToMany
+		private List<Project> projects = new ArrayList<>();
 
 	public Hduser() {
 	}
@@ -137,6 +145,14 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 		attachment.setHduser(this);
 
 		return attachment;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 	public Attachment removeAttachment(Attachment attachment) {
