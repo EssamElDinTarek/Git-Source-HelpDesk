@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{data.dialogName}}</h1>
+<div mat-dialog-content>
+  <p>{{data.dialogMessage}}</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.confirmationComment">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" (click)="onYesClick()" cdkFocusInitial>{{data.dialogOkLabel}}</button>
+  <button mat-button [mat-dialog-close]="data" (click)="onNoClick()" cdkFocusInitial>{{data.dialogCancelLabel}}</button>
+</div>

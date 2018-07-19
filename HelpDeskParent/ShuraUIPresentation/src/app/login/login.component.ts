@@ -13,6 +13,7 @@ import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
 import { and } from '@angular/router/src/utils/collection';
 import { navigation } from '../navigation/navigation';
+import { SharedDataService } from '../services/shared-data.service';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy
 		private loginService: LoginService,
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
-        
+        private _sharedData: SharedDataService
     )
     {
         // Configure the layout
@@ -136,6 +137,7 @@ export class LoginComponent implements OnInit, OnDestroy
     }
 	
 	auth(): void {
+        this._sharedData.user.email =  this.logParam.email;
         this.authParam.username = this.logParam.email;
         this.authParam.password = this.logParam.password;
         this.authParam.client_id = 'spring-security-oauth2-read-write-client';

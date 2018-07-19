@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation } from '@angular/core';
 
-import { fuseAnimations } from '@fuse/animations';
-import { MatColors } from '@fuse/mat-colors';
+import { fuseAnimations } from '../../animations';
+import { MatColors } from '../../mat-colors';
 
 @Component({
     selector     : 'fuse-material-color-picker',

@@ -23,12 +23,12 @@ import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
 
-import { fuseConfig } from 'app/fuse-config';
+import { fuseConfig } from './fuse-config';
 
 //import { FakeDbService } from 'app/fake-db/fake-db.service';
-import { AppComponent } from 'app/app.component';
+import { AppComponent } from './app.component';
 //import { AppStoreModule } from 'app/store/store.module';
-import { LayoutModule } from 'app/layout/layout.module';
+import { LayoutModule } from './layout/layout.module';
 import { LoginService } from './services/login.service';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -37,11 +37,8 @@ import { WelcomeModule } from './welcome/welcome.module';
 import { LoginModule } from './login/login.module';
 import { GroupPermModule } from './group-perm/group-perm.module';
 import {TicketViewModule} from './ticketview/ticketview.module';
-//import { DashboardModule } from './main/dashboard/dashboard.module';
-
-
-
-
+import { DashboardModule } from './main/dashboard/dashboard.module';
+import { DialogOverviewExampleModule } from './main/dialog-overview/dialogoverviewexample.module';
 
 
 const materialModules = [
@@ -122,7 +119,9 @@ const appRoutes: Routes = [
         TicketViewModule,
         WelcomeModule,
         LoginModule,
-        GroupPermModule
+        GroupPermModule,
+
+        DialogOverviewExampleModule
 
     ],
     exports: [materialModules,

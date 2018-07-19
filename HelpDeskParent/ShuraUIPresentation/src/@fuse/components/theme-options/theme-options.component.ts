@@ -3,10 +3,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { fuseAnimations } from '@fuse/animations';
-import { FuseConfigService } from '@fuse/services/config.service';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { fuseAnimations } from '../../animations';
+import { FuseConfigService } from '../../services/config.service';
+import { FuseNavigationService } from '../navigation/navigation.service';
+import { FuseSidebarService } from '../sidebar/sidebar.service';
 
 @Component({
     selector   : 'fuse-theme-options',
