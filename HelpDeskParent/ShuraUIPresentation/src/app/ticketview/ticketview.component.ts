@@ -19,6 +19,7 @@ import { catchError, map, startWith, switchMap} from 'rxjs/operators'
 import { Ticket } from '../models/ticket';
 import { TicketService } from './ticketview.service';
 import { Location } from '@angular/common';
+import { SharedDataService } from '../services/shared-data.service';
 
 
 
@@ -61,11 +62,11 @@ import { Location } from '@angular/common';
   @ViewChild(MatSort) sort: MatSort;
   
 
-  constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog) {}
+  constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog,private _shareData: SharedDataService) {}
 
   ngAfterViewInit() {
     console.log('on after view init');
-    this.exampleDatabase = new ExampleHttpDao(this.http);
+    this.exampleDatabase = new ExampleHttpDao(this.http,this._shareData);
 
     // If the user changes the sort order, reset back to the first page.
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
@@ -133,14 +134,14 @@ export interface TicketDetails{
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleHttpDao implements OnInit{
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _sharedService: SharedDataService) {}
     
    ngOnInit(){}
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
     const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
     let identifier = "PROJECT_NAME";
-    let value = "sbmhelpdesk";
+    let value = this._sharedService.selectedProject.name;
     const requestUrl =`${href}?identifier=`+identifier+`&value=`+value;
 
     return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});

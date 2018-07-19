@@ -10,6 +10,8 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { User } from '../models/user';
+import { SharedDataService } from './shared-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,7 @@ export class TicketService {
 
 
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private _shredData: SharedDataService) { }
 
 
   getTicketSeverity(): Observable<TicketSeverity[]> {
@@ -34,7 +36,15 @@ export class TicketService {
         //catchError(/*this.handleError('addHero', ticket)*/)
       );
   }
+  getUserDetails(): Observable<User> {
 
+    return this._http.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
+      headers: this.headers
+    })
+      .pipe(
+        //catchError(/*this.handleError('addHero', ticket)*/)
+      );
+  }
   getWorkflow(): Observable<Workflow[]> {
 
     return this._http.get<Workflow[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/workflow', {

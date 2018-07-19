@@ -49,11 +49,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		Timestamp ts = new Timestamp(date.getTime());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String ticketNumber ="Tic_"+sdf.format(ts)+ String.format("%03d", new Random().nextInt(1000));
-		//TODO Delete
-		Project x = new Project();
-		x.setProjectId(1);
+		
 		ticket.setTicketnumber(ticketNumber);
-		ticket.setProject(projectDao.findById(x.getProjectId()));
+		ticket.setProject(projectDao.findById(ticketDTO.getProject().getProjectId()));
 		ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 		ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 		ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));

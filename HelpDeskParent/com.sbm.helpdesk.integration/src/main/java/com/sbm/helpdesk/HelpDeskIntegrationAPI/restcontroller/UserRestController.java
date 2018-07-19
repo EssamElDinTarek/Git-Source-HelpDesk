@@ -47,7 +47,7 @@ public class UserRestController {
 	}
 	
 	// to be replaced again as /secure/user/*
-	@RequestMapping(value = "/getusers", method = RequestMethod.GET,
+	@RequestMapping(value = "/secure/user/getusers", method = RequestMethod.GET,
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<List<UserDTO>> getAllUsers() throws BusinessException {
