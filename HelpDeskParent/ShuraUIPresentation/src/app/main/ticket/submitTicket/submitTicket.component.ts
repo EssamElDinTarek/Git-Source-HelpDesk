@@ -14,6 +14,7 @@ import { fuseAnimations } from '@fuse/animations';
 import { RequestOptions } from '@angular/http';
 import { FileData } from '../../../model/fileData';
 import { FileListService } from '../../file-list/file-list.service';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 
 
@@ -35,7 +36,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     workflowList: Workflow[];
     updatedTicketId: string;
     isUpdate: boolean = false;
-    defaultProject: Project = new Project(1, "", null);
+    //defaultProject: Project= new Project(1,"");
     selected: any;
     pathArr: string[];
     formData: FormData = new FormData();
@@ -50,7 +51,10 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
      *
      * @param {FormBuilder} _formBuilder
      */
-    constructor(private _fileManagerService: FileManagerService, private _formBuilder: FormBuilder, private _ticketService: TicketService, private route: ActivatedRoute, private router: Router, private fileListService: FileListService) {
+    constructor(private _fileManagerService: FileManagerService,private _formBuilder: FormBuilder,
+         private _ticketService: TicketService, private route: ActivatedRoute,
+         private router: Router ,private fileListService: FileListService,
+         private sharedDataService : SharedDataService) {
         // Reactive form errors
         this.formErrors = {
             title: {},
@@ -189,7 +193,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             
             });
         } else {
-            this.ticket.project = this.defaultProject;
+            this.ticket.project = this.sharedDataService.selectedProject;
             this.formData.append('ticket', JSON.stringify(this.ticket));
             if (this.filelist != null && this.filelist.length > 0) {
                 for (let index = 0; index < this.filelist.length; index++) {

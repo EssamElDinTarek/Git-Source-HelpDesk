@@ -11,6 +11,7 @@ import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
 import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
+import { SharedDataService } from '../services/shared-data.service';
 
 @Component({
     selector   : 'login',
@@ -43,7 +44,8 @@ export class LoginComponent implements OnInit, OnDestroy
 	    private router: Router,
 		private loginService: LoginService,
         private _fuseConfigService: FuseConfigService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private _sharedData: SharedDataService
     )
     {
         // Configure the layout
@@ -132,6 +134,7 @@ export class LoginComponent implements OnInit, OnDestroy
     }
 	
 	auth(): void {
+        this._sharedData.user.email =  this.logParam.email;
         this.authParam.username = this.logParam.email;
         this.authParam.password = this.logParam.password;
         this.authParam.client_id = 'spring-security-oauth2-read-write-client';

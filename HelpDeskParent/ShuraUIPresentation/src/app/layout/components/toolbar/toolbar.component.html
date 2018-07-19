@@ -26,12 +26,19 @@
         </div>
 
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
-
+            Projects : 
+			<mat-form-field>
+                <mat-select [(ngModel)]="selectedProject" (ngModelChange)="onChange()" >
+                  <mat-option *ngFor="let item of projects" [value]="item">
+                    {{ item.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             <button mat-button [matMenuTriggerFor]="userMenu"
                     class="user-button">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <img class="avatar" src="assets/images/avatars/profile.jpg">
-                    <span class="username mr-12" fxHide fxShow.gt-sm>John Doe</span>
+                    <span class="username mr-12" fxHide fxShow.gt-sm>{{_sharedService.user.username}}</span>
                     <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
                 </div>
             </button>
