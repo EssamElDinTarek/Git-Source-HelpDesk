@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { FileManagerService } from '../../services/file-manager.service';
-import { SubmitTicketComponent } from '../ticket/submitticket/submitTicket.component';
+//import { SubmitTicketComponent } from '../ticket/submitTicket/submitTicket.component';
 import { MatTableDataSource } from '@angular/material';
 import { FileData } from '../../model/fileData';
 import { FileListService } from './file-list.service';
@@ -22,7 +22,7 @@ import { FileListService } from './file-list.service';
 export class FileManagerFileListComponent implements OnInit, OnDestroy ,AfterViewInit, OnChanges
 {
     @Input('childFilesData') childFilesData : FileData[];
-    submit :SubmitTicketComponent;
+    //submit :SubmitTicketComponent;
     files: any;
     
     //exampleDatabase: ExampleHttpDao | null;
