@@ -2,6 +2,8 @@ package com.sbm.helpdesk.service.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,7 +15,9 @@ import java.util.List;
 @Table(name="PROJECT")
 @NamedQueries({
 	@NamedQuery(name="Project.findAll", query="SELECT p FROM Project p"),
-	@NamedQuery(name="Project.findProjectByName", query="SELECT p FROM Project p where name=:arg1")
+	@NamedQuery(name="Project.findProjectByName", query="SELECT p FROM Project p where name=:arg1"),
+	@NamedQuery(name="Project.findProjectById", query="SELECT p FROM Project p where projectId=:projectId"),
+	@NamedQuery(name="Project.findProjectByPortfolioId", query="SELECT p FROM Project p where portfolio.portfolioId=:portfolioId")
 })
 
 public class Project extends BaseEntity implements Serializable {
@@ -36,6 +40,10 @@ public class Project extends BaseEntity implements Serializable {
 	//bi-directional many-to-one association to Ticket
 	@OneToMany(mappedBy = "project")
 	private List<Ticket> tickets;
+	
+	//bi-directional many-to-many association to Users
+	@ManyToMany(mappedBy="projects")
+	private List<Hduser> hdusers = new ArrayList<>();
 
 	public Project() {
 	}
@@ -106,6 +114,14 @@ public class Project extends BaseEntity implements Serializable {
 		if (projectId != other.projectId)
 			return false;
 		return true;
+	}
+
+	public List<Hduser> getHdusers() {
+		return hdusers;
+	}
+
+	public void setHdusers(List<Hduser> hdusers) {
+		this.hdusers = hdusers;
 	}
 
 }

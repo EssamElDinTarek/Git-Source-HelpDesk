@@ -23,6 +23,10 @@ public class Portfolio extends BaseEntity implements Serializable {
 
 	@Column(length=255)
 	private String name;
+	
+		@OneToOne
+		@JoinColumn(name = "MANAGER_ID", referencedColumnName = "USER_ID")
+		private Hduser hduser;
 
 	//bi-directional many-to-one association to Project
 	@OneToMany(mappedBy="portfolio")
@@ -45,6 +49,14 @@ public class Portfolio extends BaseEntity implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Hduser getHduser() {
+		return hduser;
+	}
+
+	public void setHduser(Hduser hduser) {
+		this.hduser = hduser;
 	}
 
 	public List<Project> getProjects() {

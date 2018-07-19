@@ -1,6 +1,9 @@
 package com.sbm.helpdesk.service.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -39,6 +42,36 @@ public class ProjectDaoImpl extends GenericDaoImpl<Project> implements ProjectDa
 			Query query = this.entityManager.createNamedQuery("Project.findProjectByName",Project.class);
 			query.setParameter("arg1", projectName);
 			result = (Project) query.getSingleResult();
+		} catch (Exception e) {
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	
+	@Override
+	public Project getProjectById(Long projectId) throws RespositoryException {
+		Project result = null;
+		try{
+			Query query = this.entityManager.createNamedQuery("Project.findProjectById",Project.class);
+			query.setParameter("projectId", projectId);
+			result = (Project) query.getSingleResult();
+		} catch (Exception e) {
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	
+	@Override
+	public List<Project> getProjectsByPortfolioId(Long portfolioId) throws RespositoryException {
+		List<Project> result = null;
+		try{
+			TypedQuery<Project> query = this.entityManager.createNamedQuery("Project.findProjectByPortfolioId",Project.class);
+			query.setParameter("portfolioId", portfolioId);
+			result = query.getResultList();
 		} catch (Exception e) {
 			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
 //			e.printStackTrace();
