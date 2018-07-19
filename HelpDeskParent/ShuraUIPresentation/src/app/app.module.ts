@@ -39,7 +39,6 @@ import {TicketViewModule} from './ticketview/ticketview.module';
 import { DialogOverviewExampleModule } from './main/dialog-overview/dialogoverviewexample.module';
 
 
-
 const materialModules = [
    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
@@ -119,7 +118,7 @@ const appRoutes: Routes = [
         WelcomeModule,
         LoginModule,
         GroupPermModule,
-
+        
         DialogOverviewExampleModule
 
     ],

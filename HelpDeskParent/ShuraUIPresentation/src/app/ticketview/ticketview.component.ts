@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import {DialogOverviewExample, DialogOverviewExampleDialog} from '../main/dialog-overview/dialog-overview-example.component';
+import { DialogOverviewExampleDialog} from '../main/dialog-overview/dialog-overview-example.component';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 
@@ -18,7 +18,7 @@ import { merge, Observable, of as observableOf} from 'rxjs';
 import { catchError, map, startWith, switchMap} from 'rxjs/operators'
 import { Ticket } from '../models/ticket';
 import { TicketService } from './ticketview.service';
-import { Location } from '../../../node_modules/@angular/common';
+import { Location } from '@angular/common';
 
 
 
@@ -31,16 +31,25 @@ import { Location } from '../../../node_modules/@angular/common';
 
 
     export class TicketViewComponent implements OnInit , AfterViewInit{
-       
+      //child: DialogOverviewExampleDialog;
       deleteComment: string;
+      deleteDialogName: string = "Delete";
+      deleteDialogMessage: string = "Are you sure you want to delete this item ?";
+      deleteDialogOkLabel:string = "Ok";
+      deleteDialogCancelLabel:string = "Cancel";
+      deleteConfirmed:boolean = false;
+
     ngOnInit(){
+      console.log('on init');
       this.ngAfterViewInit();
+      
      }
 
     tickets: TicketDetails[];
+    deleted: boolean;
 
        
-  displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber','item'];
+  displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber',"updateTicketNumber",'item'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource = new MatTableDataSource();
 
@@ -50,11 +59,12 @@ import { Location } from '../../../node_modules/@angular/common';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(DialogOverviewExampleDialog) child: DialogOverviewExampleDialog;
+  
 
   constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog) {}
 
   ngAfterViewInit() {
+    console.log('on after view init');
     this.exampleDatabase = new ExampleHttpDao(this.http);
 
     // If the user changes the sort order, reset back to the first page.
@@ -92,15 +102,16 @@ import { Location } from '../../../node_modules/@angular/common';
   openDialog(ticket: TicketDetails): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: { name: this.deleteComment }
+      data: { dialogName: this.deleteDialogName, dialogMessage: this.deleteDialogMessage, dialogOkLabel: this.deleteDialogOkLabel, dialogCancelLabel: this.deleteDialogCancelLabel, confirmed: this.deleteConfirmed, confirmationComment:this.deleteComment  }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      if (this.child.delete){
-        this.delete(ticket);
-      }
+      this.deleteConfirmed = result.confirmed;
+      console.log(this.deleteConfirmed);
+      if(this.deleteConfirmed)
+          this.delete(ticket);
     });
   }
 
@@ -127,9 +138,9 @@ export class ExampleHttpDao implements OnInit{
    ngOnInit(){}
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
-    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/tickets';
+    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
     let identifier = "PROJECT_NAME";
-    let value = "project1";
+    let value = "sbmhelpdesk";
     const requestUrl =`${href}?identifier=`+identifier+`&value=`+value;
 
     return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});

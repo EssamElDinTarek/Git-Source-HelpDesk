@@ -5,7 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TicketViewComponent } from './ticketview/ticketview.component';
 import { GroupPermComponent } from './group-perm/group-perm.component';
-import { CreateticketModule } from './main/ticket/createticket/createticket.module';
+import { SubmitTicketModule } from './main/ticket/submitticket/submitTicket.module';
+
+
+
 const appRoutes: Routes = [
     {
         path        : 'welcome',
@@ -24,9 +27,12 @@ const appRoutes: Routes = [
         component   : LoginComponent
     },
     {
-        path      : 'createticket',
-        redirectTo: 'createticket'
-    }
+        path      : 'submitTicket',
+        redirectTo: 'submitTicket'
+    } ,{
+        path      : 'submitTicket/:id',
+        redirectTo: 'submitTicket'
+    } 
 	
     // {
     //     path      : '**',
@@ -37,8 +43,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [],
     imports: [
-        RouterModule.forRoot(appRoutes),
-		CreateticketModule
+        RouterModule.forRoot(appRoutes),SubmitTicketModule
     ],
     exports: [
         RouterModule

@@ -51,11 +51,20 @@
         <td mat-cell *matCellDef="let row">{{ row.creationdate }}</td>
       </ng-container>
 
+      <!-- Update Column -->
+      <ng-container matColumnDef="updateTicketNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">Update</th>
+        <td mat-cell *matCellDef="let row">
+          <!--<button mat-raised-button (click)="ticketview/row.ticketnumber">Update</button>-->
+          <a href="/submitTicket/?id={{ row.ticketId }}">Update</a>
+        </td>
+      </ng-container>
+
+      <!-- Delete Column -->
       <ng-container matColumnDef="item">
           <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">Delete</th>
           <td mat-cell *matCellDef="let row">
-            <button mat-raised-button (click)="openDialog(row)">delete</button>
-           <!-- <button class="delete" title="delete ticket" (click)="delete(row)">delete</button>-->
+            <button mat-raised-button (click)="openDialog(row)">Delete</button>
           </td>
       </ng-container>
 

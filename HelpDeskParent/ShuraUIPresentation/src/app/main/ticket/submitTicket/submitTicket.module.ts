@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { CreateticketComponent } from './createticket.component';
-
+import { SubmitTicketComponent } from './submitTicket.component';
+import { FileManagerFileListComponent } from "../../file-list/file-list.component";
+import { CdkTableModule } from '@angular/cdk/table';
+import { FileManagerService } from "../../../services/file-manager.service"
 import {
 
   MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
@@ -23,17 +25,22 @@ import {
 
 const routes: Routes = [
   {
-      path     : 'createticket',
-      component: CreateticketComponent
-  }
+      path     : 'submitTicket',
+      component: SubmitTicketComponent
+  } /* , {
+    path     : 'submitTicket/:id',
+    component: SubmitTicketComponent
+}  */
 ];
 @NgModule({
   declarations: [
-    CreateticketComponent
+    SubmitTicketComponent,
+    FileManagerFileListComponent
 ],
   imports: [
     RouterModule.forChild(routes),
     FuseSharedModule,
+    CdkTableModule,
     MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
 
   MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
@@ -48,6 +55,9 @@ const routes: Routes = [
 
   MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
   ],
+  providers   : [
+      FileManagerService
+  ] 
  
 })
-export class CreateticketModule { }
+export class SubmitTicketModule { }
