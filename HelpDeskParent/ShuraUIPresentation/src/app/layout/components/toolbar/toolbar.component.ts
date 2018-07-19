@@ -9,6 +9,10 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from '../../../navigation/navigation';
+import { UserData } from '../../../constdata/user';
+import { Project } from '../../../models/Project';
+import { User } from '../../../models/user';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 @Component({
     selector   : 'toolbar',
@@ -27,6 +31,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
     showLoadingBar: boolean;
     userStatusOptions: any[];
 
+    user: User = UserData;
+    selectedProject: Project;
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -42,7 +48,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
         private _router: Router,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private _sharedService: SharedDataService
     )
     {
         // Set the defaults
@@ -91,6 +98,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
         // Set the private defaults
         this._unsubscribeAll = new Subject();
+
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -131,6 +139,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
         // Set the selected language from default languages
         this.selectedLanguage = _.find(this.languages, {'id': this._translateService.currentLang});
+        this.selectedProject = this.user.projects[0];
     }
 
     /**
@@ -180,5 +189,9 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
         // Use the selected language for translations
         this._translateService.use(langId);
+    }
+    onChange(): void
+    {
+       this._sharedService.selectedProject =  this.selectedProject ;
     }
 }

@@ -27,6 +27,13 @@
 
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
 
+			<mat-form-field>
+                <mat-select [(ngModel)]="selectedProject" (ngModelChange)="onChange()" >
+                  <mat-option *ngFor="let item of user.projects" [value]="item">
+                    {{ item.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             <button mat-button [matMenuTriggerFor]="userMenu"
                     class="user-button">
                 <div fxLayout="row" fxLayoutAlign="center center">
