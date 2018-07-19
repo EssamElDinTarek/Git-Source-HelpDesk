@@ -11,6 +11,9 @@ import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
 import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
+import { and } from '@angular/router/src/utils/collection';
+import { navigation } from '../navigation/navigation';
+
 
 @Component({
     selector   : 'login',
@@ -43,7 +46,8 @@ export class LoginComponent implements OnInit, OnDestroy
 	    private router: Router,
 		private loginService: LoginService,
         private _fuseConfigService: FuseConfigService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        
     )
     {
         // Configure the layout
@@ -142,16 +146,40 @@ export class LoginComponent implements OnInit, OnDestroy
             },
             error => this.errorMessage = <any>error);
     }
-	
-	login(): void {
+
+	 login(): void {
+        console.log('Try to log in...! ');
+        console.log(this.logParam.email);
+        console.log(this.logParam.password);
         this.loginService.login(this.logParam)
             .subscribe(user => {
+               
                 if (user.id == "-1") {
                     alert("Email or password incorrect ");
-                } else {
-                    this.router.navigate(['welcome']);
-                }
+                  } else {
+						console.log(this.logParam.email);
+
+						        if (this.logParam.email == "admin@gmail.com" && this.logParam.password=="admin")
+						        {
+						            this.router.navigate(['admin']);
+						        } 
+						        else if (this.logParam.email == "manager@gmail.com" && this.logParam.password=="123456")
+						        {
+						            this.router.navigate(['manager']);
+						        }
+						        else if(this.logParam.email == "user@gmail.com" && this.logParam.password=="1234")
+						        {
+						            this.router.navigate(['user']);
+						        }else
+						        {
+						            this.router.navigate(['welcome']);
+						        }
+                 //this.router.navigate(['welcome']);  
+                }       
+                
+                
             },
             error => this.errorMessage = <any>error);
-    }
+    } 
+
 }

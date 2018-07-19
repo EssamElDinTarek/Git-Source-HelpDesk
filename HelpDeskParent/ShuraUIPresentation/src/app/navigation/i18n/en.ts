@@ -7,10 +7,13 @@ export const locale = {
             'TICKETS'     : 'Tickets',
             'WELCOME'     : 'Welcome',
             'APPLICATIONS': 'Applications',
-            'DASHBOARDS'  : 'Dashboards',
+            'USERDASHBOARDS'  : 'UserDashboard',
+            'ADMINDASHBOARDS'  : 'AdminDashboard',
+            'MGRDASHBOARDS':    'ManagerDashboard',
             'CALENDAR'    : 'Calendar',
             'ECOMMERCE'   : 'E-Commerce',
             'ACADEMY'     : 'Academy',
+            'DASHBOARD'   :'DashBoard',
             'MAIL'        : {
                 'TITLE': 'Mail',
                 'BADGE': '25'

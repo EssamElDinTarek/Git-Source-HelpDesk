@@ -14,6 +14,7 @@ import {
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
     MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
 } from '@angular/material';
+import { HDURSDashboardComponent } from '../main/dashboard/hd-urs-dashboard/hd-urs-dashboard.component';
 
 const materialModules = [
    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
       path     : 'perm',
       component: GroupPermComponent
+  },
+  {
+    path:'user',
+    component:HDURSDashboardComponent
   }
 ];
 

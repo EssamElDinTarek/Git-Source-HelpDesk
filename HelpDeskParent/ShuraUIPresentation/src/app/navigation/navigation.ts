@@ -49,7 +49,35 @@ export const navigation: FuseNavigation[] = [
                 icon     : 'flag',
                 url      : '/perm'
             },
+
+            {
+                id       : 'dashboard',
+                title    : 'User-DashBoard',
+                translate: 'NAV.USERDASHBOARDS',
+                type     : 'item',
+                icon     : 'flag',
+                url       :'/user'
+            },
+
+            {
+                id       : 'dashboard',
+                title    : 'Admin-DashBoard',
+                translate: 'NAV.ADMINDASHBOARDS',
+                type     : 'item',
+                icon     : 'flag',
+                url       :'/admin'
+            },
+            {
+                id       : 'dashboard',
+                title    : 'Manager-DashBoard',
+                translate: 'NAV.MGRDASHBOARDS',
+                type     : 'item',
+                icon     : 'flag',
+                url       :'/manager'
+            }
+
         ]
+        
     }
 
 ];

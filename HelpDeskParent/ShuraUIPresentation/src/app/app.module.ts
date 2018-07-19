@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 import { HttpModule } from '@angular/http';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FakeDbService } from 'app/fake-db/fake-db.service';
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
@@ -32,10 +32,12 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { LoginService } from './services/login.service';
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { WelcomeModule } from './welcome/welcome.module';
 import { LoginModule } from './login/login.module';
 import { GroupPermModule } from './group-perm/group-perm.module';
 import {TicketViewModule} from './ticketview/ticketview.module';
+//import { DashboardModule } from './main/dashboard/dashboard.module';
 
 
 
@@ -95,10 +97,10 @@ const appRoutes: Routes = [
         HttpModule,
         AppRoutingModule,
         TranslateModule.forRoot(),
-        /*InMemoryWebApiModule.forRoot(FakeDbService, {
+        InMemoryWebApiModule.forRoot(FakeDbService, {
             delay             : 0,
             passThruUnknownUrl: true
-        }),*/
+        }),
 
         // Material moment date module
         MatMomentDateModule,
