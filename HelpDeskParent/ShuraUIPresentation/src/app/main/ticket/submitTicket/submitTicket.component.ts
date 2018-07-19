@@ -67,11 +67,11 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
 
-        // --------------- essam ------------------
+        // --------------- query params for update page ------------------
 
         this.route.queryParams.subscribe((queryParams: Params) => {
-            let id = queryParams['id'];
-            console.log(id);
+            this.updatedTicketId = queryParams['id'];
+            //console.log(updatedTicketId);
           });
 
 
@@ -90,8 +90,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             //this.pathArr = selected.location.split('>');
         });
         
-       this.updatedTicketId = "1952";
-        if (this.updatedTicketId != null && this.updatedTicketId.length > 0) {
+        
+        if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != "undefined") {
             // update
 
             this.isUpdate = true;
