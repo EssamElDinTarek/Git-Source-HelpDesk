@@ -81,8 +81,8 @@ export class TicketService {
   }
 
   
-  editTicket(ticket: Ticket): Observable<Ticket> {
-    return this._http.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', ticket, {
+  editTicket(formData: FormData): Observable<Ticket> {
+    return this._http.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
       headers: this.headers
     })
       .pipe(

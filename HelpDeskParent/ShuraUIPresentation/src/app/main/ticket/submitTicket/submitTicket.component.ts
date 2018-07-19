@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -23,7 +23,7 @@ import { FileListService } from '../../file-list/file-list.service';
     templateUrl: './submitTicket.component.html',
     styleUrls: ['./submitTicket.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations: fuseAnimations
 })
 export class SubmitTicketComponent implements OnInit, OnDestroy {
     form: FormGroup;
@@ -35,12 +35,12 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     workflowList: Workflow[];
     updatedTicketId: string;
     isUpdate: boolean = false;
-    defaultProject: Project= new Project(1,"",null);
+    defaultProject: Project = new Project(1, "", null);
     selected: any;
     pathArr: string[];
-    formData:FormData = new FormData();
-    filelist:FileList;
-    filesData : FileData[]=[];
+    formData: FormData = new FormData();
+    filelist: FileList;
+    filesData: FileData[] = [];
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -50,7 +50,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
      *
      * @param {FormBuilder} _formBuilder
      */
-    constructor(private _fileManagerService: FileManagerService,private _formBuilder: FormBuilder, private _ticketService: TicketService, private route: ActivatedRoute,private router: Router ,private fileListService: FileListService) {
+    constructor(private _fileManagerService: FileManagerService, private _formBuilder: FormBuilder, private _ticketService: TicketService, private route: ActivatedRoute, private router: Router, private fileListService: FileListService) {
         // Reactive form errors
         this.formErrors = {
             title: {},
@@ -72,32 +72,27 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.route.queryParams.subscribe((queryParams: Params) => {
             this.updatedTicketId = queryParams['id'];
             //console.log(updatedTicketId);
-          });
+        });
 
 
-
-
-
-        this.sub = this.route.params.subscribe(params => {
-            this.updatedTicketId  = params['id'];
-            console.log(this.updatedTicketId);
-         }); 
-         this._fileManagerService.onFileSelected
+        this._fileManagerService.onFileSelected
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(selected => {
-            this.selected = selected;
-            //console.log("selected : " + JSON.stringify(selected) );
-            //this.pathArr = selected.location.split('>');
-        });
-        
-        
+                this.selected = selected;
+                //console.log("selected : " + JSON.stringify(selected) );
+                //this.pathArr = selected.location.split('>');
+            });
+
+
         if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != "undefined") {
             // update
 
             this.isUpdate = true;
 
             this._ticketService.getTicketById(this.updatedTicketId).subscribe(_ticket => {
+                
                 this.ticket = _ticket;
+                
             });
         }
         console.log(this.updatedTicketId);
@@ -182,20 +177,31 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     submitTicket(): void {
         debugger;
         if (this.isUpdate) {
-            this._ticketService.editTicket(this.ticket).subscribe(_ticket => {
+            this.formData.append('ticket', JSON.stringify(this.ticket));
+            if (this.filelist != null && this.filelist.length > 0) {
+                for (let index = 0; index < this.filelist.length; index++) {
+                    this.formData.append('files', this.filelist.item(index));
+                }
+                this.formData.append('files', this.filelist.item(0));
+            }
+            this._ticketService.editTicket(this.formData).subscribe(_ticket => {
                 alert('updated successfully');
+            
             });
         } else {
             this.ticket.project = this.defaultProject;
             this.formData.append('ticket', JSON.stringify(this.ticket));
-            for (let index = 0; index < this.filelist.length; index++) {
-                this.formData.append('files', this.filelist.item(index));
-                
+            if (this.filelist != null && this.filelist.length > 0) {
+                for (let index = 0; index < this.filelist.length; index++) {
+                    this.formData.append('files', this.filelist.item(index));
+
+                }
+                this.formData.append('files', this.filelist.item(0));
             }
-            this.formData.append('files', this.filelist.item(0));
-            this._ticketService.addTicket( this.formData).subscribe(_ticket => {
+            this._ticketService.addTicket(this.formData).subscribe(_ticket => {
                 alert('added successfully');
-            });
+                this.ticket = null;
+             });
         }
         // forward to ticketView
         this.router.navigate(['/ticketview']);
@@ -228,5 +234,3 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         }
 
 }
-
-
