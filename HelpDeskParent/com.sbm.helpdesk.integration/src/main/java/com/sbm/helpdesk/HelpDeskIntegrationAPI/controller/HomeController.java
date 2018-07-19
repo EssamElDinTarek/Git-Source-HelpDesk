@@ -22,6 +22,7 @@ import com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller.RestDTOProvider;
 import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
 import com.sbm.helpdesk.service.TicketSeverityService;
@@ -78,13 +79,24 @@ public class HomeController {
 	@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> updateTicket(@RequestBody TicketDTO ticketdto) {
-		TicketDTO _ticket = service.updateTicket(ticketdto);
+		TicketDTO _ticket = null; 
+		try {
+			_ticket = service.updateTicket(ticketdto);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return dtoProvider.addObj(_ticket);
 	}
 	@RequestMapping(value = "/ticket/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> deleteTicket(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
-		service.deleteTicket(ticketId);
+		try {
+			service.deleteTicket(ticketId);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -94,10 +106,23 @@ public class HomeController {
 		TicketDTO _ticket = null;
 		switch (key) {
 		case IntegrationServicesConstant.TICKET_ID:
-			_ticket = service.getByTicketId(Long.parseLong(value));
+			try {
+				_ticket = service.getByTicketId(Long.parseLong(value));
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case IntegrationServicesConstant.TICKET_NUMBER:
-			_ticket = service.getByTicketNumber(value);
+			try {
+				_ticket = service.getByTicketNumber(value);
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		}
@@ -110,7 +135,12 @@ public class HomeController {
 		List<TicketDTO> _ticketList = null;
 		switch (key) {
 		case IntegrationServicesConstant.PROJECT_NAME:
-			_ticketList = service.getTicketByProjectName(value);
+			try {
+				_ticketList = service.getTicketByProjectName(value);
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		}
 		return _ticketList;
@@ -119,21 +149,39 @@ public class HomeController {
 	@RequestMapping(value = "/workflow", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public List<WorkflowDTO> getAllWorkflow() {
-		List<WorkflowDTO> _workflowList = wfservice.getAllWorkflow();
+		List<WorkflowDTO> _workflowList = null;
+		try {
+			_workflowList = wfservice.getAllWorkflow();
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return _workflowList;
 	}
 
 	@RequestMapping(value = "/ticketseverity", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public List<TicketSeverityDTO> getAllTicketSeverity() {
-		List<TicketSeverityDTO> _ticketSeverityList = ticketSeverityservice.getAllTicketSeverity();
+		List<TicketSeverityDTO> _ticketSeverityList = null;
+		try {
+			_ticketSeverityList = ticketSeverityservice.getAllTicketSeverity();
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return _ticketSeverityList;
 	}
 
 	@RequestMapping(value = "/ticketpriority", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public List<TicketPriorityDTO> getAllTicketPriority() {
-		List<TicketPriorityDTO> _ticketPriorityList = ticketPriorityservice.getAllTicketPriority();
+		List<TicketPriorityDTO> _ticketPriorityList = null;
+		try {
+			_ticketPriorityList = ticketPriorityservice.getAllTicketPriority();
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return _ticketPriorityList;
 	}
 
@@ -141,7 +189,13 @@ public class HomeController {
 	@ResponseBody
 	public ResponseDTO getAllTicketPrioritys() {
 		
-		return facadeService.getAllTicketPriority();
+		try {
+			return facadeService.getAllTicketPriority();
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	@RequestMapping(value = { "/", "/index" })
 	public ModelAndView index(@RequestParam(required = false, defaultValue = "World") String name) {
