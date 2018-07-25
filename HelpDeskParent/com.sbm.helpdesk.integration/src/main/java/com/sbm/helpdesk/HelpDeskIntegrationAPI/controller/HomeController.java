@@ -112,7 +112,7 @@ public class HomeController {
 	public ResponseEntity<BaseDTO> deleteAttachment(@PathVariable(IntegrationServicesConstant.ATTACHMENT_ID) Long attachmentId) {
 		try {
 			attachmentServiceFacade.deleteAttachment(attachmentId);
-		} catch (BusinessException e) {
+		} catch (ControllerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -218,7 +218,6 @@ public class HomeController {
 	@RequestMapping(value = "/ticketprioritys", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO getAllTicketPrioritys() {
-		
 		try {
 			return facadeService.getAllTicketPriority();
 		} catch (ControllerException e) {
@@ -253,11 +252,11 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/ticketbyproidanduser", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseDTO getTiketListByIdentifier(@RequestParam("projectId") Long projectId, @RequestParam("userEmail") String userEmail) throws BusinessException {
+	public ResponseDTO getTiketListByIdentifier(@RequestParam(IntegrationServicesConstant.PROJECT_Id) Long projectId, @RequestParam(IntegrationServicesConstant.USER_EMAIL) String userEmail) throws BusinessException {
 		
 		try {
 			return ticketfacadeService.getByProjectIDAndUserName(projectId, userEmail);
-		} catch (BusinessException e) {
+		} catch (ControllerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

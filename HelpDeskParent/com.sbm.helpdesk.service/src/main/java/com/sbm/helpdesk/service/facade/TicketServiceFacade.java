@@ -96,10 +96,24 @@ public class TicketServiceFacade {
 				"Ticket has been updated successfully", null);
 		return new ResponseDTO(status, _ticket) ;
 	}
-	public ResponseDTO deleteTicket(Long ticketId) throws BusinessException {
-		service.deleteTicket(ticketId);
-		//TODO ResponseStatusDTO
-		return new ResponseDTO(null, "Sucsses") ;
+	public ResponseDTO deleteTicket(Long ticketId) throws ControllerException {
+		
+		ResponseDTO result = null;
+		try {
+			service.deleteTicket(ticketId);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Attachment has been deleted successfully", 
+					"Attachment has been deleted successfully", null);
+			result = new ResponseDTO(status, "Sucsses");
+			 }catch(BusinessException e) {
+				 e.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+				}
+			 catch(Exception e1) {
+				 e1.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+			 }
+			 return result;
 	}
 	
 	public ResponseDTO getTicketByIdentifier(String key, String value) throws BusinessException {
@@ -139,12 +153,24 @@ public class TicketServiceFacade {
 		
 		return new ResponseDTO(null, _ticketList);
 	}
-	public ResponseDTO getByProjectIDAndUserName(Long projectId, String userEmail) throws BusinessException {
-		List<TicketDTO> _ticketList = service.getByProjectIDAndUserName(projectId, userEmail);
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Tickets has been retrived successfully", 
-				"Tickets has been retrived successfully", null);
-		return new ResponseDTO(null, _ticketList);
+	public ResponseDTO getByProjectIDAndUserName(Long projectId, String userEmail) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			List<TicketDTO> _ticketList = service.getByProjectIDAndUserName(projectId, userEmail);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Tickets has been retrived successfully", 
+					"Tickets has been retrived successfully", null);
+			result =  new ResponseDTO(null, _ticketList);
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+		
 	}
 	
 	
