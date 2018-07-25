@@ -32,8 +32,10 @@ import com.sbm.helpdesk.service.dto.TicketDTO;
 import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
 import com.sbm.helpdesk.service.dto.TicketSeverityDTO;
 import com.sbm.helpdesk.service.dto.WorkflowDTO;
+import com.sbm.helpdesk.service.facade.AttachmentServiceFacade;
 import com.sbm.helpdesk.service.facade.TicketPriorityServiceFacade;
 import com.sbm.helpdesk.service.facade.TicketServiceFacade;
+import com.sbm.helpdesk.service.facade.TicketcommentServiceFacade;
 
 @Controller
 @CrossOrigin("*")
@@ -46,6 +48,12 @@ public class HomeController {
 	@Resource
 	private TicketServiceFacade ticketfacadeService;
 	
+	@Resource
+	private AttachmentServiceFacade attachmentServiceFacade;
+	
+	@Resource
+	private TicketcommentServiceFacade ticketcommentServiceFacade;
+
 	@Resource
 	private TicketService service;
 
@@ -93,6 +101,28 @@ public class HomeController {
 	public ResponseEntity<BaseDTO> deleteTicket(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
 		try {
 			service.deleteTicket(ticketId);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/attachment/{"+IntegrationServicesConstant.ATTACHMENT_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<BaseDTO> deleteAttachment(@PathVariable(IntegrationServicesConstant.ATTACHMENT_ID) Long attachmentId) {
+		try {
+			attachmentServiceFacade.deleteAttachment(attachmentId);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketcomment/{"+IntegrationServicesConstant.TICKETCOMMENT_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<BaseDTO> deleteTicketcomment(@PathVariable(IntegrationServicesConstant.TICKETCOMMENT_ID) Long id) {
+		try {
+			ticketcommentServiceFacade.deleteAttachment(id);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -196,6 +226,43 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	@RequestMapping(value = "/attachmentByTicId/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllAttachmentByTickId(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
+		
+		try {
+			return attachmentServiceFacade.getAllByTicketId(ticketId);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketcommentByTicId/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllTicketCommentByTickId(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
+		
+		try {
+			return ticketcommentServiceFacade.getAllByTicketId(ticketId);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketbyproidanduser", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getTiketListByIdentifier(@RequestParam("projectId") Long projectId, @RequestParam("userEmail") String userEmail) throws BusinessException {
+		
+		try {
+			return ticketfacadeService.getByProjectIDAndUserName(projectId, userEmail);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+			
 	}
 	@RequestMapping(value = { "/", "/index" })
 	public ModelAndView index(@RequestParam(required = false, defaultValue = "World") String name) {

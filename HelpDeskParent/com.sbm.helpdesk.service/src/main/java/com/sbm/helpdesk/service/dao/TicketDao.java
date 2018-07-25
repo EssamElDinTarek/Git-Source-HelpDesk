@@ -12,5 +12,5 @@ public interface TicketDao extends GenericDao<Ticket> {
 	
 	public Ticket getByTicketNumber(String ticketnumber) throws RespositoryException;
 	public List<Ticket> getByProjectName(String projectName) throws RespositoryException;
-	
+	public List<Ticket> getByProjectIDAndUserName(long projectId,String userEmail) throws RespositoryException;
 }

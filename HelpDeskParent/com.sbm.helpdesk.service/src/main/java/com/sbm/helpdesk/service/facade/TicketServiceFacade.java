@@ -139,6 +139,14 @@ public class TicketServiceFacade {
 		
 		return new ResponseDTO(null, _ticketList);
 	}
+	public ResponseDTO getByProjectIDAndUserName(Long projectId, String userEmail) throws BusinessException {
+		List<TicketDTO> _ticketList = service.getByProjectIDAndUserName(projectId, userEmail);
+		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+				"Tickets has been retrived successfully", 
+				"Tickets has been retrived successfully", null);
+		return new ResponseDTO(null, _ticketList);
+	}
+	
 	
 
 }

@@ -1,5 +1,6 @@
 package com.sbm.helpdesk.service.impl;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -55,6 +56,17 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 		ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 		ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
+		Iterator workflowstepsit =ticket.getWorkflow().getWorkflowSteps().iterator();
+		Step step = null;
+		while (workflowstepsit.hasNext()) {
+			WorkflowStep workflowstep = (WorkflowStep) workflowstepsit.next();
+			if(workflowstep.getStepOrder() == new BigDecimal(2)) {
+				step = workflowstep.getStep();
+				break;
+			}
+			
+		}
+		ticket.setStep(step);
 		ticket = ticketDao.persist(ticket);
 		result = convertToDTO(ticket, ticketDTO);
 		}catch(RespositoryException e) {
@@ -146,6 +158,23 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		return result;
 	}
 
+	@Override
+	@Transactional
+	public List<TicketDTO> getByProjectIDAndUserName(long projectId,String userEmail) throws BusinessException {
+		List<TicketDTO> result;
+		try {
+		List<Ticket> ticketList = ticketDao.getByProjectIDAndUserName(projectId, userEmail);
+		result = ticketList.stream().map(item -> convertToDTO(item, new TicketDTO())).collect(Collectors.toList());
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		return result;
+	}
 	@Override
 	@Transactional
 	public String deleteTicket(Long id) throws BusinessException {

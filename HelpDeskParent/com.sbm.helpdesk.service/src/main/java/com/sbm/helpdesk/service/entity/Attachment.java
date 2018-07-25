@@ -9,7 +9,11 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Attachment.findAll", query="SELECT a FROM Attachment a")
+@NamedQueries({
+	@NamedQuery(name="Attachment.findAll", query="SELECT a FROM Attachment a"),
+	@NamedQuery(name="Attachment.findAllByTicketId", query="SELECT a FROM Attachment a join a.ticket t where t.ticketId=:arg1 and a.deleted='0'")
+})
+
 public class Attachment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +28,8 @@ public class Attachment implements Serializable {
 	@Column(name="\"PATH\"")
 	private String path;
 
+	@Column(name="IS_DELETED")
+	private long deleted;
 	//bi-directional many-to-one association to Hduser
 	@ManyToOne
 	@JoinColumn(name="CREATOR_ID")
@@ -89,5 +95,14 @@ public class Attachment implements Serializable {
 	public void setWorkitem(Workitem workitem) {
 		this.workitem = workitem;
 	}
+
+	public long getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(long deleted) {
+		this.deleted = deleted;
+	}
+	
 
 }

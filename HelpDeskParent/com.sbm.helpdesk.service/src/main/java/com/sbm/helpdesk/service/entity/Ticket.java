@@ -72,7 +72,7 @@ public class Ticket extends BaseEntity implements Serializable {
 	//bi-directional many-to-one association to Ticket
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="STEP_ID")
-	private Ticket ticket;
+	private Step step;
 
 	//bi-directional many-to-one association to Ticket
 	//@OneToMany(mappedBy="ticket")
@@ -195,13 +195,13 @@ public class Ticket extends BaseEntity implements Serializable {
 		this.statuses = statuses;
 	}
 
-	public Ticket getTicket() {
-		return this.ticket;
+	public Step getStep() {
+		return this.step;
 	}
 
-	/*public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}*/
+	public void setStep(Step step) {
+		this.step = step;
+	}
 
 	/*public List<Ticket> getTickets() {
 		return this.tickets;

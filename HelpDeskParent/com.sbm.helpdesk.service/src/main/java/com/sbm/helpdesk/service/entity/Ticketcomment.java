@@ -10,7 +10,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TICKETCOMMENT")
-@NamedQuery(name="Ticketcomment.findAll", query="SELECT t FROM Ticketcomment t")
+@NamedQueries({
+	@NamedQuery(name="Ticketcomment.findAll", query="SELECT t FROM Ticketcomment t"),
+	@NamedQuery(name="Ticketcomment.findAllByTicketId", query="SELECT com FROM Ticketcomment com join com.ticket t where t.ticketId=:arg1 and com.deleted='0'")
+})
+
 public class Ticketcomment extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +37,9 @@ public class Ticketcomment extends BaseEntity implements Serializable {
 	@JoinColumn(name="TICKET_ID")
 	private Ticket ticket;
 
+	@Column(name="IS_DELETED")
+	private long deleted;
+	
 	public Ticketcomment() {
 	}
 
@@ -66,6 +73,15 @@ public class Ticketcomment extends BaseEntity implements Serializable {
 
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
+	}
+	
+
+	public long getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(long deleted) {
+		this.deleted = deleted;
 	}
 
 	@Override

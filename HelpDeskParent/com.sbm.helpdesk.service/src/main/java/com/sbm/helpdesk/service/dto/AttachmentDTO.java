@@ -11,7 +11,7 @@ public class AttachmentDTO extends BaseDTO  {
 	private String path;
 	private HduserDTO hduser;
 	private TicketDTO ticket;
-	private WorkitemDTO workitem;
+	//private WorkitemDTO workitem;
 	
 	public long getAttachmentId() {
 		return attachmentId;
@@ -43,12 +43,12 @@ public class AttachmentDTO extends BaseDTO  {
 	public void setTicket(TicketDTO ticket) {
 		this.ticket = ticket;
 	}
-	public WorkitemDTO getWorkitem() {
+	/*public WorkitemDTO getWorkitem() {
 		return workitem;
 	}
 	public void setWorkitem(WorkitemDTO workitem) {
 		this.workitem = workitem;
-	}
+	}*/
 	
 	
 }

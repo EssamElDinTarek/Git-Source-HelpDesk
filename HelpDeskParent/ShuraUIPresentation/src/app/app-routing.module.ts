@@ -62,7 +62,7 @@ const appRoutes: Routes = [
 @NgModule({
 	declarations: [],
 	imports: [
-		RouterModule.forRoot(appRoutes),SubmitTicketModule
+		RouterModule.forRoot(appRoutes),SubmitTicketModule,
 
 		HDURSDashboardModule,
 		HDADMDashboardModule,

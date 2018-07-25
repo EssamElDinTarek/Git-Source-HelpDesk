@@ -6,6 +6,8 @@ public class IntegrationServicesConstant {
 	public static final String SERVICE_RETRIVAL_VALUE = "value";
 	
 	public static final String TICKET_ID = "TICKET_ID";
+	public static final String ATTACHMENT_ID = "ATTACHMENT_ID";
+	public static final String TICKETCOMMENT_ID = "TICKETCOMMENT_ID";
 	public static final String TICKET_NUMBER = "TICKET_NUMBER";
 	public static final String PROJECT_NAME = "PROJECT_NAME";
 	public static final String PATHPARAM_FILES = "files";

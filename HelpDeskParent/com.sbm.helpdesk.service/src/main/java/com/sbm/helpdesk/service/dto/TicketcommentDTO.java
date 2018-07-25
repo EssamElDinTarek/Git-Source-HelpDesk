@@ -8,7 +8,7 @@ public class TicketcommentDTO extends BaseDTO  {
 	private long ticketcommentId;
 	private String commentValue;
 	private Hduser hduser;
-	private Ticket ticket;
+	//private Ticket ticket;
 	public long getTicketcommentId() {
 		return ticketcommentId;
 	}
@@ -27,12 +27,12 @@ public class TicketcommentDTO extends BaseDTO  {
 	public void setHduser(Hduser hduser) {
 		this.hduser = hduser;
 	}
-	public Ticket getTicket() {
+	/*public Ticket getTicket() {
 		return ticket;
 	}
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
-	}
+	}*/
 	
 	
 }
