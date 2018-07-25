@@ -173,6 +173,26 @@ public class TicketServiceFacade {
 		
 	}
 	
+	public ResponseDTO getHistoryByTicketId(Long ticketId) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			List<HistoryDetailsDTO> historyDetails = service.getHistoryByTicketId(ticketId);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Tickets has been retrived successfully", 
+					"Tickets has been retrived successfully", null);
+			result =  new ResponseDTO(status, historyDetails);
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+		
+	}
+	
 	
 
 }

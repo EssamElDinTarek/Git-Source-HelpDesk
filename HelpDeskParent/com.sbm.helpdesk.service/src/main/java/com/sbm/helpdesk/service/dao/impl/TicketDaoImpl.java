@@ -1,12 +1,15 @@
 package com.sbm.helpdesk.service.dao.impl;
 
 import javax.persistence.Query;
+
+import java.math.BigDecimal;
 import java.util.*;
 import org.springframework.stereotype.Repository;
 
 import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.dao.*;
+import com.sbm.helpdesk.service.dto.HistoryDetailsDTO;
 import com.sbm.helpdesk.service.entity.*;
 
 @Repository
@@ -58,6 +61,41 @@ public class TicketDaoImpl extends GenericDaoImpl<Ticket> implements TicketDao {
 		}
 		return result;
 		
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<HistoryDetailsDTO> getHistoryByTicketId(long ticketId) throws RespositoryException {
+		List<HistoryDetailsDTO> historyDetails = new ArrayList<HistoryDetailsDTO>();
+		try {
+			String sql = "select 'Information' AS TYPE, COL_NAME, OLD_VALUE, NEW_VALUE, UPDATED_BY AS ACTION_BY, UPDATED_AT AS ACTION_AT, NULL AS BEHAVIOR_NAME, NULL AS BEHAVIOR_VALUE, NULL AS ID, TICKET_ID, STEP_ID FROM helpdesk.INFORMATIONAL_DETAILS " + 
+					"UNION " + 
+					"SELECT 'Behavior',NULL,NULL,NULL,ACTION_BY,ACTION_AT,BEHAVIOR_NAME,BEHAVIOR_VALUE,ID,TICKET_ID,STEP_ID FROM helpdesk.BEHAVIORAL_DETAILS WHERE TICKET_ID = ? ORDER BY ACTION_AT";
+			Query query = entityManager.createNativeQuery(sql);
+			query.setParameter(1, ticketId);
+	    	List<Object[]> details = query.getResultList();
+	    	System.out.println("IN DAO: " + details.size());
+	    	for (Object[] a : details) {
+	    		HistoryDetailsDTO hD = new HistoryDetailsDTO();
+	    		hD.setType((String)a[0]);
+	    		hD.setColName((String)a[1]);
+	    		hD.setOldValue((String)a[2]);
+	    		hD.setNewValue((String)a[3]);
+	    		hD.setActionBy((BigDecimal)a[4]);
+	    		hD.setActionAt((Date)a[5]);
+	    		hD.setBehaviorName((String)a[6]);
+	    		hD.setBehaviorValue((String)a[7]);
+	    		hD.setId((BigDecimal)a[8]);
+	    		hD.setTicketId((BigDecimal)a[9]);
+	    		hD.setStepId((BigDecimal)a[10]);
+	    		historyDetails.add(hD);
+	    	}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+		   }
+		return historyDetails;
 	}
 	
 }

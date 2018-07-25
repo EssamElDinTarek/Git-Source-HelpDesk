@@ -193,4 +193,22 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	    	}
 		return result;
 	}
+	
+	@Override
+	@Transactional
+	public List<HistoryDetailsDTO> getHistoryByTicketId(long ticketId) throws BusinessException {
+		List<HistoryDetailsDTO> result;
+		try {
+		List<HistoryDetailsDTO> HistoryDetails = ticketDao.getHistoryByTicketId(ticketId);
+		result = HistoryDetails;
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		return result;
+	}
 }
