@@ -28,35 +28,23 @@ public class TicketServiceFacade {
 	private AttachmentService attachmentService;
 	
 	
-	public ResponseDTO creatTicket( MultipartFile[] files, String ticket) throws BusinessException, Exception {
-		ObjectMapper mapper = new ObjectMapper();
-		TicketDTO ticketdto = mapper.readValue(ticket, new TypeReference<TicketDTO>() {});
-		TicketDTO newTicket = service.addTicket(ticketdto);
-		String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+newTicket.getTicketnumber()+"_attachment/";
-		new File(folderPath).mkdirs();
-		for(MultipartFile file :files) {
-			 if (!file.getOriginalFilename().isEmpty()) {
-				 String filePath = folderPath +  file.getOriginalFilename();
-		         BufferedOutputStream outputStream = new BufferedOutputStream(
-		               new FileOutputStream(
-		                     new File(folderPath, file.getOriginalFilename())));
-		         outputStream.write(file.getBytes());
-		         outputStream.flush();
-		         outputStream.close();
-		         AttachmentDTO attachmentDTO = new AttachmentDTO();
-		         attachmentDTO.setDescription(file.getOriginalFilename());
-		         attachmentDTO.setPath(filePath);
-		         attachmentDTO.setTicket(newTicket);
-		         attachmentService.addAttachment(attachmentDTO);
-		      }
-		}
-		
-		if(newTicket == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Ticket has been added successfully", 
-				"Ticket has been added successfully", null);
-		return new ResponseDTO(status, newTicket) ;
+	public ResponseDTO creatTicket( MultipartFile[] files, String ticket) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			service.addTicket(files, ticket);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Attachment has been deleted successfully", 
+					"Attachment has been deleted successfully", null);
+			result = new ResponseDTO(status, "Sucsses");
+			 }catch(BusinessException e) {
+				 e.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+				}
+			 catch(Exception e1) {
+				 e1.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+			 }
+			 return result;
 	}
 	public ResponseDTO updateTicket(TicketDTO ticketdto) throws BusinessException {
 		TicketDTO _ticket = service.updateTicket(ticketdto);
@@ -67,34 +55,23 @@ public class TicketServiceFacade {
 				"Ticket has been updated successfully", null);
 		return new ResponseDTO(status, _ticket) ;
 	}
-	public ResponseDTO updateTicket( MultipartFile[] files, String ticket) throws BusinessException, Exception {
-		ObjectMapper mapper = new ObjectMapper();
-		TicketDTO ticketdto = mapper.readValue(ticket, new TypeReference<TicketDTO>() {});
-		TicketDTO _ticket = service.updateTicket(ticketdto);
-		String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+_ticket.getTicketnumber()+"_attachment/";
-		new File(folderPath).mkdirs();
-		for(MultipartFile file :files) {
-			 if (!file.getOriginalFilename().isEmpty()) {
-				 String filePath = folderPath +  file.getOriginalFilename();
-		         BufferedOutputStream outputStream = new BufferedOutputStream(
-		               new FileOutputStream(
-		                     new File(folderPath, file.getOriginalFilename())));
-		         outputStream.write(file.getBytes());
-		         outputStream.flush();
-		         outputStream.close();
-		         AttachmentDTO attachmentDTO = new AttachmentDTO();
-		         attachmentDTO.setDescription(file.getOriginalFilename());
-		         attachmentDTO.setPath(filePath);
-		         attachmentDTO.setTicket(_ticket);
-		         attachmentService.addAttachment(attachmentDTO);
-		      }
-		}
-		if(_ticket == null)
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Ticket has been updated successfully", 
-				"Ticket has been updated successfully", null);
-		return new ResponseDTO(status, _ticket) ;
+	public ResponseDTO updateTicket( MultipartFile[] files, String ticket) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			service.updateTicket(files, ticket);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Attachment has been deleted successfully", 
+					"Attachment has been deleted successfully", null);
+			result = new ResponseDTO(status, "Sucsses");
+			 }catch(BusinessException e) {
+				 e.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+				}
+			 catch(Exception e1) {
+				 e1.printStackTrace();
+				 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+			 }
+			 return result;
 	}
 	public ResponseDTO deleteTicket(Long ticketId) throws ControllerException {
 		

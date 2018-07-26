@@ -15,6 +15,25 @@ public class TicketcommentServiceFacade {
 	@Autowired
 	private TicketcommentService service;
 	
+	
+	public ResponseDTO addTicketcomment(TicketcommentDTO ticketcommentDTO) throws ControllerException {
+		ResponseDTO result = null;
+		 try {
+		TicketcommentDTO _ticketcomment = service.addTicketcomment(ticketcommentDTO);
+		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+				"Attachment has been deleted successfully", 
+				"Attachment has been deleted successfully", null);
+		result = new ResponseDTO(status, _ticketcomment);
+		 }catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+	}
 	public ResponseDTO getAllByTicketId(long tickId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {

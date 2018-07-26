@@ -31,6 +31,7 @@ import com.sbm.helpdesk.service.dto.BaseDTO;
 import com.sbm.helpdesk.service.dto.TicketDTO;
 import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
 import com.sbm.helpdesk.service.dto.TicketSeverityDTO;
+import com.sbm.helpdesk.service.dto.TicketcommentDTO;
 import com.sbm.helpdesk.service.dto.WorkflowDTO;
 import com.sbm.helpdesk.service.facade.AttachmentServiceFacade;
 import com.sbm.helpdesk.service.facade.TicketPriorityServiceFacade;
@@ -262,6 +263,17 @@ public class HomeController {
 		}
 		return null;
 			
+	}
+	@RequestMapping(value = "/ticketcomment", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO creatTicketComment(@RequestBody TicketcommentDTO ticketcommentDTO) {
+		try {
+			return ticketcommentServiceFacade.addTicketcomment(ticketcommentDTO);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	@RequestMapping(value = { "/", "/index" })
 	public ModelAndView index(@RequestParam(required = false, defaultValue = "World") String name) {

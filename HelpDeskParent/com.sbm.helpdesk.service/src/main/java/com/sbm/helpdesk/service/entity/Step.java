@@ -35,6 +35,10 @@ public class Step extends BaseEntity implements Serializable {
 	//bi-directional many-to-one association to Workitem
 	@OneToMany(mappedBy="step")
 	private List<Workitem> workitems;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="TEAM_ID")
+	private Team team;
 
 	public Step() {
 	}
@@ -121,6 +125,13 @@ public class Step extends BaseEntity implements Serializable {
 		return workitem;
 	}
 
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
 
 	@Override
 	public int hashCode() {

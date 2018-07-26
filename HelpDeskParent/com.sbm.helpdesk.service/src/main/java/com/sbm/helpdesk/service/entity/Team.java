@@ -31,6 +31,8 @@ public class Team extends BaseEntity implements Serializable {
 	@OneToMany(mappedBy="team")
 	private List<Hduser> hdusers;
 
+	@OneToMany(mappedBy="team")
+	private List<Step> steps;
 	public Team() {
 	}
 
@@ -78,6 +80,15 @@ public class Team extends BaseEntity implements Serializable {
 		hduser.setTeam(null);
 
 		return hduser;
+	}
+	
+
+	public List<Step> getSteps() {
+		return steps;
+	}
+
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
 	}
 
 	@Override
