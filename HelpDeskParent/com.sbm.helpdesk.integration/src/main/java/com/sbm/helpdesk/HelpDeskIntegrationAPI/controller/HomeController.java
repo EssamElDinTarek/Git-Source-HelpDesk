@@ -1,13 +1,22 @@
 package com.sbm.helpdesk.HelpDeskIntegrationAPI.controller;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,10 +32,12 @@ import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
+import com.sbm.helpdesk.service.AttachmentService;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
 import com.sbm.helpdesk.service.TicketSeverityService;
 import com.sbm.helpdesk.service.WorkflowService;
+import com.sbm.helpdesk.service.dto.AttachmentDTO;
 import com.sbm.helpdesk.service.dto.BaseDTO;
 import com.sbm.helpdesk.service.dto.TicketDTO;
 import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
@@ -57,6 +68,9 @@ public class HomeController {
 
 	@Resource
 	private TicketService service;
+	
+	@Resource
+	private AttachmentService 	attachmentService;
 
 	@Resource
 	private WorkflowService wfservice;
@@ -281,5 +295,38 @@ public class HomeController {
 		// Adds an objet to be used in home.jsp
 		ret.addObject("name", name);
 		return ret;
+	}
+	
+	@RequestMapping(value = "/download", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+    public void downloadFile(HttpServletResponse response, @RequestParam(IntegrationServicesConstant.ATTACHMENT_ID) Long attachmentId) throws IOException, BusinessException {
+     
+		AttachmentDTO attachmentDTO = attachmentService.getAttachmentById(attachmentId);
+		
+        File file = new File(attachmentDTO.getPath());
+         
+        if(!file.exists()){
+            String errorMessage = "The file you are looking for does not exist";
+            System.out.println(errorMessage);
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(errorMessage.getBytes(Charset.forName("UTF-8")));
+            outputStream.close();
+            return;
+        }
+         
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
+         
+        response.setContentLength((int)file.length());
+ 
+        InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+	
+	@RequestMapping(value = "/uploadAttachment", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@ResponseBody
+	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) long ticketId,
+			@RequestParam(IntegrationServicesConstant.USER_ID) long userId, Model model) throws BusinessException, Exception {
+		System.out.println("Test 1 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
+		return attachmentServiceFacade.uploadAttachment(userId, files, ticketId);
 	}
 }

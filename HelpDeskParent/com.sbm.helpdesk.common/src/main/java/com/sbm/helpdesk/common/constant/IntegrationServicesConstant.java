@@ -12,9 +12,10 @@ public class IntegrationServicesConstant {
 	public static final String PROJECT_NAME = "PROJECT_NAME";
 	public static final String PROJECT_Id = "PROJECT_ID";
 	public static final String USER_EMAIL = "USER_EMAIL";
+	public static final String USER_ID = "USER_ID";
 	public static final String PATHPARAM_FILES = "files";
 	public static final String PATHPARAM_TICKET = "ticket";
-	public static final String ATTACHMENT_PATH = "E:/SingleFileUpload/";
+	public static final String ATTACHMENT_PATH = "C:/SingleFileUpload/";
 	
 	
 	
