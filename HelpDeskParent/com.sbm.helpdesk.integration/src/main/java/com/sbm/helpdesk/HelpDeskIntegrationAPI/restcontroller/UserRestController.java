@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sbm.helpdesk.service.UserService;
-import com.sbm.helpdesk.service.dto.BaseDTO;
-import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.common.dto.*;
 import com.sbm.helpdesk.common.constant.IntegrationServicesConstant;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 

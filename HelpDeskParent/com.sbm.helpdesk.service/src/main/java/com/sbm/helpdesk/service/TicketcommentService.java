@@ -5,8 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
-import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
-import com.sbm.helpdesk.service.dto.*;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface TicketcommentService {

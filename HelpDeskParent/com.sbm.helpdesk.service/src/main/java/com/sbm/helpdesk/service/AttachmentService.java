@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
-import com.sbm.helpdesk.service.dto.*;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface AttachmentService {

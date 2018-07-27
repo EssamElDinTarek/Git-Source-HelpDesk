@@ -25,6 +25,11 @@
 			<groupId>com.sbm.helpdesk.common</groupId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<artifactId>com.sbm.helpdesk.persistence</artifactId>
+			<groupId>com.sbm.helpdesk.persistence</groupId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

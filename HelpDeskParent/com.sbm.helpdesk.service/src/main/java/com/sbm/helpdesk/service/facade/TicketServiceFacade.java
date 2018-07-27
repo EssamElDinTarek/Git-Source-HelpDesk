@@ -1,22 +1,14 @@
 package com.sbm.helpdesk.service.facade;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.sbm.helpdesk.common.dto.*;
 import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.*;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sbm.helpdesk.common.constant.IntegrationServicesConstant;
 import com.sbm.helpdesk.service.*;
-import com.sbm.helpdesk.service.dto.*;
 
 @Service
 public class TicketServiceFacade {
