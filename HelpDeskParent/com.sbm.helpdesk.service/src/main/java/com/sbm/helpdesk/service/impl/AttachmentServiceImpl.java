@@ -23,6 +23,7 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	
 	@Autowired
 	private AttachmentDao attachmentDao;
+	
 	@Autowired
 	private TicketDao ticketDao;
 	
@@ -109,8 +110,30 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 		try {
 			Ticket ticket = ticketDao.findById(ticketId);
 			Hduser user = userDao.findById(userId);
-			String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
+			result = saveAttachment(user, files, ticket);
 			
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		return result;
+	}
+	
+	@Override
+	@Transactional
+	public boolean saveAttachment(Hduser user, MultipartFile[] files, Ticket ticket) throws BusinessException {
+		boolean result = false;
+		String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
+		
+		try {
+			File folder = new File(folderPath);
+			if(!folder.exists()){
+				folder.mkdirs();
+			}
 			for(MultipartFile file :files) {
 				 if (!file.getOriginalFilename().isEmpty()) {
 					 String filePath = folderPath +  file.getOriginalFilename();
@@ -139,6 +162,5 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	    	}
 		return result;
 	}
-
 
 }

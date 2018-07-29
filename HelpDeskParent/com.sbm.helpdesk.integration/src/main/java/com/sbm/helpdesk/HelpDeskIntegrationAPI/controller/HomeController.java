@@ -93,7 +93,7 @@ public class HomeController {
 	         Model model) throws BusinessException, Exception {
 		return ticketfacadeService.updateTicket(files, ticket);
 	}
-	@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	/*@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> updateTicket(@RequestBody TicketDTO ticketdto) {
 		TicketDTO _ticket = null; 
@@ -104,7 +104,7 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		return dtoProvider.addObj(_ticket);
-	}
+	}*/
 	@RequestMapping(value = "/ticket/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> deleteTicket(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {

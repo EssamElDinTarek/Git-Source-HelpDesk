@@ -8,6 +8,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +46,12 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	
 	@Autowired
 	private AttachmentDao attachmentDao;
+	
+	@Autowired
+	private StepDao stepDao;
+	
+	@Resource
+	private AttachmentService attachmentService;
 
 	private Ticket ticket = new Ticket();
 
@@ -61,8 +70,8 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			Timestamp ts = new Timestamp(date.getTime());
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String ticketNumber = "Tic_" + sdf.format(ts) + String.format("%03d", new Random().nextInt(1000));
-
 			ticket.setTicketnumber(ticketNumber);
+			ticket.setStep(stepDao.findById(1));
 			ticket.setProject(projectDao.findById(ticket.getProject().getProjectId()));
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
@@ -80,24 +89,8 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setStep(step);
 			ticket = ticketDao.persist(ticket);
 			result = convertToDTO(ticket, ticketdto);
-			String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+result.getTicketnumber()+"_attachment/";
-			new File(folderPath).mkdirs();
-			for(MultipartFile file :files) {
-				 if (!file.getOriginalFilename().isEmpty()) {
-					 String filePath = folderPath +  file.getOriginalFilename();
-			         BufferedOutputStream outputStream = new BufferedOutputStream(
-			               new FileOutputStream(
-			                     new File(folderPath, file.getOriginalFilename())));
-			         outputStream.write(file.getBytes());
-			         outputStream.flush();
-			         outputStream.close();
-			         Attachment attachment = new Attachment();
-			         attachment.setDescription(file.getOriginalFilename());
-			         attachment.setPath(filePath);
-			         attachment.setTicket(ticket);
-			         attachmentDao.persist(attachment);
-			      }
-			}
+			attachmentService.saveAttachment(null, files, ticket);
+			
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -110,15 +103,15 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 
 	@Override
 	@Transactional
-	public TicketDTO updateTicket(TicketDTO ticketDTO) throws BusinessException {
-		TicketDTO result = null;
+	public Ticket updateTicket(Ticket ticket) throws BusinessException {
+		Ticket result = null;
 		try {
-			ticket = convertToEntity(ticket, ticketDTO);
+			
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
-			ticket = ticketDao.update(ticket);
-			result = convertToDTO(ticket, ticketDTO);
+			result = ticketDao.update(ticket);
+			
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -137,32 +130,10 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ObjectMapper mapper = new ObjectMapper();
 			TicketDTO ticketdto = mapper.readValue(ticketString, new TypeReference<TicketDTO>() {});
 			ticket = convertToEntity(ticket, ticketdto);
-			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
-			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
-			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
-			ticket = ticketDao.update(ticket);
+			ticket = updateTicket(ticket);
 			result = convertToDTO(ticket, ticketdto);
 			String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
-			new File(folderPath).mkdirs();
-			for(MultipartFile file :files) {
-				 if (!file.getOriginalFilename().isEmpty()) {
-					 String filePath = folderPath +  file.getOriginalFilename();
-			         BufferedOutputStream outputStream = new BufferedOutputStream(
-			               new FileOutputStream(
-			                     new File(folderPath, file.getOriginalFilename())));
-			         outputStream.write(file.getBytes());
-			         outputStream.flush();
-			         outputStream.close();
-			         Attachment attachment = new Attachment();
-			         attachment.setDescription(file.getOriginalFilename());
-			         attachment.setPath(filePath);
-			         attachment.setTicket(ticket);
-			         attachmentDao.update(attachment);
-			      }
-			}
-		} catch (RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+			attachmentService.saveAttachment(null, files, ticket);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);

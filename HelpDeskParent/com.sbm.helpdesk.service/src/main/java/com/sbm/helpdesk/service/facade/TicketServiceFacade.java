@@ -38,7 +38,7 @@ public class TicketServiceFacade {
 			 }
 			 return result;
 	}
-	public ResponseDTO updateTicket(TicketDTO ticketdto) throws BusinessException {
+	/*public ResponseDTO updateTicket(TicketDTO ticketdto) throws BusinessException {
 		TicketDTO _ticket = service.updateTicket(ticketdto);
 		if(_ticket == null)
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
@@ -46,7 +46,7 @@ public class TicketServiceFacade {
 				"Ticket has been updated successfully", 
 				"Ticket has been updated successfully", null);
 		return new ResponseDTO(status, _ticket) ;
-	}
+	}*/
 	public ResponseDTO updateTicket( MultipartFile[] files, String ticket) throws ControllerException {
 		ResponseDTO result = null;
 		try {
