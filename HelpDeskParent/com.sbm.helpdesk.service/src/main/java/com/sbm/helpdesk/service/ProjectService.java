@@ -4,9 +4,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
-import com.sbm.helpdesk.service.dto.ProjectDTO;
-import com.sbm.helpdesk.service.entity.Hduser;
-import com.sbm.helpdesk.service.entity.Portfolio;
+import com.sbm.helpdesk.persistence.entity.*;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface ProjectService {

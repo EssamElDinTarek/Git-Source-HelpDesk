@@ -4,8 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface UserDetailsService extends org.springframework.security.core.userdetails.UserDetailsService{

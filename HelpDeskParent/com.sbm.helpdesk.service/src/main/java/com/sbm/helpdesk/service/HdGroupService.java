@@ -6,12 +6,8 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
-import com.sbm.helpdesk.service.dto.HdgroupDTO;
-import com.sbm.helpdesk.service.dto.UserDTO;
-import com.sbm.helpdesk.service.entity.Component;
-import com.sbm.helpdesk.service.entity.Hdgroup;
-import com.sbm.helpdesk.service.entity.Hduser;
-import com.sbm.helpdesk.service.entity.Privilege;
+import com.sbm.helpdesk.persistence.entity.*;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface HdGroupService {

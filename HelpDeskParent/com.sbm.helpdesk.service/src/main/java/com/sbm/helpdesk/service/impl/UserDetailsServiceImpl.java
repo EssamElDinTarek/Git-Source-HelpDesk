@@ -10,8 +10,8 @@ import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 //import com.sbm.helpdesk.service.UserDetailsService;
-import com.sbm.helpdesk.service.dao.UserDao;
-import com.sbm.helpdesk.service.entity.Hduser;;
+import com.sbm.helpdesk.persistence.dao.UserDao;
+import com.sbm.helpdesk.persistence.entity.*;
 
 @Service
 public class UserDetailsServiceImpl implements org.springframework.security.core.userdetails.UserDetailsService {

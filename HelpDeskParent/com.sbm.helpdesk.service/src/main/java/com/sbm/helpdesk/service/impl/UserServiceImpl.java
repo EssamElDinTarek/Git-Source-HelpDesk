@@ -12,9 +12,9 @@ import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.UserService;
-import com.sbm.helpdesk.service.dao.UserDao;
-import com.sbm.helpdesk.service.dto.UserDTO;
-import com.sbm.helpdesk.service.entity.Hduser;
+import com.sbm.helpdesk.persistence.dao.UserDao;
+import com.sbm.helpdesk.persistence.entity.*;
+import com.sbm.helpdesk.common.dto.*;
 
 @Service
 public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implements UserService{

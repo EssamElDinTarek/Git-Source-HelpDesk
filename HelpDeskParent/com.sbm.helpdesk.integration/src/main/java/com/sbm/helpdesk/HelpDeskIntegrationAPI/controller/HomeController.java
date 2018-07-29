@@ -1,13 +1,22 @@
 package com.sbm.helpdesk.HelpDeskIntegrationAPI.controller;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,17 +32,16 @@ import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
+import com.sbm.helpdesk.service.AttachmentService;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
 import com.sbm.helpdesk.service.TicketSeverityService;
 import com.sbm.helpdesk.service.WorkflowService;
-import com.sbm.helpdesk.service.dto.BaseDTO;
-import com.sbm.helpdesk.service.dto.TicketDTO;
-import com.sbm.helpdesk.service.dto.TicketPriorityDTO;
-import com.sbm.helpdesk.service.dto.TicketSeverityDTO;
-import com.sbm.helpdesk.service.dto.WorkflowDTO;
+import com.sbm.helpdesk.common.dto.*;
+import com.sbm.helpdesk.service.facade.AttachmentServiceFacade;
 import com.sbm.helpdesk.service.facade.TicketPriorityServiceFacade;
 import com.sbm.helpdesk.service.facade.TicketServiceFacade;
+import com.sbm.helpdesk.service.facade.TicketcommentServiceFacade;
 
 @Controller
 @CrossOrigin("*")
@@ -47,7 +55,16 @@ public class HomeController {
 	private TicketServiceFacade ticketfacadeService;
 	
 	@Resource
+	private AttachmentServiceFacade attachmentServiceFacade;
+	
+	@Resource
+	private TicketcommentServiceFacade ticketcommentServiceFacade;
+
+	@Resource
 	private TicketService service;
+	
+	@Resource
+	private AttachmentService 	attachmentService;
 
 	@Resource
 	private WorkflowService wfservice;
@@ -76,7 +93,7 @@ public class HomeController {
 	         Model model) throws BusinessException, Exception {
 		return ticketfacadeService.updateTicket(files, ticket);
 	}
-	@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	/*@RequestMapping(value = "/ticket", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> updateTicket(@RequestBody TicketDTO ticketdto) {
 		TicketDTO _ticket = null; 
@@ -87,12 +104,34 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		return dtoProvider.addObj(_ticket);
-	}
+	}*/
 	@RequestMapping(value = "/ticket/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<BaseDTO> deleteTicket(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
 		try {
 			service.deleteTicket(ticketId);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/attachment/{"+IntegrationServicesConstant.ATTACHMENT_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<BaseDTO> deleteAttachment(@PathVariable(IntegrationServicesConstant.ATTACHMENT_ID) Long attachmentId) {
+		try {
+			attachmentServiceFacade.deleteAttachment(attachmentId);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketcomment/{"+IntegrationServicesConstant.TICKETCOMMENT_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<BaseDTO> deleteTicketcomment(@PathVariable(IntegrationServicesConstant.TICKETCOMMENT_ID) Long id) {
+		try {
+			ticketcommentServiceFacade.deleteAttachment(id);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -188,9 +227,56 @@ public class HomeController {
 	@RequestMapping(value = "/ticketprioritys", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO getAllTicketPrioritys() {
-		
 		try {
 			return facadeService.getAllTicketPriority();
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/attachmentByTicId/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllAttachmentByTickId(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
+		
+		try {
+			return attachmentServiceFacade.getAllByTicketId(ticketId);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketcommentByTicId/{"+IntegrationServicesConstant.TICKET_ID+"}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllTicketCommentByTickId(@PathVariable(IntegrationServicesConstant.TICKET_ID) Long ticketId) {
+		
+		try {
+			return ticketcommentServiceFacade.getAllByTicketId(ticketId);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@RequestMapping(value = "/ticketbyproidanduser", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getTiketListByIdentifier(@RequestParam(IntegrationServicesConstant.PROJECT_Id) Long projectId, @RequestParam(IntegrationServicesConstant.USER_EMAIL) String userEmail) throws BusinessException {
+		
+		try {
+			return ticketfacadeService.getByProjectIDAndUserName(projectId, userEmail);
+		} catch (ControllerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+			
+	}
+	@RequestMapping(value = "/ticketcomment", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO creatTicketComment(@RequestBody TicketcommentDTO ticketcommentDTO) {
+		try {
+			return ticketcommentServiceFacade.addTicketcomment(ticketcommentDTO);
 		} catch (ControllerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -203,5 +289,38 @@ public class HomeController {
 		// Adds an objet to be used in home.jsp
 		ret.addObject("name", name);
 		return ret;
+	}
+	
+	@RequestMapping(value = "/download", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+    public void downloadFile(HttpServletResponse response, @RequestParam(IntegrationServicesConstant.ATTACHMENT_ID) Long attachmentId) throws IOException, BusinessException {
+     
+		AttachmentDTO attachmentDTO = attachmentService.getAttachmentById(attachmentId);
+		
+        File file = new File(attachmentDTO.getPath());
+         
+        if(!file.exists()){
+            String errorMessage = "The file you are looking for does not exist";
+            System.out.println(errorMessage);
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(errorMessage.getBytes(Charset.forName("UTF-8")));
+            outputStream.close();
+            return;
+        }
+         
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
+         
+        response.setContentLength((int)file.length());
+ 
+        InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+	
+	@RequestMapping(value = "/uploadAttachment", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@ResponseBody
+	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) long ticketId,
+			@RequestParam(IntegrationServicesConstant.USER_ID) long userId, Model model) throws BusinessException, Exception {
+		System.out.println("Test 1 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
+		return attachmentServiceFacade.uploadAttachment(userId, files, ticketId);
 	}
 }

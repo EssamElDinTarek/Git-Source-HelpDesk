@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.sbm.helpdesk.common.dto.*;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
-import com.sbm.helpdesk.service.dto.*;
 import com.sbm.helpdesk.service.facade.*;
 
 @RestController

@@ -4,7 +4,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
-import com.sbm.helpdesk.service.dto.UserDTO;
+import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface UserService {
