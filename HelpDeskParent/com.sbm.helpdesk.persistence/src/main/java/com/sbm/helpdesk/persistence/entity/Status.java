@@ -24,11 +24,8 @@ public class Status extends BaseEntity implements Serializable {
 	@Column(length=200)
 	private String status;
 
-	//bi-directional many-to-many association to Ticket
-	 @JoinTable(name = "TICKET_STATUS", joinColumns = {
-		        @JoinColumn(name = "STATUS_ID", referencedColumnName = "STATUS_ID")}, inverseJoinColumns = {
-		        @JoinColumn(name = "TICKET_ID", referencedColumnName = "TICKET_ID")})
-		    @ManyToMany
+	//bi-directional many-to-one association to Ticket
+    @OneToMany(mappedBy="status")
 	private List<Ticket> tickets;
 
 	public Status() {

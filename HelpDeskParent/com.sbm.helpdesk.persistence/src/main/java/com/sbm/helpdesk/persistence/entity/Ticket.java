@@ -36,8 +36,9 @@ public class Ticket extends BaseEntity implements Serializable {
 	@Column(length=255)
 	private String description;
 	
-	@Column(length=255)
-	private String status;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="STATUS_ID")
+	private Status status;
 
 	@Column(length=255)
 	private String title;
@@ -57,7 +58,7 @@ public class Ticket extends BaseEntity implements Serializable {
 	private Project project;
 
 	//bi-directional many-to-many association to Status
-	@ManyToMany(cascade = CascadeType.ALL)
+	/*@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="TICKET_STATUS"
 		, joinColumns={
@@ -67,7 +68,7 @@ public class Ticket extends BaseEntity implements Serializable {
 			@JoinColumn(name="STATUS_ID")
 			}
 		)
-	private List<Status> statuses;
+	private List<Status> statuses;*/
 
 	//bi-directional many-to-one association to Ticket
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -133,14 +134,7 @@ public class Ticket extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
+	
 	public String getTitle() {
 		return this.title;
 	}
@@ -187,16 +181,25 @@ public class Ticket extends BaseEntity implements Serializable {
 		this.project = project;
 	}
 
-	public List<Status> getStatuses() {
+	/*public List<Status> getStatuses() {
 		return this.statuses;
 	}
 
 	public void setStatuses(List<Status> statuses) {
 		this.statuses = statuses;
-	}
+	}*/
 
+	
 	public Step getStep() {
 		return this.step;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public void setStep(Step step) {
