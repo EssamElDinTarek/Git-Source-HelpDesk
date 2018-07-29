@@ -1,5 +1,6 @@
 package com.sbm.helpdesk.persistence.entity;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -29,6 +30,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "InformationalDetails.findByColName", query = "SELECT i FROM InformationalDetails i WHERE i.colName = :colName"),
     @NamedQuery(name = "InformationalDetails.findByOldValue", query = "SELECT i FROM InformationalDetails i WHERE i.oldValue = :oldValue"),
     @NamedQuery(name = "InformationalDetails.findByNewValue", query = "SELECT i FROM InformationalDetails i WHERE i.newValue = :newValue"),
+    @NamedQuery(name = "InformationalDetails.findByticketId", query = "SELECT i FROM InformationalDetails i WHERE i.ticketId.ticketId = :ticketId"),
     @NamedQuery(name = "InformationalDetails.findByUpdatedAt", query = "SELECT i FROM InformationalDetails i WHERE i.updatedAt = :updatedAt")})
 public class InformationalDetails extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;

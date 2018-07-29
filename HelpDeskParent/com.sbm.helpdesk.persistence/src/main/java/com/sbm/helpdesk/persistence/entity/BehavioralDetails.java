@@ -1,5 +1,6 @@
 package com.sbm.helpdesk.persistence.entity;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -19,7 +20,6 @@ import javax.persistence.TemporalType;
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
 
-
 /**
  *
  * @author Ahmed Magdy
@@ -31,6 +31,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "BehavioralDetails.findByBehaviorId", query = "SELECT b FROM BehavioralDetails b WHERE b.behaviorId = :behaviorId"),
     @NamedQuery(name = "BehavioralDetails.findByBehaviorName", query = "SELECT b FROM BehavioralDetails b WHERE b.behaviorName = :behaviorName"),
     @NamedQuery(name = "BehavioralDetails.findByBehaviorValue", query = "SELECT b FROM BehavioralDetails b WHERE b.behaviorValue = :behaviorValue"),
+    @NamedQuery(name = "BehavioralDetails.findByticketId", query = "SELECT b FROM BehavioralDetails b WHERE b.ticketId.ticketId = :ticketId"),
     @NamedQuery(name = "BehavioralDetails.findByActionAt", query = "SELECT b FROM BehavioralDetails b WHERE b.actionAt = :actionAt")})
 public class BehavioralDetails extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
