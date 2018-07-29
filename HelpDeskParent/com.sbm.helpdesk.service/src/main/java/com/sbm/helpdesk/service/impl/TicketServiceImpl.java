@@ -50,6 +50,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Autowired
 	private StepDao stepDao;
 	
+	@Autowired
+	private StatusDao statusDao;
+	
 	@Resource
 	private AttachmentService attachmentService;
 
@@ -71,26 +74,16 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String ticketNumber = "Tic_" + sdf.format(ts) + String.format("%03d", new Random().nextInt(1000));
 			ticket.setTicketnumber(ticketNumber);
-			ticket.setStep(stepDao.findById(1));
+			ticket.setStatus(statusDao.findById(1L));
+			ticket.setStep(stepDao.findById(1L));
 			ticket.setProject(projectDao.findById(ticket.getProject().getProjectId()));
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
-			Iterator workflowstepsit = ticket.getWorkflow().getWorkflowSteps().iterator();
-			Step step = null;
-			while (workflowstepsit.hasNext()) {
-				WorkflowStep workflowstep = (WorkflowStep) workflowstepsit.next();
-				if (workflowstep.getStepOrder() == new BigDecimal(2)) {
-					step = workflowstep.getStep();
-					break;
-				}
-
-			}
-			ticket.setStep(step);
 			ticket = ticketDao.persist(ticket);
-			result = convertToDTO(ticket, ticketdto);
 			attachmentService.saveAttachment(null, files, ticket);
-			
+			ticket = changeStepAndStatus(ticket);
+			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -245,5 +238,25 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
 		return result;
+	}
+	
+	@Transactional
+	public Ticket changeStepAndStatus(Ticket ticket) throws RespositoryException, BusinessException{
+		Iterator workflowstepsit = ticket.getWorkflow().getWorkflowSteps().iterator();
+		Step step = null;
+		//BigDecimal x =new BigDecimal(2);
+		while (workflowstepsit.hasNext()) {
+			WorkflowStep workflowstep = (WorkflowStep) workflowstepsit.next();
+			//BigDecimal y = workflowstep.getStepOrder() ;
+			if (workflowstep.getStepOrder().intValue() == 2) {
+				step = workflowstep.getStep();
+				break;
+			}
+
+		}
+		ticket.setStatus(statusDao.findById(2L));
+		ticket.setStep(stepDao.findById(step.getStepId()));
+		ticket = updateTicket(ticket);
+		return ticket;
 	}
 }

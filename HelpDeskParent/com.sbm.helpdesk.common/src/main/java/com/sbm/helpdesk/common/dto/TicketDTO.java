@@ -10,9 +10,10 @@ public class TicketDTO extends BaseDTO  {
 	private long ticketId;
 	private Date creationdate;
 	private String description;
-	private String status;
+	private StatusDTO status;
 	private String title;
 	private String ticketnumber;
+	private StepDTO step;
 	//private Set<AttachmentDTO> attachments;
 	//private HduserDTO hduser;
 	private ProjectDTO project;
@@ -40,10 +41,10 @@ public class TicketDTO extends BaseDTO  {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStatus() {
+	public StatusDTO getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(StatusDTO status) {
 		this.status = status;
 	}
 	public String getTitle() {
@@ -82,9 +83,11 @@ public class TicketDTO extends BaseDTO  {
 	public void setProject(ProjectDTO project) {
 		this.project = project;
 	}
-	
-	
-	
-	
+	public StepDTO getStep() {
+		return step;
+	}
+	public void setStep(StepDTO step) {
+		this.step = step;
+	}
 	
 }

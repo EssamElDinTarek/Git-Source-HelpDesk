@@ -23,11 +23,11 @@ public class TicketServiceFacade {
 	public ResponseDTO creatTicket( MultipartFile[] files, String ticket) throws ControllerException {
 		ResponseDTO result = null;
 		try {
-			service.addTicket(files, ticket);
+			TicketDTO ticketDTO =service.addTicket(files, ticket);
 			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-					"Attachment has been deleted successfully", 
-					"Attachment has been deleted successfully", null);
-			result = new ResponseDTO(status, "Sucsses");
+					"Attachment has been created successfully", 
+					"Attachment has been created successfully", null);
+			result = new ResponseDTO(status, ticketDTO);
 			 }catch(BusinessException e) {
 				 e.printStackTrace();
 				 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);

@@ -7,7 +7,7 @@ public class StatusDTO extends BaseDTO  {
 	private static final long serialVersionUID = 6104011990509049339L;
 	private long statusId;
 	private String status;
-	private Set<TicketDTO> tickets;
+	//private Set<TicketDTO> tickets;
 	public long getStatusId() {
 		return statusId;
 	}
@@ -20,12 +20,7 @@ public class StatusDTO extends BaseDTO  {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Set<TicketDTO> getTickets() {
-		return tickets;
-	}
-	public void setTickets(Set<TicketDTO> tickets) {
-		this.tickets = tickets;
-	}
+	
 	
 	
 }
