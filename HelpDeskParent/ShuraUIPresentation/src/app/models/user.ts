@@ -2,10 +2,10 @@ import { Portfolio } from "./portfolio";
 import { Project } from "./project";
 export class User {
     userId: number;
-    email: string;
+    emailAddress: string;
     firstName: string;
     lastName: string;
-    username: string;
+    userName: string;
     userPassword: string;
     portfolio: Portfolio;
     projects: Project[];
