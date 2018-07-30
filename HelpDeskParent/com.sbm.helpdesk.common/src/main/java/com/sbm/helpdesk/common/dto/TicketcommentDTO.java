@@ -7,7 +7,7 @@ public class TicketcommentDTO extends BaseDTO  {
 	private long ticketcommentId;
 	private String commentValue;
 	private HduserDTO hduser;
-	//private Ticket ticket;
+	private Long ticketId;
 	public long getTicketcommentId() {
 		return ticketcommentId;
 	}
@@ -26,13 +26,14 @@ public class TicketcommentDTO extends BaseDTO  {
 	public void setHduser(HduserDTO hduser) {
 		this.hduser = hduser;
 	}
-	
-	/*public Ticket getTicket() {
-		return ticket;
+	public Long getTicketId() {
+		return ticketId;
 	}
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}*/
+	public void setTicketId(Long ticketId) {
+		this.ticketId = ticketId;
+	}
+	
+	
 	
 	
 }
