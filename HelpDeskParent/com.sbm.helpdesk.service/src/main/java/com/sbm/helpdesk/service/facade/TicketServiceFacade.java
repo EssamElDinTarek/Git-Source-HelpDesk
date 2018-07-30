@@ -162,6 +162,46 @@ public class TicketServiceFacade {
 		
 	}
 	
+	public ResponseDTO stepTicketForward(Long ticketId) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			TicketDTO ticket = service.stepTicketForward(ticketId);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Tickets has been Steped Forward successfully", 
+					"Tickets has been Steped Forward successfully", null);
+			result =  new ResponseDTO(status, ticket);
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+		
+	}
+	
+	public ResponseDTO stepTicketBackward(Long ticketId) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			TicketDTO ticket = service.stepTicketBackward(ticketId);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+					"Tickets has been Steped Backward successfully", 
+					"Tickets has been Steped Backward successfully", null);
+			result =  new ResponseDTO(status, ticket);
+		}catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+		
+	}
+	
 	
 
 }

@@ -323,4 +323,18 @@ public class HomeController {
 		System.out.println("Test 1 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
 		return attachmentServiceFacade.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
 	}
+	
+	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO stepTicketForward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
+		
+		return ticketfacadeService.stepTicketForward(ticketId);
+	}
+	
+	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO stepTicketBackward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
+		
+		return ticketfacadeService.stepTicketBackward(ticketId);
+	}
 }
