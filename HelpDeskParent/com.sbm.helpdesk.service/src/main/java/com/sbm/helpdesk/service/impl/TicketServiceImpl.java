@@ -1,9 +1,5 @@
 package com.sbm.helpdesk.service.impl;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -56,6 +52,12 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	
 	@Resource
 	private AttachmentService attachmentService;
+	
+	@Resource
+	BehavioralDetailsService behavioralDetailsService;
+	
+	@Resource
+	InformationalDetailsService informationalDetailsService;
 
 	private Ticket ticket = new Ticket();
 
@@ -83,8 +85,8 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 			ticket = ticketDao.persist(ticket);
 			attachmentService.saveAttachment(null, files, ticket);
-			ticket = stepTicketForward(ticket);
-			result = convertToDTO(ticket, ticketdto);
+			result = stepTicketForward(ticket.getTicketId());
+//			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -100,12 +102,13 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	public Ticket updateTicket(Ticket ticket) throws BusinessException {
 		Ticket result = null;
 		try {
-			
+			Ticket oldTicket = ticketDao.findById(ticket.getTicketId());
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 			result = ticketDao.update(ticket);
-			
+			createInformationalDetailsHistory(oldTicket, result);
+		
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -263,9 +266,10 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	
 	@Override
 	@Transactional
-	public Ticket stepTicketForward(Ticket ticket) throws BusinessException {
-		Ticket result = null;
+	public TicketDTO stepTicketForward(long ticketId) throws BusinessException {
+		TicketDTO result = new TicketDTO();
 		try {
+			Ticket ticket = ticketDao.findById(ticketId);
 			Integer stepIndex = null;
 			List<WorkflowStep> workflowSteps = orderWorkFlowStepsList(ticket.getWorkflow().getWorkflowSteps());
 			for(int i = 0 ; i < workflowSteps.size(); i++) {
@@ -274,7 +278,6 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 				break;
 			}
 			}
-			
 			//Ticket Step doesn't exist in the assigned workFlow
 			if (stepIndex == null)
 				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);	
@@ -284,16 +287,18 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 			
 			//Forwarding to Last Step
-			if( (stepIndex + 1) == workflowSteps.size()) {
+			if( (stepIndex + 1) == (workflowSteps.size()-1) ) {
 				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_COMPLETED.getStringValue())));
 			}else {
 				//Forwarding From First Step to Second Step or Forwarding to any middle Steps
 				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue())));
-				ticket.setStep(workflowSteps.get(stepIndex + 1).getStep());
 			}
+			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex + 1).getStep().getStepId()));
+			ticket = ticketDao.update(ticket);
+			behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_FORWARD.getStringValue()));
 			
-			result = ticketDao.update(ticket);
-			
+			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -306,9 +311,10 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	
 	@Override
 	@Transactional
-	public Ticket stepTicketBackward(Ticket ticket) throws BusinessException {
-		Ticket result = null;
+	public TicketDTO stepTicketBackward(long ticketId) throws BusinessException {
+		TicketDTO result = new TicketDTO();
 		try {
+			Ticket ticket = ticketDao.findById(ticketId);
 			Integer stepIndex = null;
 			List<WorkflowStep> workflowSteps = orderWorkFlowStepsList(ticket.getWorkflow().getWorkflowSteps());
 			for(int i = 0 ; i < workflowSteps.size(); i++) {
@@ -327,14 +333,18 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 			
 			//Backward to First Step
-			if(stepIndex == 1)
-				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_CREATED.getStringValue()));
-			
+			if(stepIndex == 1) {
+				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_CREATED.getStringValue())));
+			}else {
 			//Forwarding to middle Steps or Backward From Last Step
-			ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue()));
-			ticket.setStep(workflowSteps.get(stepIndex - 1).getStep());
-			result = ticketDao.update(ticket);
-			
+			ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue())));
+			}
+			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex - 1).getStep().getStepId()));
+			ticket = ticketDao.update(ticket);
+	         behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_BACKWARD.getStringValue()));
+	         
+			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -360,5 +370,51 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	        
 	        return sortedWorkflowStepsList;
 		
+	}
+	
+	public BehavioralDetails createBehavioralDetailsHistory(Ticket ticket, String value) {
+		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_ACTION.getStringValue());
+		behavioralDetails.setBehaviorValue(value);
+		behavioralDetails.setId(ticket.getTicketId());
+		behavioralDetails.setStepId(ticket.getStep());
+		behavioralDetails.setTicketId(ticket);
+		behavioralDetails.setActionBy(ticket.getHduser());
+		behavioralDetails.setActionAt(new Date());
+		return behavioralDetails;
+	}
+	
+	public InformationalDetails createInformationalDetailsHistory(Ticket ticket, String colName, String oldValue, String newValue) {
+		InformationalDetails informationalDetails = new InformationalDetails();
+		informationalDetails.setColName(colName);
+		informationalDetails.setOldValue(oldValue);
+		informationalDetails.setNewValue(newValue);
+		informationalDetails.setStepId(ticket.getStep());
+		informationalDetails.setTicketId(ticket);
+		informationalDetails.setUpdatedBy(ticket.getHduser());
+		informationalDetails.setUpdatedAt(new Date());
+		return informationalDetails;
+	}
+	
+	public void createInformationalDetailsHistory(Ticket oldTicket, Ticket result) throws BusinessException {
+		if(!oldTicket.getTitle().equals(result.getTitle()))
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_TITLE.getStringValue(),oldTicket.getTitle(), result.getTitle()));
+		
+		if(!oldTicket.getDescription().equals(result.getDescription()))
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_DESCRIPTION.getStringValue(),oldTicket.getDescription(), result.getDescription()));
+		
+		if(oldTicket.getTicketSeverity().getSeverityId() != result.getTicketSeverity().getSeverityId())
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_SEVERIRTY.getStringValue(),oldTicket.getTicketSeverity().getSeverityName(), result.getTicketSeverity().getSeverityName()));
+	
+		if(oldTicket.getTicketPriority().getPrioprtiyId() != result.getTicketPriority().getPrioprtiyId())
+			informationalDetailsService.createInformationalDetails(
+			createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_PRIORITY.getStringValue(),oldTicket.getTicketPriority().getPriorityLevel(), result.getTicketPriority().getPriorityLevel()));
+	
+		if(oldTicket.getStatus().getStatusId() != result.getStatus().getStatusId())
+			informationalDetailsService.createInformationalDetails(
+			createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_STATUS.getStringValue(),oldTicket.getStatus().getStatus(), result.getStatus().getStatus()));
 	}
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit , Inject} from '@angular/core';
+import { Component, OnDestroy, OnInit , TemplateRef,Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -11,6 +11,7 @@ import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
 import { Auth } from '../models/auth.model';
 import { LoginParam } from '../models/login.model';
+import { DataSource } from '@angular/cdk/collections';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, ViewChild} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -40,6 +41,13 @@ import { SharedDataService } from '../services/shared-data.service';
       deleteDialogCancelLabel:string = "Cancel";
       deleteConfirmed:boolean = false;
 
+
+
+
+      @ViewChild('dialogContent')
+      dialogContent: TemplateRef<any>;
+  
+      
     ngOnInit(){
       console.log('on init');
       this.ngAfterViewInit();
@@ -54,6 +62,13 @@ import { SharedDataService } from '../services/shared-data.service';
   exampleDatabase: ExampleHttpDao | null;
   dataSource = new MatTableDataSource();
 
+  contacts: any;
+  user: any;
+  selectedContacts: any[];
+  checkboxes: {};
+  dialogRef: any
+
+
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -62,7 +77,14 @@ import { SharedDataService } from '../services/shared-data.service';
   @ViewChild(MatSort) sort: MatSort;
   
 
-  constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog,private _shareData: SharedDataService) {}
+
+
+
+
+  constructor(private http: HttpClient,private ticketService: TicketService,public dialog: MatDialog,private _shareData: SharedDataService,        public _matDialog: MatDialog
+  ) {
+
+  }
 
   ngAfterViewInit() {
     console.log('on after view init');
@@ -100,6 +122,7 @@ import { SharedDataService } from '../services/shared-data.service';
     this.ticketService.deleteTicket(ticket).subscribe();
     location.reload;
   }
+
   openDialog(ticket: TicketDetails): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
@@ -137,6 +160,10 @@ export class ExampleHttpDao implements OnInit{
   constructor(private http: HttpClient, private _sharedService: SharedDataService) {}
     
    ngOnInit(){}
+
+
+
+   
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
     const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';

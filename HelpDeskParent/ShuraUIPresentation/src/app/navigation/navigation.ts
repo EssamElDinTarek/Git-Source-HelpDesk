@@ -40,16 +40,6 @@ export const navigation: FuseNavigation[] = [
                                     }
                 ]
             },
-        
-			{
-                id       : 'Permission',
-                title    : 'Permission',
-                translate: 'NAV.PERMISSION',
-                type     : 'item',
-                icon     : 'flag',
-                url      : '/perm'
-            },
-
             {
                 id       : 'dashboard',
                 title    : 'User-DashBoard',
@@ -74,7 +64,24 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'flag',
                 url       :'/manager'
+            },
+            {
+                id       : 'teamtickets',
+                title    : 'Team Inbox',
+                translate: 'Team Inbox',
+                type     : 'item',
+                icon     : 'account_box',
+                url      : '/teaminbox'
             }
+            /* 
+            {
+                id       : 'teamtinboxickets',
+                title    : 'Team Inbox Temp',
+                translate: 'Team Inbox Temp',
+                type     : 'item',
+                icon     : 'account_box',
+                url      : '/teaminboxticket'
+            } */
 
         ]
         

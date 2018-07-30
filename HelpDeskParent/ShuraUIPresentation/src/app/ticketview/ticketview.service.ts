@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 //import { Ticket } from '../model/ticket';
 import { TicketDetails } from './ticketview.component';
@@ -15,6 +15,10 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class TicketService {
+
+  onContactsChanged: BehaviorSubject<any>;
+  onSelectedContactsChanged: BehaviorSubject<any>;
+  onUserDataChanged: BehaviorSubject<any>;
 
   private ticketsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket';  // URL to web api
 
@@ -94,6 +98,9 @@ export class TicketService {
       catchError(this.handleError<any>('updateHero'))
     );
   }
+
+/**
+    
 
   /**
    * Handle Http operation that failed.

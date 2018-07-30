@@ -1,0 +1,132 @@
+<div id="dashboard-project" class="page-layout">
+    <div class="content clearfix">
+
+        <div class="tf-time-line mb-24">
+
+
+            <div class="vertical-stepper-wrapper">
+
+                <!-- VERTICAL STEPPER EXAMPLE -->
+                <mat-vertical-stepper class="mat-elevation-z4" [linear]="true">
+
+                    <mat-step [stepControl]="verticalStepperStep1">
+
+                        <div class="h2 m-16" fxLayout="row" fxLayoutAlign="center center">
+                            Fill out your name......
+                        </div>
+
+                    </mat-step>
+
+                    <mat-step [stepControl]="verticalStepperStep2">
+
+                        <div class="h2 m-16" fxLayout="row" fxLayoutAlign="center center">
+                            Fill out your address.....
+                        </div>
+
+                    </mat-step>
+
+
+                    <mat-step>
+
+                        <ng-template matStepLabel>Done</ng-template>
+
+                        <div class="h2 m-16" fxLayout="row" fxLayoutAlign="center center">
+                            Thank your for filling out our form.
+                        </div>
+
+
+                    </mat-step>
+
+                </mat-vertical-stepper>
+                <!-- / VERTICAL STEPPER EXAMPLE -->
+
+            </div>
+
+            <div class="navigate">
+                <button class="mat-accent" mat-button>
+                                        <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button class="mat-accent" mat-button>
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+
+
+        <div class="tf-fields">
+            <mat-form-field class="w-50-p">
+                   
+                <textarea matInput placeholder="Title" [(ngModel)]="ticket.title" formControlName="title" required></textarea>       
+                
+                <mat-icon>clear</mat-icon>
+                <mat-icon>done</mat-icon>
+                <mat-error *ngIf="formErrors.title.required">
+                    Title is required!
+                </mat-error>
+
+            </mat-form-field>
+
+
+            <mat-form-field class="w-50-p">
+                <textarea matInput placeholder="Status" [(ngModel)]="ticket.status" formControlName="status"></textarea>
+                <mat-error *ngIf="formErrors.status.required">
+                    Status is required!
+                </mat-error>
+            </mat-form-field>
+
+            <!--  <mat-form-field class="w-100-p">
+                <textarea *ngIf="isUpdate" matInput placeholder="Ticket Number" [(ngModel)]="ticket.ticketNO" formControlName="ticketNO"
+                    disabled="true"></textarea>
+            </mat-form-field> -->
+            <mat-form-field class="w-50-p">
+                <mat-select placeholder="Workflow" [(ngModel)]="ticket.workflow" formControlName="workflow" required>
+                    <mat-option *ngFor="let item of workflowList" [value]="item">
+                        {{item.ticketType}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formErrors.workflow.required">
+                    WorkFlow is required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+                <mat-select placeholder="Severity" [(ngModel)]="ticket.ticketSeverity" formControlName="severity" required>
+                    <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
+                        {{item.severityName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formErrors.severity.required">
+                    Severity is required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+                <mat-select placeholder="Priority" [(ngModel)]="ticket.ticketPriority" formControlName="priority" required>
+                    <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
+                        {{item.priorityLevel}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formErrors.priority.required">
+                    Priority is required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+                <textarea matInput placeholder="Description" [(ngModel)]="ticket.description" formControlName="description"></textarea>
+                <mat-error *ngIf="formErrors.description.required">
+                    Description is required!
+                </mat-error>
+            </mat-form-field>
+            <button class="save-button mat-accent" mat-button (click)="submitTicket()" [disabled]="form.invalid">Submit</button>
+
+
+         
+
+        </div>
+
+
+    </div>
+</div>

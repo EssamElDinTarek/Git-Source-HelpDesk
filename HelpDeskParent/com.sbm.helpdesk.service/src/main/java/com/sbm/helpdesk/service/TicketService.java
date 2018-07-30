@@ -22,6 +22,6 @@ public interface TicketService {
 	public String deleteTicket(Long id) throws BusinessException;
 	public List<TicketDTO> getByProjectIDAndUserName(long projectId,String userEmail) throws BusinessException;
 	public List<HistoryDetailsDTO> getHistoryByTicketId(long ticketId) throws BusinessException;
-	public Ticket stepTicketForward(Ticket ticket) throws BusinessException;
-	public Ticket stepTicketBackward(Ticket ticket) throws BusinessException;
+	public TicketDTO stepTicketForward(long ticketId) throws BusinessException;
+	public TicketDTO stepTicketBackward(long ticketId) throws BusinessException;
 }

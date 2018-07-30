@@ -1,0 +1,47 @@
+.mat-dialog-container {
+    width: 1024px !important;
+  }
+
+  .content.clearfix {
+    > div {
+        float: left;
+        width: 50%;
+    }
+
+    .tf-time-line {
+      position: relative;
+      min-height: 340px;
+      .navigate {
+        position: absolute;
+        bottom: 1%;
+        right: 5%;
+      }
+    }
+  }
+
+  :host {
+
+    .content {
+
+        form {
+            width: 100%;
+            max-width: 800px !important;
+        }
+
+        .form-errors-model {
+            flex: 1;
+
+            code {
+                background: none !important;
+            }
+        }
+
+        .horizontal-stepper-wrapper,
+        .vertical-stepper-wrapper {
+            max-width: 500px;
+        }
+    }
+}
+ 
+  
+  
