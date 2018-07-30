@@ -25,6 +25,7 @@ import com.sbm.helpdesk.service.*;
 import com.sbm.helpdesk.persistence.dao.*;
 import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
+import com.sbm.helpdesk.common.enums.servicesEnums.ServicesEnums;
 
 @Service
 public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> implements TicketService {
@@ -258,5 +259,106 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		ticket.setStep(stepDao.findById(step.getStepId()));
 		ticket = updateTicket(ticket);
 		return ticket;
+	}
+	
+	@Override
+	@Transactional
+	public Ticket stepTicketForward(Ticket ticket) throws BusinessException {
+		Ticket result = null;
+		try {
+			Integer stepIndex = null;
+			List<WorkflowStep> workflowSteps = orderWorkFlowStepsList(ticket.getWorkflow().getWorkflowSteps());
+			for(int i = 0 ; i < workflowSteps.size(); i++) {
+			if(workflowSteps.get(i).getStep().getStepId() == ticket.getStep().getStepId()) {
+				stepIndex = i;
+				break;
+			}
+			}
+			
+			//Ticket Step doesn't exist in the assigned workFlow
+			if (stepIndex == null)
+				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);	
+			
+			//Ticket Already Completed (Completed status = 3)
+			if(ticket.getStatus().getStatusId() == 3)
+				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+			
+			//Forwarding to Last Step
+			if( (stepIndex + 1) == workflowSteps.size()) {
+				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_COMPLETED.getStringValue()));
+			}else {
+				//Forwarding From First Step to Second Step or Forwarding to any middle Steps
+				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue()));
+				ticket.setStep(workflowSteps.get(stepIndex + 1).getStep());
+			}
+			
+			result = ticketDao.update(ticket);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	
+	@Override
+	@Transactional
+	public Ticket stepTicketBackward(Ticket ticket) throws BusinessException {
+		Ticket result = null;
+		try {
+			Integer stepIndex = null;
+			List<WorkflowStep> workflowSteps = orderWorkFlowStepsList(ticket.getWorkflow().getWorkflowSteps());
+			for(int i = 0 ; i < workflowSteps.size(); i++) {
+			if(workflowSteps.get(i).getStep().getStepId() == ticket.getStep().getStepId()) {
+				stepIndex = i;
+				break;
+			}
+			}
+			
+			//Ticket Step doesn't exist in the assigned workFlow
+			if (stepIndex == null)
+				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);	
+			
+			//Error , Already in First Step
+			if(stepIndex == 0)
+				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+			
+			//Backward to First Step
+			if(stepIndex == 1)
+				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_CREATED.getStringValue()));
+			
+			//Forwarding to middle Steps or Backward From Last Step
+			ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue()));
+			ticket.setStep(workflowSteps.get(stepIndex - 1).getStep());
+			result = ticketDao.update(ticket);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	
+	public List<WorkflowStep> orderWorkFlowStepsList(List<WorkflowStep> workflowSteps){
+		HashMap<Integer, Integer> orderAndIndex = new HashMap<Integer, Integer>();
+		List<WorkflowStep> sortedWorkflowStepsList = new ArrayList<WorkflowStep>();
+		
+		for(int i = 0 ; i < workflowSteps.size(); i++)
+			orderAndIndex.put(workflowSteps.get(i).getStepOrder().intValue(),i);
+		
+	      TreeMap<Integer, Integer> sorted = new TreeMap<Integer, Integer>();
+	        sorted.putAll(orderAndIndex);
+	 
+	        for (Map.Entry<Integer, Integer> entry : sorted.entrySet())
+	        	sortedWorkflowStepsList.add(workflowSteps.get(entry.getValue()));
+	        
+	        return sortedWorkflowStepsList;
+		
 	}
 }
