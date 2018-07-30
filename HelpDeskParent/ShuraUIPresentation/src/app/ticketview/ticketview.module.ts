@@ -37,7 +37,7 @@ const routes = [
 @NgModule({
     declarations: [
         TicketViewComponent
-    ],
+        ],
     imports     : [
         RouterModule.forChild(routes),
         ReactiveFormsModule,

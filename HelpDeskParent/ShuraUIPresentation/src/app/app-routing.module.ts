@@ -12,65 +12,56 @@ import { SubmitTicketModule } from './main/ticket/submitticket/submitTicket.modu
 import { HDURSDashboardModule } from './main/dashboard/hd-urs-dashboard/hd-urs-dashboard.module';
 import { HDADMDashboardModule } from './main/dashboard/hd-adm-dashboard/hd-adm-dashboard.module';
 import { HDMGRDashboardModule } from './main/dashboard/hd-mgr-dashboard/hd-mgr-dashboard.module';
+import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
 
 
 const appRoutes: Routes = [
 	{
 		path        : 'welcome',
 		component   : WelcomeComponent
-	},
-{
+	},{
 		path        : 'ticketview',
 		component   : TicketViewComponent
-	},
-	{
+	},{
 		path        : 'perm',
 		component   : GroupPermComponent
-	},
-	{
+	},{
 		path        : '**',
 		component   : LoginComponent
-	},
-
-	{
+	},{
 		path      : 'submitTicket',
 		redirectTo: 'submitTicket'
-	} ,{
+	},{
 		path      : 'submitTicket/:id',
 		redirectTo: 'submitTicket'
-	},
-
-	{
+	},{
 		path      : 'user',
 		redirectTo: 'user'
+	},{
+		path: 'admin',
+		redirectTo: 'admin'
+	},{
+		path : 'manager',
+		redirectTo : 'manager'
 	},
 	{
-		path:'admin',
-		redirectTo:'admin'
+		path:'teaminbox',
+		redirectTo:'teaminbox'
 	},
 	{
-		path:'manager',
-		redirectTo:'manager'
+		path:'teaminboxtemp',
+		redirectTo:'teaminboxticket'
 	}
-
 	// {
 	//     path      : '**',
 	//     redirectTo: 'apps/dashboards/analytics'
 	// }
 ];
 
+
 @NgModule({
 	declarations: [],
-	imports: [
-		RouterModule.forRoot(appRoutes),SubmitTicketModule,
-
-		HDURSDashboardModule,
-		HDADMDashboardModule,
-		HDMGRDashboardModule
-	],
-	exports: [
-		RouterModule
-	],
+	imports: [RouterModule.forRoot(appRoutes), SubmitTicketModule, HDURSDashboardModule, HDADMDashboardModule, HDMGRDashboardModule,RouterModule,TeamInboxModule],
 	providers: []
 })
 

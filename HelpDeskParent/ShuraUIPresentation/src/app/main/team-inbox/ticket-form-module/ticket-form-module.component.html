@@ -1,0 +1,129 @@
+<div id="dashboard-project" class="page-layout">
+    <div class="content clearfix">
+
+
+
+        <div class="tf-time-line mb-24">
+
+            <div class="navigate">
+                <button class="mat-accent" mat-button>
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <button class="mat-accent" mat-button>
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+
+        <!-- <div class="dialog-content-wrapper">
+ -->
+
+        <!-- 
+    <mat-toolbar matDialogTitle class="mat-accent m-0">
+       
+          <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+                  <span class="title dialog-title">{{dialogTitle}}</span>
+                  <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+                      <mat-icon>close</mat-icon>
+                  </button>
+              </mat-toolbar-row>
+  
+        <mat-toolbar-row class="toolbar-bottom py-16" fxLayout="column" fxLayoutAlign="center center">
+     
+            <div class="contact-name mt-8">{{contact.title}}</div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+   -->
+
+
+
+        <div class="tf-fields">
+            <form [formGroup]="contactForm">
+
+                <mat-form-field class="w-50-p">
+                    <input name="ticketId" formControlName="ticketId" placeholder="#" matInput required>
+
+                </mat-form-field>
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+
+                <mat-form-field class="w-50-p">
+                    <input name="title" formControlName="title" placeholder="Title" matInput required>
+                </mat-form-field>
+
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+                <mat-form-field class="w-50-p">
+                    <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On" required>
+                </mat-form-field>
+
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+
+                <mat-form-field class="w-50-p">
+                    <input name="description" formControlName="description" matInput type="email" placeholder="Description" required>
+                </mat-form-field>
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+
+                <mat-form-field class="w-50-p">
+                    <input name="status" formControlName="status" matInput placeholder="Staus" required>
+                </mat-form-field>
+
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+
+
+                <mat-form-field class="w-50-p">
+                    <input name="ticketnumber" formControlName="ticketnumber" matInput placeholder="Ticket Number" required>
+                </mat-form-field>
+
+
+                <mat-icon>done</mat-icon>
+                <mat-icon>clear</mat-icon>
+            </form>
+
+        </div>
+
+     <!--   <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center"> --> 
+
+            <button *ngIf="action ==='edit'" mat-raised-button (click)="_matDialogRef.close(['save',contactForm])" [disabled]="contactForm.invalid"
+                aria-label="SAVE">
+                <mat-icon>done</mat-icon>
+            </button>
+
+            <button *ngIf="action ==='edit'" mat-raised-button (click)="_matDialogRef.close(['delete',contactForm])" aria-label="Delete"
+                matTooltip="Delete">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+<!--         </div>
+ -->
+        <div class="tf-tabs my-24">
+
+            <mat-tab-group dynamicHeight>
+
+                <mat-tab label="Comments">
+
+                    <app-ticket-comment></app-ticket-comment>
+
+                </mat-tab>
+
+                <mat-tab label="Attachments">
+
+                    <app-ticket-attachment></app-ticket-attachment>
+
+                </mat-tab>
+
+
+            </mat-tab-group>
+
+        </div>
+
+
+    </div>
+
+</div>
