@@ -13,9 +13,7 @@ import { HDMGRDashboardModule } from './hd-mgr-dashboard/hd-mgr-dashboard.module
     HDMGRDashboardModule
   ],
   declarations: [
-    HDADMDashboardModule,
-    HDURSDashboardModule,
-    HDMGRDashboardModule    
+      
   ]
 })
 export class DashboardModule { }

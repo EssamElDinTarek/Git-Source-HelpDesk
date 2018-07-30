@@ -128,7 +128,7 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	public boolean saveAttachment(Hduser user, MultipartFile[] files, Ticket ticket) throws BusinessException {
 		boolean result = false;
 		String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
-		
+		Date date = new Date();
 		try {
 			File folder = new File(folderPath);
 			if(!folder.exists()){
@@ -145,6 +145,10 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 			         outputStream.close();
 			         Attachment attachment = new Attachment();
 			         attachment.setDescription(file.getOriginalFilename());
+			         attachment.setMimeType(file.getContentType());
+			         attachment.setName(file.getOriginalFilename());
+			         attachment.setCreationDate(date);
+			         attachment.setSize(file.getSize());
 			         attachment.setPath(filePath);
 			         attachment.setTicket(ticket);
 			         attachment.setHduser(user);

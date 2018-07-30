@@ -318,9 +318,9 @@ public class HomeController {
 	
 	@RequestMapping(value = "/uploadAttachment", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	@ResponseBody
-	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) long ticketId,
-			@RequestParam(IntegrationServicesConstant.USER_ID) long userId, Model model) throws BusinessException, Exception {
+	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) String ticketId,
+			@RequestParam(IntegrationServicesConstant.USER_ID) String userId, Model model) throws BusinessException, Exception {
 		System.out.println("Test 1 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
-		return attachmentServiceFacade.uploadAttachment(userId, files, ticketId);
+		return attachmentServiceFacade.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
 	}
 }

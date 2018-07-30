@@ -153,6 +153,16 @@ export class ToolbarComponent implements OnInit, OnDestroy
             }
             
         });
+        // if the service was not avaliable get the user info form the mockup data.
+        if(this._sharedService.user ==null){
+            this._sharedService.user = UserData;
+            this.projects = this._sharedService.user.projects;
+            if(this.projects != null && this.projects.length > 0){
+                this._sharedService.selectedProject = this.projects[0];
+                this.selectedProject =  this._sharedService.selectedProject;
+            }
+        }
+
     }
 
     /**
