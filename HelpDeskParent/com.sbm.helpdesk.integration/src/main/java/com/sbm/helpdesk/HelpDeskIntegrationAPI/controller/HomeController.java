@@ -32,6 +32,7 @@ import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
+import com.sbm.helpdesk.common.mailer.Mailer;
 import com.sbm.helpdesk.service.AttachmentService;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
@@ -83,6 +84,8 @@ public class HomeController {
 	@ResponseBody
 	public ResponseDTO creatTicket(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
 	         Model model) throws BusinessException, Exception {
+		Mailer mailer = new Mailer();
+		mailer.send(new String[]{"moh_ammar_pro@yahoo.com","moh.ali.fci@gmail.com"}, "Test mail subject", "test mail body");
 		return ticketfacadeService.creatTicket(files, ticket);
 	}
 
