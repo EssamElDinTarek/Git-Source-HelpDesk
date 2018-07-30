@@ -83,7 +83,7 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 			ticket = ticketDao.persist(ticket);
 			attachmentService.saveAttachment(null, files, ticket);
-			ticket = changeStepAndStatus(ticket);
+			ticket = stepTicketForward(ticket);
 			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -241,7 +241,7 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		return result;
 	}
 	
-	@Transactional
+	/*@Transactional
 	public Ticket changeStepAndStatus(Ticket ticket) throws RespositoryException, BusinessException{
 		Iterator workflowstepsit = ticket.getWorkflow().getWorkflowSteps().iterator();
 		Step step = null;
@@ -259,7 +259,7 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		ticket.setStep(stepDao.findById(step.getStepId()));
 		ticket = updateTicket(ticket);
 		return ticket;
-	}
+	}*/
 	
 	@Override
 	@Transactional
@@ -285,10 +285,10 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			
 			//Forwarding to Last Step
 			if( (stepIndex + 1) == workflowSteps.size()) {
-				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_COMPLETED.getStringValue()));
+				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_COMPLETED.getStringValue())));
 			}else {
 				//Forwarding From First Step to Second Step or Forwarding to any middle Steps
-				ticket.setStatus(statusDao.findById(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue()));
+				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue())));
 				ticket.setStep(workflowSteps.get(stepIndex + 1).getStep());
 			}
 			

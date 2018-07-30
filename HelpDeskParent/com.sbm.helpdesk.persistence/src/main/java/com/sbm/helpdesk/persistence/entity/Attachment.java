@@ -1,6 +1,8 @@
 package com.sbm.helpdesk.persistence.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 
@@ -30,6 +32,20 @@ public class Attachment implements Serializable {
 
 	@Column(name="IS_DELETED")
 	private long deleted;
+	
+	@Column(name="NAME")
+	private String name;
+	
+	@Column(name="MIMETYPE")
+	private String mimeType;
+	
+	@Column(name="ATTACHMENTSIZE")
+	private long size;
+	
+	@Column(name = "CREATEDATE")
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
+	
 	//bi-directional many-to-one association to Hduser
 	@ManyToOne
 	@JoinColumn(name="CREATOR_ID")
@@ -102,6 +118,38 @@ public class Attachment implements Serializable {
 
 	public void setDeleted(long deleted) {
 		this.deleted = deleted;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getMimeType() {
+		return mimeType;
+	}
+
+	public void setMimeType(String mimeType) {
+		this.mimeType = mimeType;
+	}
+
+	public long getSize() {
+		return size;
+	}
+
+	public void setSize(long size) {
+		this.size = size;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 	
 
