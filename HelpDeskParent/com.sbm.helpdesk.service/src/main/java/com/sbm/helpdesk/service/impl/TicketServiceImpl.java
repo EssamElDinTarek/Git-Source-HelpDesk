@@ -56,6 +56,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	
 	@Resource
 	private AttachmentService attachmentService;
+	
+	@Resource
+	BehavioralDetailsService behavioralDetailsService;
 
 	private Ticket ticket = new Ticket();
 
@@ -292,6 +295,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			}
 			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex + 1).getStep().getStepId()));
 			ticket = ticketDao.update(ticket);
+			behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_FORWARD.getStringValue()));
+			
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -335,6 +341,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			}
 			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex - 1).getStep().getStepId()));
 			ticket = ticketDao.update(ticket);
+	         behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_BACKWARD.getStringValue()));
+	         
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -361,5 +370,17 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	        
 	        return sortedWorkflowStepsList;
 		
+	}
+	
+	public BehavioralDetails createBehavioralDetailsHistory(Ticket ticket, String value) {
+		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_ACTION.getStringValue());
+		behavioralDetails.setBehaviorValue(value);
+		behavioralDetails.setId(ticket.getTicketId());
+		behavioralDetails.setStepId(ticket.getStep());
+		behavioralDetails.setTicketId(ticket);
+		behavioralDetails.setActionBy(ticket.getHduser());
+		behavioralDetails.setActionAt(new Date());
+		return behavioralDetails;
 	}
 }
