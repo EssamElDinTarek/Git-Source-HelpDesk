@@ -285,6 +285,28 @@ export class TicketService implements Resolve<any>
         //catchError(/*this.handleError('addHero', ticket)*/)
       );
   }
+
+  stepTicketForward(ticketID : string): Observable<Ticket> {
+
+    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketForward?TICKET_ID='+ticketID, {
+      //headers: this.headers
+    })
+      .pipe(
+        //catchError(/*this.handleError('addHero', ticket)*/)
+      );
+  }
+
+  stepTicketBackward(ticketID : string): Observable<Ticket> {
+
+    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketBackward?TICKET_ID='+ticketID, {
+      //headers: this.headers
+    })
+      .pipe(
+        //catchError(/*this.handleError('addHero', ticket)*/)
+      );
+  }
+
+  
   getUserDetails(): Observable<User> {
 
     return this._httpClient.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {

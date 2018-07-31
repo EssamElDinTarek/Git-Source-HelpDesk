@@ -2,6 +2,8 @@ import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Contact } from '../contact.model';
+import { TicketService } from '../../../services/ticket.service';
+TicketService
 
 
 
@@ -32,7 +34,7 @@ export class TicketFormModuleComponent {
     constructor(
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder, private _ticketService : TicketService
     )
     {
         // Set the defaults
@@ -51,6 +53,14 @@ export class TicketFormModuleComponent {
 
         this.contactForm = this.createContactForm();
     }
+
+    stepTickBack(): void {
+        this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
+      }
+
+      stepTickForward(): void {
+        this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
+      }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
