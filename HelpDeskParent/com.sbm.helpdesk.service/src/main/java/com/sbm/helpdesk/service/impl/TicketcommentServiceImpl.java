@@ -37,8 +37,7 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 		ticketcomment = convertToEntity(ticketcomment, ticketcommentDTO);
 		try {
 			ticketcomment = ticketcommentDao.persist(ticketcomment);
-			behavioralDetailsService.
-         	createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_ADD.getStringValue()));
+			//behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_ADD.getStringValue()));
 		} catch (RespositoryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,8 +65,7 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 		try {
 		Ticketcomment ticketcomment= ticketcommentDao.findById(id);
 		ticketcomment.setDeleted(1);
-		behavioralDetailsService.
-     	createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_DELETE.getStringValue()));
+		//behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_DELETE.getStringValue()));
 		result = "Sucess";
 		}catch(RespositoryException e) {
 			e.printStackTrace();
