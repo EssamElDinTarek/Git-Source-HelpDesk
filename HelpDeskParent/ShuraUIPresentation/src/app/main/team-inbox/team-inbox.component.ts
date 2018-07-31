@@ -55,7 +55,9 @@ export class TeamInboxComponent implements OnInit {
 ngOnInit(){
   console.log('on init');  
  // this.ngAfterViewInit();
- this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+ 
+ 
+  //this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
  //this.dataSource = new FilesDataSource(this._ticketService);
  //console.log(this.dataSource.data);
  }

@@ -19,11 +19,11 @@ export class Contact
     {
         {
             this.ticketId = contact.ticketId || FuseUtils.generateGUID();
-            this.title = contact.title || '';
-            this.creationdate = contact.creationdate || '';
-            this.description = contact.description || 'assets/images/avatars/profile.jpg';
-            this.status = contact.status || '';
-            this.ticketnumber = contact.ticketnumber || '';
+            this.title = contact.title ;
+            this.creationdate = contact.creationdate;
+            this.description = contact.description;
+            this.status = contact.status ;
+            this.ticketnumber = contact.ticketnumber;
         }
     }
 }

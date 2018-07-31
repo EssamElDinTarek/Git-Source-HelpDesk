@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MatTableDataSource } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -12,7 +12,8 @@ import { TicketCommentComponent } from '../ticket-comment/ticket-comment.compone
 import { TicketFormComponent } from '../ticket-form/ticket-form.component';
 import { TicketFormComponentComponent } from '../ticket-form-component/ticket-form-component.component';
 import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
-
+import { Ticket } from '../../../models/ticket';
+import { TicketService } from '../../../services/ticket.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class TicketListComponent implements OnInit  {
     contacts: any;
     user: any;
     dataSource: FilesDataSource | null;
-    displayedColumns = [ 'ticketId', 'title','creationdate', 'status', 'ticketnumber','description'];
+    displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
     selectedContacts: any[];
     checkboxes: {};
     dialogRef: any;
@@ -71,7 +72,7 @@ export class TicketListComponent implements OnInit  {
 
                 this.checkboxes = {};
                 contacts.map(contact => {
-                    this.checkboxes[contact.ticketId] = false;
+                    this.checkboxes[contact.id] = false;
                 });
             });
 
@@ -188,9 +189,9 @@ export class TicketListComponent implements OnInit  {
      *
      * @param contactId
      */
-    onSelectedChange(ticketId): void
+    onSelectedChange(contactId): void
     {
-        this._contactsService.toggleSelectedContact(ticketId);
+        this._contactsService.toggleSelectedContact(contactId);
     }
 
     /**
@@ -198,18 +199,18 @@ export class TicketListComponent implements OnInit  {
      *
      * @param contactId
      */
-    toggleStar(ticketId): void
+    toggleStar(contactId): void
     {
-        if ( this.user.starred.includes(ticketId) )
+        if ( this.user.starred.includes(contactId) )
         {
-            this.user.starred.splice(this.user.starred.indexOf(ticketId), 1);
+            this.user.starred.splice(this.user.starred.indexOf(contactId), 1);
         }
         else
         {
-            this.user.starred.push(ticketId);
+            this.user.starred.push(contactId);
         }
 
-      //  this._contactsService.updateUserData(this.user);
+        this._contactsService.updateUserData(this.user);
     }
 }
 

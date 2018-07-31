@@ -13,6 +13,7 @@ import { HDURSDashboardModule } from './main/dashboard/hd-urs-dashboard/hd-urs-d
 import { HDADMDashboardModule } from './main/dashboard/hd-adm-dashboard/hd-adm-dashboard.module';
 import { HDMGRDashboardModule } from './main/dashboard/hd-mgr-dashboard/hd-mgr-dashboard.module';
 import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
+import { MatFormFieldModule } from '../../node_modules/@angular/material';
 
 
 const appRoutes: Routes = [

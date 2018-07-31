@@ -1,9 +1,38 @@
 <div id="dashboard-project" class="page-layout">
     <div class="content clearfix">
 
+        <div class="tf-time-line mb-24" aria-label="Time line">
 
+            <div  class="vertical-stepper-wrapper">
 
-        <div class="tf-time-line mb-24">
+                <!-- VERTICAL STEPPER EXAMPLE -->
+                <mat-vertical-stepper  [linear]="true" *ngFor="let data of ticketHistory">
+
+                    <mat-step [stepControl]="verticalStepperStep1">
+
+                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
+                  {{data.behaviorValue}}
+                     {{data.behaviorName}}
+                   {{data.type}}  
+                  {{data.actionAt}}
+                    </mat-step>
+
+                   <!--  <mat-step [stepControl]="verticalStepperStep2">
+                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
+                         <i *ngFor="let data of ticketHistory ">
+                            {{data.behaviorValue}}
+                                    </i> 
+                    </mat-step>
+                    
+                     <mat-step [stepControl]="verticalStepperStep3">
+
+                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
+                    </mat-step> -->
+
+                </mat-vertical-stepper>
+                <!-- / VERTICAL STEPPER EXAMPLE -->
+
+            </div>
 
             <div class="navigate">
                 <button class="mat-accent" mat-button>
@@ -43,65 +72,86 @@
         <div class="tf-fields">
             <form [formGroup]="contactForm">
 
-                <mat-form-field class="w-50-p">
-                    <input name="ticketId" formControlName="ticketId" placeholder="#" matInput required>
-
-                </mat-form-field>
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
+                    <!-- <mat-form-field>
+                            <input    matInput placeholder="Company (disabled)" disabled value="Google">
+                          </mat-form-field>
+ -->
 
                 <mat-form-field class="w-50-p">
-                    <input name="title" formControlName="title" placeholder="Title" matInput required>
+                    <input name="ticketId"  formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
+                    <button style="float: right; color:red" mat-button><mat-icon>clear</mat-icon></button>
+                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
                 </mat-form-field>
-
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
-                <mat-form-field class="w-50-p">
-                    <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On" required>
-                </mat-form-field>
-
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
+            
 
                 <mat-form-field class="w-50-p">
-                    <input name="description" formControlName="description" matInput type="email" placeholder="Description" required>
+                    <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
+                    <button style="float: right; color: red"><mat-icon>clear</mat-icon></button>
+                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
+
                 </mat-form-field>
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
+               
+                <mat-form-field class="w-50-p">
+                    <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
+                    <button style="float: right; color: red" ><mat-icon>clear</mat-icon></button>
+                    <button style="float: right; color:green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
+                </mat-form-field>
+
+              <!-- 
+                <mat-form-field class="w-50-p">
+                        <mat-select placeholder="Severity" [(ngModel)]="ticket.ticketSeverity" formControlName="severity" required>
+                            <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
+                                {{item.severityName}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formErrors.severity.required">
+                            Severity is required!
+                        </mat-error>
+                    </mat-form-field>
+            
+               
+            
+            
+                    
+                    <mat-form-field class="w-50-p">
+                        <mat-select placeholder="Priority" [(ngModel)]="ticket.ticketPriority" formControlName="priority" required>
+                            <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
+                                {{item.priorityLevel}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formErrors.priority.required">
+                            Priority is required!
+                        </mat-error>
+                    </mat-form-field>
+
+               
+
 
                 <mat-form-field class="w-50-p">
                     <input name="status" formControlName="status" matInput placeholder="Staus" required>
+                    <mat-select placeholder="Status" [(ngModel)]="ticket.status" formControlName="status" required>
+                            <mat-option *ngFor="let item of ticketStatusList" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                    <button style="float: right; color :red"><mat-icon>clear</mat-icon></button>
+                    <button style="float: right; color:green">  <mat-icon>done</mat-icon></button>
                 </mat-form-field>
-
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
-
-
+ -->
                 <mat-form-field class="w-50-p">
-                    <input name="ticketnumber" formControlName="ticketnumber" matInput placeholder="Ticket Number" required>
-                </mat-form-field>
+                        <input name="description" 
+                        formControlName="description" matInput placeholder="Description" required>
+                        <button style="float: right; color: red"><mat-icon>clear</mat-icon></button>
+                        <button style="float: right; color: green">  <mat-icon>done</mat-icon></button>
+                    </mat-form-field>
 
+         
 
-                <mat-icon>done</mat-icon>
-                <mat-icon>clear</mat-icon>
+              
             </form>
 
         </div>
 
-     <!--   <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center"> --> 
-
-            <button *ngIf="action ==='edit'" mat-raised-button (click)="_matDialogRef.close(['save',contactForm])" [disabled]="contactForm.invalid"
-                aria-label="SAVE">
-                <mat-icon>done</mat-icon>
-            </button>
-
-            <button *ngIf="action ==='edit'" mat-raised-button (click)="_matDialogRef.close(['delete',contactForm])" aria-label="Delete"
-                matTooltip="Delete">
-                <mat-icon>delete</mat-icon>
-            </button>
-
-<!--         </div>
- -->
         <div class="tf-tabs my-24">
 
             <mat-tab-group dynamicHeight>
