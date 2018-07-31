@@ -32,6 +32,7 @@ import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
+import com.sbm.helpdesk.common.mailer.Mailer;
 import com.sbm.helpdesk.service.AttachmentService;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
@@ -83,6 +84,7 @@ public class HomeController {
 	@ResponseBody
 	public ResponseDTO creatTicket(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
 	         Model model) throws BusinessException, Exception {
+		
 		return ticketfacadeService.creatTicket(files, ticket);
 	}
 
@@ -324,14 +326,14 @@ public class HomeController {
 		return attachmentServiceFacade.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
 	}
 	
-	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO stepTicketForward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
 		
 		return ticketfacadeService.stepTicketForward(ticketId);
 	}
 	
-	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO stepTicketBackward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
 		

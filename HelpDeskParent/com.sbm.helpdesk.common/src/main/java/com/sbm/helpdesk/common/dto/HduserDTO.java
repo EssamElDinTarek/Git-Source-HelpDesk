@@ -11,13 +11,13 @@ public class HduserDTO extends BaseDTO  {
 	private String firstName;
 	private String lastName;
 	private String userName;
-	private String userPassword;
+	//private String userPassword;
 	//private Set<AttachmentDTO> attachments;
 //	private Set<HdgroupDTO> hdgroups;
-	private Set<HdroleDTO> hdroles;
-	private TeamDTO team;
-	private Set<TicketDTO> tickets;
-	private Set<TicketcommentDTO> ticketcomments;
+	//private Set<HdroleDTO> hdroles;
+	//private TeamDTO team;
+	//private Set<TicketDTO> tickets;
+	//private Set<TicketcommentDTO> ticketcomments;
 	public long getUserId() {
 		return userId;
 	}
@@ -48,45 +48,14 @@ public class HduserDTO extends BaseDTO  {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getUserPassword() {
-		return userPassword;
-	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
 
 	
-	
-public TeamDTO getTeam() {
-		return team;
-	}
-	public void setTeam(TeamDTO team) {
-		this.team = team;
-	}
-	public Set<TicketDTO> getTickets() {
-		return tickets;
-	}
-	public void setTickets(Set<TicketDTO> tickets) {
-		this.tickets = tickets;
-	}
-	public Set<TicketcommentDTO> getTicketcomments() {
-		return ticketcomments;
-	}
-	public void setTicketcomments(Set<TicketcommentDTO> ticketcomments) {
-		this.ticketcomments = ticketcomments;
-	}
 	//	public Set<HdgroupDTO> getHdgroups() {
 //		return hdgroups;
 //	}
 //	public void setHdgroups(Set<HdgroupDTO> hdgroups) {
 //		this.hdgroups = hdgroups;
 //	}
-	public Set<HdroleDTO> getHdroles() {
-		return hdroles;
-	}
-	public void setHdroles(Set<HdroleDTO> hdroles) {
-		this.hdroles = hdroles;
-	}
-
+	
 	
 }

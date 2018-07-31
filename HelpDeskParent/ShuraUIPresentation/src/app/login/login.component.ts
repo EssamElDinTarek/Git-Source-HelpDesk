@@ -137,7 +137,7 @@ export class LoginComponent implements OnInit, OnDestroy
     }
 	
 	auth(): void {
-        this._sharedData.user.email =  this.logParam.email;
+        this._sharedData.user.emailAddress =  this.logParam.email;
         this.authParam.username = this.logParam.email;
         this.authParam.password = this.logParam.password;
         this.authParam.client_id = 'spring-security-oauth2-read-write-client';

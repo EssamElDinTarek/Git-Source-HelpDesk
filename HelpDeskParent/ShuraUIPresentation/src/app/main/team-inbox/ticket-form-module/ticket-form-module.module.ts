@@ -27,8 +27,8 @@ import {
 
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
-import { TicketAttachmentComponent } from '../ticket-attachment/ticket-attachment.component';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
+//import { TicketAttachementsComponent } from '../../attachment/ticket-attachements/ticket-attachements.component';
+//import { TicketCommentComponent } from '../../ticket-comment/ticket-comment/ticket-comment.component';
 import { HttpClientModule } from '../../../../../node_modules/@angular/common/http';
 import {DataSource} from '@angular/cdk/table';
 
@@ -66,12 +66,10 @@ const routes: Routes = [
     FuseWidgetModule,
     HttpClientModule
   ],
-  declarations: [TicketFormModuleComponent,
-    TicketAttachmentComponent,
-    TicketCommentComponent],
+  declarations: [TicketFormModuleComponent],
   exports: [
-    TicketAttachmentComponent,
-    TicketCommentComponent
+    /* TicketAttachementsComponent,
+    TicketCommentComponent */
   ]
 
 })

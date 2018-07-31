@@ -1,9 +1,5 @@
 package com.sbm.helpdesk.service.impl;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -54,8 +50,17 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Autowired
 	private StatusDao statusDao;
 	
+	@Autowired
+	private UserDao userDao;
+	
 	@Resource
 	private AttachmentService attachmentService;
+	
+	@Resource
+	BehavioralDetailsService behavioralDetailsService;
+	
+	@Resource
+	InformationalDetailsService informationalDetailsService;
 
 	private Ticket ticket = new Ticket();
 
@@ -95,17 +100,23 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		return result;
 	}
 
+	
+	
 	@Override
 	@Transactional
 	public Ticket updateTicket(Ticket ticket) throws BusinessException {
 		Ticket result = null;
 		try {
-			
+			Ticket oldTicket = ticketDao.findById(ticket.getTicketId());
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
+			ticket.setStatus(statusDao.findById(ticket.getStatus().getStatusId()));
+			ticket.setHduser(userDao.findById(ticket.getHduser().getUserId()));
+			ticket.setStep(stepDao.findById(ticket.getStep().getStepId()));
 			result = ticketDao.update(ticket);
-			
+			createInformationalDetailsHistory(oldTicket, ticket);
+		
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -292,6 +303,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			}
 			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex + 1).getStep().getStepId()));
 			ticket = ticketDao.update(ticket);
+			behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_FORWARD.getStringValue()));
+			
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -335,6 +349,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			}
 			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex - 1).getStep().getStepId()));
 			ticket = ticketDao.update(ticket);
+	         behavioralDetailsService.
+        	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_BACKWARD.getStringValue()));
+	         
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -361,5 +378,51 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	        
 	        return sortedWorkflowStepsList;
 		
+	}
+	
+	public BehavioralDetails createBehavioralDetailsHistory(Ticket ticket, String value) {
+		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_ACTION.getStringValue());
+		behavioralDetails.setBehaviorValue(value);
+		behavioralDetails.setId(ticket.getTicketId());
+		behavioralDetails.setStepId(ticket.getStep());
+		behavioralDetails.setTicketId(ticket);
+		behavioralDetails.setActionBy(ticket.getHduser());
+		behavioralDetails.setActionAt(new Date());
+		return behavioralDetails;
+	}
+	
+	public InformationalDetails createInformationalDetailsHistory(Ticket ticket, String colName, String oldValue, String newValue) {
+		InformationalDetails informationalDetails = new InformationalDetails();
+		informationalDetails.setColName(colName);
+		informationalDetails.setOldValue(oldValue);
+		informationalDetails.setNewValue(newValue);
+		informationalDetails.setStepId(ticket.getStep());
+		informationalDetails.setTicketId(ticket);
+		informationalDetails.setUpdatedBy(ticket.getHduser());
+		informationalDetails.setUpdatedAt(new Date());
+		return informationalDetails;
+	}
+	
+	public void createInformationalDetailsHistory(Ticket oldTicket, Ticket result) throws BusinessException {
+		if(!oldTicket.getTitle().equals(result.getTitle()))
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_TITLE.getStringValue(),oldTicket.getTitle(), result.getTitle()));
+		
+		if(!oldTicket.getDescription().equals(result.getDescription()))
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_DESCRIPTION.getStringValue(),oldTicket.getDescription(), result.getDescription()));
+		
+		if(oldTicket.getTicketSeverity().getSeverityId() != result.getTicketSeverity().getSeverityId())
+			informationalDetailsService.createInformationalDetails(
+		createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_SEVERIRTY.getStringValue(),oldTicket.getTicketSeverity().getSeverityName(), result.getTicketSeverity().getSeverityName()));
+	
+		if(oldTicket.getTicketPriority().getPrioprtiyId() != result.getTicketPriority().getPrioprtiyId())
+			informationalDetailsService.createInformationalDetails(
+			createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_PRIORITY.getStringValue(),oldTicket.getTicketPriority().getPriorityLevel(), result.getTicketPriority().getPriorityLevel()));
+	
+		if(oldTicket.getStatus().getStatusId() != result.getStatus().getStatusId())
+			informationalDetailsService.createInformationalDetails(
+			createInformationalDetailsHistory(result, ServicesEnums.INFORMATIONAL_COLNAME_STATUS.getStringValue(),oldTicket.getStatus().getStatus(), result.getStatus().getStatus()));
 	}
 }

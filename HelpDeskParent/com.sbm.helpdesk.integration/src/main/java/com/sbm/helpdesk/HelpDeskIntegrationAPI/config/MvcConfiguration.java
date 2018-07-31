@@ -4,6 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -44,4 +47,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) { 
 	        configurer.enable();
 	}*/
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		
+		  PropertySourcesPlaceholderConfigurer pspc = new PropertySourcesPlaceholderConfigurer();
+		  Resource[] resources = new ClassPathResource[ ]
+		    {
+		      new ClassPathResource( "notificationSettings.properties" )
+		    };
+		  pspc.setLocations( resources );
+		  pspc.setIgnoreUnresolvablePlaceholders( false );
+		  pspc.setIgnoreResourceNotFound(false);
+		  return pspc;
+	  }
 }

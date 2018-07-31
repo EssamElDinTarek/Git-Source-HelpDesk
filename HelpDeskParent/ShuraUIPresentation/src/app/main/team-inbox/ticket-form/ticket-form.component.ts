@@ -23,8 +23,6 @@ import { FileData } from '../../../model/fileData';
 import { FileListService } from '../../file-list/file-list.service';
 import { SharedDataService } from '../../../services/shared-data.service';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { TicketAttachmentComponent } from '../ticket-attachment/ticket-attachment.component';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
 
 
 

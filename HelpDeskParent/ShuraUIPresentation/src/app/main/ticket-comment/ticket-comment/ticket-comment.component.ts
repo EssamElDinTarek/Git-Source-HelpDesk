@@ -1,0 +1,98 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { SharedDataService } from '../../../services/shared-data.service';
+import { TicketCommentService, CommentResponse } from '../../../services/ticket-comment.service';
+import { TicketComment } from '../../../model/TicketComment';
+import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overview-example.component';
+
+@Component({
+  selector: 'app-ticket-comment',
+  templateUrl: './ticket-comment.component.html',
+  styleUrls: ['./ticket-comment.component.scss']
+})
+export class TicketCommentComponent implements OnInit {
+
+  formData: FormData = new FormData();
+  filelist: FileList;
+  ticketID: number;
+  displayedColumns = ['commentValue', 'user', 'delete'];
+  comments = new MatTableDataSource();
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  fileUploaded: boolean;
+  commentsResponse: CommentResponse = new CommentResponse();
+
+  addedComment: TicketComment;
+
+  //child: Comment;
+  commentInDialog: string;
+  commentDialogName: string = "Comment";
+  commentDialogMessage: string = "Add Your Comment here";
+  commentDialogOkLabel: string = "Ok";
+  commentDialogCancelLabel: string = "Cancel";
+  commentConfirmed: boolean = false;
+
+  constructor(private http: HttpClient, public dialog: MatDialog, private _shareData: SharedDataService, private commentService: TicketCommentService) { }
+
+  ngOnInit() {
+    this.commentsResponse.data = new Array<TicketComment>();
+  }
+  ngAfterViewInit() {
+    //get ticket id and user id to add comment
+    this.ticketID = 4952;
+    //this.user.userId = 1;
+    console.log('on after view init');
+    this.commentService.getCommentByTickId(this.ticketID).subscribe(_commentsResponse => {
+      this.commentsResponse.status = _commentsResponse.status;
+      for (let index = 0; index < _commentsResponse.data.length; index++) {
+        this.commentsResponse.data[index] = _commentsResponse.data[index];
+      }
+      
+      this.comments.data = this.commentsResponse.data;
+    });
+    // to moved inside the success senario in the above request
+    //this. isLoadingResults = false;
+  }
+
+  addComment(comment : TicketComment){
+    //var newComment : TicketComment;
+    this.commentService.addTicketComment(comment).subscribe(_ticket => {
+      alert('comment added successfully');
+      this.commentsResponse.data[this.commentsResponse.data.length] = comment;
+      this.comments.data = this.commentsResponse.data;
+      this.addedComment = null;
+   });
+  }
+
+  delete(comment: TicketComment): void {
+    this.commentService.deleteComment(comment).subscribe();
+    this.comments.data = this.comments.data.filter(h => h !== comment);
+    location.reload;
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: { dialogName: this.commentDialogName, dialogMessage: this.commentDialogMessage, dialogOkLabel: this.commentDialogOkLabel, dialogCancelLabel: this.commentDialogCancelLabel, confirmed: this.commentConfirmed, confirmationComment: this.commentInDialog }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      this.commentConfirmed = result.confirmed;
+      console.log(this.commentConfirmed);
+      if (this.commentConfirmed) {
+        this.addedComment = new TicketComment();
+        this.addedComment.commentValue = result.confirmationComment;
+        this.addedComment.hduser = this._shareData.user;
+        this.addedComment.ticketId = this.ticketID;
+        this.addComment(this.addedComment);
+      }
+    });
+  }
+
+}

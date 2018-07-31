@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sbm.helpdesk.common.dto.BehavioralDetailsDTO;
 import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
@@ -13,6 +14,7 @@ import com.sbm.helpdesk.service.BehavioralDetailsService;
 import com.sbm.helpdesk.persistence.dao.BehavioralDetailsDao;
 import com.sbm.helpdesk.persistence.entity.BehavioralDetails;
 
+@Service
 public class BehavioralDetailsServiceImp extends BasicServiceImpl<BehavioralDetailsDTO, BehavioralDetails> implements BehavioralDetailsService{
 
 	@Autowired
