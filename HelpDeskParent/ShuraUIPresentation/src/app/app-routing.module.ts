@@ -12,7 +12,12 @@ import { SubmitTicketModule } from './main/ticket/submitticket/submitTicket.modu
 import { HDURSDashboardModule } from './main/dashboard/hd-urs-dashboard/hd-urs-dashboard.module';
 import { HDADMDashboardModule } from './main/dashboard/hd-adm-dashboard/hd-adm-dashboard.module';
 import { HDMGRDashboardModule } from './main/dashboard/hd-mgr-dashboard/hd-mgr-dashboard.module';
+//import { AttachmentModule } from './main/attachment/attachment.module';
+import { TicketAttachementsModule } from './main/attachment/ticket-attachements/ticket-attachements.module';
+import { TicketCommentModule } from './main/ticket-comment/ticket-comment.module';
 import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
+
+
 
 
 const appRoutes: Routes = [
@@ -31,15 +36,15 @@ const appRoutes: Routes = [
 	},{
 		path      : 'submitTicket',
 		redirectTo: 'submitTicket'
-	},{
+	} ,{
 		path      : 'submitTicket/:id',
 		redirectTo: 'submitTicket'
 	},{
 		path      : 'user',
 		redirectTo: 'user'
 	},{
-		path: 'admin',
-		redirectTo: 'admin'
+		path:'admin',
+		redirectTo:'admin'
 	},{
 		path : 'manager',
 		redirectTo : 'manager'
@@ -51,6 +56,14 @@ const appRoutes: Routes = [
 	{
 		path:'teaminboxtemp',
 		redirectTo:'teaminboxticket'
+	},
+	{
+		path:'attachment',
+		redirectTo:'attachment'
+	},
+	{
+		path:'comment',
+		redirectTo:'comment'
 	}
 	// {
 	//     path      : '**',
@@ -61,7 +74,20 @@ const appRoutes: Routes = [
 
 @NgModule({
 	declarations: [],
-	imports: [RouterModule.forRoot(appRoutes), SubmitTicketModule, HDURSDashboardModule, HDADMDashboardModule, HDMGRDashboardModule,RouterModule,TeamInboxModule],
+	imports: [
+		RouterModule.forRoot(appRoutes),
+		SubmitTicketModule,
+		HDURSDashboardModule,
+		HDADMDashboardModule,
+		HDMGRDashboardModule,
+		TicketAttachementsModule,
+		TicketCommentModule,
+		TeamInboxModule,
+		RouterModule
+	],
+	exports: [
+		RouterModule
+	],
 	providers: []
 })
 
