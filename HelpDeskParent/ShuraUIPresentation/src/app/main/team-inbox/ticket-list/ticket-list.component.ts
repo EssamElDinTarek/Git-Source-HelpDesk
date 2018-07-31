@@ -10,7 +10,7 @@ import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/conf
 import { ContactsService } from '../contacts.service';
 import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
 import { TicketFormComponent } from '../ticket-form/ticket-form.component';
-//import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
+import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
 //TicketFormComponent
 
 
