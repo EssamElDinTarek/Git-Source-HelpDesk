@@ -84,8 +84,7 @@ public class HomeController {
 	@ResponseBody
 	public ResponseDTO creatTicket(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
 	         Model model) throws BusinessException, Exception {
-		Mailer mailer = new Mailer();
-		mailer.send(new String[]{"moh_ammar_pro@yahoo.com","moh.ali.fci@gmail.com"}, "Test mail subject", "test mail body");
+		
 		return ticketfacadeService.creatTicket(files, ticket);
 	}
 
