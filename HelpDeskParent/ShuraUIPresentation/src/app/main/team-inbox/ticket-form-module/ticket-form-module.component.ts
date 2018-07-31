@@ -2,8 +2,8 @@ import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Contact } from '../contact.model';
-import { TicketAttachmentComponent } from '../ticket-attachment/ticket-attachment.component';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
+
+
 
 
 

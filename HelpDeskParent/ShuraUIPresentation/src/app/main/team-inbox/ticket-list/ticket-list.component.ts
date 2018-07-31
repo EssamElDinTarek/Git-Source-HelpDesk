@@ -8,10 +8,7 @@ import { takeUntil } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
 import { ContactsService } from '../contacts.service';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
-import { TicketFormComponent } from '../ticket-form/ticket-form.component';
 import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
-//TicketFormComponent
 
 
 

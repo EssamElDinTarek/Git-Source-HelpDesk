@@ -20,9 +20,10 @@ import {
 import { TicketFormModule } from './ticket-form/ticket-form.module';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { ContactsService } from './contacts.service';
-import { TicketCommentComponent } from './ticket-comment/ticket-comment.component';
-import { TicketAttachmentComponent } from './ticket-attachment/ticket-attachment.component';
+
 import { TicketFormModuleComponent } from './ticket-form-module/ticket-form-module.component';
+import { TicketAttachementsModule } from '../attachment/ticket-attachements/ticket-attachements.module';
+import { TicketCommentModule } from '../ticket-comment/ticket-comment.module';
 
 
 const materialModules = [
@@ -32,7 +33,8 @@ const materialModules = [
     MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
     MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
-    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
+    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule,
+    TicketAttachementsModule,TicketCommentModule
 
 ];
 
@@ -50,14 +52,12 @@ const routes = [
   declarations: [
     TeamInboxComponent,
     TicketListComponent,
-    TicketCommentComponent,
-    TicketAttachmentComponent,
     TicketFormModuleComponent
     ],
 imports     : [
     RouterModule.forChild(routes),
     CdkTableModule,
-
+    materialModules,
     MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -77,8 +77,6 @@ MatTabsModule,
     TicketFormModule
 ],
 entryComponents: [
-    TicketCommentComponent,
-    TicketAttachmentComponent,
     TicketFormModuleComponent
 ],
  exports: [

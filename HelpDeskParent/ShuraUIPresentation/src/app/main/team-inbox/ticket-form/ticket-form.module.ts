@@ -25,8 +25,6 @@ import {
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
 import { TicketFormComponent } from './ticket-form.component';
-import { TicketAttachmentComponent } from '../ticket-attachment/ticket-attachment.component';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
 
 
 

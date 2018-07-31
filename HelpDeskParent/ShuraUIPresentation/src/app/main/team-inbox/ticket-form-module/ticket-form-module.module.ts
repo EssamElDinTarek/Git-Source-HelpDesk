@@ -26,8 +26,8 @@ import {
 
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
-import { TicketAttachmentComponent } from '../ticket-attachment/ticket-attachment.component';
-import { TicketCommentComponent } from '../ticket-comment/ticket-comment.component';
+//import { TicketAttachementsComponent } from '../../attachment/ticket-attachements/ticket-attachements.component';
+//import { TicketCommentComponent } from '../../ticket-comment/ticket-comment/ticket-comment.component';
 
 const routes: Routes = [
   {
@@ -58,14 +58,14 @@ const routes: Routes = [
     MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule,
     FuseSharedModule,
     FuseSidebarModule,
-    FuseWidgetModule
+    FuseWidgetModule/* ,
+    TicketAttachementsComponent,
+    TicketCommentComponent */
   ],
-  declarations: [TicketFormModuleComponent,
-    TicketAttachmentComponent,
-    TicketCommentComponent],
+  declarations: [TicketFormModuleComponent],
   exports: [
-    TicketAttachmentComponent,
-    TicketCommentComponent
+    /* TicketAttachementsComponent,
+    TicketCommentComponent */
   ]
 
 })

@@ -40,7 +40,7 @@
 
 
 
-        <div class="tf-fields">
+        <div scroll="true" class="tf-fields">
             <form [formGroup]="contactForm">
 
                 <mat-form-field class="w-50-p">
@@ -107,15 +107,11 @@
             <mat-tab-group dynamicHeight>
 
                 <mat-tab label="Comments">
-
                     <app-ticket-comment></app-ticket-comment>
-
                 </mat-tab>
 
                 <mat-tab label="Attachments">
-
-                    <app-ticket-attachment></app-ticket-attachment>
-
+                    <app-ticket-attachements></app-ticket-attachements>
                 </mat-tab>
 
 

@@ -36,7 +36,8 @@ const routes = [
     CommonModule,
     materialModules
   ],exports: [
-    materialModules
+    materialModules,
+    TicketCommentComponent
   ],
   declarations: [TicketCommentComponent]
 })
