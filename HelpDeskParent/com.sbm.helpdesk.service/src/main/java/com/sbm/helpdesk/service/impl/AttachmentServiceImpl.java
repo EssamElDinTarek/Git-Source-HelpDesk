@@ -32,6 +32,9 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	private TicketDao ticketDao;
 	
 	@Autowired
+	private StepDao stepDao;
+	
+	@Autowired
 	private UserDao userDao;
 	
 	@Resource
@@ -177,14 +180,15 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 		return result;
 	}
 	
-	public BehavioralDetails createBehavioralDetailsHistory(Attachment attachment, String value) {
+	public BehavioralDetails createBehavioralDetailsHistory(Attachment attachment, String value) throws RespositoryException {
 		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		Ticket ticket = ticketDao.findById(attachment.getTicket().getTicketId());
 		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_ATTACHMENT.getStringValue());
 		behavioralDetails.setBehaviorValue(value);
 		behavioralDetails.setId(attachment.getAttachmentId());
-		behavioralDetails.setStepId(attachment.getTicket().getStep());
-		behavioralDetails.setTicketId(attachment.getTicket());
-		behavioralDetails.setActionBy(attachment.getHduser());
+		behavioralDetails.setStepId(stepDao.findById(ticket.getStep().getStepId()));
+		behavioralDetails.setTicketId(ticket);
+		behavioralDetails.setActionBy(userDao.findById(attachment.getHduser().getUserId()));
 		behavioralDetails.setActionAt(new Date());
 		return behavioralDetails;
 	}

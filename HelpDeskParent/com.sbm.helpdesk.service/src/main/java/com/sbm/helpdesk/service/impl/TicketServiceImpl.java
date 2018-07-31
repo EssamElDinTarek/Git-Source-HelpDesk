@@ -50,6 +50,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Autowired
 	private StatusDao statusDao;
 	
+	@Autowired
+	private UserDao userDao;
+	
 	@Resource
 	private AttachmentService attachmentService;
 	
@@ -108,8 +111,11 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
 			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
 			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
+			ticket.setStatus(statusDao.findById(ticket.getStatus().getStatusId()));
+			ticket.setHduser(userDao.findById(ticket.getHduser().getUserId()));
+			ticket.setStep(stepDao.findById(ticket.getStep().getStepId()));
 			result = ticketDao.update(ticket);
-			createInformationalDetailsHistory(oldTicket, result);
+			createInformationalDetailsHistory(oldTicket, ticket);
 		
 		} catch (RespositoryException e) {
 			e.printStackTrace();

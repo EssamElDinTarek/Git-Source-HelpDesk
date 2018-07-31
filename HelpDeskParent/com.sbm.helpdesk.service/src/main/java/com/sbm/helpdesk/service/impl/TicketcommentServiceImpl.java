@@ -24,6 +24,15 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 	@Autowired
 	private TicketcommentDao ticketcommentDao;
 	
+	@Autowired
+	private TicketDao ticketDao;
+	
+	@Autowired
+	private StepDao stepDao;
+	
+	@Autowired
+	private HduserDao hduserDao;
+	
 	@Resource
 	BehavioralDetailsService behavioralDetailsService;
 	
@@ -37,7 +46,7 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 		ticketcomment = convertToEntity(ticketcomment, ticketcommentDTO);
 		try {
 			ticketcomment = ticketcommentDao.persist(ticketcomment);
-			//behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_ADD.getStringValue()));
+			behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_ADD.getStringValue()));
 		} catch (RespositoryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +74,7 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 		try {
 		Ticketcomment ticketcomment= ticketcommentDao.findById(id);
 		ticketcomment.setDeleted(1);
-		//behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_DELETE.getStringValue()));
+		behavioralDetailsService.createBehavioralDetails(createBehavioralDetailsHistory(ticketcomment,ServicesEnums.BEHAVIOR_VALUE_DELETE.getStringValue()));
 		result = "Sucess";
 		}catch(RespositoryException e) {
 			e.printStackTrace();
@@ -78,14 +87,15 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 		return result;
 	}
 	
-	public BehavioralDetails createBehavioralDetailsHistory(Ticketcomment ticketcomment, String value) {
+	public BehavioralDetails createBehavioralDetailsHistory(Ticketcomment ticketcomment, String value) throws RespositoryException {
 		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		Ticket ticket = ticketDao.findById(ticketcomment.getTicket().getTicketId());
 		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_COMMENT.getStringValue());
 		behavioralDetails.setBehaviorValue(value);
 		behavioralDetails.setId(ticketcomment.getTicketcommentId());
-		behavioralDetails.setStepId(ticketcomment.getTicket().getStep());
-		behavioralDetails.setTicketId(ticketcomment.getTicket());
-		behavioralDetails.setActionBy(ticketcomment.getHduser());
+		behavioralDetails.setStepId(stepDao.findById(ticket.getStep().getStepId()));
+		behavioralDetails.setTicketId(ticket);
+		behavioralDetails.setActionBy(hduserDao.findById(ticketcomment.getHduser().getUserId()));
 		behavioralDetails.setActionAt(new Date());
 		return behavioralDetails;
 	}

@@ -326,14 +326,14 @@ public class HomeController {
 		return attachmentServiceFacade.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
 	}
 	
-	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO stepTicketForward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
 		
 		return ticketfacadeService.stepTicketForward(ticketId);
 	}
 	
-	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseDTO stepTicketBackward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
 		
