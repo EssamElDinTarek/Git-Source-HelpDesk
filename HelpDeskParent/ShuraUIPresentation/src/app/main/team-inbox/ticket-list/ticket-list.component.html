@@ -1,0 +1,118 @@
+<mat-table #table [dataSource]="dataSource"
+           [@animateStagger]="{value:'50'}">
+
+
+    <!-- Checkbox Column -->
+     <!-- <ng-container cdkColumnDef="checkbox">
+        <mat-header-cell *cdkHeaderCellDef></mat-header-cell>
+        <mat-cell *cdkCellDef="let contact">
+            <mat-checkbox [(ngModel)]="checkboxes[contact.id]" (ngModelChange)="onSelectedChange(contact.id)"
+                          (click)="$event.stopPropagation()">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container> -->
+ 
+    <!-- Avatar Column -->
+  <!--   <ng-container cdkColumnDef="avatar">
+        <mat-header-cell *cdkHeaderCellDef></mat-header-cell>
+        <mat-cell *cdkCellDef="let contact">
+            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
+                 [src]="contact.avatar"/>
+        </mat-cell>
+    </ng-container> -->
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="ticketId">
+            <mat-header-cell *cdkHeaderCellDef class=" font-weight-600">ID</mat-header-cell>
+            <mat-cell *cdkCellDef="let contact">
+                <p class="text-truncate">{{contact.ticketId}} </p>
+            </mat-cell>
+        </ng-container>
+    
+
+
+    <!-- Title Column -->
+    <ng-container cdkColumnDef="title">
+        <mat-header-cell *cdkHeaderCellDef class=" font-weight-600">Title</mat-header-cell>
+        <mat-cell *cdkCellDef="let contact">
+            <p class="text-truncate">{{contact.title}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- creationdate Column -->
+    <ng-container cdkColumnDef="creationdate">
+        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef>Created_On</mat-header-cell>
+        <mat-cell *cdkCellDef="let contact" >
+            <p class="email text-truncate">
+                {{contact.creationdate}}
+            </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Descrption Column -->
+    <ng-container cdkColumnDef="description">
+        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Descrption</mat-header-cell>
+        <mat-cell *cdkCellDef="let contact" >
+            <p class="phone text-truncate">
+                {{contact.description}}
+            </p>
+        </mat-cell>
+    </ng-container> 
+ 
+    <!-- Status Column -->
+    <ng-container cdkColumnDef="status">
+        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Status</mat-header-cell>
+        <mat-cell *cdkCellDef="let contact" >
+            <p class="job-title text-truncate">
+                {{contact.status}}
+            </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- ticketnumber Column -->
+    <ng-container cdkColumnDef="ticketnumber">
+        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Ticket Number</mat-header-cell>
+        <mat-cell *cdkCellDef="let contact">
+            <p class="company text-truncate">
+                {{contact.ticketnumber}}
+            </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Buttons Column -->
+    <!-- <ng-container cdkColumnDef="buttons">
+        <mat-header-cell *cdkHeaderCellDef></mat-header-cell>
+        <mat-cell *cdkCellDef="let contact">
+            <div fxFlex="row" fxLayoutAlign="end center">
+                <button mat-icon-button (click)="$event.stopPropagation();toggleStar(contact.ticketId)" aria-label="Toggle star">
+                   
+                </button>
+
+            
+                <mat-menu #moreMenu="matMenu">
+                    <button mat-menu-item aria-label="remove" (click)="editContact(contact)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove</span>
+                    </button>
+
+                    
+   
+                </mat-menu>
+            </div>
+
+        </mat-cell>
+    </ng-container>
+ -->
+  
+
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let contact; columns: displayedColumns;"
+             class="contact"
+             (click)="editContact(contact)"
+             [ngClass]="{'mat-accent-50-bg':checkboxes[contact.id]}"
+             matRipple
+             [@animate]="{value:'*',params:{y:'100%'}}">
+    </mat-row>
+</mat-table>
+
+

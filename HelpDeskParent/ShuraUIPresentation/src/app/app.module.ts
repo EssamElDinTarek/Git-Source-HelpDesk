@@ -39,6 +39,8 @@ import { GroupPermModule } from './group-perm/group-perm.module';
 import {TicketViewModule} from './ticketview/ticketview.module';
 import { DashboardModule } from './main/dashboard/dashboard.module';
 import { DialogOverviewExampleModule } from './main/dialog-overview/dialogoverviewexample.module';
+import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
+import { ContactsService } from './main/team-inbox/contacts.service';
 
 
 const materialModules = [
@@ -85,7 +87,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent
-    ],
+        ],
     imports     : [
         BrowserModule,
         BrowserAnimationsModule,
@@ -120,14 +122,13 @@ const appRoutes: Routes = [
         WelcomeModule,
         LoginModule,
         GroupPermModule,
-
+        TeamInboxModule,
         DialogOverviewExampleModule
-
     ],
     exports: [materialModules,
     BrowserModule,
     BrowserAnimationsModule],
-	providers: [LoginService],
+	providers: [LoginService,ContactsService],
     bootstrap   : [
         AppComponent
     ]

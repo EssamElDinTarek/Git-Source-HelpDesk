@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ import com.sbm.helpdesk.service.*;
 import com.sbm.helpdesk.persistence.dao.*;
 import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
+import com.sbm.helpdesk.common.enums.servicesEnums.ServicesEnums;
 
 @Service
 public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attachment> implements AttachmentService{
@@ -29,6 +33,9 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Resource
+	BehavioralDetailsService behavioralDetailsService;
 	
 	private Attachment attachment = new Attachment();
 		
@@ -90,6 +97,8 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 		try {
 		Attachment attachment= attachmentDao.findById(id);
 		attachment.setDeleted(1);
+		behavioralDetailsService.createBehavioralDetails
+		(createBehavioralDetailsHistory(attachment,ServicesEnums.BEHAVIOR_VALUE_DELETE.getStringValue()));
 		result = "Sucess";
 		}catch(RespositoryException e) {
 			e.printStackTrace();
@@ -111,7 +120,6 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 			Ticket ticket = ticketDao.findById(ticketId);
 			Hduser user = userDao.findById(userId);
 			result = saveAttachment(user, files, ticket);
-			
 		}catch(RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -128,7 +136,7 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	public boolean saveAttachment(Hduser user, MultipartFile[] files, Ticket ticket) throws BusinessException {
 		boolean result = false;
 		String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
-		
+		Date date = new Date();
 		try {
 			File folder = new File(folderPath);
 			if(!folder.exists()){
@@ -145,10 +153,16 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 			         outputStream.close();
 			         Attachment attachment = new Attachment();
 			         attachment.setDescription(file.getOriginalFilename());
+			         attachment.setMimeType(file.getContentType());
+			         attachment.setName(file.getOriginalFilename());
+			         attachment.setCreationDate(date);
+			         attachment.setSize(file.getSize());
 			         attachment.setPath(filePath);
 			         attachment.setTicket(ticket);
 			         attachment.setHduser(user);
 			         attachmentDao.persist(attachment);
+			         behavioralDetailsService.
+			         	createBehavioralDetails(createBehavioralDetailsHistory(attachment,ServicesEnums.BEHAVIOR_VALUE_ADD.getStringValue()));
 			      }
 		result = true;
 		}
@@ -161,6 +175,18 @@ public class AttachmentServiceImpl extends BasicServiceImpl<AttachmentDTO, Attac
 	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 	    	}
 		return result;
+	}
+	
+	public BehavioralDetails createBehavioralDetailsHistory(Attachment attachment, String value) {
+		BehavioralDetails behavioralDetails = new BehavioralDetails();
+		behavioralDetails.setBehaviorName(ServicesEnums.BEHAVIOR_NAME_ATTACHMENT.getStringValue());
+		behavioralDetails.setBehaviorValue(value);
+		behavioralDetails.setId(attachment.getAttachmentId());
+		behavioralDetails.setStepId(attachment.getTicket().getStep());
+		behavioralDetails.setTicketId(attachment.getTicket());
+		behavioralDetails.setActionBy(attachment.getHduser());
+		behavioralDetails.setActionAt(new Date());
+		return behavioralDetails;
 	}
 
 }

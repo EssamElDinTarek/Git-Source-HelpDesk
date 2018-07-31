@@ -15,6 +15,7 @@ import { HDMGRDashboardModule } from './main/dashboard/hd-mgr-dashboard/hd-mgr-d
 //import { AttachmentModule } from './main/attachment/attachment.module';
 import { TicketAttachementsModule } from './main/attachment/ticket-attachements/ticket-attachements.module';
 import { TicketCommentModule } from './main/ticket-comment/ticket-comment.module';
+import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
 
 
 
@@ -23,39 +24,38 @@ const appRoutes: Routes = [
 	{
 		path        : 'welcome',
 		component   : WelcomeComponent
-	},
-{
+	},{
 		path        : 'ticketview',
 		component   : TicketViewComponent
-	},
-	{
+	},{
 		path        : 'perm',
 		component   : GroupPermComponent
-	},
-	{
+	},{
 		path        : '**',
 		component   : LoginComponent
-	},
-
-	{
+	},{
 		path      : 'submitTicket',
 		redirectTo: 'submitTicket'
 	} ,{
 		path      : 'submitTicket/:id',
 		redirectTo: 'submitTicket'
-	},
-
-	{
+	},{
 		path      : 'user',
 		redirectTo: 'user'
-	},
-	{
+	},{
 		path:'admin',
 		redirectTo:'admin'
+	},{
+		path : 'manager',
+		redirectTo : 'manager'
 	},
 	{
-		path:'manager',
-		redirectTo:'manager'
+		path:'teaminbox',
+		redirectTo:'teaminbox'
+	},
+	{
+		path:'teaminboxtemp',
+		redirectTo:'teaminboxticket'
 	},
 	{
 		path:'attachment',
@@ -65,12 +65,12 @@ const appRoutes: Routes = [
 		path:'comment',
 		redirectTo:'comment'
 	}
-
 	// {
 	//     path      : '**',
 	//     redirectTo: 'apps/dashboards/analytics'
 	// }
 ];
+
 
 @NgModule({
 	declarations: [],
@@ -81,7 +81,9 @@ const appRoutes: Routes = [
 		HDADMDashboardModule,
 		HDMGRDashboardModule,
 		TicketAttachementsModule,
-		TicketCommentModule
+		TicketCommentModule,
+		TeamInboxModule,
+		RouterModule
 	],
 	exports: [
 		RouterModule

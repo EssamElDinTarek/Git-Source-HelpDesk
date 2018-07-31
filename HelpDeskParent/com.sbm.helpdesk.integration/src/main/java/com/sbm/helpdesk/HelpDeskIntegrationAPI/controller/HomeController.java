@@ -32,6 +32,7 @@ import com.sbm.helpdesk.common.constant.*;
 import com.sbm.helpdesk.common.dto.ResponseDTO;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.ControllerException;
+import com.sbm.helpdesk.common.mailer.Mailer;
 import com.sbm.helpdesk.service.AttachmentService;
 import com.sbm.helpdesk.service.TicketPriorityService;
 import com.sbm.helpdesk.service.TicketService;
@@ -83,6 +84,8 @@ public class HomeController {
 	@ResponseBody
 	public ResponseDTO creatTicket(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.PATHPARAM_TICKET) String ticket,
 	         Model model) throws BusinessException, Exception {
+		Mailer mailer = new Mailer();
+		mailer.send(new String[]{"moh_ammar_pro@yahoo.com","moh.ali.fci@gmail.com"}, "Test mail subject", "test mail body");
 		return ticketfacadeService.creatTicket(files, ticket);
 	}
 
@@ -318,9 +321,23 @@ public class HomeController {
 	
 	@RequestMapping(value = "/uploadAttachment", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	@ResponseBody
-	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) long ticketId,
-			@RequestParam(IntegrationServicesConstant.USER_ID) long userId, Model model) throws BusinessException, Exception {
+	public ResponseDTO uploadAttachment(@RequestParam(IntegrationServicesConstant.PATHPARAM_FILES) MultipartFile[] files, @RequestParam(IntegrationServicesConstant.TICKET_ID) String ticketId,
+			@RequestParam(IntegrationServicesConstant.USER_ID) String userId, Model model) throws BusinessException, Exception {
 		System.out.println("Test 1 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
-		return attachmentServiceFacade.uploadAttachment(userId, files, ticketId);
+		return attachmentServiceFacade.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
+	}
+	
+	@RequestMapping(value = "/stepTicketForward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO stepTicketForward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
+		
+		return ticketfacadeService.stepTicketForward(ticketId);
+	}
+	
+	@RequestMapping(value = "/stepTicketBackward", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO stepTicketBackward(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
+		
+		return ticketfacadeService.stepTicketBackward(ticketId);
 	}
 }
