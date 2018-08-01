@@ -289,6 +289,27 @@ export class TicketService implements Resolve<any>
         //catchError(/*this.handleError('addHero', ticket)*/)
       );
   }
+
+  stepTicketForward(ticketID : string): Observable<Ticket> {
+
+    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketForward?TICKET_ID='+ticketID, {
+      headers: this.headers
+    }) 
+      .pipe(
+        //catchError(/*this.handleError('addHero', ticket)*/)
+      );
+  }
+
+  stepTicketBackward(ticketID : string): Observable<Ticket> {
+
+    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketBackward?TICKET_ID='+ticketID, {
+      headers: this.headers
+    })
+      .pipe(
+        //catchError(/*this.handleError('addHero', ticket)*/)
+      );
+  }
+
   
   getUserDetails(): Observable<User> {
 
@@ -355,6 +376,7 @@ export class TicketService implements Resolve<any>
 
 
   getTicketsByProjectID(): Observable<any> {
+    console.log('Start Calling getTicketsByProjectID service...!');
     const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketbyproidanduser';
     const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
     console.log('inside getTicketsByProjectID');

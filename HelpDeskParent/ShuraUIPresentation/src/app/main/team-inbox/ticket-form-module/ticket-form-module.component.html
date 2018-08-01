@@ -35,11 +35,11 @@
             </div>
 
             <div class="navigate">
-                <button class="mat-accent" mat-button>
+                <button class="mat-accent" mat-raised-button (click)="stepTickBack()">
                     <mat-icon>arrow_back</mat-icon>
                 </button>
 
-                <button class="mat-accent" mat-button>
+                <button class="mat-accent" mat-raised-button (click)="stepTickForward()">
                     <mat-icon>arrow_forward</mat-icon>
                 </button>
             </div>
@@ -69,7 +69,7 @@
 
 
 
-        <div scroll="true" class="tf-fields">
+        <div class="tf-fields">
             <form [formGroup]="contactForm">
 
                     <!-- <mat-form-field>
@@ -79,9 +79,10 @@
 
                 <mat-form-field class="w-50-p">
                     <input name="ticketId"  formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
-                    <button style="float: right; color:red" mat-button><mat-icon>clear</mat-icon></button>
-                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
-                </mat-form-field>
+                    <!-- <button style="float: right; color:red" mat-button><mat-icon>clear</mat-icon></button>
+                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button> -->
+                        <button (click)="testMethod()"><mat-icon>mode_edit</mat-icon></button>
+                    </mat-form-field>
             
 
                 <mat-form-field class="w-50-p">

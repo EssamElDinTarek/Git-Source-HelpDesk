@@ -93,7 +93,8 @@ constructor(private http: HttpClient,public dialog: MatDialog,private _shareData
 
 
 ngAfterViewInit() {
-  console.log('on after view init');
+  //console.log('on after view init');
+
 }
 
 
@@ -141,7 +142,7 @@ export class FilesDataSource extends DataSource<any>
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
+     * @param {TicketService} _ticketService
      */
     constructor(
         private _ticketService: TicketService,

@@ -64,6 +64,18 @@ export class TicketFormModuleComponent {
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 
+
+    name:string;
+    is_edit : boolean = false;
+  
+  
+   isDisabled() : boolean{
+     return this.is_edit;
+   }
+
+    testMethod(){
+        alert('Edit TicketID.....');
+    }
     /**
      * Create ticket form
      *
@@ -119,6 +131,18 @@ export class TicketFormModuleComponent {
     }
         // Reactive form errors
        
+    stepTickBack(): void {
+        this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
+      }
+
+      stepTickForward(): void {
+        this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
+      }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
     /**
      * On init
      */

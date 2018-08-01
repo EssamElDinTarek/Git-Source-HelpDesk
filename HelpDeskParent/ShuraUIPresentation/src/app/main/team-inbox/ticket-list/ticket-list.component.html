@@ -15,13 +15,14 @@
 
 
     <!-- Title Column -->
-    <ng-container cdkColumnDef="title">
+   
+   <!--  <ng-container cdkColumnDef="title">
         <mat-header-cell *cdkHeaderCellDef class=" font-weight-600">Title</mat-header-cell>
         <mat-cell *cdkCellDef="let contact">
             <p class="text-truncate">{{contact.title}} </p>
         </mat-cell>
     </ng-container>
-
+ -->
     <!-- creationdate Column -->
     <ng-container cdkColumnDef="creationdate">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef>Created_On</mat-header-cell>
@@ -43,24 +44,24 @@
     </ng-container> 
  
     <!-- Status Column -->
-    <ng-container cdkColumnDef="status">
+  <!--   <ng-container cdkColumnDef="status">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Status</mat-header-cell>
         <mat-cell *cdkCellDef="let contact" >
             <p class="job-title text-truncate">
-                {{contact.status}}
+                {{contact.status.status}}
             </p>
         </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- ticketnumber Column -->
-    <ng-container cdkColumnDef="ticketnumber">
+  <!--   <ng-container cdkColumnDef="ticketnumber">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Ticket Number</mat-header-cell>
         <mat-cell *cdkCellDef="let contact">
             <p class="company text-truncate">
                 {{contact.ticketnumber}}
             </p>
         </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
      
 
