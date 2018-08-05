@@ -11,27 +11,28 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { User } from '../models/user';
 import { SharedDataService } from './shared-data.service';
-import { BehaviorSubject, of,Observable, Subject } from 'rxjs';
+import { BehaviorSubject, of, Observable, Subject } from 'rxjs';
 
 
 import { FuseUtils } from '@fuse/utils';
+import { TicketResponse } from '../ticketview/ticketview.component';
 
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TicketService implements Resolve<any>
- {
-  onTicketsChanged: BehaviorSubject<any>;
-  onSelectedTicketsChanged: BehaviorSubject<any>;
-  onUserDataChanged: BehaviorSubject<any>;
-  onSearchTextChanged: Subject<any>;
-  onFilterChanged: Subject<any>;
+{
+    onTicketsChanged: BehaviorSubject<any>;
+    onSelectedTicketsChanged: BehaviorSubject<any>;
+    onUserDataChanged: BehaviorSubject<any>;
+    onSearchTextChanged: Subject<any>;
+    onFilterChanged: Subject<any>;
 
-  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  apiEndPoint:string;
+    apiEndPoint: string;
 
 
 
@@ -47,10 +48,9 @@ export class TicketService implements Resolve<any>
      *
      * @param {HttpClient} _httpClient
      */
-    constructor( private _httpClient: HttpClient)
-    {
+    constructor(private _httpClient: HttpClient) {
         // Set the defaults
-      
+
         this.onTicketsChanged = new BehaviorSubject([]);
         this.onSelectedTicketsChanged = new BehaviorSubject([]);
         this.onUserDataChanged = new BehaviorSubject([]);
@@ -69,8 +69,7 @@ export class TicketService implements Resolve<any>
      * @param {RouterStateSnapshot} state
      * @returns {Observable<any> | Promise<any> | any}
      */
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any
-    {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
         return new Promise((resolve, reject) => {
 
             Promise.all([
@@ -146,16 +145,15 @@ export class TicketService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    getUserData(): Promise<any>
-    {
+    getUserData(): Promise<any> {
         return new Promise((resolve, reject) => {
-                this._httpClient.get('api/tickets-user/5725a6802d10e277a0f35724')
-                    .subscribe((response: any) => {
-                        this.user = response;
-                        this.onUserDataChanged.next(this.user);
-                        resolve(this.user);
-                    }, reject);
-            }
+            this._httpClient.get('api/tickets-user/5725a6802d10e277a0f35724')
+                .subscribe((response: any) => {
+                    this.user = response;
+                    this.onUserDataChanged.next(this.user);
+                    resolve(this.user);
+                }, reject);
+        }
         );
     }
 
@@ -164,15 +162,12 @@ export class TicketService implements Resolve<any>
      *
      * @param id
      */
-    toggleSelectedTicket(id): void
-    {
+    toggleSelectedTicket(id): void {
         // First, check if we already have that ticket as selected...
-        if ( this.selectedTickets.length > 0 )
-        {
+        if (this.selectedTickets.length > 0) {
             const index = this.selectedTickets.indexOf(id);
 
-            if ( index !== -1 )
-            {
+            if (index !== -1) {
                 this.selectedTickets.splice(index, 1);
 
                 // Trigger the next event
@@ -193,16 +188,23 @@ export class TicketService implements Resolve<any>
     /**
      * Toggle select all
      */
-    toggleSelectAll(): void
-    {
-        if ( this.selectedTickets.length > 0 )
-        {
+    toggleSelectAll(): void {
+        if (this.selectedTickets.length > 0) {
             this.deselectTickets();
         }
-        else
-        {
-           // this.selectTickets();
+        else {
+            // this.selectTickets();
         }
+    }
+
+
+    getTickets(projectId:number,userEmail:string): Observable<TicketResponse> {
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
+
+        const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail;
+
+        return this._httpClient.get<TicketResponse>(requestUrl,{headers:this.headers});
+
     }
 
     /**
@@ -229,14 +231,13 @@ export class TicketService implements Resolve<any>
         this.onSelectedTicketsChanged.next(this.selectedTickets);
     }
  */
-   
+
 
 
     /**
      * Deselect tickets
      */
-    deselectTickets(): void
-    {
+    deselectTickets(): void {
         this.selectedTickets = [];
 
         // Trigger the next event
@@ -248,8 +249,7 @@ export class TicketService implements Resolve<any>
      *
      * @param ticket
      */
-    deleteTicket(ticket): void
-    {
+    deleteTicket(ticket): void {
         const ticketIndex = this.tickets.indexOf(ticket);
         this.tickets.splice(ticketIndex, 1);
         this.onTicketsChanged.next(this.tickets);
@@ -259,158 +259,158 @@ export class TicketService implements Resolve<any>
      * Delete selected tickets
      */
 
-     /* 
-    deleteSelectedTickets(): void
-    {
-        for ( const ticketId of this.selectedTickets )
-        {
-            const ticket = this.tickets.find(ticket => {
-                return ticket.id === ticketId;
-            });
-            const ticketIndex = this.tickets.indexOf(ticket);
-            this.tickets.splice(ticketIndex, 1);
-        }
-        this.onTicketsChanged.next(this.tickets);
-        this.deselectTickets();
-    } */
+    /* 
+   deleteSelectedTickets(): void
+   {
+       for ( const ticketId of this.selectedTickets )
+       {
+           const ticket = this.tickets.find(ticket => {
+               return ticket.id === ticketId;
+           });
+           const ticketIndex = this.tickets.indexOf(ticket);
+           this.tickets.splice(ticketIndex, 1);
+       }
+       this.onTicketsChanged.next(this.tickets);
+       this.deselectTickets();
+   } */
 
 
 
-  getTicketSeverity(): Observable<TicketSeverity[]> {
+    getTicketSeverity(): Observable<TicketSeverity[]> {
 
-    return this._httpClient.get<TicketSeverity[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketseverity', {
-      headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-  }
-
-  stepTicketForward(ticketID : string): Observable<Ticket> {
-
-    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketForward?TICKET_ID='+ticketID, {
-      //headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-  }
-
-  stepTicketBackward(ticketID : string): Observable<Ticket> {
-
-    return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketBackward?TICKET_ID='+ticketID, {
-      //headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-  }
-
-  
-  getUserDetails(): Observable<User> {
-
-    return this._httpClient.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
-      headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-  }
-  getWorkflow(): Observable<Workflow[]> {
-
-    return this._httpClient.get<Workflow[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/workflow', {
-      headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-
-  }
-
-  getTicketById(value: string): Observable<Ticket> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket';
-    let identifier = "TICKET_ID";
-    //let value = "1953";
-    const requestUrl = `${href}?identifier=` + identifier + `&value=` + value;
-
-    return this._httpClient.get<Ticket>(requestUrl, {
-      headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-
-  }
-
-
-  getTicketPriority(): Observable<TicketPriority[]> {
-
-    return this._httpClient.get<TicketPriority[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketpriority', {
-      headers: this.headers
-    })
-      .pipe(
-        //catchError(/*this.handleError('addHero', ticket)*/)
-      );
-  }
-  
-  addTicket(formData: FormData): Observable<Ticket> {
-    return this._httpClient.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
-     
-    })
-      .pipe(
-        // catchError(alert('Kindly, fill mandatory data and retry'))
-      );
-  }
-
-  
-  editTicket(formData: FormData): Observable<Ticket> {
-    return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
-      headers: this.headers
-    })
-      .pipe(
-        // catchError(alert('Kindly, fill mandatory data and retry'))
-      );
-  }
-
-
-  getTicketsByProjectID(): Observable<any> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketbyproidanduser';
-    const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
-    console.log('inside getTicketsByProjectID');
-    
-    return this._httpClient.get<any>(requestUrl, {headers: this.headers })
-      .pipe(
-        catchError(this.handleError('getTicketsByProjectID'))
-      );
+        return this._httpClient.get<TicketSeverity[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
     }
-    
-    
-    
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+    stepTicketForward(ticketID: string): Observable<Ticket> {
 
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/stepTicketForward?TICKET_ID=' + ticketID, {
+            //headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+    }
 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
- 
-  /** Log a HeroService message with the MessageService */
-  private log(message: string) {
-   // this.messageService.add(`HeroService: ${message}`);
-  }
- 
+    stepTicketBackward(ticketID: string): Observable<Ticket> {
+
+        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/stepTicketBackward?TICKET_ID=' + ticketID, {
+            //headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+    }
+
+
+    getUserDetails(): Observable<User> {
+
+        return this._httpClient.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+    }
+    getWorkflow(): Observable<Workflow[]> {
+
+        return this._httpClient.get<Workflow[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+
+    }
+
+    getTicketById(value: string): Observable<Ticket> {
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket';
+        let identifier = "TICKET_ID";
+        //let value = "1953";
+        const requestUrl = `${href}?identifier=` + identifier + `&value=` + value;
+
+        return this._httpClient.get<Ticket>(requestUrl, {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+
+    }
+
+
+    getTicketPriority(): Observable<TicketPriority[]> {
+
+        return this._httpClient.get<TicketPriority[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+    }
+
+    addTicket(formData: FormData): Observable<Ticket> {
+        return this._httpClient.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
+
+        })
+            .pipe(
+                // catchError(alert('Kindly, fill mandatory data and retry'))
+            );
+    }
+
+
+    editTicket(formData: FormData): Observable<Ticket> {
+        return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
+            headers: this.headers
+        })
+            .pipe(
+                // catchError(alert('Kindly, fill mandatory data and retry'))
+            );
+    }
+
+
+    getTicketsByProjectID(): Observable<any> {
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketbyproidanduser';
+        const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
+        console.log('inside getTicketsByProjectID');
+
+        return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getTicketsByProjectID'))
+            );
+    }
+
+
+
+    /**
+     * Handle Http operation that failed.
+     * Let the app continue.
+     * @param operation - name of the operation that failed
+     * @param result - optional value to return as the observable result
+     */
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+
+            // TODO: better job of transforming error for user consumption
+            this.log(`${operation} failed: ${error.message}`);
+
+            // Let the app keep running by returning an empty result.
+            return of(result as T);
+        };
+    }
+
+    /** Log a HeroService message with the MessageService */
+    private log(message: string) {
+        // this.messageService.add(`HeroService: ${message}`);
+    }
+
 
 
 }

@@ -4,7 +4,6 @@ import {Workflow} from './workflow';
 import { Project } from './Project';
 export class Ticket {
 	description: string;
-	status: string;
 	title: string;
 	ticketPriority: TicketPriority;
 	ticketSeverity: TicketSeverity;

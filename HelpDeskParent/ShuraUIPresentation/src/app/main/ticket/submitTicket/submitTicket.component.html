@@ -16,12 +16,6 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
-            <textarea matInput placeholder="Status" [(ngModel)]="ticket.status" formControlName="status"></textarea>
-            <mat-error *ngIf="formErrors.status.required">
-                Status is required!
-            </mat-error>
-        </mat-form-field>
 
        <!--  <mat-form-field fxFlex="100">
             <textarea *ngIf="isUpdate" matInput placeholder="Ticket Number" [(ngModel)]="ticket.ticketNO" formControlName="ticketNO"

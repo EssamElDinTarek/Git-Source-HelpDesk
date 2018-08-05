@@ -58,7 +58,6 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         // Reactive form errors
         this.formErrors = {
             title: {},
-            status: {},
             description: {},
             workflow: {},
             severity: {},
@@ -104,7 +103,6 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.form = this._formBuilder.group({
 
             title: ['', Validators.required],
-            status: ['', Validators.required],
             description: ['', Validators.required],
             workflow: ['', Validators.required],
             severity: ['', Validators.required],
