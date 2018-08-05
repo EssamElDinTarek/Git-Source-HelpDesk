@@ -1,15 +1,14 @@
 import { Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MatTableDataSource } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { fuseAnimations } from '@fuse/animations';
 import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
-import { ContactsService } from '../contacts.service';
 import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
-
+import { TicketService } from '../../../services/ticket.service';
 
 
 @Component({
@@ -23,13 +22,14 @@ export class TicketListComponent implements OnInit  {
     @ViewChild('dialogContent')
     dialogContent: TemplateRef<any>;
 
-    contacts: any;
+    tickets: any;
     user: any;
     dataSource: FilesDataSource | null;
-    displayedColumns = [ 'ticketId', 'title','creationdate', 'status', 'ticketnumber','description'];
-    selectedContacts: any[];
+    //displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
+    displayedColumns = ['ticketId', 'description','creationdate'];
+    selectedTickets: any[];
     checkboxes: {};
-    dialogRef: any;
+    dialogRef: any
     confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
 
     // Private
@@ -38,15 +38,15 @@ export class TicketListComponent implements OnInit  {
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
      * @param {MatDialog} _matDialog
      */
     constructor(
-        private _contactsService: ContactsService,
+        private _ticketService:TicketService,
         public _matDialog: MatDialog
     )
     {
         // Set the private defaults
+        this._ticketService.getTicketsByProjectID;
         this._unsubscribeAll = new Subject();
     }
 
@@ -59,7 +59,16 @@ export class TicketListComponent implements OnInit  {
      */
     ngOnInit(): void
     {
-        this.dataSource = new FilesDataSource(this._contactsService);
+        this.dataSource = new FilesDataSource(this._ticketService);
+
+       // console.log('Start OnInit method...!')
+      //  this._ticketService.getTicketsByProjectID;
+        this._ticketService.getTicketsByProjectID().subscribe(_tickets =>{
+            this.tickets = _tickets.data;
+            console.log(_tickets.data);
+         
+        });
+        
 
         this._contactsService.onContactsChanged
             .pipe(takeUntil(this._unsubscribeAll))
@@ -68,10 +77,10 @@ export class TicketListComponent implements OnInit  {
 
                 this.checkboxes = {};
                 contacts.map(contact => {
-                    this.checkboxes[contact.ticketId] = false;
+                    this.checkboxes[contact.id] = false;
                 });
             });
-
+/*
         this._contactsService.onSelectedContactsChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(selectedContacts => {
@@ -98,7 +107,8 @@ export class TicketListComponent implements OnInit  {
             .subscribe(() => {
                 this._contactsService.deselectContacts();
             });
-    }
+    */
+        }
 
     /**
      * On destroy
@@ -117,14 +127,14 @@ export class TicketListComponent implements OnInit  {
     /**
      * Edit contact
      *
-     * @param contact
+     * @param ticket
      */
-    editContact(contact): void
+    editTicket(ticket): void
     {
         this.dialogRef = this._matDialog.open(TicketFormModuleComponent, {
-            panelClass: 'contact-form-dialog',
+            panelClass: 'ticket-form-dialog',
             data      : {
-                contact: contact,
+                contact: ticket,
                 action : 'edit'
             }
         });
@@ -135,79 +145,23 @@ export class TicketListComponent implements OnInit  {
                 {
                     return;
                 }
-                const actionType: string = response[0];
-                const formData: FormGroup = response[1];
-                switch ( actionType )
-                {
-                    /**
-                     * Save
-                     */
-                    case 'save':
-
-                        this._contactsService.updateContact(formData.getRawValue());
-
-                        break;
-                    /**
-                     * Delete
-                     */
-                    case 'delete':
-
-                        this.deleteContact(contact);
-
-                        break;
-                }
+                
             });
     }
 
-    /**
-     * Delete Contact
-     */
-    deleteContact(contact): void
-    {
-        this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
-            disableClose: false
-        });
-
-        this.confirmDialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete?';
-
-        this.confirmDialogRef.afterClosed().subscribe(result => {
-            if ( result )
-            {
-                this._contactsService.deleteContact(contact);
-            }
-            this.confirmDialogRef = null;
-        });
-
-    }
+   
 
     /**
      * On selected change
      *
-     * @param contactId
+     * @param ticketId
      */
     onSelectedChange(ticketId): void
     {
-        this._contactsService.toggleSelectedContact(ticketId);
+        this._ticketService.toggleSelectedTicket(ticketId);
     }
 
-    /**
-     * Toggle star
-     *
-     * @param contactId
-     */
-    toggleStar(ticketId): void
-    {
-        if ( this.user.starred.includes(ticketId) )
-        {
-            this.user.starred.splice(this.user.starred.indexOf(ticketId), 1);
-        }
-        else
-        {
-            this.user.starred.push(ticketId);
-        }
-
-      //  this._contactsService.updateUserData(this.user);
-    }
+    
 }
 
 export class FilesDataSource extends DataSource<any>
@@ -215,10 +169,10 @@ export class FilesDataSource extends DataSource<any>
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
+     * @param {TicketService} _ticketService
      */
     constructor(
-        private _contactsService: ContactsService
+        private _ticketService: TicketService
     )
     {
         super();
@@ -230,7 +184,7 @@ export class FilesDataSource extends DataSource<any>
      */
     connect(): Observable<any[]>
     {
-        return this._contactsService.onContactsChanged;
+        return this._ticketService.onTicketsChanged;
     }
 
     /**

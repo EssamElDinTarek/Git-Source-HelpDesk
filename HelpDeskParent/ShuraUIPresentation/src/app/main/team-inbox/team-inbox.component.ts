@@ -55,7 +55,9 @@ export class TeamInboxComponent implements OnInit {
 ngOnInit(){
   console.log('on init');  
  // this.ngAfterViewInit();
- this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+ 
+ 
+  //this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
  //this.dataSource = new FilesDataSource(this._ticketService);
  //console.log(this.dataSource.data);
  }
@@ -91,7 +93,8 @@ constructor(private http: HttpClient,public dialog: MatDialog,private _shareData
 
 
 ngAfterViewInit() {
-  console.log('on after view init');
+  //console.log('on after view init');
+
 }
 
 
@@ -139,7 +142,7 @@ export class FilesDataSource extends DataSource<any>
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
+     * @param {TicketService} _ticketService
      */
     constructor(
         private _ticketService: TicketService,

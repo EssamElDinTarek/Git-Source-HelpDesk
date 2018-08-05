@@ -8,7 +8,6 @@ import { Contact } from './contact.model';
 
 
 
-
 @Injectable()
 export class ContactsService implements Resolve<any>
 {
@@ -129,7 +128,7 @@ export class ContactsService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    /* getUserData(): Promise<any>
+getUserData(): Promise<any>
     {
         return new Promise((resolve, reject) => {
                 this._httpClient.get('api/contacts-user/5725a6802d10e277a0f35724')
@@ -141,7 +140,7 @@ export class ContactsService implements Resolve<any>
             }
         );
     }
- */
+ 
     /**
      * Toggle selected contact by id
      *
@@ -235,7 +234,7 @@ export class ContactsService implements Resolve<any>
      * @param userData
      * @returns {Promise<any>}
      */
-   /*  updateUserData(userData): Promise<any>
+    updateUserData(userData): Promise<any>
     {
         return new Promise((resolve, reject) => {
             this._httpClient.post('api/contacts-user/' + this.user.id, {...userData})
@@ -246,7 +245,7 @@ export class ContactsService implements Resolve<any>
                 });
         });
     }
- */
+ 
     /**
      * Deselect contacts
      */

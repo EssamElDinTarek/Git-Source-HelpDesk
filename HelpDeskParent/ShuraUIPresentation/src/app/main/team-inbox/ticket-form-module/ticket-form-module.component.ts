@@ -1,59 +1,136 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Inject, ViewEncapsulation, OnDestroy, OnInit, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { fuseAnimations } from '@fuse/animations';
+import { TicketPriority } from '../../../models/ticket-priority';
+import { TicketSeverity } from '../../../models/ticket-severity';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { TicketHistory } from '../../../models/TicketHistory';
+import { reject } from '../../../../../node_modules/@types/q';
 import { Contact } from '../contact.model';
 import { TicketService } from '../../../services/ticket.service';
-TicketService
 
 
+export class State {
+    constructor(public name: string, public population: string, public flag: string) { }
+  }
 
 
 
 @Component({
-  selector: 'app-ticket-form-module',
-  templateUrl: './ticket-form-module.component.html',
-  styleUrls: ['./ticket-form-module.component.scss']
+    selector: 'app-ticket-form-module',
+    templateUrl: './ticket-form-module.component.html',
+    styleUrls: ['./ticket-form-module.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    animations: fuseAnimations
 })
+
+
+
 export class TicketFormModuleComponent {
 
+   
+
+
+   
+    ticketHistory:TicketHistory[];
+   
+
+   
+    verticalStepperStep1: FormGroup;
+    verticalStepperStep2: FormGroup;
+    verticalStepperStep3: FormGroup;
+    verticalStepperStep1Errors: any;
+    verticalStepperStep2Errors: any;
+    verticalStepperStep3Errors: any;
 
 
 
-  action: string;
-    contact: Contact;
+    action: string;
+    contact: Contact ;
     contactForm: FormGroup;
     dialogTitle: string;
+   // _ticketService : TicketService;
+    ticketSeverityList: TicketSeverity[];
+    ticketPeriorityList: TicketPriority[];
+    ticketStatusList: String[]=["open","close","pending"];
+
+    formData: FormData = new FormData();
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+
+    name:string;
+    is_edit : boolean = false;
+  
+  
+   isDisabled() : boolean{
+     return this.is_edit;
+   }
+
+    testMethod(){
+        alert('Edit TicketID.....');
+    }
+    /**
+     * Create ticket form
+     *
+     * @returns {FormGroup}
+     */
+    createContactForm(): FormGroup {
+        return this._formBuilder.group({
+
+            ticketId: [this.contact.ticketId],
+            title: [this.contact.title],
+            creationdate: [this.contact.creationdate],
+            description: [this.contact.description],
+            status: [this.contact.status],
+            ticketnumber: [this.contact.ticketnumber],
+        });
+
+    }
+
+
+
 
     /**
      * Constructor
      *
-     * @param {MatDialogRef<ContactsContactFormDialogComponent>} matDialogRef
-     * @param _data
      * @param {FormBuilder} _formBuilder
      */
-    constructor(
+    constructor(private httpService: HttpClient,private _ticketService : TicketService,
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, private _ticketService : TicketService
-    )
-    {
-        // Set the defaults
+        private _formBuilder: FormBuilder )
+         {
+
         this.action = _data.action;
 
-        if ( this.action === 'edit' )
-        {
+        if (this.action === 'edit') {
             this.dialogTitle = 'Edit Ticket';
             this.contact = _data.contact;
         }
-        else
-        {
+        else {
             this.dialogTitle = 'New Ticket';
             this.contact = new Contact({});
         }
 
         this.contactForm = this.createContactForm();
-    }
+            console.log('Before calling service...!');
 
+        this.httpService.get('api/Ticket-History')
+        .subscribe((response: any) => {
+
+            this.ticketHistory = response;
+        });
+             console.log('After calling service...!');
+    }
+        // Reactive form errors
+       
     stepTickBack(): void {
         this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
       }
@@ -67,19 +144,56 @@ export class TicketFormModuleComponent {
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Create contact form
-     *
-     * @returns {FormGroup}
+     * On init
      */
-    createContactForm(): FormGroup
-    {
-        return this._formBuilder.group({
-            ticketId      : [this.contact.ticketId],
-            title    : [this.contact.title],
-            creationdate: [this.contact.creationdate],
-            description  : [this.contact.description],
-            status: [this.contact.status],
-            ticketnumber : [this.contact.ticketnumber],
+    OnInit() {
+        
+        this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
+            this.ticketPeriorityList = _ticketPriority;
         });
+        this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
+            this.ticketSeverityList = _ticketSeverity;
+        });
+      /*   this.ticketForm = this._formBuilder.group({
+            title   : [
+                {
+                }, Validators.required
+            ],
+            description : ['', Validators.required],
+            status  : ['', Validators.required],
+            creationdate   : ['', Validators.required]
+        }); 
+       this.verticalStepperStep1 = this._formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName : ['', Validators.required]
+        });
+
+        this.verticalStepperStep2 = this._formBuilder.group({
+            address: ['', Validators.required]
+        });
+
+        this.verticalStepperStep3 = this._formBuilder.group({
+            city      : ['', Validators.required],
+            state     : ['', Validators.required],
+            postalCode: ['', [Validators.required, Validators.maxLength(5)]]
+        });
+
+        */
     }
+
+    submitTicket(): void {
+        debugger;
+        this.formData.append('ticket', JSON.stringify(this.contact));
+           console.log('Before calling submit ticket...!');
+            this._ticketService.editTicket(this.formData).subscribe(_ticket => {
+                alert('updated successfully');
+            
+            });
+       
+        }
+     
+    
+    
 }
+    
+

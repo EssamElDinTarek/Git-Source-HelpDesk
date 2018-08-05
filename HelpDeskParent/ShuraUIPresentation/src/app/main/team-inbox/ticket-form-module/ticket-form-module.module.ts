@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TicketFormModuleComponent } from './ticket-form-module.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FileManagerFileListComponent } from "../../file-list/file-list.component";
 import { CdkTableModule } from '@angular/cdk/table';
-import { FileManagerService } from "../../../services/file-manager.service"
+
+
 import {
 
+  
   MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
 
   MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
@@ -28,6 +29,9 @@ import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
 //import { TicketAttachementsComponent } from '../../attachment/ticket-attachements/ticket-attachements.component';
 //import { TicketCommentComponent } from '../../ticket-comment/ticket-comment/ticket-comment.component';
+import { HttpClientModule } from '../../../../../node_modules/@angular/common/http';
+import {DataSource} from '@angular/cdk/table';
+
 
 const routes: Routes = [
   {
@@ -55,12 +59,12 @@ const routes: Routes = [
 
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
 
-    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule,
+    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule, 
+    
     FuseSharedModule,
     FuseSidebarModule,
-    FuseWidgetModule/* ,
-    TicketAttachementsComponent,
-    TicketCommentComponent */
+    FuseWidgetModule,
+    HttpClientModule
   ],
   declarations: [TicketFormModuleComponent],
   exports: [

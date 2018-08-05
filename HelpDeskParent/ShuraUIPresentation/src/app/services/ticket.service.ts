@@ -74,20 +74,9 @@ export class TicketService implements Resolve<any>
         return new Promise((resolve, reject) => {
 
             Promise.all([
-                this.getTicketsByProjectID(),
-                this.getUserData()
+                this.getTicketsByProjectID()
             ]).then(
                 ([files]) => {
-
-                    this.onSearchTextChanged.subscribe(searchText => {
-                        this.searchText = searchText;
-                        this.getTicketsByProjectID();
-                    });
-
-                    this.onFilterChanged.subscribe(filter => {
-                        this.filterBy = filter;
-                        this.getTicketsByProjectID();
-                    });
 
                     resolve();
 
@@ -102,26 +91,41 @@ export class TicketService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    /* 
+     
     getTickets(): Promise<any>
     {
         return new Promise((resolve, reject) => {
-                this._httpClient.get('api/tickets-tickets')
+
+          /*   this._httpClient.get('getTicketsByProjectID()').subscribe(response=>{
+                debugger;
+                this.tickets=response;
+                console.log("tickets : "+this.tickets);
+
+            }); 
+
+ */
+            this.getTicketsByProjectID().subscribe(_res => {
+                debugger;
+                resolve(_res)
+            },reject);
+
+                    this._httpClient.get('api/tickets-tickets')
                     .subscribe((response: any) => {
 
                         this.tickets = response;
 
+                       
                         if ( this.filterBy === 'starred' )
                         {
                             this.tickets = this.tickets.filter(_ticket => {
-                                return this.user.starred.includes(_ticket.id);
+                                return this.user.starred.includes(_ticket.ticketId);
                             });
                         }
 
                         if ( this.filterBy === 'frequent' )
                         {
                             this.tickets = this.tickets.filter(_ticket => {
-                                return this.user.frequentTickets.includes(_ticket.id);
+                                return this.user.frequentTickets.includes(_ticket.ticketId);
                             });
                         }
 
@@ -131,16 +135,16 @@ export class TicketService implements Resolve<any>
                         }
 
                         this.tickets = this.tickets.map(ticket => {
-                            return new Ticket(ticket);
+                            return new Ticket();
                         });
 
                         this.onTicketsChanged.next(this.tickets);
                         resolve(this.tickets);
-                    }, reject);
+                    }, reject); 
             }
         );
     }
- */
+ 
     /**
      * Get user data
      *
@@ -211,7 +215,7 @@ export class TicketService implements Resolve<any>
      * @param filterParameter
      * @param filterValue
      */
-    /* 
+    
     selectTickets(filterParameter?, filterValue?): void
     {
         this.selectedTickets = [];
@@ -221,14 +225,14 @@ export class TicketService implements Resolve<any>
         {
             this.selectedTickets = [];
             this.tickets.map(ticket => {
-                this.selectedTickets.push(ticket.id);
+                this.selectedTickets.push(ticket.ticketId);
             });
         }
 
         // Trigger the next event
         this.onSelectedTicketsChanged.next(this.selectedTickets);
     }
- */
+ 
    
 
 
@@ -289,8 +293,8 @@ export class TicketService implements Resolve<any>
   stepTicketForward(ticketID : string): Observable<Ticket> {
 
     return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketForward?TICKET_ID='+ticketID, {
-      //headers: this.headers
-    })
+      headers: this.headers
+    }) 
       .pipe(
         //catchError(/*this.handleError('addHero', ticket)*/)
       );
@@ -299,7 +303,7 @@ export class TicketService implements Resolve<any>
   stepTicketBackward(ticketID : string): Observable<Ticket> {
 
     return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/stepTicketBackward?TICKET_ID='+ticketID, {
-      //headers: this.headers
+      headers: this.headers
     })
       .pipe(
         //catchError(/*this.handleError('addHero', ticket)*/)
@@ -367,13 +371,12 @@ export class TicketService implements Resolve<any>
     return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
       headers: this.headers
     })
-      .pipe(
-        // catchError(alert('Kindly, fill mandatory data and retry'))
-      );
+      
   }
 
 
   getTicketsByProjectID(): Observable<any> {
+    console.log('Start Calling getTicketsByProjectID service...!');
     const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketbyproidanduser';
     const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
     console.log('inside getTicketsByProjectID');

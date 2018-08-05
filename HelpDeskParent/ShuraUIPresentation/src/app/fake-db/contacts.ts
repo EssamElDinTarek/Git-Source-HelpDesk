@@ -2,92 +2,636 @@ export class ContactsFakeDb
 {
     public static contacts = [
         {
-            'ticketId'      : '100',
-            'title'    : 'HelpDesk Ticket',
-            'creationdate': '20-July-2018',
-            'description'  : 'Create Login module',
-            'status'  : 'Closed',
-            'ticketnumber': 'Ticket-100'
+            "ticketId": 8252,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 2,
+                "status": "inprogress"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729170921431",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'ticketId'      : '200',
-            'title'    : 'Test Ticket' ,
-            'creationdate': '21-May-2017',
-            'description'  : 'Create Exception handling layer',
-            'status'  : 'Closed',
-            'ticketnumber': 'Ticket-200'
+            "ticketId": 8153,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729165354046",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'ticketId'      : '300',
-            'title'    : 'Exception Handling Ticket',
-            'creationdate': '30-August-2016',
-            'description'  : 'Create DAOs',
-            'status'  : 'Open',
-            'ticketnumber': 'Ticket-300'
+            "ticketId": 8152,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729165308279",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'ticketId'      : '400',
-            'title'    : 'Login Ticket',
-            'creationdate': '01-June-2018',
-            'description'  : 'Create authentication module',
-            'status'  : 'Pending',
-            'ticketnumber': 'Ticket-400'
+            "ticketId": 7253,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729161637417",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 7252,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729160550568",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 7153,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155915785",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 7152,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155804684",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 7052,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155214392",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 6954,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729154702439",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
+        },
+        {
+            "ticketId": 6953,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729154624838",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         }
     ];
 
-   /*  public static user = [
-        {
-            'id'              : '5725a6802d10e277a0f35724',
-            'name'            : 'John Doe',
-            'avatar'          : 'assets/images/avatars/profile.jpg',
-            'starred'         : [
-                '5725a680ae1ae9a3c960d487',
-                '5725a6801146cce777df2a08',
-                '5725a680bbcec3cc32a8488a',
-                '5725a680bc670af746c435e2',
-                '5725a68009e20d0a9e9acf2a'
-            ],
-            'frequentContacts': [
-                '5725a6809fdd915739187ed5',
-                '5725a68031fdbb1db2c1af47',
-                '5725a680606588342058356d',
-                '5725a680e7eb988a58ddf303',
-                '5725a6806acf030f9341e925',
-                '5725a68034cb3968e1f79eac',
-                '5725a6801146cce777df2a08',
-                '5725a680653c265f5c79b5a9'
-            ],
-            'groups'          : [
-                {
-                    'id'        : '5725a6802d10e277a0f35739',
-                    'name'      : 'Friends',
-                    'contactIds': [
-                        '5725a680bbcec3cc32a8488a',
-                        '5725a680e87cb319bd9bd673',
-                        '5725a6802d10e277a0f35775'
-                    ]
-                },
-                {
-                    'id'        : '5725a6802d10e277a0f35749',
-                    'name'      : 'Clients',
-                    'contactIds': [
-                        '5725a680cd7efa56a45aea5d',
-                        '5725a68018c663044be49cbf',
-                        '5725a6809413bf8a0a5272b1',
-                        '5725a6803d87f1b77e17b62b'
-                    ]
-                },
-                {
-                    'id'        : '5725a6802d10e277a0f35329',
-                    'name'      : 'Recent Workers',
-                    'contactIds': [
-                        '5725a680bbcec3cc32a8488a',
-                        '5725a680653c265f5c79b5a9',
-                        '5725a6808a178bfd034d6ecf',
-                        '5725a6801146cce777df2a08'
-                    ]
-                }
-            ]
-        }
-    ]; */
+   
 }
