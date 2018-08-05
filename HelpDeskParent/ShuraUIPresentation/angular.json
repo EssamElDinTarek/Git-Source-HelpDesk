@@ -86,7 +86,13 @@
                         "tsConfig": "src/tsconfig.spec.json",
                         "karmaConfig": "src/karma.conf.js",
                         "styles": [
-                            "styles.scss"
+                            
+                            {
+                                "input": "styles.scss",
+                                "output": "styles.css",
+                                "lazy": true
+                            }
+                      
                         ],
                         "scripts": [],
                         "assets": [
