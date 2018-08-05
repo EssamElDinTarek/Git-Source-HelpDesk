@@ -8,6 +8,7 @@ export class Contact
     description: string;
     status: string;
     ticketnumber: string;
+    severityList:string;
 
 
     /**
@@ -24,6 +25,7 @@ export class Contact
             this.description = contact.description;
             this.status = contact.status ;
             this.ticketnumber = contact.ticketnumber;
+            this.severityList=contact.severityList;
         }
     }
 }

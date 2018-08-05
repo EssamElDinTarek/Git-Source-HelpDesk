@@ -11,8 +11,8 @@
                     <mat-step [stepControl]="verticalStepperStep1">
 
                         <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                  {{data.behaviorValue}}
-                     {{data.behaviorName}}
+                      <p>This Ticket was </p> {{data.behaviorValue}}
+                                            {{data.behaviorName}}
                    {{data.type}}  
                   {{data.actionAt}}
                     </mat-step>
@@ -72,82 +72,31 @@
         <div class="tf-fields">
             <form [formGroup]="contactForm">
 
-                    <!-- <mat-form-field>
-                            <input    matInput placeholder="Company (disabled)" disabled value="Google">
-                          </mat-form-field>
- -->
+
 
                 <mat-form-field class="w-50-p">
-                    <input name="ticketId"  formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
-                    <!-- <button style="float: right; color:red" mat-button><mat-icon>clear</mat-icon></button>
-                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button> -->
-                        <button (click)="testMethod()"><mat-icon>mode_edit</mat-icon></button>
+                    <input name="ticketId" [disabled]="true" formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
+                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
                     </mat-form-field>
             
 
                 <mat-form-field class="w-50-p">
                     <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
-                    <button style="float: right; color: red"><mat-icon>clear</mat-icon></button>
-                    <button style="float: right; color: green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
+                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
 
                 </mat-form-field>
                
                 <mat-form-field class="w-50-p">
                     <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
-                    <button style="float: right; color: red" ><mat-icon>clear</mat-icon></button>
-                    <button style="float: right; color:green"  (click)="submitTicket()">  <mat-icon>done</mat-icon></button>
+                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
                 </mat-form-field>
 
-          <!--     
-                <mat-form-field class="w-50-p">
-                        <mat-select placeholder="Severity" [(ngModel)]="ticket.ticketSeverity" formControlName="severity" required>
-                            <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
-                                {{item.severityName}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="formErrors.severity.required">
-                            Severity is required!
-                        </mat-error>
-                    </mat-form-field>
-            
-               
-            
-            
-                    
-                    <mat-form-field class="w-50-p">
-                        <mat-select placeholder="Priority" [(ngModel)]="ticket.ticketPriority" formControlName="priority" required>
-                            <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
-                                {{item.priorityLevel}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="formErrors.priority.required">
-                            Priority is required!
-                        </mat-error>
-                    </mat-form-field>
-
-               
-
-
-                <mat-form-field class="w-50-p">
-                    <input name="status" formControlName="status" matInput placeholder="Staus" required>
-                    <mat-select placeholder="Status" [(ngModel)]="ticket.status" formControlName="status" required>
-                            <mat-option *ngFor="let item of ticketStatusList" [value]="item">
-                                {{item}}
-                            </mat-option>
-                        </mat-select>
-                    <button style="float: right; color :red"><mat-icon>clear</mat-icon></button>
-                    <button style="float: right; color:green">  <mat-icon>done</mat-icon></button>
-                </mat-form-field>
- 
-           -->      
+             
                 <mat-form-field class="w-50-p">
                         <input name="description" 
                         formControlName="description" matInput placeholder="Description" required>
-                        <button style="float: right; color: red"><mat-icon>clear</mat-icon></button>
-                        <button style="float: right; color: green">  <mat-icon>done</mat-icon></button>
+                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
                     </mat-form-field>
-
-         
 
               
             </form>

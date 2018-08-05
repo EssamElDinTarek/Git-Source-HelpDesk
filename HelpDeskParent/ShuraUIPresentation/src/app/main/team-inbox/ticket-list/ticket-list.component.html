@@ -7,8 +7,8 @@
     <!-- ID Column -->
     <ng-container cdkColumnDef="ticketId">
             <mat-header-cell *cdkHeaderCellDef  class=" font-weight-600">ID</mat-header-cell>
-            <mat-cell *cdkCellDef="let contact">
-                <p class="text-truncate">{{contact.ticketId}} </p>
+            <mat-cell *cdkCellDef="let ticket">
+                <p class="text-truncate">{{ticket.ticketId}} </p>
             </mat-cell>
         </ng-container>
     
@@ -16,19 +16,19 @@
 
     <!-- Title Column -->
    
-   <!--  <ng-container cdkColumnDef="title">
+    <ng-container cdkColumnDef="title">
         <mat-header-cell *cdkHeaderCellDef class=" font-weight-600">Title</mat-header-cell>
-        <mat-cell *cdkCellDef="let contact">
-            <p class="text-truncate">{{contact.title}} </p>
+        <mat-cell *cdkCellDef="let ticket">
+            <p class="text-truncate">{{ticket.title}} </p>
         </mat-cell>
     </ng-container>
- -->
+
     <!-- creationdate Column -->
     <ng-container cdkColumnDef="creationdate">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef>Created_On</mat-header-cell>
-        <mat-cell *cdkCellDef="let contact" >
+        <mat-cell *cdkCellDef="let ticket" >
             <p class="email text-truncate">
-                {{contact.creationdate}}
+                {{ticket.creationdate}}
             </p>
         </mat-cell>
     </ng-container>
@@ -36,40 +36,41 @@
     <!-- Descrption Column -->
     <ng-container cdkColumnDef="description">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Descrption</mat-header-cell>
-        <mat-cell *cdkCellDef="let contact" >
+        <mat-cell *cdkCellDef="let ticket" >
             <p class="phone text-truncate">
-                {{contact.description}}
+                {{ticket.description}}
             </p>
         </mat-cell>
     </ng-container> 
  
     <!-- Status Column -->
-  <!--   <ng-container cdkColumnDef="status">
+    <ng-container cdkColumnDef="status">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Status</mat-header-cell>
-        <mat-cell *cdkCellDef="let contact" >
+        <mat-cell *cdkCellDef="let ticket" >
             <p class="job-title text-truncate">
-                {{contact.status.status}}
+                {{ticket.status.status}}
             </p>
         </mat-cell>
-    </ng-container> -->
+    </ng-container>
 
     <!-- ticketnumber Column -->
-  <!--   <ng-container cdkColumnDef="ticketnumber">
+    <ng-container cdkColumnDef="ticketnumber">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Ticket Number</mat-header-cell>
-        <mat-cell *cdkCellDef="let contact">
+        <mat-cell *cdkCellDef="let ticket">
             <p class="company text-truncate">
-                {{contact.ticketnumber}}
+                {{ticket.ticketnumber}}
             </p>
         </mat-cell>
-    </ng-container> -->
+    </ng-container>
+
 
      
 
      <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *cdkRowDef="let contact; columns: displayedColumns;"
-             class="contact"
-             (click)="editContact(contact)"
-             [ngClass]="{'mat-accent-50-bg':checkboxes[contact.id]}"
+    <mat-row *cdkRowDef="let ticket; columns: displayedColumns;"
+             class="ticket"
+             (click)="editTicket(ticket)"
+             [ngClass]="{'mat-accent-50-bg':checkboxes[ticket.ticketId]}"
              matRipple
              [@animate]="{value:'*',params:{y:'100%'}}">
     </mat-row>

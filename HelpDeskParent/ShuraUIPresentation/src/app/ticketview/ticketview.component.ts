@@ -114,7 +114,9 @@ import { SharedDataService } from '../services/shared-data.service';
           this.isRateLimitReached = true;
           return observableOf([]);
         })
-      ).subscribe(data => this.dataSource.data = data);
+      ).subscribe(data => {
+        this.dataSource.data = data.data;
+      });
   }
   
   delete(ticket: TicketDetails): void {
@@ -165,13 +167,13 @@ export class ExampleHttpDao implements OnInit{
 
    
 
-  getRepoIssues(sort: string, order: string, page: number): Observable<TicketDetails[]> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
+  getRepoIssues(sort: string, order: string, page: number): Observable<any> {
+    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/list';
     let identifier = "PROJECT_NAME";
     let value = this._sharedService.selectedProject.name;
     const requestUrl =`${href}?identifier=`+identifier+`&value=`+value;
 
-    return this.http.get<TicketDetails[]>(requestUrl,{headers:this.headers});
+    return this.http.get<any>(requestUrl,{headers:this.headers});
   }
 
 

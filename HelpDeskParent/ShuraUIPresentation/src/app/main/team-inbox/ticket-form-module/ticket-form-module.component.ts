@@ -35,7 +35,6 @@ export class TicketFormModuleComponent {
 
    
 
-
    
     ticketHistory:TicketHistory[];
    
@@ -90,6 +89,7 @@ export class TicketFormModuleComponent {
             description: [this.contact.description],
             status: [this.contact.status],
             ticketnumber: [this.contact.ticketnumber],
+            ticketSeverity:[this.contact.severityList]
         });
 
     }
@@ -128,6 +128,7 @@ export class TicketFormModuleComponent {
             this.ticketHistory = response;
         });
              console.log('After calling service...!');
+             
     }
         // Reactive form errors
        
@@ -154,31 +155,7 @@ export class TicketFormModuleComponent {
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
             this.ticketSeverityList = _ticketSeverity;
         });
-      /*   this.ticketForm = this._formBuilder.group({
-            title   : [
-                {
-                }, Validators.required
-            ],
-            description : ['', Validators.required],
-            status  : ['', Validators.required],
-            creationdate   : ['', Validators.required]
-        }); 
-       this.verticalStepperStep1 = this._formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName : ['', Validators.required]
-        });
-
-        this.verticalStepperStep2 = this._formBuilder.group({
-            address: ['', Validators.required]
-        });
-
-        this.verticalStepperStep3 = this._formBuilder.group({
-            city      : ['', Validators.required],
-            state     : ['', Validators.required],
-            postalCode: ['', [Validators.required, Validators.maxLength(5)]]
-        });
-
-        */
+      
     }
 
     submitTicket(): void {
