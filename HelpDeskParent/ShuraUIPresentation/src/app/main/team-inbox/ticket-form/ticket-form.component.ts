@@ -38,7 +38,7 @@ export class TicketFormComponent implements OnInit {
     form: FormGroup;
     formErrors: any;
     private sub: any;
-    ticket: Ticket = new Ticket();
+    ticket: Ticket = new Ticket({});
     ticketSeverityList: TicketSeverity[];
     ticketPeriorityList: TicketPriority[];
     workflowList: Workflow[];

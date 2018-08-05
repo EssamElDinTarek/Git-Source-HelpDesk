@@ -9,28 +9,30 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/confirm-dialog.component';
 import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-module.component';
 import { TicketService } from '../../../services/ticket.service';
+import { Ticket } from '../../../models/ticket';
+import { TicketPriority } from '../../../models/ticket-priority';
 
 
 @Component({
-  selector: 'app-ticket-list',
-  templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    selector: 'app-ticket-list',
+    templateUrl: './ticket-list.component.html',
+    styleUrls: ['./ticket-list.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    animations: fuseAnimations
 })
-export class TicketListComponent implements OnInit  {
+export class TicketListComponent implements OnInit {
     @ViewChild('dialogContent')
     dialogContent: TemplateRef<any>;
 
-    tickets: any;
+    tickets :Ticket [];
     user: any;
     dataSource: FilesDataSource | null;
-    //displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
-    displayedColumns = ['ticketId', 'description','creationdate'];
+    displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
     selectedTickets: any[];
     checkboxes: {};
     dialogRef: any
     confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
+    ticketPeriorityList: TicketPriority[];
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -41,12 +43,11 @@ export class TicketListComponent implements OnInit  {
      * @param {MatDialog} _matDialog
      */
     constructor(
-        private _ticketService:TicketService,
+        private _ticketService: TicketService,
         public _matDialog: MatDialog
-    )
-    {
+    ) {
         // Set the private defaults
-        this._ticketService.getTicketsByProjectID;
+     //   this._ticketService.getTicketsByProjectID;
         this._unsubscribeAll = new Subject();
     }
 
@@ -57,64 +58,76 @@ export class TicketListComponent implements OnInit  {
     /**
      * On init
      */
-    ngOnInit(): void
-    {
-        this.dataSource = new FilesDataSource(this._ticketService);
+    ngOnInit(): void {
 
-       // console.log('Start OnInit method...!')
-      //  this._ticketService.getTicketsByProjectID;
-        this._ticketService.getTicketsByProjectID().subscribe(_tickets =>{
+        // console.log('Start OnInit method...!')
+        //  this._ticketService.getTicketsByProjectID;
+        /* this._ticketService.getTicketsByProjectID().subscribe(_tickets =>{
             this.tickets = _tickets.data;
             console.log(_tickets.data);
          
-        });
-        
+        }); */
+        this._ticketService.getTicketsByProjectID().subscribe(_result => {
+            this.tickets = _result.data;
+           this.dataSource=_result.data;
+      
+          });
 
-        this._contactsService.onContactsChanged
+         
+        this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
+            this.ticketPeriorityList = _ticketPriority;
+        });
+        console.log('Test....!');
+       // this.dataSource = new FilesDataSource(this._ticketService)
+        console.log('after datasource...!');
+
+        this._ticketService.onTicketsChanged
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(contacts => {
-                this.contacts = contacts;
+            .subscribe(tickets => {
+                this.tickets = tickets;
 
                 this.checkboxes = {};
-                contacts.map(contact => {
-                    this.checkboxes[contact.id] = false;
+                tickets.map(ticket => {
+                    this.checkboxes[ticket.id] = false;
                 });
             });
-/*
-        this._contactsService.onSelectedContactsChanged
+
+        this._ticketService.onSelectedTicketsChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(selectedContacts => {
-                for ( const id in this.checkboxes )
-                {
-                    if ( !this.checkboxes.hasOwnProperty(id) )
-                    {
+                for (const id in this.checkboxes) {
+                    if (!this.checkboxes.hasOwnProperty(id)) {
                         continue;
                     }
 
                     this.checkboxes[id] = selectedContacts.includes(id);
                 }
-                this.selectedContacts = selectedContacts;
+                this.selectedTickets = selectedContacts;
             });
 
-        this._contactsService.onUserDataChanged
+        this._ticketService.onUserDataChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(user => {
                 this.user = user;
             });
 
-        this._contactsService.onFilterChanged
+        this._ticketService.onFilterChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(() => {
-                this._contactsService.deselectContacts();
+                this._ticketService.deselectTickets();
             });
-    */
-        }
 
+    }
+
+
+    ngAfterViewInit()
+    {
+        this._ticketService.getTickets;
+    }
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
@@ -129,39 +142,36 @@ export class TicketListComponent implements OnInit  {
      *
      * @param ticket
      */
-    editTicket(ticket): void
-    {
+    editTicket(ticket): void {
         this.dialogRef = this._matDialog.open(TicketFormModuleComponent, {
             panelClass: 'ticket-form-dialog',
-            data      : {
+            data: {
                 contact: ticket,
-                action : 'edit'
+                action: 'edit'
             }
         });
 
         this.dialogRef.afterClosed()
             .subscribe(response => {
-                if ( !response )
-                {
+                if (!response) {
                     return;
                 }
-                
+
             });
     }
 
-   
+
 
     /**
      * On selected change
      *
      * @param ticketId
      */
-    onSelectedChange(ticketId): void
-    {
+    onSelectedChange(ticketId): void {
         this._ticketService.toggleSelectedTicket(ticketId);
     }
 
-    
+
 }
 
 export class FilesDataSource extends DataSource<any>
@@ -173,8 +183,7 @@ export class FilesDataSource extends DataSource<any>
      */
     constructor(
         private _ticketService: TicketService
-    )
-    {
+    ) {
         super();
     }
 
@@ -182,15 +191,13 @@ export class FilesDataSource extends DataSource<any>
      * Connect function called by the table to retrieve one stream containing the data to render.
      * @returns {Observable<any[]>}
      */
-    connect(): Observable<any[]>
-    {
+    connect(): Observable<any[]> {
         return this._ticketService.onTicketsChanged;
     }
 
     /**
      * Disconnect
      */
-    disconnect(): void
-    {
+    disconnect(): void {
     }
 }

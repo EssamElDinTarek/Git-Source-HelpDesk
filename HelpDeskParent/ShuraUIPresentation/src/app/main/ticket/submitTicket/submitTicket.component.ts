@@ -30,7 +30,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     form: FormGroup;
     formErrors: any;
     private sub: any;
-    ticket: Ticket = new Ticket();
+    ticket: Ticket = new Ticket(this.ticket);
     ticketSeverityList: TicketSeverity[];
     ticketPeriorityList: TicketPriority[];
     workflowList: Workflow[];
