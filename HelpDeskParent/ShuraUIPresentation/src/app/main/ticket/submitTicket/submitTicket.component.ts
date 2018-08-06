@@ -30,10 +30,10 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     form: FormGroup;
     formErrors: any;
     private sub: any;
-    ticket: Ticket = new Ticket();
-    ticketSeverityList: TicketSeverity[];
-    ticketPeriorityList: TicketPriority[];
-    workflowList: Workflow[];
+    ticket: Ticket = new Ticket(this.ticket);
+    ticketSeverityList: TicketSeverity[] = new Array<TicketSeverity>();
+    ticketPeriorityList: TicketPriority[] = new Array<TicketPriority>();
+    workflowList: Workflow[] = new Array<Workflow>();
     updatedTicketId: string;
     isUpdate: boolean = false;
     //defaultProject: Project= new Project(1,"");
@@ -51,10 +51,10 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
      *
      * @param {FormBuilder} _formBuilder
      */
-    constructor(private _fileManagerService: FileManagerService,private _formBuilder: FormBuilder,
-         private _ticketService: TicketService, private route: ActivatedRoute,
-         private router: Router ,private fileListService: FileListService,
-         private sharedDataService : SharedDataService) {
+    constructor(private _fileManagerService: FileManagerService, private _formBuilder: FormBuilder,
+        private _ticketService: TicketService, private route: ActivatedRoute,
+        private router: Router, private fileListService: FileListService,
+        private sharedDataService: SharedDataService) {
         // Reactive form errors
         this.formErrors = {
             title: {},
@@ -93,9 +93,9 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             this.isUpdate = true;
 
             this._ticketService.getTicketById(this.updatedTicketId).subscribe(_ticket => {
-                
+
                 this.ticket = _ticket;
-                
+
             });
         }
         console.log(this.updatedTicketId);
@@ -109,6 +109,16 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             priority: ['', Validators.required]
         });
 
+        this.form = this._formBuilder.group({
+
+            title: ['', Validators.pattern('^[a-zA-Z]+$')],
+            description: [''],
+            workflow: [''],
+            severity: [''],
+            priority: ['']
+
+        });
+
         this.form.valueChanges
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(() => {
@@ -117,13 +127,20 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
 
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            this.ticketPeriorityList = _ticketPriority;
+            for (let index = 0; index < _ticketPriority.data.length; index++) {
+                this.ticketPeriorityList.push(_ticketPriority.data[index]);
+            }
+
         });
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            this.ticketSeverityList = _ticketSeverity;
+            for (let index = 0; index < _ticketSeverity.data.length; index++) {
+                this.ticketSeverityList.push(_ticketSeverity.data[index]);
+            }
         });
         this._ticketService.getWorkflow().subscribe(_workflowlist => {
-            this.workflowList = _workflowlist;
+            for (let index = 0; index < _workflowlist.data.length; index++) {
+                this.workflowList.push(_workflowlist.data[index]);
+            }
         });
 
     }
@@ -188,7 +205,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             }
             this._ticketService.editTicket(this.formData).subscribe(_ticket => {
                 alert('updated successfully');
-            
+
             });
         } else {
             this.ticket.project = this.sharedDataService.selectedProject;
@@ -203,36 +220,50 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             this._ticketService.addTicket(this.formData).subscribe(_ticket => {
                 alert('added successfully');
                 this.ticket = null;
-             });
+            });
         }
         // forward to ticketView
         this.router.navigate(['/ticketview']);
     }
 
-    fileChange(files:FileList) {
-             
-            //this.formData.append('files', event.target.files);
+    fileChange(files: FileList) {
+
+        //this.formData.append('files', event.target.files);
         this.filelist = files;
-        console.log("files : "+files.length);
+        console.log("files : " + files.length);
         for (let i = 0; i < files.length; i++) {
-          /*  this.filesData[i].name = files.item(i).name;
-           this.filesData[i].size = files.item(i).size;
-           this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
-           this.filesData[i].type = files.item(i).type; */
-           let file : FileData = new FileData();
-           file.name = files.item(i).name;
-           file.size = files.item(i).size;
-           file.ModifiedDate = files.item(i).lastModifiedDate;
-           file.type = files.item(i).type;
-           this.filesData.push(file);
-           this.addFilesData();
+            /*  this.filesData[i].name = files.item(i).name;
+             this.filesData[i].size = files.item(i).size;
+             this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+             this.filesData[i].type = files.item(i).type; */
+            let file: FileData = new FileData();
+            file.name = files.item(i).name;
+            file.size = files.item(i).size;
+            file.ModifiedDate = files.item(i).lastModifiedDate;
+            file.type = files.item(i).type;
+            this.filesData.push(file);
+            this.addFilesData();
         }
-                
+
     }
 
     addFilesData(): void {
         debugger;
-            this.fileListService.viewFilesData(this.filesData);
-        }
+        this.fileListService.viewFilesData(this.filesData);
+    }
 
+}
+
+
+export class PriorityResponse {
+    status: string;
+    data: TicketPriority[];
+}
+export class SeverityResponse {
+    status: string;
+    data: TicketSeverity[];
+}
+export class WorkFlowResponse {
+    status: string;
+    data: Workflow[];
 }

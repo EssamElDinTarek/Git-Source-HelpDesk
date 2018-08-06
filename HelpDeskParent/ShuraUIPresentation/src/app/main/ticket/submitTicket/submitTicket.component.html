@@ -14,6 +14,9 @@
             <mat-error *ngIf="formErrors.title.required">
                 Title is required!
             </mat-error>
+            <mat-error *ngIf="formErrors.title.pattern">
+                inVALID IPUT IN Title !
+            </mat-error>
         </mat-form-field>
 
 

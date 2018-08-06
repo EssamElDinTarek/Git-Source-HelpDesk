@@ -7,6 +7,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DataSource} from '@angular/cdk/table';
 
 import {
     MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
@@ -68,7 +69,8 @@ imports     : [
     MatRippleModule,
     MatTableModule,
     MatToolbarModule,
-MatTabsModule,
+    MatTabsModule,
+    MatStepperModule,
     FuseSharedModule,
     FuseConfirmDialogModule,
     FuseSidebarModule,

@@ -55,7 +55,9 @@ export class TeamInboxComponent implements OnInit {
 ngOnInit(){
   console.log('on init');  
  // this.ngAfterViewInit();
- this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+ 
+ 
+  //this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
  //this.dataSource = new FilesDataSource(this._ticketService);
  //console.log(this.dataSource.data);
  }
@@ -91,7 +93,8 @@ constructor(private http: HttpClient,public dialog: MatDialog,private _shareData
 
 
 ngAfterViewInit() {
-  console.log('on after view init');
+  //console.log('on after view init');
+
 }
 
 
@@ -102,7 +105,7 @@ ngAfterViewInit() {
     editTicket(ticketId): void
     {
 
-        this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+        this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
       //  console.log('Ticket desc is : '+item.description);
         this.dialogRef = this._matDialog.open(TicketFormComponent, {
             panelClass: 'ticket-form-dialog',
@@ -139,11 +142,11 @@ export class FilesDataSource extends DataSource<any>
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
+     * @param {TicketService} _ticketService
      */
     constructor(
         private _ticketService: TicketService,
-        public dialog: MatDialog,
+        public dialog: MatDialog,public _shareData : SharedDataService
     )
     {
         super();
@@ -151,7 +154,7 @@ export class FilesDataSource extends DataSource<any>
 
     connect(): Observable<any[]>
     {
-        return this._ticketService.getTicketsByProjectID();
+        return this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress);
     }
     /**
      * Disconnect
