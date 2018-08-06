@@ -14,26 +14,7 @@ import com.sbm.helpdesk.persistence.entity.*;
 @Repository
 public class ProjectDaoImpl extends GenericDaoImpl<Project> implements ProjectDao {
 
-	@Override
-	public Project add(Project project) throws RespositoryException {
-		Project result = null;
-		try {
-			result = persist(project);
-		}catch(Exception e) {
-				throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
-			   }
-		return result;
-	}
-	@Override
-	public Project update(Project project) throws RespositoryException {
-		Project result = null;
-		try {
-			result = update(project);
-		}catch(Exception e) {
-				throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
-			   }
-		return result;
-	}
+	
 	@Override
 	public Project getProjectByName(String projectName) throws RespositoryException {
 		Project result = null;
@@ -49,20 +30,7 @@ public class ProjectDaoImpl extends GenericDaoImpl<Project> implements ProjectDa
 		
 	}
 	
-	@Override
-	public Project getProjectById(Long projectId) throws RespositoryException {
-		Project result = null;
-		try{
-			Query query = this.entityManager.createNamedQuery("Project.findProjectById",Project.class);
-			query.setParameter("projectId", projectId);
-			result = (Project) query.getSingleResult();
-		} catch (Exception e) {
-			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
-//			e.printStackTrace();
-		}
-		return result;
-		
-	}
+	
 	
 	@Override
 	public List<Project> getProjectsByPortfolioId(Long portfolioId) throws RespositoryException {

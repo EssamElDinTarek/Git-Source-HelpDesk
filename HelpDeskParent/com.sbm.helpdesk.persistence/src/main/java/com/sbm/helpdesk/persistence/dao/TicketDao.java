@@ -14,4 +14,6 @@ public interface TicketDao extends GenericDao<Ticket> {
 	public List<Ticket> getByProjectName(String projectName) throws RespositoryException;
 	public List<Ticket> getByProjectIDAndUserName(long projectId,String userEmail) throws RespositoryException;
 	List<HistoryDetailsDTO> getHistoryByTicketId(long ticketId) throws RespositoryException;
+	public MainTicketChartDTO getSeverityPriorityStatusByUserName(String userEmail) throws RespositoryException ;
+	public List<Ticket> getByWorkflowIDAndUserName(long workflowId,String userEmail) throws RespositoryException;
 }
