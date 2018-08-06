@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="start start" fxLayout.gt-md="row" fxFlex="1 1 100%">
 
-  <div class="example-container mat-elevation-z8" fxFlex="1 1 100%">
+  <div class="example-container mat-elevation-z8 relative" fxFlex="1 1 100%">
     <div class="example-loading-shade"
         *ngIf="isLoadingResults || isRateLimitReached">
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
@@ -9,18 +9,18 @@
       </div>
     </div>
 
-    <table mat-table #table [dataSource]="dataSource" class="example-table"
+    <table mat-table #table [dataSource]="dataSource" class="fixed-header"
               matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
 
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
 
       <!-- Number Column -->
-      <ng-container matColumnDef="ticketId">
+<!--       <ng-container matColumnDef="ticketId">
         <th mat-header-cell *matHeaderCellDef>#</th>
         <td mat-cell *matCellDef="let row">{{ row.ticketId }}</td>
       </ng-container>
-
+ -->
       <!-- Title Column -->
       <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef>description</th>
@@ -29,47 +29,49 @@
 
       <!-- State Column -->
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>status</th>
-        <td mat-cell *matCellDef="let row">{{ row.status.status }}</td>
+        <th class="narrow" mat-header-cell *matHeaderCellDef>status</th>
+        <td class="center" mat-cell *matCellDef="let row">
+          <span class="status-pullet {{ row.status.status }}" matTooltip="{{ row.status.status }}" matTooltipPosition="above"></span>
+        </td>
       </ng-container>
       
       <!-- Title Column -->
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>title</th>
-        <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+        <td class="narrow one-line" mat-cell *matCellDef="let row">{{ row.title }}</td>
       </ng-container>
 
       <!-- State Column -->
       <ng-container matColumnDef="ticketnumber">
         <th mat-header-cell *matHeaderCellDef>ticketnumber</th>
-        <td mat-cell *matCellDef="let row">{{ row.ticketnumber }}</td>
+        <td class="narrow" mat-cell *matCellDef="let row">{{ row.ticketnumber }}</td>
       </ng-container>
 
       <!-- Creationdate Column -->
       <ng-container matColumnDef="creationdate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> Created </th>
-        <td mat-cell *matCellDef="let row">{{ row.creationdate }}</td>
+        <td class="narrow" mat-cell *matCellDef="let row">{{ row.creationdate }}</td>
       </ng-container>
 
   <!-- Update Column -->
-  <ng-container matColumnDef="updateTicketNumber">
+<!--   <ng-container matColumnDef="updateTicketNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">Update</th>
       <td mat-cell *matCellDef="let row">
-        <!--<button mat-raised-button (click)="ticketview/row.ticketnumber">Update</button>-->
-        <a href="/submitTicket?id={{ row.ticketId }}">
+ -->        <!--<button mat-raised-button (click)="ticketview/row.ticketnumber">Update</button>-->
+<!--       </td>
+    </ng-container>
+ -->
+    <!-- Delete Column -->
+    <ng-container matColumnDef="item">
+        <th class="narrow" mat-header-cell *matHeaderCellDef disableClear="true">Options</th>
+        <td class="options" mat-cell *matCellDef="let row">
+        <a href="/submitTicket?id={{ row.ticketId }}" matTooltip="Update time" matTooltipPosition="above">
           <mat-icon>update</mat-icon>
 
         </a>
-      </td>
-    </ng-container>
-
-    <!-- Delete Column -->
-    <ng-container matColumnDef="item">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">Delete</th>
-        <td mat-cell *matCellDef="let row">
-          <button mat-raised-button (click)="openDialog(row)">
-              <mat-icon>delete</mat-icon>
-          </button>
+        <a href="javascript:void(0)" (click)="openDialog(row)" matTooltip="Delete" matTooltipPosition="above">
+            <mat-icon>delete_outline</mat-icon>
+        </a>
         </td>
     </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

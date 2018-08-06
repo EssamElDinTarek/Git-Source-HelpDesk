@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.persistence.entity.Ticket;
 import com.sbm.helpdesk.common.dto.*;
 
@@ -21,7 +22,9 @@ public interface TicketService {
 	public List<TicketDTO> getTicketByProjectName(String projectName) throws BusinessException;
 	public String deleteTicket(Long id) throws BusinessException;
 	public List<TicketDTO> getByProjectIDAndUserName(long projectId,String userEmail) throws BusinessException;
+	public List<TicketDTO> getByWorkflowIDAndUserName(long workflowId,String userEmail) throws BusinessException;
 	public List<HistoryDetailsDTO> getHistoryByTicketId(long ticketId) throws BusinessException;
 	public TicketDTO stepTicketForward(long ticketId) throws BusinessException;
 	public TicketDTO stepTicketBackward(long ticketId) throws BusinessException;
+	public MainTicketChartDTO getSeverityPriorityStatusByUserName(String userEmail) throws BusinessException;
 }

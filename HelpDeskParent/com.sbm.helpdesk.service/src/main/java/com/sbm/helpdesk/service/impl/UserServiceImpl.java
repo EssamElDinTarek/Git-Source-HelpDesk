@@ -22,9 +22,7 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implement
 	@Autowired
 	private UserDao userDao;
 	
-	private Hduser _user = new Hduser();
-		
-	public UserServiceImpl() {}
+	Hduser _user = new Hduser();
 
 	@Override
 	@Transactional

@@ -53,9 +53,8 @@ const materialModules = [
 
 ];
 
-/**
 const appRoutes: Routes = [
-    {
+    /**{
         path        : 'apps',
         loadChildren: './main/apps/apps.module#AppsModule'
     },
@@ -74,13 +73,12 @@ const appRoutes: Routes = [
     {
         path        : 'angular-material-elements',
         loadChildren: './main/angular-material-elements/angular-material-elements.module#AngularMaterialElementsModule'
-    },
+    },*/
     {
         path      : '**',
         redirectTo: 'apps/dashboards/analytics'
     }
 ];
-*/
 
 @NgModule({
     declarations: [

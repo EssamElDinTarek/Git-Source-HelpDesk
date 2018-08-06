@@ -23,9 +23,7 @@ public class BehavioralDetailsServiceImp extends BasicServiceImpl<BehavioralDeta
 	@Override
 	public void createBehavioralDetails(BehavioralDetails BehavioralDetails) throws BusinessException {
 		try {
-			
 			BehavioralDetailsDao.persist(BehavioralDetails);
-			
 		}catch(RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
