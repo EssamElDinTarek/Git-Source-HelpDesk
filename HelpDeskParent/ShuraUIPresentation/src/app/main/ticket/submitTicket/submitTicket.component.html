@@ -7,13 +7,13 @@
 
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-        <mat-form-field fxFlex="50">
+        <mat-form-field fxFlex="100">
             <input type="text" matInput placeholder="Title" [(ngModel)]="ticket.title" formControlName="title" required>
             <mat-error *ngIf="formErrors.title.required">
                 Title is required!
             </mat-error>
             <mat-error *ngIf="formErrors.title.pattern">
-                inVALID IPUT IN Title !
+                Invalid Input !
             </mat-error>
         </mat-form-field>
 
@@ -67,9 +67,12 @@
     </div>
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         <mat-form-field fxFlex="100">
-            <textarea matInput placeholder="Description" [(ngModel)]="ticket.description" formControlName="description"></textarea>
+            <textarea matInput placeholder="Description" [(ngModel)]="ticket.description" formControlName="description" required></textarea>
             <mat-error *ngIf="formErrors.description.required">
                 Description is required!
+            </mat-error>
+            <mat-error *ngIf="formErrors.title.pattern">
+                Invalid Input !
             </mat-error>
         </mat-form-field>
 

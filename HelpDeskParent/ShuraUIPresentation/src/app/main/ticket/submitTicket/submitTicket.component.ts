@@ -111,8 +111,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
         this.form = this._formBuilder.group({
 
-            title: ['', Validators.pattern('^[a-zA-Z]+$')],
-            description: [''],
+            title: ['', Validators.pattern('^[a-zA-Z]+[a-zA-Z0-9_-]+')],
+            description: ['',Validators.pattern('^[a-zA-Z]+[a-zA-Z0-9_-]+')],
             workflow: [''],
             severity: [''],
             priority: ['']
