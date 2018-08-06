@@ -162,9 +162,6 @@ export class ExampleHttpDao implements OnInit{
   constructor(private http: HttpClient, private _sharedService: SharedDataService) {}
     
    ngOnInit(){}
-
-
-
    
 
   getRepoIssues(sort: string, order: string, page: number): Observable<any> {
