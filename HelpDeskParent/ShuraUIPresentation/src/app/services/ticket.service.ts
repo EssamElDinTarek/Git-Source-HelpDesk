@@ -16,13 +16,14 @@ import { BehaviorSubject, of, Observable, Subject } from 'rxjs';
 
 import { FuseUtils } from '@fuse/utils';
 import { TicketResponse } from '../ticketview/ticketview.component';
+import { PriorityResponse, WorkFlowResponse, SeverityResponse } from '../main/ticket/submitticket/submitTicket.component';
 
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class TicketService implements Resolve<any>
+export class TicketService //implements Resolve<any>
 {
     onTicketsChanged: BehaviorSubject<any>;
     onSelectedTicketsChanged: BehaviorSubject<any>;
@@ -73,20 +74,10 @@ export class TicketService implements Resolve<any>
         return new Promise((resolve, reject) => {
 
             Promise.all([
-                this.getTicketsByProjectID(),
-                this.getUserData()
+                this.getTickets(),
+              //  this.getTicketsByProjectID()
             ]).then(
                 ([files]) => {
-
-                    this.onSearchTextChanged.subscribe(searchText => {
-                        this.searchText = searchText;
-                        this.getTicketsByProjectID();
-                    });
-
-                    this.onFilterChanged.subscribe(filter => {
-                        this.filterBy = filter;
-                        this.getTicketsByProjectID();
-                    });
 
                     resolve();
 
@@ -101,45 +92,60 @@ export class TicketService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    /* 
-    getTickets(): Promise<any>
-    {
+
+    getTickets(){
+        console.log('from ticket service..!');
+         this.getTicketsByProjectID;
+       
         return new Promise((resolve, reject) => {
-                this._httpClient.get('api/tickets-tickets')
+
+            /*   this._httpClient.get('getTicketsByProjectID()').subscribe(response=>{
+                  debugger;
+                  this.tickets=response;
+                  console.log("tickets : "+this.tickets);
+  
+              }); 
+  
+   */
+
+          /*   this.getTicketsByProjectID().subscribe(_tickets => {
+                this.tickets = _tickets.data;
+                console.log(_tickets.data);
+
+            }); */
+
+           /*  this._httpClient.get('api/contacts-contacts')
                     .subscribe((response: any) => {
 
                         this.tickets = response;
 
-                        if ( this.filterBy === 'starred' )
-                        {
+                    if (this.filterBy === 'starred') {
                             this.tickets = this.tickets.filter(_ticket => {
-                                return this.user.starred.includes(_ticket.id);
+                            return this.user.starred.includes(_ticket.ticketId);
                             });
                         }
 
-                        if ( this.filterBy === 'frequent' )
-                        {
-                            this.tickets = this.tickets.filter(_ticket => {
-                                return this.user.frequentTickets.includes(_ticket.id);
+                    if (this.filterBy === 'frequent') {
+                        this.tickets = this.tickets.filter(_tickets => {
+                            return this.user.frequentContacts.includes(_tickets.ticketId);
                             });
                         }
 
-                        if ( this.searchText && this.searchText !== '' )
-                        {
+                    if (this.searchText && this.searchText !== '') {
                             this.tickets = FuseUtils.filterArrayByString(this.tickets, this.searchText);
                         }
 
                         this.tickets = this.tickets.map(ticket => {
-                            return new Ticket(ticket);
+                        return new Ticket();
                         });
 
                         this.onTicketsChanged.next(this.tickets);
                         resolve(this.tickets);
-                    }, reject);
+                }, reject); */
             }
         );
     }
- */
+
     /**
      * Get user data
      *
@@ -198,14 +204,14 @@ export class TicketService implements Resolve<any>
     }
 
 
-    getTickets(projectId:number,userEmail:string): Observable<TicketResponse> {
+    /* getTickets(projectId:number,userEmail:string): Observable<TicketResponse> {
         const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
 
         const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail;
 
         return this._httpClient.get<TicketResponse>(requestUrl,{headers:this.headers});
 
-    }
+    } */
 
     /**
      * Select tickets
@@ -213,24 +219,22 @@ export class TicketService implements Resolve<any>
      * @param filterParameter
      * @param filterValue
      */
-    /* 
-    selectTickets(filterParameter?, filterValue?): void
-    {
+
+    selectTickets(filterParameter?, filterValue?): void {
         this.selectedTickets = [];
 
         // If there is no filter, select all tickets
-        if ( filterParameter === undefined || filterValue === undefined )
-        {
+        if (filterParameter === undefined || filterValue === undefined) {
             this.selectedTickets = [];
             this.tickets.map(ticket => {
-                this.selectedTickets.push(ticket.id);
+                this.selectedTickets.push(ticket.ticketId);
             });
         }
 
         // Trigger the next event
         this.onSelectedTicketsChanged.next(this.selectedTickets);
     }
- */
+
 
 
 
@@ -259,26 +263,24 @@ export class TicketService implements Resolve<any>
      * Delete selected tickets
      */
 
-    /* 
-   deleteSelectedTickets(): void
-   {
-       for ( const ticketId of this.selectedTickets )
-       {
+
+    deleteSelectedTickets(): void {
+        for (const ticketId of this.selectedTickets) {
            const ticket = this.tickets.find(ticket => {
-               return ticket.id === ticketId;
+                return ticket.ticketId === ticketId;
            });
            const ticketIndex = this.tickets.indexOf(ticket);
            this.tickets.splice(ticketIndex, 1);
        }
        this.onTicketsChanged.next(this.tickets);
        this.deselectTickets();
-   } */
+    }
 
 
 
-    getTicketSeverity(): Observable<TicketSeverity[]> {
+    getTicketSeverity(): Observable<SeverityResponse> {
 
-        return this._httpClient.get<TicketSeverity[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
+        return this._httpClient.get<SeverityResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
             headers: this.headers
         })
             .pipe(
@@ -288,8 +290,8 @@ export class TicketService implements Resolve<any>
 
     stepTicketForward(ticketID: string): Observable<Ticket> {
 
-        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/stepTicketForward?TICKET_ID=' + ticketID, {
-            //headers: this.headers
+        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketForward?TICKET_ID=' + ticketID, {
+            headers: this.headers
         })
             .pipe(
                 //catchError(/*this.handleError('addHero', ticket)*/)
@@ -316,9 +318,9 @@ export class TicketService implements Resolve<any>
                 //catchError(/*this.handleError('addHero', ticket)*/)
             );
     }
-    getWorkflow(): Observable<Workflow[]> {
+    getWorkflow(): Observable<WorkFlowResponse> {
 
-        return this._httpClient.get<Workflow[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
+        return this._httpClient.get<WorkFlowResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
             headers: this.headers
         })
             .pipe(
@@ -343,9 +345,9 @@ export class TicketService implements Resolve<any>
     }
 
 
-    getTicketPriority(): Observable<TicketPriority[]> {
+    getTicketPriority(): Observable<PriorityResponse> {
 
-        return this._httpClient.get<TicketPriority[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
+        return this._httpClient.get<PriorityResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
             headers: this.headers
         })
             .pipe(
@@ -367,15 +369,14 @@ export class TicketService implements Resolve<any>
         return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
             headers: this.headers
         })
-            .pipe(
-                // catchError(alert('Kindly, fill mandatory data and retry'))
-            );
+
     }
 
 
-    getTicketsByProjectID(): Observable<any> {
+    getTicketsByProjectID(projectId:number,userEmail:string): Observable<any> {
         const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketbyproidanduser';
-        const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
+        //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
+        const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail
         console.log('inside getTicketsByProjectID');
 
         return this._httpClient.get<any>(requestUrl, { headers: this.headers })

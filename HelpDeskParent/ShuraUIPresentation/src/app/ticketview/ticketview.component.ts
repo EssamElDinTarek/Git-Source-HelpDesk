@@ -96,7 +96,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
 
-    this.ticketService.getTickets(this.projectId,'ahmed.farrag').subscribe(_attachmentResponse => {
+    this.ticketService.getTicketsByProjectID(this.projectId,'ahmed.farrag').subscribe(_attachmentResponse => {
       
 
       this.tickets.data = _attachmentResponse.data; 
