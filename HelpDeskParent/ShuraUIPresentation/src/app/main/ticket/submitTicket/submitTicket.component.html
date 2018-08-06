@@ -5,34 +5,32 @@
 
 
 
-    <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-        <mat-form-field fxFlex="100">
-            <textarea matInput placeholder="Title" [(ngModel)]="ticket.title" formControlName="title" required>
-                            1600 Amphitheatre Pkwy
-                        </textarea>
+        <mat-form-field fxFlex="50">
+            <input type="text" matInput placeholder="Title" [(ngModel)]="ticket.title" formControlName="title" required>
             <mat-error *ngIf="formErrors.title.required">
                 Title is required!
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
-            <textarea matInput placeholder="Status" [(ngModel)]="ticket.status" formControlName="status"></textarea>
+        <mat-form-field fxFlex="50">
+            <input type="text" matInput placeholder="Status" [(ngModel)]="ticket.status" formControlName="status">
             <mat-error *ngIf="formErrors.status.required">
                 Status is required!
             </mat-error>
         </mat-form-field>
 
-       <!--  <mat-form-field fxFlex="100">
+       <!--  <mat-form-field fxFlex="50">
             <textarea *ngIf="isUpdate" matInput placeholder="Ticket Number" [(ngModel)]="ticket.ticketNO" formControlName="ticketNO"
                 disabled="true"></textarea>
         </mat-form-field> -->
 
 
     </div>
-    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="33.3333">
             <mat-select placeholder="Workflow" [(ngModel)]="ticket.workflow" formControlName="workflow" required>
                 <mat-option *ngFor="let item of workflowList" [value]="item">
                     {{item.ticketType}}
@@ -43,9 +41,7 @@
             </mat-error>
         </mat-form-field>
 
-    </div>
-    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="33.3333">
             <mat-select placeholder="Severity" [(ngModel)]="ticket.ticketSeverity" formControlName="severity" required>
                 <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
                     {{item.severityName}}
@@ -56,13 +52,7 @@
             </mat-error>
         </mat-form-field>
 
-    </div>
-
-
-
-    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="33.3333">
             <mat-select placeholder="Priority" [(ngModel)]="ticket.ticketPriority" formControlName="priority" required>
                 <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
                     {{item.priorityLevel}}
@@ -75,10 +65,10 @@
 
     </div>
 
-    <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-
-
+    </div>
+    <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         <mat-form-field fxFlex="100">
             <textarea matInput placeholder="Description" [(ngModel)]="ticket.description" formControlName="description"></textarea>
             <mat-error *ngIf="formErrors.description.required">
@@ -87,25 +77,27 @@
         </mat-form-field>
 
     </div>
+
     <div class="center" fxFlex>
 
             <!-- HEADER -->
-            <div class="header mat-accent-bg p-24" fxLayout="column" fxLayoutAlign="space-between start">
                 <!-- ADD FILE BUTTON -->
                 <!--<input type="file" (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx">-->
 
-                <div class="file-uploader">
-                    <input hidden type="file" multiple (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx" #fileInput/>
-                    <button mat-fab
+                <div class="file-uploader" id="uploadDropArea">
+                    <input type="file" multiple (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx" #fileInput/>
+                    <div class="drop-area-cont">
+                        <mat-icon>add</mat-icon>
+                        <span class="hint">Click or Drop your files here</span>
+                    </div><!-- /.drop-area-cont -->
+                    <!-- <button mat-fab 
                             class="add-file-button mat-warn"
                             (click)="fileInput.click()"
                             aria-label="Add file"
                             [@animate]="{value:'*', params:{delay:'300ms',scale:'0.2'}}">
-                        <mat-icon>add</mat-icon>
-                    </button>
+                    </button> -->
                 </div>
                 <!-- / ADD FILE BUTTON -->
-            </div>
             <!-- / HEADER -->
             <!-- CONTENT -->
             <div class="content mat-white-bg" fusePerfectScrollbar>
@@ -113,7 +105,7 @@
             </div>
             <!-- / CONTENT -->
     </div>
-    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         <button mat-button (click)="submitTicket()" [disabled]="form.invalid">Submit</button>
     </div>
     

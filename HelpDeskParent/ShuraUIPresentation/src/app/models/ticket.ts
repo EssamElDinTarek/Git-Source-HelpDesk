@@ -2,9 +2,12 @@ import {TicketSeverity} from './ticket-severity';
 import {TicketPriority} from './ticket-priority';
 import {Workflow} from './workflow';
 import { Project } from './Project';
+import { Status } from './status';
+
 export class Ticket {
+	ticketId:string;
 	description: string;
-	status: string;
+	status: Status;
 	title: string;
 	ticketPriority: TicketPriority;
 	ticketSeverity: TicketSeverity;
@@ -12,4 +15,5 @@ export class Ticket {
 	ticketNO : string;
 	project: Project;
 	
+	constructor(ticket){}
 }

@@ -8,7 +8,7 @@
         </div>
       </div> -->
 
-    <table mat-table #table [dataSource]="comments" class="example-table" matSort matSortActive="created" matSortDisableClear
+    <table  mat-table #table [dataSource]="comments" class="example-table" matSort matSortActive="created" matSortDisableClear
       matSortDirection="asc">
 
       <!--- Note that these columns can be defined in any order.
@@ -41,7 +41,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <div class="center" fxFlex>
+    
+  </div>
+  <div class="center" fxFlex>
 
       <!-- HEADER -->
       <div class="header mat-accent-bg p-25" fxLayout="column" fxLayoutAlign="space-between start">
@@ -53,4 +55,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
