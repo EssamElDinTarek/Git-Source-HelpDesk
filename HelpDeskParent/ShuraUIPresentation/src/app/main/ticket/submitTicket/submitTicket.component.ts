@@ -232,6 +232,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.filelist = files;
         console.log("files : " + files.length);
         for (let i = 0; i < files.length; i++) {
+        debugger;
         //    this.filesData[i].name = files.item(i).name;
         //    this.filesData[i].size = files.item(i).size;
         //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;

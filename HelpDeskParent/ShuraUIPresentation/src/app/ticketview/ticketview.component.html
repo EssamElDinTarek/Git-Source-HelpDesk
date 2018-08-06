@@ -63,7 +63,7 @@
  -->
     <!-- Delete Column -->
     <ng-container matColumnDef="item">
-        <th class="narrow" mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">Options</th>
+        <th class="narrow" mat-header-cell *matHeaderCellDef disableClear="true">Options</th>
         <td class="options" mat-cell *matCellDef="let row">
         <a href="/submitTicket?id={{ row.ticketId }}" matTooltip="Update time" matTooltipPosition="above">
           <mat-icon>update</mat-icon>
