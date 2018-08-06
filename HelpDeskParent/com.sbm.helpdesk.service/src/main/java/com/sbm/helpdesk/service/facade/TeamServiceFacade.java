@@ -10,19 +10,19 @@ import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 import com.sbm.helpdesk.service.*;
 
 @Service
-public class WorkflowServiceFacade {
+public class TeamServiceFacade {
 
 	@Autowired
-	private WorkflowService service;
+	private TeamService service;
 	
-	public ResponseDTO addWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO addTeam(TeamDTO teamDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.addWorkflow(workflowDTO);
+			 TeamDTO _teamDTO = service.addTeam(teamDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow added successfully", 
-				"Workflow added successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Team added successfully", 
+				"Team added successfully", null);
+		result = new ResponseDTO(status, _teamDTO);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -33,14 +33,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO updateWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO updateTeam(TeamDTO teamDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.updateWorkflow(workflowDTO);
+			 TeamDTO _team = service.updateTeam(teamDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Team updated successfully", 
+				"Team updated successfully", null);
+		result = new ResponseDTO(status, _team);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -51,14 +51,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO getTeamById(Long teamId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflow = service.getByWorkflowId(workflowId);
+			 TeamDTO _team = service.getByTeamId(teamId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflow);
+				"Team updated successfully", 
+				"Team updated successfully", null);
+		result = new ResponseDTO(status, _team);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -69,13 +69,13 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO deleteWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO deleteTeamById(Long teamId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 String res = service.deleteWorkflow(workflowId);
+			 String res = service.deleteTeam(teamId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow deleted successfully", 
-				"Workflow deleted successfully", null);
+				"Team deleted successfully", 
+				"Team deleted successfully", null);
 		result = new ResponseDTO(status, res);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
@@ -87,23 +87,23 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getAllWorkflow() throws ControllerException {
+	public ResponseDTO getAllTeam() throws ControllerException {
 		ResponseDTO result = null;
-		try {
-		List<WorkflowDTO> _workflowList = service.getAllWorkflow();
+		 try {
+		List<TeamDTO> _teamList = service.getAllTeam();
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"get all WorkFlow successfully", 
-				"get all WorkFlow successfully", null);
-		result = new ResponseDTO(status, _workflowList);
-		}catch(BusinessException e) {
+				"get all Team successfully", 
+				"get all Team successfully", null);
+		result = new ResponseDTO(status, _teamList);
+		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
 			}
 		 catch(Exception e1) {
 			 e1.printStackTrace();
-			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
 		 }
-		return result;
+		 return result;
 	}
-	
+
 }

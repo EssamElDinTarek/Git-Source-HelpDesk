@@ -1,6 +1,6 @@
 package com.sbm.helpdesk.service.impl;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,29 +14,31 @@ import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
 
 @Service
-public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow> implements WorkflowService{
+public class TeamServiceImpl extends BasicServiceImpl<TeamDTO, Team> implements TeamService{
+	
 	
 	@Autowired
-	private WorkflowDao dao;
-
-	private Workflow workflow = new Workflow();
+	private TeamDao dao;
+	private Team team = new Team();
 	
 	@Override
-	public WorkflowDTO addWorkflow(WorkflowDTO workflowDTO) throws BusinessException {
-		workflow = convertToEntity(workflow, workflowDTO);
+	@Transactional
+	public TeamDTO addTeam(TeamDTO teamDTO) throws BusinessException {
+		team = convertToEntity(team, teamDTO);
 		try {
-			workflow = dao.persist(workflow);
+			team = dao.persist(team);
 		} catch (RespositoryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return convertToDTO(workflow, workflowDTO);
+		return convertToDTO(team, teamDTO);
 	}
 	@Override
-	public WorkflowDTO updateWorkflow(WorkflowDTO workflowDTO) throws BusinessException {
+	@Transactional
+	public TeamDTO updateTeam(TeamDTO teamDTO) throws BusinessException {
 		try {
-			workflow = convertToEntity(workflow, workflowDTO);
-			workflow = dao.update(workflow);
+			team = convertToEntity(team, teamDTO);
+			team = dao.update(team);
 		
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -45,15 +47,16 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
-		return  convertToDTO(workflow, workflowDTO);
+		return  convertToDTO(team, teamDTO);
 	}
 	
 	@Override
-	public String deleteWorkflow(Long id) throws BusinessException {
+	@Transactional
+	public String deleteTeam(Long id) throws BusinessException {
 		String result = "";
 		try {
-			workflow= dao.findById(id);
-			workflow.setDeleted(1);
+			team= dao.findById(id);
+			team.setDeleted(1);
 		result = "Sucess";
 		}catch(RespositoryException e) {
 			e.printStackTrace();
@@ -65,12 +68,30 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 	    	}
 		return result;
 	}
+	
 	@Override
-	public WorkflowDTO getByWorkflowId(Long workflowId) throws BusinessException {
-		WorkflowDTO workflowDTO = new WorkflowDTO();
+	@Transactional
+	public List<TeamDTO> getAllTeam() throws BusinessException {
+		List<TeamDTO> result;
 		try {
-			workflow = dao.findById(workflowId);
-			workflowDTO = convertToDTO(workflow, workflowDTO);
+		List<Team> teamList = dao.findAll();
+		result = teamList.stream().map(item -> convertToDTO(item, new TeamDTO())).collect(Collectors.toList());
+		}catch(RespositoryException e) {
+		e.printStackTrace();
+		throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+	}
+	catch(Exception e1) {
+		e1.printStackTrace();
+    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+    	}
+		return result;
+	}
+	@Override
+	public TeamDTO getByTeamId(Long teamId) throws BusinessException {
+		TeamDTO teamDTO = new TeamDTO();
+		try {
+			team = dao.findById(teamId);
+			teamDTO = convertToDTO(team, teamDTO);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -78,24 +99,7 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
-		return workflowDTO;
-	}
-	@Override
-	@Transactional
-	public List<WorkflowDTO> getAllWorkflow() throws BusinessException {
-		List<WorkflowDTO> result;
-		try {
-		List<Workflow> workflowList = dao.findAll();
-		result = workflowList.stream().map(item -> convertToDTO(item, new WorkflowDTO())).collect(Collectors.toList());
-		}catch(RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		}
-		catch(Exception e1) {
-			e1.printStackTrace();
-	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-	    	}
-		return result;
+		return teamDTO;
 	}
 
 }

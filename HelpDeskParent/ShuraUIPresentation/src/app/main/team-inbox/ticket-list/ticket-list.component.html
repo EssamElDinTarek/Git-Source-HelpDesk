@@ -67,12 +67,15 @@
      
 
      <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+     <!--  (click)="editTicket(ticket)"
+                 [ngClass]="{'mat-accent-50-bg':checkboxes[ticket.ticketId]}"
+                             [@animate]="{value:'*',params:{y:'100%'}}"
+-->
+
     <mat-row *cdkRowDef="let ticket; columns: displayedColumns;"
              class="ticket"
-             (click)="editTicket(ticket)"
-             [ngClass]="{'mat-accent-50-bg':checkboxes[ticket.ticketId]}"
              matRipple
-             [@animate]="{value:'*',params:{y:'100%'}}">
+             [routerLink]="'/teaminbox/'+ticket.ticketId">
     </mat-row>
      
 </mat-table>

@@ -11,10 +11,13 @@ import com.sbm.helpdesk.common.dto.*;
 public interface ProjectService {
 	
  public void openProject(ProjectDTO projectDto);
- public ProjectDTO updateProject(Long projectID);
  public ProjectDTO closeProject(Long projectID);
  public void assignHdusersToProject(List<Hduser> hdusers);
- public ProjectDTO getProjectById(Long projectId) throws BusinessException;
  public List<ProjectDTO> getProjectByPortfolioId(Long portfolioId) throws BusinessException;
+ public ProjectDTO addProject(ProjectDTO projectDTO) throws BusinessException;
+ public ProjectDTO updateProject(ProjectDTO projectDTO) throws BusinessException;
+ public String deleteProject(Long id) throws BusinessException;
+ public List<ProjectDTO> getAllProject() throws BusinessException;
+ public ProjectDTO getByProjectId(Long projectId) throws BusinessException;
 
 }

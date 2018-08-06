@@ -10,19 +10,19 @@ import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 import com.sbm.helpdesk.service.*;
 
 @Service
-public class WorkflowServiceFacade {
+public class StepServiceFacade {
 
 	@Autowired
-	private WorkflowService service;
+	private StepService service;
 	
-	public ResponseDTO addWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO addStep(StepDTO stepDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.addWorkflow(workflowDTO);
+			 StepDTO _stepDTO = service.addStep(stepDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow added successfully", 
-				"Workflow added successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Step added successfully", 
+				"Step added successfully", null);
+		result = new ResponseDTO(status, _stepDTO);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -33,14 +33,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO updateWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO updateStep(StepDTO stepDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.updateWorkflow(workflowDTO);
+			 StepDTO _step = service.updateStep(stepDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Step updated successfully", 
+				"Step updated successfully", null);
+		result = new ResponseDTO(status, _step);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -51,14 +51,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO getStepById(Long stepId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflow = service.getByWorkflowId(workflowId);
+			 StepDTO _step = service.getByStepId(stepId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflow);
+				"Step updated successfully", 
+				"Step updated successfully", null);
+		result = new ResponseDTO(status, _step);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -69,13 +69,13 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO deleteWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO deleteStepById(Long stepId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 String res = service.deleteWorkflow(workflowId);
+			 String res = service.deleteStep(stepId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow deleted successfully", 
-				"Workflow deleted successfully", null);
+				"Step deleted successfully", 
+				"Step deleted successfully", null);
 		result = new ResponseDTO(status, res);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
@@ -87,23 +87,23 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getAllWorkflow() throws ControllerException {
+	public ResponseDTO getAllStep() throws ControllerException {
 		ResponseDTO result = null;
-		try {
-		List<WorkflowDTO> _workflowList = service.getAllWorkflow();
+		 try {
+		List<StepDTO> _stepList = service.getAllStep();
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"get all WorkFlow successfully", 
-				"get all WorkFlow successfully", null);
-		result = new ResponseDTO(status, _workflowList);
-		}catch(BusinessException e) {
+				"get all Step successfully", 
+				"get all Step successfully", null);
+		result = new ResponseDTO(status, _stepList);
+		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
 			}
 		 catch(Exception e1) {
 			 e1.printStackTrace();
-			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
 		 }
-		return result;
+		 return result;
 	}
-	
+
 }

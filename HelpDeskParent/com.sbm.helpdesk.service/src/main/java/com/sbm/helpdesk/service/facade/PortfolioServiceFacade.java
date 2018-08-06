@@ -10,19 +10,19 @@ import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 import com.sbm.helpdesk.service.*;
 
 @Service
-public class WorkflowServiceFacade {
+public class PortfolioServiceFacade {
 
 	@Autowired
-	private WorkflowService service;
+	private PortfolioService service;
 	
-	public ResponseDTO addWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO addPortfolio(PortfolioDTO portfolioDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.addWorkflow(workflowDTO);
+		PortfolioDTO _portfolio = service.addPortfolio(portfolioDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow added successfully", 
-				"Workflow added successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Portfolio added successfully", 
+				"Portfolio added successfully", null);
+		result = new ResponseDTO(status, _portfolio);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -33,14 +33,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO updateWorkflow(WorkflowDTO workflowDTO) throws ControllerException {
+	public ResponseDTO updatePortfolio(PortfolioDTO portfolioDTO) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflowDTO = service.updateWorkflow(workflowDTO);
+		PortfolioDTO _portfolio = service.updatePortfolio(portfolioDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflowDTO);
+				"Portfolio updated successfully", 
+				"Portfolio updated successfully", null);
+		result = new ResponseDTO(status, _portfolio);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -51,14 +51,14 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO getPortfolioById(Long portfolioId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 WorkflowDTO _workflow = service.getByWorkflowId(workflowId);
+		PortfolioDTO _portfolio = service.getByPortfolioId(portfolioId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow updated successfully", 
-				"Workflow updated successfully", null);
-		result = new ResponseDTO(status, _workflow);
+				"get portfolio by id successfully", 
+				"get portfolio by id successfully", null);
+		result = new ResponseDTO(status, _portfolio);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -69,13 +69,13 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO deleteWorkflowById(Long workflowId) throws ControllerException {
+	public ResponseDTO deletePortfolioById(Long protfolioId) throws ControllerException {
 		ResponseDTO result = null;
 		 try {
-			 String res = service.deleteWorkflow(workflowId);
+			 String res = service.deletePortfolio(protfolioId);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Workflow deleted successfully", 
-				"Workflow deleted successfully", null);
+				"Portfolio deleted successfully", 
+				"Portfolio deleted successfully", null);
 		result = new ResponseDTO(status, res);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
@@ -87,23 +87,23 @@ public class WorkflowServiceFacade {
 		 }
 		 return result;
 	}
-	public ResponseDTO getAllWorkflow() throws ControllerException {
+	public ResponseDTO getAllPortfolio() throws ControllerException {
 		ResponseDTO result = null;
-		try {
-		List<WorkflowDTO> _workflowList = service.getAllWorkflow();
+		 try {
+		List<PortfolioDTO> _portfolioList = service.getAllPortfolio();
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"get all WorkFlow successfully", 
-				"get all WorkFlow successfully", null);
-		result = new ResponseDTO(status, _workflowList);
-		}catch(BusinessException e) {
+				"get all portfolio successfully", 
+				"get all portfolio successfully", null);
+		result = new ResponseDTO(status, _portfolioList);
+		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
 			}
 		 catch(Exception e1) {
 			 e1.printStackTrace();
-			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION);
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
 		 }
-		return result;
+		 return result;
 	}
-	
+
 }

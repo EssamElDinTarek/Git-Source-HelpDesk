@@ -1,18 +1,14 @@
 package com.sbm.helpdesk.HelpDeskIntegrationAPI.restcontroller;
 
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.sbm.helpdesk.service.ProjectService;
 import com.sbm.helpdesk.service.facade.ProjectServiceFacade;
 import com.sbm.helpdesk.common.constant.IntegrationServicesConstant;
-import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 import com.sbm.helpdesk.common.dto.*;
 
 @RestController
@@ -23,11 +19,7 @@ public class ProjectController {
 	@Resource
 	private ProjectServiceFacade facadeService;
 	
-	@Resource
-	private ProjectService projectService;
-	
-	@Resource
-	private RestDTOProvider dtoProvider;
+
 	
 	@RequestMapping(value = "/open", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -36,45 +28,34 @@ public class ProjectController {
 		return facadeService.openProject(projectDto);
 	}
 	
-/*	@RequestMapping(value = "/assignPrivilge", method = RequestMethod.POST, 
-			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public boolean assignPrivilge(@RequestBody ProjectDTO hdgroup){
-	  service.assignPrivilge(hdgroup);
-				return true;
+	public ResponseDTO addProject(@RequestBody ProjectDTO projectDTO) throws ControllerException {
+			return facadeService.addProject(projectDTO);
 	}
-	
-	@RequestMapping(value = "/assignSubcomponents", method = RequestMethod.POST, 
-			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping( method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public boolean assignGroupSubcomponents(@RequestBody ProjectDTO hdgroupDTO){
-	  service.assignSubcomponents(hdgroupDTO); 
-				return true;
+	public ResponseDTO updateProject(@RequestBody ProjectDTO projectDTO) throws ControllerException {
+			return facadeService.updateProject(projectDTO);
 	}
-//	
-//	@RequestMapping(value = "/user/login", method = RequestMethod.POST)
-//	@ResponseBody
-//	public ResponseEntity<BaseDTO> login(@RequestBody Map<String, String> map) {
-//		return dtoProvider.getObj((UserDTO) service.login(map.get("email"), map.get("password")));
-//	}
-//	
-	@RequestMapping(value = "/", method = RequestMethod.GET,
-			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<ProjectDTO>> getAllUsers() {
-		return dtoProvider.getObjList((List) service.listGroups());
-	}*/
-	
-	@RequestMapping(value = "/getProjectById", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public ResponseEntity<BaseDTO> getProjectById(@RequestParam(IntegrationServicesConstant.SERVICE_RETRIVAL_VALUE) Long projectId) throws BusinessException {
-		
-		return dtoProvider.getObj((ProjectDTO) projectService.getProjectById(projectId));
+	public ResponseDTO getAllProject() throws ControllerException {
+			return facadeService.getAllProject();
 	}
-	
+	@RequestMapping(value="/{"+IntegrationServicesConstant.PROJECT_ID+"}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO deletePortfolio(@PathVariable(IntegrationServicesConstant.PROJECT_ID) Long projectId) throws ControllerException {
+			return facadeService.deleteProjectById(projectId);
+	}
+	@RequestMapping(value="/{"+IntegrationServicesConstant.PROJECT_ID+"}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getPortfolioById(@PathVariable(IntegrationServicesConstant.PROJECT_ID) Long projectId) throws ControllerException {
+			return facadeService.getProjectById(projectId);
+	}
 	@RequestMapping(value = "/getByPortfolioId", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<ProjectDTO>> getProjectByPortfolioId(@RequestParam(IntegrationServicesConstant.SERVICE_RETRIVAL_VALUE) Long portfolioId) throws BusinessException {
-		return dtoProvider.getObjList((List) projectService.getProjectByPortfolioId(portfolioId));
+	public ResponseDTO getProjectByPortfolioId(@RequestParam(IntegrationServicesConstant.PORTFOLIO_ID) Long portfolioId) throws ControllerException {
+		return facadeService.getAllProjectByPortfolioId(portfolioId);
 	}
 }

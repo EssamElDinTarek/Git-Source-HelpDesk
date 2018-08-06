@@ -24,6 +24,9 @@ public class Workflow extends BaseEntity implements Serializable {
 	@Column(name="TICKET_TYPE", length=200)
 	private String ticketType;
 
+	@Column(name="IS_DELETED",nullable=false)
+	private long deleted;
+	
 	//bi-directional many-to-one association to Ticket
 	/*@OneToMany(mappedBy="workflow")
 	private List<Ticket> tickets;
@@ -81,6 +84,7 @@ public class Workflow extends BaseEntity implements Serializable {
 		this.workflowSteps = workflowSteps;
 	}
 
+	
 	/*public WorkflowStep addWorkflowStep(WorkflowStep workflowStep) {
 		getWorkflowSteps().add(workflowStep);
 		workflowStep.setWorkflow(this);
@@ -94,6 +98,14 @@ public class Workflow extends BaseEntity implements Serializable {
 
 		return workflowStep;
 	}*/
+
+	public long getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(long deleted) {
+		this.deleted = deleted;
+	}
 
 	@Override
 	public int hashCode() {

@@ -29,6 +29,8 @@ import { Location } from '@angular/common';
 import { Ticket } from '../../model/ticket';
 import { TicketService } from '../../services/ticket.service';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
+import { TicketFormComponentComponent } from './ticket-form-component/ticket-form-component.component';
+
 
 @Component({
   selector: 'app-team-inbox',
@@ -62,7 +64,7 @@ ngOnInit(){
  //console.log(this.dataSource.data);
  }
 
-tickets: TicketFormComponent[];
+//tickets: TicketFormComponent[];
 deleted: boolean;
 
    
@@ -107,7 +109,9 @@ ngAfterViewInit() {
 
         this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
       //  console.log('Ticket desc is : '+item.description);
-        this.dialogRef = this._matDialog.open(TicketFormComponent, {
+
+      
+        this.dialogRef = this._matDialog.open(TicketFormComponentComponent, {
             panelClass: 'ticket-form-dialog',
             data: { 
                    // ticket:item.ticketIds,
@@ -120,7 +124,7 @@ ngAfterViewInit() {
                       }
         });
 
-      
+       
     }
 
 

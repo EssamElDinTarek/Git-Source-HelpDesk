@@ -15,8 +15,6 @@ import { BehaviorSubject, of, Observable, Subject } from 'rxjs';
 
 
 import { FuseUtils } from '@fuse/utils';
-import { TicketResponse } from '../ticketview/ticketview.component';
-import { PriorityResponse, WorkFlowResponse, SeverityResponse } from '../main/ticket/submitticket/submitTicket.component';
 
 
 
@@ -75,7 +73,7 @@ export class TicketService //implements Resolve<any>
 
             Promise.all([
                 this.getTickets(),
-              //  this.getTicketsByProjectID()
+                //  this.getTicketsByProjectID()
             ]).then(
                 ([files]) => {
 
@@ -93,10 +91,10 @@ export class TicketService //implements Resolve<any>
      * @returns {Promise<any>}
      */
 
-    getTickets(){
+    getTickets() {
         console.log('from ticket service..!');
-         this.getTicketsByProjectID;
-       
+        this.getTicketsByProjectID;
+
         return new Promise((resolve, reject) => {
 
             /*   this._httpClient.get('getTicketsByProjectID()').subscribe(response=>{
@@ -108,41 +106,41 @@ export class TicketService //implements Resolve<any>
   
    */
 
-          /*   this.getTicketsByProjectID().subscribe(_tickets => {
-                this.tickets = _tickets.data;
-                console.log(_tickets.data);
+            /*   this.getTicketsByProjectID().subscribe(_tickets => {
+                  this.tickets = _tickets.data;
+                  console.log(_tickets.data);
+  
+              }); */
 
-            }); */
-
-           /*  this._httpClient.get('api/contacts-contacts')
-                    .subscribe((response: any) => {
-
-                        this.tickets = response;
-
-                    if (this.filterBy === 'starred') {
-                            this.tickets = this.tickets.filter(_ticket => {
-                            return this.user.starred.includes(_ticket.ticketId);
-                            });
-                        }
-
-                    if (this.filterBy === 'frequent') {
-                        this.tickets = this.tickets.filter(_tickets => {
-                            return this.user.frequentContacts.includes(_tickets.ticketId);
-                            });
-                        }
-
-                    if (this.searchText && this.searchText !== '') {
-                            this.tickets = FuseUtils.filterArrayByString(this.tickets, this.searchText);
-                        }
-
-                        this.tickets = this.tickets.map(ticket => {
-                        return new Ticket();
-                        });
-
-                        this.onTicketsChanged.next(this.tickets);
-                        resolve(this.tickets);
-                }, reject); */
-            }
+            /*  this._httpClient.get('api/contacts-contacts')
+                 .subscribe((response: any) => {
+ 
+                     this.tickets = response;
+ 
+                     if (this.filterBy === 'starred') {
+                         this.tickets = this.tickets.filter(_ticket => {
+                             return this.user.starred.includes(_ticket.ticketId);
+                         });
+                     }
+ 
+                     if (this.filterBy === 'frequent') {
+                         this.tickets = this.tickets.filter(_tickets => {
+                             return this.user.frequentContacts.includes(_tickets.ticketId);
+                         });
+                     }
+ 
+                     if (this.searchText && this.searchText !== '') {
+                         this.tickets = FuseUtils.filterArrayByString(this.tickets, this.searchText);
+                     }
+ 
+                     this.tickets = this.tickets.map(ticket => {
+                         return new Ticket();
+                     });
+ 
+                     this.onTicketsChanged.next(this.tickets);
+                     resolve(this.tickets);
+                 }, reject); */
+        }
         );
     }
 
@@ -203,16 +201,6 @@ export class TicketService //implements Resolve<any>
         }
     }
 
-
-    /* getTickets(projectId:number,userEmail:string): Observable<TicketResponse> {
-        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
-
-        const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail;
-
-        return this._httpClient.get<TicketResponse>(requestUrl,{headers:this.headers});
-
-    } */
-
     /**
      * Select tickets
      *
@@ -266,21 +254,21 @@ export class TicketService //implements Resolve<any>
 
     deleteSelectedTickets(): void {
         for (const ticketId of this.selectedTickets) {
-           const ticket = this.tickets.find(ticket => {
+            const ticket = this.tickets.find(ticket => {
                 return ticket.ticketId === ticketId;
-           });
-           const ticketIndex = this.tickets.indexOf(ticket);
-           this.tickets.splice(ticketIndex, 1);
-       }
-       this.onTicketsChanged.next(this.tickets);
-       this.deselectTickets();
+            });
+            const ticketIndex = this.tickets.indexOf(ticket);
+            this.tickets.splice(ticketIndex, 1);
+        }
+        this.onTicketsChanged.next(this.tickets);
+        this.deselectTickets();
     }
 
 
 
-    getTicketSeverity(): Observable<SeverityResponse> {
+    getTicketSeverity(): Observable<TicketSeverity[]> {
 
-        return this._httpClient.get<SeverityResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
+        return this._httpClient.get<TicketSeverity[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
             headers: this.headers
         })
             .pipe(
@@ -300,8 +288,8 @@ export class TicketService //implements Resolve<any>
 
     stepTicketBackward(ticketID: string): Observable<Ticket> {
 
-        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/stepTicketBackward?TICKET_ID=' + ticketID, {
-            //headers: this.headers
+        return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketBackward?TICKET_ID=' + ticketID, {
+            headers: this.headers
         })
             .pipe(
                 //catchError(/*this.handleError('addHero', ticket)*/)
@@ -318,9 +306,9 @@ export class TicketService //implements Resolve<any>
                 //catchError(/*this.handleError('addHero', ticket)*/)
             );
     }
-    getWorkflow(): Observable<WorkFlowResponse> {
+    getWorkflow(): Observable<any> {
 
-        return this._httpClient.get<WorkFlowResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
+        return this._httpClient.get<any>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
             headers: this.headers
         })
             .pipe(
@@ -330,7 +318,7 @@ export class TicketService //implements Resolve<any>
     }
 
     getTicketById(value: string): Observable<Ticket> {
-        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket';
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket';
         let identifier = "TICKET_ID";
         //let value = "1953";
         const requestUrl = `${href}?identifier=` + identifier + `&value=` + value;
@@ -345,9 +333,9 @@ export class TicketService //implements Resolve<any>
     }
 
 
-    getTicketPriority(): Observable<PriorityResponse> {
+    getTicketPriority(): Observable<TicketPriority[]> {
 
-        return this._httpClient.get<PriorityResponse>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
+        return this._httpClient.get<TicketPriority[]>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
             headers: this.headers
         })
             .pipe(
@@ -356,7 +344,7 @@ export class TicketService //implements Resolve<any>
     }
 
     addTicket(formData: FormData): Observable<Ticket> {
-        return this._httpClient.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
+        return this._httpClient.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
 
         })
             .pipe(
@@ -366,17 +354,17 @@ export class TicketService //implements Resolve<any>
 
 
     editTicket(formData: FormData): Observable<Ticket> {
-        return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
+        return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
             headers: this.headers
         })
 
     }
 
 
-    getTicketsByProjectID(projectId:number,userEmail:string): Observable<any> {
-        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketbyproidanduser';
-        //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
-        const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail
+    getTicketsByProjectID(): Observable<any> {
+        console.log('Start Calling getTicketsByProjectID service...!');
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
+        const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
         console.log('inside getTicketsByProjectID');
 
         return this._httpClient.get<any>(requestUrl, { headers: this.headers })
@@ -385,7 +373,41 @@ export class TicketService //implements Resolve<any>
             );
     }
 
+    getTicketsByWorkFlowID(): Observable<any> {
+        console.log('Start Calling getTicketsByWorkFlowID service...!');
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbywfidanduser';
+        const requestUrl = `${href}?WORKFLOW_ID=2&USER_EMAIL=ahmed.farrag`;
+        console.log('inside getTicketsByWorkFlowID');
 
+        return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getTicketsByWorkFlowID'))
+            );
+    }
+
+    getWorkFlowList(): Observable<any> {
+        console.log('Start Calling getWorkFlowList service...!');
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow';
+        //const requestUrl = `${href}?WORKFLOW_ID=2&USER_EMAIL=ahmed.farrag`;
+        console.log('inside getWorkFlowList');
+
+        return this._httpClient.get<any>(href, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getWorkFlowList'))
+            );
+    }
+
+    getCategorizationList(): Observable<any> {
+        console.log('Start Calling getCategorizationList service...!');
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/severityprioritystatusbyuser';
+        const requestUrl = `${href}?USER_EMAIL=ahmed.farrag`;
+        console.log('inside getCategorizationList');
+
+        return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getCategorizationList'))
+            );
+    }
 
     /**
      * Handle Http operation that failed.

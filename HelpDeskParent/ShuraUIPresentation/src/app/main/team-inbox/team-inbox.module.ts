@@ -18,7 +18,6 @@ import {
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
     MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
 } from '@angular/material';
-import { TicketFormModule } from './ticket-form/ticket-form.module';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { ContactsService } from './contacts.service';
 
@@ -75,8 +74,7 @@ imports     : [
     FuseConfirmDialogModule,
     FuseSidebarModule,
      FormsModule,
-    BrowserAnimationsModule,
-    TicketFormModule
+    BrowserAnimationsModule
 ],
 entryComponents: [
     TicketFormModuleComponent

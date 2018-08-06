@@ -1,10 +1,10 @@
 package com.sbm.helpdesk.service.impl;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
@@ -14,29 +14,29 @@ import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
 
 @Service
-public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow> implements WorkflowService{
+public class StepServiceImpl extends BasicServiceImpl<StepDTO, Step> implements StepService{
+	
 	
 	@Autowired
-	private WorkflowDao dao;
-
-	private Workflow workflow = new Workflow();
+	private StepDao dao;
 	
+	private Step step = new Step();
 	@Override
-	public WorkflowDTO addWorkflow(WorkflowDTO workflowDTO) throws BusinessException {
-		workflow = convertToEntity(workflow, workflowDTO);
+	public StepDTO addStep(StepDTO stepDTO) throws BusinessException {
+		step = convertToEntity(step, stepDTO);
 		try {
-			workflow = dao.persist(workflow);
+			step = dao.persist(step);
 		} catch (RespositoryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return convertToDTO(workflow, workflowDTO);
+		return convertToDTO(step, stepDTO);
 	}
 	@Override
-	public WorkflowDTO updateWorkflow(WorkflowDTO workflowDTO) throws BusinessException {
+	public StepDTO updateStep(StepDTO stepDTO) throws BusinessException {
 		try {
-			workflow = convertToEntity(workflow, workflowDTO);
-			workflow = dao.update(workflow);
+			step = convertToEntity(step, stepDTO);
+			step = dao.update(step);
 		
 		} catch (RespositoryException e) {
 			e.printStackTrace();
@@ -45,15 +45,15 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
-		return  convertToDTO(workflow, workflowDTO);
+		return  convertToDTO(step, stepDTO);
 	}
 	
 	@Override
-	public String deleteWorkflow(Long id) throws BusinessException {
+	public String deleteStep(Long id) throws BusinessException {
 		String result = "";
 		try {
-			workflow= dao.findById(id);
-			workflow.setDeleted(1);
+			step= dao.findById(id);
+			step.setDeleted(1);
 		result = "Sucess";
 		}catch(RespositoryException e) {
 			e.printStackTrace();
@@ -66,11 +66,11 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 		return result;
 	}
 	@Override
-	public WorkflowDTO getByWorkflowId(Long workflowId) throws BusinessException {
-		WorkflowDTO workflowDTO = new WorkflowDTO();
+	public StepDTO getByStepId(Long stepId) throws BusinessException {
+		StepDTO stepDTO = new StepDTO();
 		try {
-			workflow = dao.findById(workflowId);
-			workflowDTO = convertToDTO(workflow, workflowDTO);
+			step = dao.findById(stepId);
+			stepDTO = convertToDTO(step, stepDTO);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
@@ -78,24 +78,24 @@ public class WorkflowServiceImpl extends BasicServiceImpl<WorkflowDTO, Workflow>
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
-		return workflowDTO;
+		return stepDTO;
 	}
 	@Override
-	@Transactional
-	public List<WorkflowDTO> getAllWorkflow() throws BusinessException {
-		List<WorkflowDTO> result;
+	public List<StepDTO> getAllStep() throws BusinessException {
+		List<StepDTO> result;
 		try {
-		List<Workflow> workflowList = dao.findAll();
-		result = workflowList.stream().map(item -> convertToDTO(item, new WorkflowDTO())).collect(Collectors.toList());
+		List<Step> stepList = dao.findAll();
+		result = stepList.stream().map(item -> convertToDTO(item, new StepDTO())).collect(Collectors.toList());
 		}catch(RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		}
-		catch(Exception e1) {
-			e1.printStackTrace();
-	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-	    	}
+		e.printStackTrace();
+		throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+	}
+	catch(Exception e1) {
+		e1.printStackTrace();
+    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+    	}
 		return result;
 	}
+	
 
 }
