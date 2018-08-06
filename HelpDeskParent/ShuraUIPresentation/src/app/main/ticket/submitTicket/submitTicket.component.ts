@@ -217,17 +217,17 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.filelist = files;
         console.log("files : "+files.length);
         for (let i = 0; i < files.length; i++) {
-          /*  this.filesData[i].name = files.item(i).name;
-           this.filesData[i].size = files.item(i).size;
-           this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
-           this.filesData[i].type = files.item(i).type; */
+        //    this.filesData[i].name = files.item(i).name;
+        //    this.filesData[i].size = files.item(i).size;
+        //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+        //    this.filesData[i].type = files.item(i).type;
            let file : FileData = new FileData();
            file.name = files.item(i).name;
            file.size = files.item(i).size;
            file.ModifiedDate = files.item(i).lastModifiedDate;
            file.type = files.item(i).type;
            this.filesData.push(file);
-           this.addFilesData();
+        //    this.addFilesData();
         }
                 
     }
@@ -236,5 +236,5 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         debugger;
             this.fileListService.viewFilesData(this.filesData);
         }
-
+    
 }
