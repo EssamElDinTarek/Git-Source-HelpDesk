@@ -15,7 +15,7 @@ public class TicketDTO extends BaseDTO  {
 	private String ticketnumber;
 	private StepDTO step;
 	//private Set<AttachmentDTO> attachments;
-	//private HduserDTO hduser;
+	private HduserDTO hduser;
 	private ProjectDTO project;
 	//private Set<StatusDTO> statuses;
 	private WorkflowDTO workflow;
@@ -88,6 +88,12 @@ public class TicketDTO extends BaseDTO  {
 	}
 	public void setStep(StepDTO step) {
 		this.step = step;
+	}
+	public HduserDTO getHduser() {
+		return hduser;
+	}
+	public void setHduser(HduserDTO hduser) {
+		this.hduser = hduser;
 	}
 	
 }
