@@ -7,6 +7,13 @@ import { fuseAnimations } from '@fuse/animations';
 
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { ProjectDashboardService } from '../../../welcome/project.service';
+import { TicketService } from '../../../services/ticket.service';
+import { Ticket } from '../../../model/ticket';
+import { Workflow } from '../../../models/workflow';
+import { Status } from '../../../models/status';
+import { TicketCategory } from '../../../models/TicketCategory';
+import { MainChart } from '../../../models/MainChart';
+
 
 @Component({
   selector: 'app-hd-urs-dashboard',
@@ -19,6 +26,11 @@ export class HDURSDashboardComponent implements OnInit {
 
     projects: any[];
     selectedProject: any;
+    tickets :Ticket [];
+    workflowList:Workflow[];
+
+    categotyData:MainChart;
+    
 
     widgets: any;   
     widget5: any = {};
@@ -27,11 +39,29 @@ export class HDURSDashboardComponent implements OnInit {
     widget8: any = {};
     widget9: any = {};
     widget11: any = {};
-
     dateNow = Date.now();
-  constructor(private _fuseSidebarService: FuseSidebarService,
+    chart:any={};
+
+
+
+     constructor(private _fuseSidebarService: FuseSidebarService,
+    private _ticketService: TicketService,
     private _projectDashboardService: ProjectDashboardService) {
 
+        this.chart = {
+            currentRange : 'status',
+            labels       : true,
+            doughnut     : true,
+            scheme       : {
+                domain: ['#f44336', '#9c27b0', '#03a9f4', '#e91e63']
+            }
+            /* ,
+            onSelect     : (ev) => {
+                console.log(ev);
+            } */
+        };
+
+        
       /**
          * Widget 5
          */
@@ -85,13 +115,8 @@ export class HDURSDashboardComponent implements OnInit {
               console.log(ev);
           }
       };
+ 
 
-      /**
-       * Widget 7
-       */
-      this.widget7 = {
-          currentRange: 'T'
-      };
 
       /**
        * Widget 8
@@ -129,6 +154,8 @@ export class HDURSDashboardComponent implements OnInit {
           curve         : shape.curveBasis
       };
 
+    
+
       setInterval(() => {
           this.dateNow = Date.now();
       }, 1000);
@@ -140,10 +167,49 @@ export class HDURSDashboardComponent implements OnInit {
      */
     ngOnInit(): void
     {
+        this._ticketService.getWorkFlowList().subscribe(_result => {
+          this.workflowList = _result.data;
+
+        });
+
+        this._ticketService.getCategorizationList().subscribe(_result => {
+            this.categotyData = _result.data;
+
+          });
+
+        /* navigator.geolocation.getCurrentPosition(
+            
+            function(position) {  
+                //console.log('in get position function...!');
+                var latitude=position.coords.latitude.toFixed(2);
+                var longitude= position.coords.longitude.toFixed(2);
+                console.log(latitude);
+                console.log(longitude);  
+            }
+
+        ); */
+        
         this.projects = this._projectDashboardService.projects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.widgets;
 
+       /*  this._ticketService.getTicketsByProjectID().subscribe(_result => {
+            this.tickets = _result.data;
+            //console.log('Tickets are : '+_result.data);
+
+          });
+ */
+         /*  this._ticketService.getTicketsByProjectID().subscribe(_result => {
+            this.tickets = _result.data;
+            //console.log('Tickets are : '+_result.data);
+
+          }); */
+
+         
+
+     /*      this._ticketService.getWorkflow().subscribe(_workflowlist => {
+            this.workflowList = _workflowlist.data;
+        }); */
         /**
          * Widget 11
          */

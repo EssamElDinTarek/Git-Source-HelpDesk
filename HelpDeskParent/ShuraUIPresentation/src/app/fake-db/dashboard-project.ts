@@ -993,14 +993,6 @@ export class ProjectDashboardDb
                 ],
                 'LW': [
                     {
-                        'name' : 'Open',
-                        'value': 12
-                    },
-                    {
-                        'name' : 'Fixed',
-                        'value': 20
-                    },
-                    {
                         'name' : 'Closed',
                         'value': 33
                     },
@@ -1748,6 +1740,7 @@ export class ProjectDashboardDb
                 ]
             }
         },
+
         'weatherWidget': {
             'locations'      : {
                 'NewYork': {

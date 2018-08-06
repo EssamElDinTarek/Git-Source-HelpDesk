@@ -27,19 +27,15 @@ import {
 
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
-//import { TicketAttachementsComponent } from '../../attachment/ticket-attachements/ticket-attachements.component';
-//import { TicketCommentComponent } from '../../ticket-comment/ticket-comment/ticket-comment.component';
 import { HttpClientModule } from '../../../../../node_modules/@angular/common/http';
-import {DataSource} from '@angular/cdk/table';
 
 
 const routes: Routes = [
   {
-    path: 'editTicket',
+    path:'teaminbox/:id',
     component: TicketFormModuleComponent
   }
 ];
-
 
 
 @NgModule({

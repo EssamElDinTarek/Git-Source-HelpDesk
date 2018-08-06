@@ -124,6 +124,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
             this.ticketSeverityList = _ticketSeverity;
         });
+        
         this._ticketService.getWorkflow().subscribe(_workflowlist => {
             this.workflowList = _workflowlist;
         });
