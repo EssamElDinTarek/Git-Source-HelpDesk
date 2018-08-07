@@ -372,7 +372,7 @@ export class TicketService //implements Resolve<any>
 
 
     getTicketsByProjectID(projectId:number,userEmail:string): Observable<any> {
-        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketbyproidanduser';
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
         //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
         const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail
         console.log('inside getTicketsByProjectID');

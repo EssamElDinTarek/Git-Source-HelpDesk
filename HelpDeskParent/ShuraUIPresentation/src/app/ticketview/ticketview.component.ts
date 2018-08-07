@@ -78,7 +78,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
   projectId: number = this._shareData.selectedProject.projectId;
   userEmail: string = this._shareData.user.emailAddress;
 
-  allTickets : TicketResponse[] = new Array<TicketResponse>();
+  allTickets : TicketResponse = new TicketResponse();
 
 
 
@@ -99,14 +99,15 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
     this.ticketService.getTicketsByProjectID(this.projectId,'ahmed.farrag').subscribe(_TicketResponse => {
-      
+      this.allTickets = _TicketResponse;
 
-      for (let index = 0; index < _TicketResponse.length; index++) {
-        this.allTickets[index].data = _TicketResponse[index].data;
-       // this.allTickets[index].data.
+      for (let index = 0; index < _TicketResponse.data.length; index++) {
+        
+       // this.allTickets.data.push( _TicketResponse.data[index]);
+        this.allTickets.data[index].creationdate;
       }
       
-      this.tickets.data = _TicketResponse.data; 
+      this.tickets.data = this.allTickets.data; 
       //this.tickets.data[0].creationdate == "";
       this.isLoadingResults = false;
     });
@@ -163,7 +164,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 //{ticketId: 1, creationdate: 'Hydrogen', description: 1.0079, status: 'H',title: 1.0079, ticketnumber: 'H'},
 //]
 
-export interface TicketDetails {
+export class TicketDetails {
   ticketId: number;
   creationdate: string;
   description: string;
