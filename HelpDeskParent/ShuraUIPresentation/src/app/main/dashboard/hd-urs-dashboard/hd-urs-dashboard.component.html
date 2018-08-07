@@ -454,9 +454,9 @@
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets By Categories</div>
                                   <mat-form-field>
-                                      <mat-select class="simplified" 
-                                                  aria-label="Change range">
-                                          <mat-option *ngFor="let category of categotyData | keys" [value]="category.key">
+                                      <mat-select  [(ngModel)]="selectedCategory"   (ngModelChange)="doSomething()"
+                                                  >
+                                          <mat-option *ngFor="let category of categoryData | keys" [value]="category">
                                                 {{category.key}}
                                           </mat-option>
                                       </mat-select>
@@ -467,7 +467,7 @@
                                 <ngx-charts-pie-chart
                                     *fuseIfOnDom
                                     [scheme]="chart.scheme"
-                                    [results]="categotyData[key]"
+                                    [results]="categoryData.status"
                                     >
                                   </ngx-charts-pie-chart>
                               </div>
