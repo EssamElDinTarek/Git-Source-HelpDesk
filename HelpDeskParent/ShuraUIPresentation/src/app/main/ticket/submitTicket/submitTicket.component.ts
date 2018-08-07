@@ -111,8 +111,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
         this.form = this._formBuilder.group({
 
-            title: ['', Validators.pattern('^[a-zA-Z]+[a-zA-Z0-9_-]+')],
-            description: ['',Validators.pattern('^[a-zA-Z]+[a-zA-Z0-9_-]+')],
+            title: ['', Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
+            description: ['',Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
             workflow: [''],
             severity: [''],
             priority: ['']
@@ -211,6 +211,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         } else {
             this.ticket.project = this.sharedDataService.selectedProject;
             this.formData.append('ticket', JSON.stringify(this.ticket));
+            this.formData.append('hduser', JSON.stringify(this.sharedDataService.user));
             if (this.filelist != null && this.filelist.length > 0) {
                 for (let index = 0; index < this.filelist.length; index++) {
                     this.formData.append('files', this.filelist.item(index));

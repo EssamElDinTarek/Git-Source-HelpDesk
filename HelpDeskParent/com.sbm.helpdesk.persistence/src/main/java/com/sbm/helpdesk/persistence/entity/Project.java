@@ -31,9 +31,6 @@ public class Project extends BaseEntity implements Serializable {
 	@Column(length=255)
 	private String name;
 
-	@Column(name="IS_DELETED",nullable=false)
-	private long deleted;
-	
 	//bi-directional many-to-one association to Portfolio
 	@ManyToOne
 	@JoinColumn(name="PORTFOLIO_ID")
@@ -94,16 +91,6 @@ public class Project extends BaseEntity implements Serializable {
 		ticket.setProject(null);
 
 		return ticket;
-	}
-
-	
-	
-	public long getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(long deleted) {
-		this.deleted = deleted;
 	}
 
 	@Override

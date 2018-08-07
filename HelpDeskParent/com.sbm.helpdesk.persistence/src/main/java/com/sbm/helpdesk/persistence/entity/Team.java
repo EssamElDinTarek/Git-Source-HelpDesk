@@ -27,9 +27,6 @@ public class Team extends BaseEntity implements Serializable {
 	@Column(name="TEAM_NAME", length=200)
 	private String teamName;
 
-	@Column(name="IS_DELETED",nullable=false)
-	private long deleted;
-	
 	//bi-directional many-to-one association to Hduser
 	@OneToMany(mappedBy="team")
 	private List<Hduser> hdusers;
@@ -92,16 +89,6 @@ public class Team extends BaseEntity implements Serializable {
 
 	public void setSteps(List<Step> steps) {
 		this.steps = steps;
-	}
-	
-	
-
-	public long getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(long deleted) {
-		this.deleted = deleted;
 	}
 
 	@Override

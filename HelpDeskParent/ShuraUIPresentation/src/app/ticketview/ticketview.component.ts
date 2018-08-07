@@ -58,7 +58,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
   deleted: boolean;
 
 
-  displayedColumns = ['creationdate', 'description', 'status', 'title', 'ticketnumber','item'];
+  displayedColumns = ['creationdate', 'description', 'status', 'title', 'ticketnumber', 'item'];
   tickets = new MatTableDataSource();
 
   contacts: any;
@@ -78,14 +78,14 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
   projectId: number = this._shareData.selectedProject.projectId;
   userEmail: string = this._shareData.user.emailAddress;
 
-  allTickets : TicketResponse[] = new Array<TicketResponse>();
+  allTickets: TicketResponse = new TicketResponse();
 
 
 
 
 
 
-  constructor(private http: HttpClient, private ticketViewService: TicketService, public dialog: MatDialog, private _shareData: SharedDataService, public _matDialog: MatDialog, private ticketService: TicketService
+  constructor(private http: HttpClient, private ticketViewService: TicketViewService, public dialog: MatDialog, private _shareData: SharedDataService, public _matDialog: MatDialog, private ticketService: TicketService
   ) {
 
   }
@@ -98,15 +98,16 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
 
-    this.ticketService.getTicketsByProjectID(this.projectId,'ahmed.farrag').subscribe(_TicketResponse => {
-      
+    this.ticketService.getTicketsByProjectID(this.projectId, 'ahmed.farrag').subscribe(_TicketResponse => {
+      this.allTickets = _TicketResponse;
 
-      for (let index = 0; index < _TicketResponse.length; index++) {
-        this.allTickets[index].data = _TicketResponse[index].data;
-       // this.allTickets[index].data.
+      for (let index = 0; index < _TicketResponse.data.length; index++) {
+
+        // this.allTickets.data.push( _TicketResponse.data[index]);
+        this.allTickets.data[index].creationdate;
       }
-      
-      this.tickets.data = _TicketResponse.data; 
+
+      this.tickets.data = this.allTickets.data;
       //this.tickets.data[0].creationdate == "";
       this.isLoadingResults = false;
     });
@@ -129,31 +130,19 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
     });
 
 
-
-    dialogRef.beforeClose().subscribe(result => {
-
-      if (result.confirmationComment == null || result.confirmationComment == "") {
-
-        dialogRef.disableClose;
-        alert("You have to write the delete reason");
-
-
-      } else {
-
-        dialogRef.close;
-
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-          console.log(result);
-          this.deleteConfirmed = result.confirmed;
-          console.log(this.deleteConfirmed);
-          if (this.deleteConfirmed)
-            this.delete(ticket);
-        });
-
-      }
-    })
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if(result.confirmationComment != null && result.confirmationComment != ""){
+      this.deleteConfirmed = result.confirmed;
+      console.log(this.deleteConfirmed);
+      if (this.deleteConfirmed){
+        this.delete(ticket);
+        alert('Ticket Deleted Successfully');
+      }}
+      else
+      alert('You have to add a comment before delete a ticket');
+    });
 
   }
 
@@ -163,7 +152,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 //{ticketId: 1, creationdate: 'Hydrogen', description: 1.0079, status: 'H',title: 1.0079, ticketnumber: 'H'},
 //]
 
-export interface TicketDetails {
+export class TicketDetails {
   ticketId: number;
   creationdate: string;
   description: string;

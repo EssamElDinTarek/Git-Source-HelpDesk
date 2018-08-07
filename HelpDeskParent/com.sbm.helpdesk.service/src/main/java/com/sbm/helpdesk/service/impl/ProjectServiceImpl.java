@@ -9,7 +9,6 @@ import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
 import com.sbm.helpdesk.service.*;
-import com.sbm.helpdesk.persistence.dao.PortfolioDao;
 import com.sbm.helpdesk.persistence.dao.ProjectDao;
 import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
@@ -18,12 +17,8 @@ import com.sbm.helpdesk.common.dto.*;
 public class ProjectServiceImpl  extends BasicServiceImpl<ProjectDTO, Project>  implements ProjectService {
 
 	@Autowired
-	private ProjectDao dao;
-	
-	@Autowired
-	private PortfolioDao portfoliodao;
+	private ProjectDao projectDao;
 
-	private Project project = new Project();
 	@Override
 	@Transactional
 	public void openProject(ProjectDTO projectDto) {
@@ -31,6 +26,13 @@ public class ProjectServiceImpl  extends BasicServiceImpl<ProjectDTO, Project>  
 		Project project = convertToEntity(bluePrintProject, projectDto);
 		projectDao.persist(project);*/
 		
+	}
+
+	@Override
+	@Transactional
+	public ProjectDTO updateProject(Long projectID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -47,13 +49,29 @@ public class ProjectServiceImpl  extends BasicServiceImpl<ProjectDTO, Project>  
 		
 	}
 
-	
+	@Override
+	public ProjectDTO getProjectById(Long projectId) throws BusinessException {
+		ProjectDTO result;
+		try {
+			Project project = projectDao.getProjectById(projectId);
+			ProjectDTO projectDTO = new ProjectDTO();
+			result =  convertToDTO(project,projectDTO);
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		 return result;
+	}
 
 	@Override
 	public List<ProjectDTO> getProjectByPortfolioId(Long portfolioId) throws BusinessException {
 		List<ProjectDTO> result;
 		try {
-			List<Project> projects = dao.getProjectsByPortfolioId(portfolioId);
+			List<Project> projects = projectDao.getProjectsByPortfolioId(portfolioId);
 			System.out.println("Hello Test: " + projects.size());
 			result =  projects.stream().
 					map(item -> convertToDTO(item, new ProjectDTO())).collect(Collectors.toList());
@@ -66,82 +84,5 @@ public class ProjectServiceImpl  extends BasicServiceImpl<ProjectDTO, Project>  
 	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 	    	}
 		 return result;
-	}
-	
-	@Override
-	public ProjectDTO addProject(ProjectDTO projectDTO) throws BusinessException {
-		project = convertToEntity(project, projectDTO);
-		try {
-			project = dao.persist(project);
-		} catch (RespositoryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return convertToDTO(project, projectDTO);
-	}
-	@Override
-	public ProjectDTO updateProject(ProjectDTO projectDTO) throws BusinessException {
-		try {
-			project = convertToEntity(project, projectDTO);
-			//project.setPortfolio(portfoliodao.findById(project.getPortfolio().getPortfolioId()));
-			project = dao.update(project);
-		
-		} catch (RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-		}
-		return  convertToDTO(project, projectDTO);
-	}
-	
-	@Override
-	public String deleteProject(Long id) throws BusinessException {
-		String result = "";
-		try {
-			project= dao.findById(id);
-			project.setDeleted(1);
-		result = "Sucess";
-		}catch(RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		}
-		catch(Exception e1) {
-			e1.printStackTrace();
-	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-	    	}
-		return result;
-	}
-	@Override
-	public ProjectDTO getByProjectId(Long projectId) throws BusinessException {
-		ProjectDTO projectDTO = new ProjectDTO();
-		try {
-			project = dao.findById(projectId);
-			projectDTO = convertToDTO(project, projectDTO);
-		} catch (RespositoryException e) {
-			e.printStackTrace();
-			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-		}
-		return projectDTO;
-	}
-	@Override
-	public List<ProjectDTO> getAllProject() throws BusinessException {
-		List<ProjectDTO> result;
-		try {
-		List<Project> projectList = dao.findAll();
-		result = projectList.stream().map(item -> convertToDTO(item, new ProjectDTO())).collect(Collectors.toList());
-		}catch(RespositoryException e) {
-		e.printStackTrace();
-		throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-	}
-	catch(Exception e1) {
-		e1.printStackTrace();
-    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
-    	}
-		return result;
 	}
 }

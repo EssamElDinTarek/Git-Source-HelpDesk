@@ -4,6 +4,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+/*
+ * This class is to convert Dto to Entity and ViceVersa
+ * E is the Entity to be converted which is User Entity for example
+ * D is the DTO to be get which is UserDTO for example
+ * D is always the DTO and it is the first generic argument , E is always the Entity and it is the second generic argument
+ * */
 @Service
 public class BasicServiceImpl<D,E> {
 

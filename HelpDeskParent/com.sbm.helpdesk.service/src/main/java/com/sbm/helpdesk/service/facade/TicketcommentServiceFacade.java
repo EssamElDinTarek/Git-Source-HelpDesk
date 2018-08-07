@@ -21,8 +21,8 @@ public class TicketcommentServiceFacade {
 		 try {
 		TicketcommentDTO _ticketcomment = service.addTicketcomment(ticketcommentDTO);
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Add Ticketcomment successfully", 
-				"Add Ticketcomment successfully", null);
+				"Attachment has been deleted successfully", 
+				"Attachment has been deleted successfully", null);
 		result = new ResponseDTO(status, _ticketcomment);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
@@ -38,10 +38,7 @@ public class TicketcommentServiceFacade {
 		ResponseDTO result = null;
 		 try {
 		List<TicketcommentDTO> _ticketcommentList = service.getTicketcommentByTicId(tickId);
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"Get All Ticketcomment by Ticket Id successfully", 
-				"Get All Ticketcomment by Ticket Id successfully", null);
-		result = new ResponseDTO(status, _ticketcommentList);
+		result = new ResponseDTO(null, _ticketcommentList);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -53,26 +50,9 @@ public class TicketcommentServiceFacade {
 		 return result;
 	}
 	
-	public ResponseDTO deleteTicketcomment(Long id) throws ControllerException {
-		
-		ResponseDTO result = null;
-		try {
-			service.deleteTicketcomment(id);
-			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-					"TicketComment has been deleted successfully", 
-					"TicketComment has been deleted successfully", null);
-			result = new ResponseDTO(status, "Sucsses");
-			 }catch(BusinessException e) {
-				 e.printStackTrace();
-				 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
-				}
-			 catch(Exception e1) {
-				 e1.printStackTrace();
-				 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
-			 }
-			 return result;
-		
-		
+	public ResponseDTO deleteAttachment(Long id) throws BusinessException {
+		service.deleteTicketcomment(id);
+		return new ResponseDTO(null, "Sucsses") ;
 	}
 
 }

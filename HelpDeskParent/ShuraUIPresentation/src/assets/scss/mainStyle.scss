@@ -88,6 +88,9 @@ table{
 			}
 		}
 		tbody{
+			.mat-row{
+				padding: 0px;
+			}
 			td{
 				font-size: 12px;
 				padding: 10px 20px;
