@@ -454,8 +454,7 @@
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets By Categories</div>
                                   <mat-form-field>
-                                      <mat-select  [(ngModel)]="selectedCategory"   (ngModelChange)="doSomething()"
-                                                  >
+                                      <mat-select  [(ngModel)]="selectedCategory"  (ngModelChange)="doSomething()">
                                           <mat-option *ngFor="let category of categoryData | keys" [value]="category">
                                                 {{category.key}}
                                           </mat-option>
@@ -463,12 +462,12 @@
                                   </mat-form-field>
                               </div>
 
-                              <div class="h-200">
+                              <div class="h-300">
                                 <ngx-charts-pie-chart
                                     *fuseIfOnDom
                                     [scheme]="chart.scheme"
-                                    [results]="categoryData.status"
-                                    >
+                                    [results]="selectedCategory.value"
+                                    [labels]="widget6.labels">
                                   </ngx-charts-pie-chart>
                               </div>
 <!-- 
@@ -508,25 +507,19 @@
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets Workflow</div>
                                   <mat-form-field>
-                                      <mat-select class="simplified" 
-                                               aria-label="Change workflow">
+                                      <mat-select  [(ngModel)]="ticketsOfWorkflow"  (ngModelChange)="workFlowChanged()">
                                                    <mat-option *ngFor="let workflow of workflowList">  
                                               {{workflow.ticketType}}
                                           </mat-option>
-                                          
                                       </mat-select>
                                   </mat-form-field>
                               </div>
 
                               <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center"
-                                   *ngFor="let event of widgets.widget7.schedule[widget7.currentRange]">
-                                  <div>
-                                      <div class="h3">{{event.title}}</div>
-                                      <div>
-                                          <span class="secondary-text">{{event.status}}</span>
-                                          <span *ngIf="event.location">, {{event.location}}</span>
-                                      </div>
-                                  </div>
+                                   *ngFor="let ticket of ticketsOfWorkflowList">
+                                   <div >
+                                  
+                                       <p>{{ticket.title}}</p>
 
                                   <button mat-icon-button aria-label="More information">
                                       <mat-icon>more_vert</mat-icon>

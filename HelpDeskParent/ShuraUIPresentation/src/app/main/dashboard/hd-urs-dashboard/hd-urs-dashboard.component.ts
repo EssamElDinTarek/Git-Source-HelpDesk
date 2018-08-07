@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as shape from 'd3-shape';
-
+//import { keys } from 'ts-transformer-keys';
 import { fuseAnimations } from '@fuse/animations';
 
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
@@ -27,10 +27,14 @@ export class HDURSDashboardComponent implements OnInit {
     projects: any[];
     selectedProject: any;
     tickets: Ticket[];
-    workflowList: Workflow[];
-
+    
     categoryData: MainChart;
-    selectedCategory: TicketCategory[] = [];
+    selectedCategory: any;//Map<String,any> = new Map<String,any>();//TicketCategory[] = [];
+    
+    workflowList: Workflow[];
+    ticketsOfWorkflowList: Ticket[];
+    ticketsOfWorkflow: any;
+
 
     widgets: any;
     widget5: any = {};
@@ -55,10 +59,6 @@ export class HDURSDashboardComponent implements OnInit {
             scheme: {
                 domain: ['#f44336', '#9c27b0', '#03a9f4', '#e91e63']
             }
-            /* ,
-            onSelect     : (ev) => {
-                console.log(ev);
-            } */
         };
 
 
@@ -163,25 +163,20 @@ export class HDURSDashboardComponent implements OnInit {
     }
 
 
-    doSomething(): void {
-        /*    this._ticketService.getCategorizationList().subscribe(_result => {
-               this.categoryData = _result.data;
-             }); */
-
-        if (this.categoryData.priority) {
-            console.log('Priority is selected...!');
-        } else if (this.categoryData.severity) {
-            console.log('Severity is Selected...!');
-        } else if (this.categoryData.status){
-            console.log('Severity is Selected...!');
-        }
-
+    workFlowChanged(): void {
+        this._ticketService.getTicketsByWorkFlowID().subscribe(_result => {
+            this.ticketsOfWorkflowList = _result.data;
+           this.ticketsOfWorkflow=this.ticketsOfWorkflowList;
+          //  console.log(this.ticketsOfWorkflow);
+        });       
     }
+
     /**
        * On init
        */
     ngOnInit(): void {
 
+       
         this._ticketService.getWorkFlowList().subscribe(_result => {
             this.workflowList = _result.data;
 
@@ -189,8 +184,13 @@ export class HDURSDashboardComponent implements OnInit {
 
         this._ticketService.getCategorizationList().subscribe(_result => {
             this.categoryData = _result.data;
-
+            this.selectedCategory = { key: "status", value: this.categoryData.status };
+            console.log(this.selectedCategory);
         });
+
+      
+
+
 
         /* navigator.geolocation.getCurrentPosition(
             

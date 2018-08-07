@@ -34,7 +34,7 @@ export class TicketListComponent implements OnInit {
     checkboxes: {};
     dialogRef: any
     confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
-    ticketPeriorityList: TicketPriority[];
+    ticketPeriorityList: TicketPriority[]=[];
 
     // Private
     private _unsubscribeAll: Subject<any>;
