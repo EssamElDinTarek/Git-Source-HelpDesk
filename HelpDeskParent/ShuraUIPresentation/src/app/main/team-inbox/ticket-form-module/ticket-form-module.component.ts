@@ -1,5 +1,5 @@
 import { Component, Inject, ViewEncapsulation, OnDestroy, OnInit, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,11 +13,13 @@ import { TicketHistory } from '../../../models/TicketHistory';
 import { reject } from '../../../../../node_modules/@types/q';
 import { Contact } from '../contact.model';
 import { TicketService } from '../../../services/ticket.service';
+import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overview-example.component';
 
 
 export class State {
     constructor(public name: string, public population: string, public flag: string) { }
-  }
+}
+
 
 
 
@@ -31,15 +33,32 @@ export class State {
 
 
 
+
 export class TicketFormModuleComponent {
 
-   
+    //step back dialoug
+    stepBackComment: string;
+    stepBackDialogName: string = "Send Previous";
+    stepBackDialogMessage: string = "Please add a comment before send this ticket to the previous step ?";
+    stepBackDialogOkLabel: string = "Ok";
+    stepBackDialogCancelLabel: string = "Cancel";
+    stepBackConfirmed: boolean = false;
 
-   
-    ticketHistory:TicketHistory[];
-   
+    //step forward dialoug
+    stepForwardComment: string;
+    stepForwardDialogName: string = "Delete";
+    stepForwardDialogMessage: string = "Please add a comment before send this ticket to the next step ?";
+    stepForwardDialogOkLabel: string = "Ok";
+    stepForwardDialogCancelLabel: string = "Cancel";
+    stepForwardConfirmed: boolean = false;
 
-   
+
+
+
+    ticketHistory: TicketHistory[];
+
+
+
     verticalStepperStep1: FormGroup;
     verticalStepperStep2: FormGroup;
     verticalStepperStep3: FormGroup;
@@ -50,13 +69,13 @@ export class TicketFormModuleComponent {
 
 
     action: string;
-    contact: Contact ;
+    contact: Contact;
     contactForm: FormGroup;
     dialogTitle: string;
-   // _ticketService : TicketService;
+    // _ticketService : TicketService;
     ticketSeverityList: TicketSeverity[];
     ticketPeriorityList: TicketPriority[];
-    ticketStatusList: String[]=["open","close","pending"];
+    ticketStatusList: String[] = ["open", "close", "pending"];
 
     formData: FormData = new FormData();
     // -----------------------------------------------------------------------------------------------------
@@ -64,15 +83,15 @@ export class TicketFormModuleComponent {
     // -----------------------------------------------------------------------------------------------------
 
 
-    name:string;
-    is_edit : boolean = false;
-  
-  
-   isDisabled() : boolean{
-     return this.is_edit;
-   }
+    name: string;
+    is_edit: boolean = false;
 
-    testMethod(){
+
+    isDisabled(): boolean {
+        return this.is_edit;
+    }
+
+    testMethod() {
         alert('Edit TicketID.....');
     }
     /**
@@ -89,7 +108,7 @@ export class TicketFormModuleComponent {
             description: [this.contact.description],
             status: [this.contact.status],
             ticketnumber: [this.contact.ticketnumber],
-            ticketSeverity:[this.contact.severityList]
+            ticketSeverity: [this.contact.severityList]
         });
 
     }
@@ -102,11 +121,10 @@ export class TicketFormModuleComponent {
      *
      * @param {FormBuilder} _formBuilder
      */
-    constructor(private httpService: HttpClient,private _ticketService : TicketService,
+    constructor(private httpService: HttpClient, private _ticketService: TicketService,
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder )
-         {
+        private _formBuilder: FormBuilder, public dialog: MatDialog, ) {
 
         this.action = _data.action;
 
@@ -120,25 +138,72 @@ export class TicketFormModuleComponent {
         }
 
         this.contactForm = this.createContactForm();
-            console.log('Before calling service...!');
+        console.log('Before calling service...!');
 
         this.httpService.get('api/Ticket-History')
-        .subscribe((response: any) => {
+            .subscribe((response: any) => {
 
-            this.ticketHistory = response;
-        });
-             console.log('After calling service...!');
-             
+                this.ticketHistory = response;
+            });
+        console.log('After calling service...!');
+
     }
-        // Reactive form errors
-       
+    // Reactive form errors
+
     stepTickBack(): void {
         this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
-      }
+    }
 
-      stepTickForward(): void {
+    stepTickForward(): void {
         this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
-      }
+    }
+
+
+    openStepBackDialog(): void {
+        let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+            width: '250px',
+            data: { dialogName: this.stepBackDialogName, dialogMessage: this.stepBackDialogMessage, dialogOkLabel: this.stepBackDialogOkLabel, dialogCancelLabel: this.stepBackDialogCancelLabel, confirmed: this.stepBackConfirmed, confirmationComment: this.stepBackComment }
+        });
+
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            console.log(result);
+            if (result.confirmationComment != null && result.confirmationComment != "") {
+                this.stepBackConfirmed = result.confirmed;
+                console.log(this.stepBackConfirmed);
+                if (this.stepBackConfirmed) {
+                    this.stepTickBack();
+                }
+            }
+            else
+                alert('You have to add a comment before send the ticket previous');
+        });
+
+    }
+
+    openStepForwardDialog(): void {
+        let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+            width: '250px',
+            data: { dialogName: this.stepForwardDialogName, dialogMessage: this.stepForwardDialogMessage, dialogOkLabel: this.stepForwardDialogOkLabel, dialogCancelLabel: this.stepForwardDialogCancelLabel, confirmed: this.stepForwardConfirmed, confirmationComment: this.stepForwardComment  }
+        });
+
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            console.log(result);
+            if (result.confirmationComment != null && result.confirmationComment != "") {
+                this.stepBackConfirmed = result.confirmed;
+                console.log(this.stepBackConfirmed);
+                if (this.stepBackConfirmed) {
+                    this.stepTickBack();
+                }
+            }
+            else
+                alert('You have to add a comment before send the ticket previous');
+        });
+
+    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
@@ -148,29 +213,33 @@ export class TicketFormModuleComponent {
      * On init
      */
     OnInit() {
-        
+
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            this.ticketPeriorityList = _ticketPriority;
+            for (let index = 0; index < _ticketPriority.data.length; index++) {
+                this.ticketPeriorityList.push(_ticketPriority.data[index]);
+            }
         });
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            this.ticketSeverityList = _ticketSeverity;
+            for (let index = 0; index < _ticketSeverity.data.length; index++) {
+                this.ticketSeverityList.push(_ticketSeverity.data[index]);
+            }
         });
-      
+
     }
 
     submitTicket(): void {
         debugger;
         this.formData.append('ticket', JSON.stringify(this.contact));
-           console.log('Before calling submit ticket...!');
-            this._ticketService.editTicket(this.formData).subscribe(_ticket => {
-                alert('updated successfully');
-            
-            });
-       
-        }
-     
-    
-    
+        console.log('Before calling submit ticket...!');
+        this._ticketService.editTicket(this.formData).subscribe(_ticket => {
+            alert('updated successfully');
+
+        });
+
+    }
+
+
+
 }
-    
+
 

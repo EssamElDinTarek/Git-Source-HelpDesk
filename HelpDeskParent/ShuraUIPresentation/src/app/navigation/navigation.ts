@@ -72,7 +72,15 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'account_box',
                 url      : '/teaminbox'
-            }
+            },
+            { 
+                id        : 'ticketDetail',
+                title     : 'Ticket Detail',
+                type      : 'item',
+                url       : '/teaminbox/:ticketId',
+                exactMatch: true
+        }
+        
             /* 
             {
                 id       : 'teamtinboxickets',

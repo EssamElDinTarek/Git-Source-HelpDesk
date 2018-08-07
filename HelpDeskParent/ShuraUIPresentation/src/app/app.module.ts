@@ -25,9 +25,7 @@ import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
 
 import { fuseConfig } from './fuse-config';
 
-//import { FakeDbService } from 'app/fake-db/fake-db.service';
 import { AppComponent } from './app.component';
-//import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from './layout/layout.module';
 import { LoginService } from './services/login.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -90,7 +88,6 @@ const appRoutes: Routes = [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        //RouterModule.forRoot(appRoutes),
         HttpModule,
         AppRoutingModule,
         TranslateModule.forRoot(),
