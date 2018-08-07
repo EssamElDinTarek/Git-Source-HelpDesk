@@ -1,17 +1,17 @@
-<mat-table #table [dataSource]="dataSource"
+<table class="fixed-header" mat-table #table [dataSource]="dataSource"
            [@animateStagger]="{value:'50'}">
 
 
     
 
     <!-- ID Column -->
-    <ng-container cdkColumnDef="ticketId">
+<!--     <ng-container cdkColumnDef="ticketId">
             <mat-header-cell *cdkHeaderCellDef  class=" font-weight-600">ID</mat-header-cell>
             <mat-cell *cdkCellDef="let ticket">
                 <p class="text-truncate">{{ticket.ticketId}} </p>
             </mat-cell>
         </ng-container>
-    
+ -->    
 
 
     <!-- Title Column -->
@@ -47,9 +47,7 @@
     <ng-container cdkColumnDef="status">
         <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Status</mat-header-cell>
         <mat-cell *cdkCellDef="let ticket" >
-            <p class="job-title text-truncate">
-                {{ticket.status.status}}
-            </p>
+              <span class="status-pullet {{ticket.status.status}}" matTooltip="{{ticket.status.status}}" matTooltipPosition="above"></span>
         </mat-cell>
     </ng-container>
 
@@ -75,6 +73,6 @@
              [@animate]="{value:'*',params:{y:'100%'}}">
     </mat-row>
      
-</mat-table>
+</table>
 
 

@@ -27,7 +27,7 @@ export class TicketListComponent implements OnInit {
     tickets :Ticket [];
     user: any;
     dataSource: FilesDataSource | null;
-    displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
+    displayedColumns = ['title', 'description', 'status', 'creationdate', 'ticketnumber',];
     selectedTickets: any[];
     checkboxes: {};
     dialogRef: any

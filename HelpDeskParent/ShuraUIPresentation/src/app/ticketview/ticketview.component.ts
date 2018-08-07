@@ -58,7 +58,7 @@ import { SharedDataService } from '../services/shared-data.service';
     deleted: boolean;
 
        
-  displayedColumns = ['creationdate', 'description', 'status', 'title', 'ticketnumber','item'];
+  displayedColumns = ['title' ,'description' , 'status', 'creationdate', 'ticketnumber','item'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource = new MatTableDataSource();
 
