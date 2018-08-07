@@ -78,6 +78,8 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
   projectId: number = this._shareData.selectedProject.projectId;
   userEmail: string = this._shareData.user.emailAddress;
 
+  allTickets : TicketResponse[] = new Array<TicketResponse>();
+
 
 
 
@@ -96,10 +98,16 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
 
-    this.ticketService.getTicketsByProjectID(this.projectId,'ahmed.farrag').subscribe(_attachmentResponse => {
+    this.ticketService.getTicketsByProjectID(this.projectId,'ahmed.farrag').subscribe(_TicketResponse => {
       
 
-      this.tickets.data = _attachmentResponse.data; 
+      for (let index = 0; index < _TicketResponse.length; index++) {
+        this.allTickets[index].data = _TicketResponse[index].data;
+       // this.allTickets[index].data.
+      }
+      
+      this.tickets.data = _TicketResponse.data; 
+      //this.tickets.data[0].creationdate == "";
       this.isLoadingResults = false;
     });
 
