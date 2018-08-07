@@ -20,10 +20,7 @@ public class TicketSeverityServiceFacade {
 		ResponseDTO result = null;
 		try {
 		List<TicketSeverityDTO> _ticketSeverityList = service.getAllTicketSeverity();
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"get all TicketSeverity successfully", 
-				"get all TicketSeverity successfully", null);
-		result = new ResponseDTO(status, _ticketSeverityList);
+		result = new ResponseDTO(null, _ticketSeverityList);
 		}catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);

@@ -19,10 +19,7 @@ public class TicketPriorityServiceFacade {
 		ResponseDTO result = null;
 		 try {
 		List<TicketPriorityDTO> _ticketPriorityList = service.getAllTicketPriority();
-		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
-				"get all TicketPriority successfully", 
-				"get all TicketPriority successfully", null);
-		result = new ResponseDTO(status, _ticketPriorityList);
+		result = new ResponseDTO(null, _ticketPriorityList);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);

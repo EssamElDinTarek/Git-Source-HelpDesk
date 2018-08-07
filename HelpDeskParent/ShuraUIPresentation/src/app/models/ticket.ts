@@ -14,5 +14,6 @@ export class Ticket {
 	workflow: Workflow;
 	ticketNO : string;
 	project: Project;
+	
 	constructor(ticket){}
 }

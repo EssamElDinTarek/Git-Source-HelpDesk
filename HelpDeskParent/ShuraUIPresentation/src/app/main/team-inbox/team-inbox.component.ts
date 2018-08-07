@@ -29,8 +29,6 @@ import { Location } from '@angular/common';
 import { Ticket } from '../../model/ticket';
 import { TicketService } from '../../services/ticket.service';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
-import { TicketFormComponentComponent } from './ticket-form-component/ticket-form-component.component';
-
 
 @Component({
   selector: 'app-team-inbox',
@@ -64,7 +62,7 @@ ngOnInit(){
  //console.log(this.dataSource.data);
  }
 
-//tickets: TicketFormComponent[];
+tickets: TicketFormComponent[];
 deleted: boolean;
 
    
@@ -107,11 +105,9 @@ ngAfterViewInit() {
     editTicket(ticketId): void
     {
 
-        this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
+        this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
       //  console.log('Ticket desc is : '+item.description);
-
-      
-        this.dialogRef = this._matDialog.open(TicketFormComponentComponent, {
+        this.dialogRef = this._matDialog.open(TicketFormComponent, {
             panelClass: 'ticket-form-dialog',
             data: { 
                    // ticket:item.ticketIds,
@@ -124,7 +120,7 @@ ngAfterViewInit() {
                       }
         });
 
-       
+      
     }
 
 
@@ -150,7 +146,7 @@ export class FilesDataSource extends DataSource<any>
      */
     constructor(
         private _ticketService: TicketService,
-        public dialog: MatDialog,public _shareData : SharedDataService
+        public dialog: MatDialog,
     )
     {
         super();
@@ -158,7 +154,7 @@ export class FilesDataSource extends DataSource<any>
 
     connect(): Observable<any[]>
     {
-        return this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress);
+        return this._ticketService.getTicketsByProjectID();
     }
     /**
      * Disconnect

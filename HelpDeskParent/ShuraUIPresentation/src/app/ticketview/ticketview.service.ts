@@ -14,7 +14,7 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class TicketViewService {
+export class TicketService {
 
   onContactsChanged: BehaviorSubject<any>;
   onSelectedContactsChanged: BehaviorSubject<any>;

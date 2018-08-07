@@ -1,13 +1,14 @@
 package com.sbm.helpdesk.common.dto;
 
+import java.util.Set;
+
 public class PortfolioDTO extends BaseDTO  {
 
 	private static final long serialVersionUID = 6104011990509049339L;
 	
 	private long portfolioId;
 	private String name;
-	private HduserDTO hduser;
-	
+	private Set<ProjectDTO> projects;
 	public long getPortfolioId() {
 		return portfolioId;
 	}
@@ -20,12 +21,11 @@ public class PortfolioDTO extends BaseDTO  {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public HduserDTO getHduser() {
-		return hduser;
+	public Set<ProjectDTO> getProjects() {
+		return projects;
 	}
-	public void setHduser(HduserDTO hduser) {
-		this.hduser = hduser;
+	public void setProjects(Set<ProjectDTO> projects) {
+		this.projects = projects;
 	}
-	
 	
 }

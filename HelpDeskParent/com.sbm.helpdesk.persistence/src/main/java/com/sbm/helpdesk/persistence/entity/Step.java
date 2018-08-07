@@ -40,9 +40,6 @@ public class Step extends BaseEntity implements Serializable {
 	@JoinColumn(name="TEAM_ID")
 	private Team team;
 
-	@Column(name="IS_DELETED",nullable=false)
-	private long deleted;
-	
 	public Step() {
 	}
 
@@ -134,16 +131,6 @@ public class Step extends BaseEntity implements Serializable {
 
 	public void setTeam(Team team) {
 		this.team = team;
-	}
-	
-	
-
-	public long getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(long deleted) {
-		this.deleted = deleted;
 	}
 
 	@Override

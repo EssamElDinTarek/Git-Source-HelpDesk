@@ -30,10 +30,6 @@ public class Ticket extends BaseEntity implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date creationdate;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="UPDATE_DATE")
-	private Date updateDate ;
-	
 	@Column(name="TICKET_NUMBER",length=50)
 	private String ticketnumber;
 
@@ -314,14 +310,6 @@ public class Ticket extends BaseEntity implements Serializable {
 
 	public void setDeleted(long deleted) {
 		this.deleted = deleted;
-	}
-
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
 	}
 
 	

@@ -21,10 +21,9 @@ export class State {
 
 
 
-
 @Component({
-  selector: 'app-ticket-form-module',
-  templateUrl: './ticket-form-module.component.html',
+    selector: 'app-ticket-form-module',
+    templateUrl: './ticket-form-module.component.html',
     styleUrls: ['./ticket-form-module.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
@@ -32,12 +31,11 @@ export class State {
 
 
 
-
 export class TicketFormModuleComponent {
 
+   
 
-
-
+   
     ticketHistory:TicketHistory[];
    
 
@@ -51,8 +49,8 @@ export class TicketFormModuleComponent {
 
 
 
-  action: string;
-    contact: Contact;
+    action: string;
+    contact: Contact ;
     contactForm: FormGroup;
     dialogTitle: string;
    // _ticketService : TicketService;
@@ -108,7 +106,7 @@ export class TicketFormModuleComponent {
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
         private _formBuilder: FormBuilder )
-    {
+         {
 
         this.action = _data.action;
 
@@ -133,7 +131,7 @@ export class TicketFormModuleComponent {
              
     }
         // Reactive form errors
-
+       
     stepTickBack(): void {
         this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
       }
@@ -152,14 +150,11 @@ export class TicketFormModuleComponent {
     OnInit() {
         
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            for (let index = 0; index < _ticketPriority.data.length; index++) {
-                this.ticketPeriorityList.push(_ticketPriority.data[index]);
-            }
+            this.ticketPeriorityList = _ticketPriority;
         });
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            for (let index = 0; index < _ticketSeverity.data.length; index++) {
-                this.ticketSeverityList.push(_ticketSeverity.data[index]);
-            }        });
+            this.ticketSeverityList = _ticketSeverity;
+        });
       
     }
 
@@ -172,7 +167,7 @@ export class TicketFormModuleComponent {
             
             });
        
-}
+        }
      
     
     
