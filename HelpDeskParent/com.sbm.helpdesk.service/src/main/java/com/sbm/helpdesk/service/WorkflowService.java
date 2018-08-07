@@ -9,9 +9,8 @@ import com.sbm.helpdesk.common.dto.*;
 @Transactional
 public interface WorkflowService {
 	
-	public WorkflowDTO addWorkflow(WorkflowDTO workflowDTO)throws BusinessException;
-	public WorkflowDTO updateWorkflow(WorkflowDTO workflowDTO)throws BusinessException;
-	public String deleteWorkflow(Long workflowId) throws BusinessException;
-	public WorkflowDTO getByWorkflowId(Long workflowId)throws BusinessException;
+	/*public TicketDTO addTicket(TicketDTO ticketDTO);
+	public TicketDTO updateTicket(TicketDTO ticketDTO);
+	public TicketDTO getByTicketNumber(String ticketnumber);*/
 	public List<WorkflowDTO> getAllWorkflow() throws BusinessException;
 }

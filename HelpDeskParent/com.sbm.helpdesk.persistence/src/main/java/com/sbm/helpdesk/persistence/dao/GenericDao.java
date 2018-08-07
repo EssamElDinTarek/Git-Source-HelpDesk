@@ -1,7 +1,9 @@
 package com.sbm.helpdesk.persistence.dao;
 
 import java.util.List;
+
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
+
 public interface GenericDao<T>
 {
 

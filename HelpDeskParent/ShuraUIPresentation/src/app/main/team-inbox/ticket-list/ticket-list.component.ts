@@ -29,12 +29,12 @@ export class TicketListComponent implements OnInit {
     tickets :Ticket [];
     user: any;
     dataSource: FilesDataSource | null;
-    displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
+    displayedColumns = [ 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
     selectedTickets: any[];
     checkboxes: {};
     dialogRef: any
     confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
-    ticketPeriorityList: TicketPriority[];
+    ticketPeriorityList: TicketPriority[] = [];
 
     // Private
     private _unsubscribeAll: Subject<any>;
