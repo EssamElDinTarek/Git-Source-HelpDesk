@@ -11,6 +11,8 @@ import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-mod
 import { TicketService } from '../../../services/ticket.service';
 import { Ticket } from '../../../models/ticket';
 import { TicketPriority } from '../../../models/ticket-priority';
+import { SharedDataService } from '../../../services/shared-data.service';
+
 
 
 @Component({
@@ -44,7 +46,7 @@ export class TicketListComponent implements OnInit {
      */
     constructor(
         private _ticketService: TicketService,
-        public _matDialog: MatDialog
+        public _matDialog: MatDialog,public sharedService : SharedDataService
     ) {
         // Set the private defaults
      //   this._ticketService.getTicketsByProjectID;
@@ -67,7 +69,7 @@ export class TicketListComponent implements OnInit {
             console.log(_tickets.data);
          
         }); */
-        this._ticketService.getTicketsByProjectID().subscribe(_result => {
+        this._ticketService.getTicketsByProjectID(this.sharedService.selectedProject.projectId,this.sharedService.user.emailAddress).subscribe(_result => {
             this.tickets = _result.data;
            this.dataSource=_result.data;
       
@@ -75,7 +77,9 @@ export class TicketListComponent implements OnInit {
 
          
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            this.ticketPeriorityList = _ticketPriority;
+            for (let index = 0; index < _ticketPriority.data.length; index++) {
+                this.ticketPeriorityList.push(_ticketPriority.data[index]);
+            }
         });
         console.log('Test....!');
        // this.dataSource = new FilesDataSource(this._ticketService)

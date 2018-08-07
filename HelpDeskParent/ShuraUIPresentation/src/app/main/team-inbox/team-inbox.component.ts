@@ -107,7 +107,7 @@ ngAfterViewInit() {
     editTicket(ticketId): void
     {
 
-        this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+        this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
       //  console.log('Ticket desc is : '+item.description);
 
       
@@ -150,7 +150,7 @@ export class FilesDataSource extends DataSource<any>
      */
     constructor(
         private _ticketService: TicketService,
-        public dialog: MatDialog,
+        public dialog: MatDialog,public _shareData : SharedDataService
     )
     {
         super();
@@ -158,7 +158,7 @@ export class FilesDataSource extends DataSource<any>
 
     connect(): Observable<any[]>
     {
-        return this._ticketService.getTicketsByProjectID();
+        return this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress);
     }
     /**
      * Disconnect
