@@ -68,7 +68,7 @@ ngOnInit(){
 deleted: boolean;
 
    
-displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber','updateTicketNumber'];
+displayedColumns = [ 'creationdate', 'description', 'status', 'title', 'ticketnumber','updateTicketNumber'];
 dataSource = new MatTableDataSource();
 
 
