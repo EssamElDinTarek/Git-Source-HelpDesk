@@ -1748,7 +1748,6 @@ export class ProjectDashboardDb
                 ]
             }
         },
-
         'weatherWidget': {
             'locations'      : {
                 'NewYork': {

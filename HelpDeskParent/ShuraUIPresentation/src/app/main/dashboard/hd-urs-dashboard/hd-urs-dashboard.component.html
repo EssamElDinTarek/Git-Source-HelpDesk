@@ -63,8 +63,7 @@
 
                           <div class="h4" fxLayout="row" fxLayoutAlign="start center">
                               <mat-icon class="secondary-text mr-8">place</mat-icon>
-                              <!-- {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].name}} -->
-                            <p>Cairo</p>
+                              {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].name}}
                           </div>
 
                           <div>
@@ -360,7 +359,10 @@
                       </fuse-widget>
                       <!-- / WIDGET 3 -->
 
-                                    
+                     
+
+
+                    
                       <!-- WIDGET 5 -->
                       <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" fxLayout="row" fxFlex="100"
                                    class="widget widget5">
@@ -452,26 +454,32 @@
 
                               <div class="px-16 py-8 border-bottom" fxLayout="row"
                                    fxLayoutAlign="space-between center">
-                                  <div class="h3">Tickets By Categories</div>
+                                  <div class="h3">{{widgets.widget6.title}}</div>
                                   <mat-form-field>
-                                      <mat-select  [(ngModel)]="selectedCategory"   (ngModelChange)="doSomething()"
-                                                  >
-                                          <mat-option *ngFor="let category of categoryData | keys" [value]="category">
-                                                {{category.key}}
+                                      <mat-select class="simplified" [(ngModel)]="widget6.currentRange"
+                                                  aria-label="Change range">
+                                          <mat-option *ngFor="let range of widgets.widget6.ranges | keys"
+                                                      [value]="range.key">
+                                              {{range.value}}
                                           </mat-option>
                                       </mat-select>
                                   </mat-form-field>
                               </div>
 
-                              <div class="h-200">
-                                <ngx-charts-pie-chart
-                                    *fuseIfOnDom
-                                    [scheme]="chart.scheme"
-                                    [results]="categoryData.status"
-                                    >
+                              <div class="h-400">
+                                  <ngx-charts-pie-chart
+                                      *fuseIfOnDom
+                                      [scheme]="widget6.scheme"
+                                      [results]="widgets.widget6.mainChart[widget6.currentRange]"
+                                      [legend]="widget6.showLegend"
+                                      [explodeSlices]="widget6.explodeSlices"
+                                      [labels]="widget6.labels"
+                                      [doughnut]="widget6.doughnut"
+                                      [gradient]="widget6.gradient"
+                                      (select)="widget6.onSelect($event)">
                                   </ngx-charts-pie-chart>
                               </div>
-<!-- 
+
                               <div class="py-8 mh-16 border-top" fxLayout="row wrap" fxLayoutAlign="start center">
 
                                   <div class="py-8 border-right" fxLayout="column" fxLayoutAlign="center center"
@@ -489,7 +497,7 @@
                                       </span>
                                       <span class="h4">{{widgets.widget6.footerRight.title}}</span>
                                   </div>
-                              </div> -->
+                              </div>
 
                           </div>
                           <!-- / Front -->
@@ -506,14 +514,14 @@
 
                               <div class="px-16 py-8 border-bottom" fxLayout="row"
                                    fxLayoutAlign="space-between center">
-                                  <div class="h3">Tickets Workflow</div>
+                                  <div class="h3">{{widgets.widget7.title}}</div>
                                   <mat-form-field>
-                                      <mat-select class="simplified" 
-                                               aria-label="Change workflow">
-                                                   <mat-option *ngFor="let workflow of workflowList">  
-                                              {{workflow.ticketType}}
+                                      <mat-select class="simplified" [(ngModel)]="widget7.currentRange"
+                                                  aria-label="Change range">
+                                          <mat-option *ngFor="let range of widgets.widget7.ranges | keys"
+                                                      [value]="range.key">
+                                              {{range.value}}
                                           </mat-option>
-                                          
                                       </mat-select>
                                   </mat-form-field>
                               </div>

@@ -4,32 +4,34 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the PORTFOLIO database table.
  * 
  */
 @Entity
-@Table(name="PORTFOLIO")
-@NamedQuery(name="Portfolio.findAll", query="SELECT p FROM Portfolio p")
+@Table(name = "PORTFOLIO")
+@NamedQuery(name = "Portfolio.findAll", query = "SELECT p FROM Portfolio p")
 public class Portfolio extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="PORTFOLIO_PORTFOLIOID_GENERATOR" )
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PORTFOLIO_PORTFOLIOID_GENERATOR")
-	@Column(name="PORTFOLIO_ID", unique=true, nullable=false, precision=22)
+	@SequenceGenerator(name = "PORTFOLIO_PORTFOLIOID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PORTFOLIO_PORTFOLIOID_GENERATOR")
+	@Column(name = "PORTFOLIO_ID", unique = true, nullable = false, precision = 22)
 	private long portfolioId;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
-	
-		@OneToOne
-		@JoinColumn(name = "MANAGER_ID", referencedColumnName = "USER_ID")
-		private Hduser hduser;
 
-	//bi-directional many-to-one association to Project
-	@OneToMany(mappedBy="portfolio")
+	@Column(name = "IS_DELETED", nullable = false)
+	private long deleted;
+
+	@OneToOne
+	@JoinColumn(name = "MANAGER_ID", referencedColumnName = "USER_ID")
+	private Hduser hduser;
+
+	// bi-directional many-to-one association to Project
+	@OneToMany(mappedBy = "portfolio")
 	private List<Project> projects;
 
 	public Portfolio() {
@@ -65,6 +67,14 @@ public class Portfolio extends BaseEntity implements Serializable {
 
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
+	}
+
+	public long getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(long deleted) {
+		this.deleted = deleted;
 	}
 
 	public Project addProject(Project project) {

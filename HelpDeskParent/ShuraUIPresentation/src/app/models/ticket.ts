@@ -5,7 +5,7 @@ import { Project } from './Project';
 import { Status } from './status';
 
 export class Ticket {
-	ticketId:number;
+	ticketId:string;
 	description: string;
 	status: Status;
 	title: string;
@@ -14,5 +14,6 @@ export class Ticket {
 	workflow: Workflow;
 	ticketNO : string;
 	project: Project;
+	
 	constructor(ticket){}
 }

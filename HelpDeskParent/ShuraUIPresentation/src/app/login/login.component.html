@@ -2,16 +2,13 @@
 
     <div id="login-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
 
-        <div class="logo login-sec">
-            <img src="assets/images/logos/logo-mark-3.png">
-        </div>
-        <div class="login-sec" id="login-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+        <div id="login-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
 
-            <!-- <div class="logo">
+            <div class="logo">
                 <img src="assets/images/logos/helpdesk.jpg">
             </div>
- -->
-            <!-- <div class="title">LOGIN TO YOUR ACCOUNT</div> -->
+
+            <div class="title">LOGIN TO YOUR ACCOUNT</div>
 
             <form name="loginForm" [formGroup]="loginForm" novalidate>
 

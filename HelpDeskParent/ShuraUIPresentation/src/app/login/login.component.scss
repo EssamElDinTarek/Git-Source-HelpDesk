@@ -6,67 +6,18 @@
         width: 100%;
         background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
         background-size: cover;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        overflow: auto;
-        @include media-breakpoint('sm') {
-            display: flex !important;
-            width: auto;
-            height: auto;
-            position: static;    
-        }
-    #login-form-wrapper {
-            // flex: 1 0 auto;
-            // padding: 32px;
-            max-width: 800px !important;
-            display: inline-table !important;
-            margin: 0 auto;
-            margin-top: calc(50vh - 260px);
-            @include media-breakpoint('sm') {
-                display: flex !important;
-                margin-top: auto;
-            }
-            .login-sec{
-                width: 50%;
-                min-width: 400px;
-                display: table-cell !important;
-                box-shadow: none !important;
-                vertical-align: middle;
-                @include media-breakpoint('sm') {
-                    min-width: 100%;
-                }
-                @include media-breakpoint('sm') {
-                    display: flex !important;
-                }
-            }
-            &:after{
-                content: "";
-                display: block;
-                clear: both;
-            }
-            .logo{
-                background: url('/assets/images/logos/Login-bg.jpg') no-repeat;
-                background-size: cover;
-                text-align: center;
-                img{
-                    width: 200px;
-                }
-            }
+
+        #login-form-wrapper {
+            flex: 1 0 auto;
+            padding: 32px;
+
             @include media-breakpoint('xs') {
                 padding: 16px;
             }
 
-            @include media-breakpoint('sm') {
-                max-width: 100%;
-            }
-
             #login-form {
-                // width: 384px;
-                // max-width: 384px;
+                width: 384px;
+                max-width: 384px;
                 padding: 32px;
                 background: #FFFFFF;
                 text-align: center;

@@ -61,5 +61,32 @@ public class UserDaoImpl extends GenericDaoImpl<Hduser>  implements UserDao{
 		}
 		return userObj;
 	}
+	
+	@Override
+	public List<Hduser> findByProjectId(Long projectId) throws RespositoryException {
+		List<Hduser> projectlist = null;
+		try {
+			Query q = entityManager.createNamedQuery("Hduser.findByProjectId", Hduser.class);
+			q.setParameter("projectId", projectId);
+			projectlist = q.getResultList();
+		} catch (Exception e) {
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
+		}
+		return projectlist;
+	}
+	@Override
+	public List<Hduser> findByPortfolioId(Long portfolioId) throws RespositoryException {
+		List<Hduser> projectlist = null;
+		try {
+			Query q = entityManager.createNamedQuery("Hduser.findByPortfolioId", Hduser.class);
+			q.setParameter("portfolioId", portfolioId);
+			projectlist = q.getResultList();
+		} catch (Exception e) {
+			throw new RespositoryException(ExceptionEnums.REPOSITORY_ERROR);
+//			e.printStackTrace();
+		}
+		return projectlist;
+	}
 
 }

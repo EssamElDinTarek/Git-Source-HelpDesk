@@ -29,7 +29,7 @@ export class AttachmentService {
   constructor(private _http: HttpClient) { }
 
   getAttachmentByTickId(ticketID: number): Observable<AttachmentResponse> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment/ticid/'+ticketID;
+    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/attachmentByTicId/'+ticketID;
     let identifier = "TICKET_ID";
     //let value = "1953";
     const requestUrl = `${href}`;//?identifier=` + identifier + `&value=` + ticketID;

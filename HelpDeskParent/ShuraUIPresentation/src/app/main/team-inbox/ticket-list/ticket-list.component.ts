@@ -11,8 +11,6 @@ import { TicketFormModuleComponent } from '../ticket-form-module/ticket-form-mod
 import { TicketService } from '../../../services/ticket.service';
 import { Ticket } from '../../../models/ticket';
 import { TicketPriority } from '../../../models/ticket-priority';
-import { SharedDataService } from '../../../services/shared-data.service';
-
 
 
 @Component({
@@ -29,12 +27,12 @@ export class TicketListComponent implements OnInit {
     tickets :Ticket [];
     user: any;
     dataSource: FilesDataSource | null;
-    displayedColumns = ['title', 'description', 'status', 'creationdate', 'ticketnumber'];
+    displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
     selectedTickets: any[];
     checkboxes: {};
     dialogRef: any
     confirmDialogRef: MatDialogRef<FuseConfirmDialogComponent>;
-    ticketPeriorityList: TicketPriority[] = [];
+    ticketPeriorityList: TicketPriority[];
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -46,7 +44,7 @@ export class TicketListComponent implements OnInit {
      */
     constructor(
         private _ticketService: TicketService,
-        public _matDialog: MatDialog,public sharedService : SharedDataService
+        public _matDialog: MatDialog
     ) {
         // Set the private defaults
      //   this._ticketService.getTicketsByProjectID;
@@ -69,7 +67,7 @@ export class TicketListComponent implements OnInit {
             console.log(_tickets.data);
          
         }); */
-        this._ticketService.getTicketsByProjectID(this.sharedService.selectedProject.projectId,this.sharedService.user.emailAddress).subscribe(_result => {
+        this._ticketService.getTicketsByProjectID().subscribe(_result => {
             this.tickets = _result.data;
            this.dataSource=_result.data;
       
@@ -77,9 +75,7 @@ export class TicketListComponent implements OnInit {
 
          
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            for (let index = 0; index < _ticketPriority.data.length; index++) {
-                this.ticketPeriorityList.push(_ticketPriority.data[index]);
-            }
+            this.ticketPeriorityList = _ticketPriority;
         });
         console.log('Test....!');
        // this.dataSource = new FilesDataSource(this._ticketService)

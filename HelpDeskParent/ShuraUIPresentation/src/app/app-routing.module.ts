@@ -58,8 +58,8 @@ const appRoutes: Routes = [
 		redirectTo:'teaminbox'
 	},
 	{
-		path:'teaminbox/:ticketId',
-		redirectTo: 'teaminbox'
+		path:'teaminboxtemp',
+		redirectTo:'teaminboxticket'
 	},
 	{
 		path:'attachment',
@@ -70,14 +70,9 @@ const appRoutes: Routes = [
 		redirectTo:'comment'
 	},
 	{
-		path:'formModule',
-		redirectTo:'formModule'
-	},
-	{
 		path:'lookups',
 		redirectTo:'lookups'
 	}
-	
 	// {
 	//     path      : '**',
 	//     redirectTo: 'apps/dashboards/analytics'
@@ -86,8 +81,7 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-	declarations: [
-	],
+	declarations: [],
 	imports: [
 		RouterModule.forRoot(appRoutes),
 		SubmitTicketModule,
