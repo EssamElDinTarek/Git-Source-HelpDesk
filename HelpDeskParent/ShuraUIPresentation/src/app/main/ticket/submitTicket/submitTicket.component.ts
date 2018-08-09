@@ -42,6 +42,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     formData: FormData = new FormData();
     filelist: FileList;
     filesData: FileData[] = [];
+    serviceNotAvailable: boolean = false;
+    noWorkflows: boolean = false;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -112,7 +114,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.form = this._formBuilder.group({
 
             title: ['', Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
-            description: ['',Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
+            description: ['', Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
             workflow: [''],
             severity: [''],
             priority: ['']
@@ -137,10 +139,20 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                 this.ticketSeverityList.push(_ticketSeverity.data[index]);
             }
         });
-        
+
         this._ticketService.getWorkflow().subscribe(_workflowlist => {
-            for (let index = 0; index < _workflowlist.data.length; index++) {
-                this.workflowList.push(_workflowlist.data[index]);
+            //_workflowlist.data = [];
+            if ((_workflowlist != null && _workflowlist != undefined)) {
+                if ((_workflowlist.data != undefined && _workflowlist.data != [] && _workflowlist.data != null)) {
+                    for (let index = 0; index < _workflowlist.data.length; index++) {
+                        this.workflowList.push(_workflowlist.data[index]);
+                    }
+                } else {
+                    this.noWorkflows = true;
+                }
+
+            } else {
+                this.serviceNotAvailable = true;
             }
         });
 
@@ -232,22 +244,43 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
         //this.formData.append('files', event.target.files);
         this.filelist = files;
-        console.log("files : " + files.length);
+
+        // formatDate(dates){
+        //     var date = new Date(dates);
+        //     var hours = date.getHours();
+        //     var minuts = date.getMinutes();
+        //     var day = date.getUTCDate();
+        //     var month= date.getMonth();
+        //     var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
+        //     var year= date.getUTCFullYear();
+        //     var fullDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
+        // } 
+
         for (let i = 0; i < files.length; i++) {
-        debugger;
-        //    this.filesData[i].name = files.item(i).name;
-        //    this.filesData[i].size = files.item(i).size;
-        //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
-        //    this.filesData[i].type = files.item(i).type;
+            //    this.filesData[i].name = files.item(i).name;
+            //    this.filesData[i].size = files.item(i).size;
+            //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+            //    this.filesData[i].type = files.item(i).type;
+        
             let file: FileData = new FileData();
             file.name = files.item(i).name;
             file.size = files.item(i).size;
             file.ModifiedDate = files.item(i).lastModifiedDate;
             file.type = files.item(i).type;
             this.filesData.push(file);
-        //    this.addFilesData();
-        }
 
+            var date = new Date(file.ModifiedDate);
+            var hours = date.getHours();
+            var minuts = date.getMinutes();
+            var day = date.getUTCDate();
+            var month= date.getMonth();
+            var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
+            var year= date.getUTCFullYear();
+            file.formatedDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
+    
+
+            //    this.addFilesData();
+        }
     }
 
     addFilesData(): void {

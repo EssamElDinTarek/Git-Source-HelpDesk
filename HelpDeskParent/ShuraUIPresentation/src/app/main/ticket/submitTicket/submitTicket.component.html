@@ -3,8 +3,7 @@
 
     <div class="h2 mb-24">Submit Ticket</div>
 
-
-
+                   
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
         <mat-form-field fxFlex="100">
@@ -36,6 +35,12 @@
             <mat-error *ngIf="formErrors.workflow.required">
                 WorkFlow is required!
             </mat-error>
+            <mat-error *ngIf="serviceNotAvailable">
+                    Unfortunaley Service is not Available !
+                </mat-error>
+                <mat-error *ngIf="noWorkflows">
+                        Sorry, No Records Found !
+                    </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="33.3333">
@@ -101,7 +106,7 @@
             <!-- / HEADER -->
             <!-- CONTENT -->
             <div class="content mat-white-bg" fusePerfectScrollbar>
-                <file-list [(childFilesData)]="filesData"></file-list>
+                <file-list [childFilesData]="filesData"></file-list>
             </div>
             <!-- / CONTENT -->
     </div>

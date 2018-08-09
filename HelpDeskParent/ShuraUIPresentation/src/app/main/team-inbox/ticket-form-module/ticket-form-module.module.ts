@@ -6,7 +6,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { CdkTableModule } from '@angular/cdk/table';
 import { TicketAttachementsModule } from '../../attachment/ticket-attachements/ticket-attachements.module';
 import { TicketCommentModule } from '../../ticket-comment/ticket-comment.module';
-import {MatDialogModule} from '@angular/material/dialog';
+//import {MatDialogModule,MatDialogRef} from '@angular/material/dialog';
 
 import {
 
@@ -15,27 +15,27 @@ import {
 
   MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
 
-   MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,
+   MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule, MatDialogRef,
 
-  MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
+  MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule, MAT_DIALOG_DATA,
 
   MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
 
-  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
+  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatDialogModule,
 
-  MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule,
+  MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
   
 
 } from '@angular/material';
 
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
-import { HttpClientModule } from '../../../../../node_modules/@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
   {
-    path:'formModule', //'teaminbox/:id',
+    path: 'teaminbox/:id',
     component: TicketFormModuleComponent
   }
 ];
@@ -67,8 +67,7 @@ const routes: Routes = [
   TicketAttachementsModule,TicketCommentModule
   ],
   declarations: [TicketFormModuleComponent],
-  exports: [
-    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+  exports: [    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
 
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
 
@@ -85,6 +84,10 @@ const routes: Routes = [
     FuseSharedModule,
     FuseSidebarModule,
     FuseWidgetModule
+  ],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
   ]
 
 })

@@ -37,7 +37,7 @@ export class HDURSDashboardComponent implements OnInit {
     ticketsOfWorkflowList: Ticket[];
     ticketsOfWorkflow: any;
     weeklyTasks:any;
-    countOfTickets:any;
+    countOfTickets:any[];
 
     widgets: any;
     widget5: any = {};
@@ -414,7 +414,8 @@ export class HDURSDashboardComponent implements OnInit {
 
       this._dashBoardService.getWeeklyTickets().subscribe(_result=>{
              this.weeklyTasks=_result.data;
-             console.log(this.weeklyTasks);
+             console.log('date is : '+(this.weeklyTasks[1].date).dateNow);
+             //console.log(this.weeklyTasks[1].date);
       })
 
           
