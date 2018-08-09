@@ -244,22 +244,43 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
         //this.formData.append('files', event.target.files);
         this.filelist = files;
-        console.log("files : " + files.length);
+
+        // formatDate(dates){
+        //     var date = new Date(dates);
+        //     var hours = date.getHours();
+        //     var minuts = date.getMinutes();
+        //     var day = date.getUTCDate();
+        //     var month= date.getMonth();
+        //     var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
+        //     var year= date.getUTCFullYear();
+        //     var fullDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
+        // } 
+
         for (let i = 0; i < files.length; i++) {
-            debugger;
             //    this.filesData[i].name = files.item(i).name;
             //    this.filesData[i].size = files.item(i).size;
             //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
             //    this.filesData[i].type = files.item(i).type;
+        
             let file: FileData = new FileData();
             file.name = files.item(i).name;
             file.size = files.item(i).size;
             file.ModifiedDate = files.item(i).lastModifiedDate;
             file.type = files.item(i).type;
             this.filesData.push(file);
+
+            var date = new Date(file.ModifiedDate);
+            var hours = date.getHours();
+            var minuts = date.getMinutes();
+            var day = date.getUTCDate();
+            var month= date.getMonth();
+            var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
+            var year= date.getUTCFullYear();
+            file.ModifiedDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
+    
+
             //    this.addFilesData();
         }
-
     }
 
     addFilesData(): void {
