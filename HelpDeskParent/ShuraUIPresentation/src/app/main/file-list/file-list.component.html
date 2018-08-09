@@ -1,41 +1,18 @@
-<mat-table #table [dataSource]="childFilesData" [@animateStagger]="{value:'50'}">
-
-    <!-- Type Column -->
-    <ng-container cdkColumnDef="icon">
-        <mat-header-cell *cdkHeaderCellDef fxFlex="64px"></mat-header-cell>
-        <mat-cell *cdkCellDef="let row" fxFlex="64px">
-            <mat-icon class="type-icon" [ngClass]="row.type"></mat-icon>
-        </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="name">
-        <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
-        <mat-cell *cdkCellDef="let row"> {{row.name}}</mat-cell>
-    </ng-container>
-
-    <!-- Type Column -->
-    <ng-container cdkColumnDef="type">
-        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Type</mat-header-cell>
-        <mat-cell *cdkCellDef="let row" fxHide fxShow.gt-md> {{row.type}}</mat-cell>
-    </ng-container>
-
-    <!-- Size Column -->
-    <ng-container cdkColumnDef="size">
-        <mat-header-cell *cdkHeaderCellDef fxHide.xs>Size</mat-header-cell>
-        <mat-cell *cdkCellDef="let row" fxHide.xs>{{row.size === '' ? '-': row.size}}</mat-cell>
-    </ng-container>
-
-    <!-- Modified Column -->
-    <ng-container cdkColumnDef="modified">
-        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Modified</mat-header-cell>
-        <mat-cell *cdkCellDef="let row" fxHide fxShow.gt-md>{{row.ModifiedDate}}</mat-cell>
-    </ng-container>
-
-    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *cdkRowDef="let row; columns: displayedColumns;"
-             (click)="onSelect(row)"
-             [ngClass]="{'mat-accent-50-bg':row == selected}"
-             matRipple [@animate]="{value:'*',params:{y:'100%'}}">
-    </mat-row>
-</mat-table>
+<table class="mat-table table fixed-header">
+<thead>
+    <tr class="mat-header-row">
+        <th class="th mat-header-cell">Name</th>
+        <th class="th mat-header-cell">Type</th>
+        <th class="th mat-header-cell">Size</th>
+        <th class="th mat-header-cell">Modified</th>
+    </tr>
+</thead>
+    <tbody>
+        <tr *ngFor="let file of childFilesData" class="mat-header-row">
+            <td class="td mat-header-cell">{{file.name}}</td>
+            <td class="td mat-header-cell">{{file.type}}</td>
+            <td class="td mat-header-cell">{{file.size}}</td>
+            <td class="td mat-header-cell">{{file.ModifiedDate}}</td>
+        </tr>
+    </tbody>
+</table>
