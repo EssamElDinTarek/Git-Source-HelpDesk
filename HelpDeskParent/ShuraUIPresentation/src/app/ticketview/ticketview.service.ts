@@ -20,7 +20,7 @@ export class TicketViewService {
   onSelectedContactsChanged: BehaviorSubject<any>;
   onUserDataChanged: BehaviorSubject<any>;
 
-  private ticketsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket';  // URL to web api
+  private ticketsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket';  // URL to web api
 
   constructor(
     private http: HttpClient,

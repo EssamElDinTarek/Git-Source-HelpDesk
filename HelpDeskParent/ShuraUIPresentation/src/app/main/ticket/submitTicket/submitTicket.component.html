@@ -35,8 +35,8 @@
             <mat-error *ngIf="formErrors.workflow.required">
                 WorkFlow is required!
             </mat-error>
-            <mat-error *ngIf="serviceNotAvailable">
-                Unfortunaley Service is not Available !
+            <mat-error *ngIf="wfServiceNotAvailable">
+                Unfortunaley Work Flows Service is not Available !
             </mat-error>
             <mat-error *ngIf="noWorkflows">
                 Sorry, No Records Found !
@@ -52,6 +52,12 @@
             <mat-error *ngIf="formErrors.severity.required">
                 Severity is required!
             </mat-error>
+            <mat-error *ngIf="severServiceNotAvailable">
+                Unfortunaley Severities Service is not Available !
+            </mat-error>
+            <mat-error *ngIf="noSeverities">
+                Sorry, No Severities Found !
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="33.3333">
@@ -62,6 +68,12 @@
             </mat-select>
             <mat-error *ngIf="formErrors.priority.required">
                 Priority is required!
+            </mat-error>
+            <mat-error *ngIf="pServiceNotAvailable">
+                Unfortunaley Priorities Service is not Available !
+            </mat-error>
+            <mat-error *ngIf="noPriorities">
+                Sorry, No Priorities Found !
             </mat-error>
         </mat-form-field>
 

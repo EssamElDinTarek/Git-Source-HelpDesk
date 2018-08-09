@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class TicketCommentService {
 
-  private commentUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketcomment';  // URL to web api
+  private commentUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketcomment';  // URL to web api
 
 
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -37,7 +37,7 @@ export class TicketCommentService {
     );*/
     //----------------------------------------
     
-    return this._http.post('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketcomment', comment, {
+    return this._http.post('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketcomment', comment, {
 
     })
       .pipe(

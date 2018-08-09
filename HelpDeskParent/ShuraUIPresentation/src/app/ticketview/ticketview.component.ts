@@ -117,7 +117,11 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
   delete(ticket: TicketDetails): void {
     this.tickets.data = this.tickets.data.filter(h => h !== ticket);
-    this.ticketViewService.deleteTicket(ticket);
+    this.ticketViewService.deleteTicket(ticket).subscribe(success =>{
+      alert('Ticket Deleted Successfully');
+    },_error=>{
+      alert('Unfortunately, Ticket was not Deleted');
+    });
     location.reload;
   }
 
@@ -138,7 +142,6 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
       console.log(this.deleteConfirmed);
       if (this.deleteConfirmed){
         this.delete(ticket);
-        alert('Ticket Deleted Successfully');
       }}
       else
       alert('You have to add a comment before delete a ticket');

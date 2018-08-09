@@ -25,7 +25,7 @@ public class AttachmentServiceFacade {
 		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 				"get all attachment by ticket_id successfully", 
 				"get all attachment by ticket_id successfully", null);
-		result = new ResponseDTO(null, _AttachmentList);
+		result = new ResponseDTO(status, _AttachmentList);
 		 }catch(BusinessException e) {
 			 e.printStackTrace();
 			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
@@ -57,11 +57,11 @@ public class AttachmentServiceFacade {
 		
 	}
 	
-	public ResponseDTO uploadAttachment(long userId, MultipartFile[] files, long ticketId) throws ControllerException {
+	public ResponseDTO uploadAttachment(String userId, MultipartFile[] files, String ticketId) throws ControllerException {
 		ResponseDTO result = null;
 		try {
 			System.out.println("Test 2 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
-			service.uploadAttachment(userId, files, ticketId);
+			service.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
 			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 					"Tickets has been retrived successfully", 
 					"Tickets has been retrived successfully", null);

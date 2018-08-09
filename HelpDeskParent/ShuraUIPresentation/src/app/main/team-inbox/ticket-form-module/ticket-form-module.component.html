@@ -1,49 +1,86 @@
-<div id="dashboard-project" class="page-layout">
-    <div class="content clearfix">
+<div id="dashboard-project" class="page-layout mat-elevation-z8  mat-white-bg f-width">
+    <div class="content">
+        <div class="cont-grid">
+            <div class="tf-time-line mb-24 t-cell" aria-label="Time line">
 
-        <div class="tf-time-line mb-24" aria-label="Time line">
-
-            <div  class="vertical-stepper-wrapper">
-
-                <!-- VERTICAL STEPPER EXAMPLE -->
-                <mat-vertical-stepper  [linear]="true" *ngFor="let data of ticketHistory">
-
-                    <mat-step [stepControl]="verticalStepperStep1">
-
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                      <p>This Ticket was </p> {{data.behaviorValue}}
-                                            {{data.behaviorName}}
-                   {{data.type}}  
-                  {{data.actionAt}}
-                    </mat-step>
-
-                   <!--  <mat-step [stepControl]="verticalStepperStep2">
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                         <i *ngFor="let data of ticketHistory ">
-                            {{data.behaviorValue}}
-                                    </i> 
-                    </mat-step>
+                    <div  class="vertical-stepper-wrapper">
+        
+                        <!-- VERTICAL STEPPER EXAMPLE -->
+                        <ul class="timeline">
+        
+                            <li  *ngFor="let data of ticketHistory">
+                                <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
+                                
+                                <p>This Ticket was 
+                                    {{data.behaviorValue}}
+                                    {{data.behaviorName}}
+                                    {{data.type}}  
+                                    {{data.actionAt}}
+                                </p>
+                            </li>
+        
+                            <!--  <mat-step [stepControl]="verticalStepperStep2">
+                                <ng-template matStepLabel>{{data.stepId}}</ng-template>
+                                    <i *ngFor="let data of ticketHistory ">
+                                    {{data.behaviorValue}}
+                                            </i> 
+                            </mat-step>
+                            
+                                <mat-step [stepControl]="verticalStepperStep3">
+        
+                                <ng-template matStepLabel>{{data.stepId}}</ng-template>
+                            </mat-step> -->
+        
+                        </ul>
+                        <!-- / VERTICAL STEPPER EXAMPLE -->
+        
+                    </div>
+        
+                    <div class="navigate">
+                        <button class="mat-accent" mat-raised-button (click)="openStepBackDialog()">
+                            <mat-icon>arrow_back</mat-icon>
+                        </button>
+        
+                        <button class="mat-accent" mat-raised-button (click)="openStepForwardDialog()">
+                            <mat-icon>arrow_forward</mat-icon>
+                        </button>
+                    </div>
+        
+            </div>
+            <div class="tf-fields t-cell">
+                    <form [formGroup]="contactForm">
+        
+        
+        
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketId" [disabled]="true" formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
+                                <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                            </mat-form-field>
                     
-                     <mat-step [stepControl]="verticalStepperStep3">
-
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                    </mat-step> -->
-
-                </mat-vertical-stepper>
-                <!-- / VERTICAL STEPPER EXAMPLE -->
-
-            </div>
-
-            <div class="navigate">
-                <button class="mat-accent" mat-raised-button (click)="openStepBackDialog()">
-                    <mat-icon>arrow_back</mat-icon>
-                </button>
-
-                <button class="mat-accent" mat-raised-button (click)="openStepForwardDialog()">
-                    <mat-icon>arrow_forward</mat-icon>
-                </button>
-            </div>
-
+        
+                        <mat-form-field class="w-50-p">
+                            <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
+                            <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+        
+                        </mat-form-field>
+                       
+                        <mat-form-field class="w-50-p">
+                            <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
+                            <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                        </mat-form-field>
+        
+                     
+                        <mat-form-field class="w-50-p">
+                                <input name="description" 
+                                formControlName="description" matInput placeholder="Description" required>
+                                <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                            </mat-form-field>
+        
+                      
+                    </form>
+        
+                </div>
+        
         </div>
 
 
@@ -69,39 +106,6 @@
 
 
 
-        <div class="tf-fields">
-            <form [formGroup]="contactForm">
-
-
-
-                <mat-form-field class="w-50-p">
-                    <input name="ticketId" [disabled]="true" formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
-                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                    </mat-form-field>
-            
-
-                <mat-form-field class="w-50-p">
-                    <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
-                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-
-                </mat-form-field>
-               
-                <mat-form-field class="w-50-p">
-                    <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
-                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                </mat-form-field>
-
-             
-                <mat-form-field class="w-50-p">
-                        <input name="description" 
-                        formControlName="description" matInput placeholder="Description" required>
-                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                    </mat-form-field>
-
-              
-            </form>
-
-        </div>
 
         <div class="tf-tabs my-24">
 

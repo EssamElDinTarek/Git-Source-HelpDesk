@@ -3,6 +3,7 @@ package com.sbm.helpdesk.common.mailer;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import javax.mail.BodyPart;
@@ -33,7 +34,7 @@ public class Mailer {
 	@Value("${mail.smtp.port}")
 	private static String MAIL_SMTP_PORT;
 
-	public static void send(String to[], String sub, String content ) {
+	public static void send(List<String> to, String sub, String content ) {
 
 		// Get properties object
 		Properties props = new Properties();
@@ -50,8 +51,8 @@ public class Mailer {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("info@sbm.helpdesk.com"));
-			for (int i = 0; i < to.length; i++) {
-				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to[i]));
+			for (int i = 0; i < to.size(); i++) {
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to.get(i)));
 			}
 			
 			message.setSubject(sub, "UTF-8");
