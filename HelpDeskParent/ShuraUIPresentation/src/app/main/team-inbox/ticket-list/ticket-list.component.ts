@@ -26,7 +26,7 @@ export class TicketListComponent implements OnInit {
     @ViewChild('dialogContent')
     dialogContent: TemplateRef<any>;
 
-    tickets :Ticket [];
+    //tickets :Ticket [];
     user: any;
     dataSource: FilesDataSource | null;
     displayedColumns = [ 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
@@ -46,7 +46,7 @@ export class TicketListComponent implements OnInit {
      */
     constructor(
         private _ticketService: TicketService,
-        public _matDialog: MatDialog,public sharedService : SharedDataService
+        public _matDialog: MatDialog,private sharedDataService: SharedDataService
     ) {
         // Set the private defaults
      //   this._ticketService.getTicketsByProjectID;
@@ -61,16 +61,9 @@ export class TicketListComponent implements OnInit {
      * On init
      */
     ngOnInit(): void {
-
-        // console.log('Start OnInit method...!')
-        //  this._ticketService.getTicketsByProjectID;
-        /* this._ticketService.getTicketsByProjectID().subscribe(_tickets =>{
-            this.tickets = _tickets.data;
-            console.log(_tickets.data);
-         
-        }); */
-        this._ticketService.getTicketsByProjectID(this.sharedService.selectedProject.projectId,this.sharedService.user.emailAddress).subscribe(_result => {
-            this.tickets = _result.data;
+        console.log(this.sharedDataService.user.emailAddress || "   " ||this.sharedDataService.selectedProject.projectId)
+        this._ticketService.getTicketsByProjectID(this.sharedDataService.selectedProject.projectId,this.sharedDataService.user.emailAddress).subscribe(_result => {
+            //this.tickets = _result.data;
            this.dataSource=_result.data;
       
           });
@@ -85,7 +78,7 @@ export class TicketListComponent implements OnInit {
        // this.dataSource = new FilesDataSource(this._ticketService)
         console.log('after datasource...!');
 
-        this._ticketService.onTicketsChanged
+      /*   this._ticketService.onTicketsChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(tickets => {
                 this.tickets = tickets;
@@ -94,7 +87,7 @@ export class TicketListComponent implements OnInit {
                 tickets.map(ticket => {
                     this.checkboxes[ticket.id] = false;
                 });
-            });
+            }); */
 
         this._ticketService.onSelectedTicketsChanged
             .pipe(takeUntil(this._unsubscribeAll))

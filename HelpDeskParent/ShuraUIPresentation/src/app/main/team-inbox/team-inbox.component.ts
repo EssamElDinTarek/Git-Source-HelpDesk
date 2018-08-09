@@ -65,18 +65,14 @@ ngOnInit(){
  }
 
 //tickets: TicketFormComponent[];
-deleted: boolean;
-
-   
+deleted: boolean; 
 displayedColumns = [ 'creationdate', 'description', 'status', 'title', 'ticketnumber','updateTicketNumber'];
 dataSource = new MatTableDataSource();
-
 
 ticket: any;
 user: any;
 selectedTicket: any[];
 dialogRef: any
-
 
 resultsLength = 0;
 isLoadingResults = true;
