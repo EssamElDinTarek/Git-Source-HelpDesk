@@ -16,15 +16,15 @@ import {
     MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
     MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
-    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
+    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule, MatDialogRef
 } from '@angular/material';
 import { TicketFormModule } from './ticket-form/ticket-form.module';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { ContactsService } from './contacts.service';
 
-import { TicketFormModuleComponent } from './ticket-form-module/ticket-form-module.component';
-import { TicketAttachementsModule } from '../attachment/ticket-attachements/ticket-attachements.module';
-import { TicketCommentModule } from '../ticket-comment/ticket-comment.module';
+//import { TicketFormModuleComponent } from './ticket-form-module/ticket-form-module.component';
+
+
 
 
 const materialModules = [
@@ -34,8 +34,8 @@ const materialModules = [
     MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
     MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
-    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule,
-    TicketAttachementsModule,TicketCommentModule
+    MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule//,
+    //TicketAttachementsModule,TicketCommentModule
 
 ];
 
@@ -52,8 +52,8 @@ const routes = [
 @NgModule({
   declarations: [
     TeamInboxComponent,
-    TicketListComponent,
-    TicketFormModuleComponent
+    TicketListComponent//,
+    //TicketFormModuleComponent
     ],
 imports     : [
     RouterModule.forChild(routes),
@@ -79,7 +79,7 @@ imports     : [
     TicketFormModule
 ],
 entryComponents: [
-    TicketFormModuleComponent
+    //TicketFormModuleComponent
 ],
  exports: [
 FormsModule,

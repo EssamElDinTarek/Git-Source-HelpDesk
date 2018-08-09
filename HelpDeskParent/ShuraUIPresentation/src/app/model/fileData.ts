@@ -4,5 +4,5 @@ export class FileData {
 	type: string;
 	size: number;
 	ModifiedDate: Date;
-	
+	formatedDate: string;
 }

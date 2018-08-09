@@ -18,7 +18,6 @@ import { TicketCommentModule } from './main/ticket-comment/ticket-comment.module
 import { TeamInboxModule } from './main/team-inbox/team-inbox.module';
 import { MatFormFieldModule } from '../../node_modules/@angular/material';
 import { TicketFormModuleModule } from './main/team-inbox/ticket-form-module/ticket-form-module.module';
-import { LookupManagementModule } from './main/lookup-management/lookup-management.module';
 //import { TicketFormModuleComponent } from './main/team-inbox/ticket-form-module/ticket-form-module.component';
 
 
@@ -58,8 +57,8 @@ const appRoutes: Routes = [
 		redirectTo:'teaminbox'
 	},
 	{
-		path:'teaminboxtemp',
-		redirectTo:'teaminboxticket'
+		path:'teaminbox/:ticketId',
+		redirectTo: 'teaminbox'
 	},
 	{
 		path:'attachment',
@@ -70,9 +69,10 @@ const appRoutes: Routes = [
 		redirectTo:'comment'
 	},
 	{
-		path:'lookups',
-		redirectTo:'lookups'
+		path:'formModule',
+		redirectTo:'formModule'
 	}
+	
 	// {
 	//     path      : '**',
 	//     redirectTo: 'apps/dashboards/analytics'
@@ -81,7 +81,8 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-	declarations: [],
+	declarations: [
+	],
 	imports: [
 		RouterModule.forRoot(appRoutes),
 		SubmitTicketModule,
@@ -92,8 +93,7 @@ const appRoutes: Routes = [
 		TicketCommentModule,
 		TeamInboxModule,
 		RouterModule,
-		TicketFormModuleModule,
-		LookupManagementModule
+		TicketFormModuleModule
 	],
 	exports: [
 		RouterModule

@@ -1,80 +1,79 @@
-<mat-table #table [dataSource]="dataSource"
-           [@animateStagger]="{value:'50'}">
+<div class="example-container mat-elevation-z8 relative" fxFlex="1 1 100%">
+        <mat-table class="table fixed-header" mat-table #table [dataSource]="dataSource"
+        [@animateStagger]="{value:'50'}">
 
 
-    
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="ticketId">
-            <mat-header-cell *cdkHeaderCellDef  class=" font-weight-600">ID</mat-header-cell>
-            <mat-cell *cdkCellDef="let ticket">
-                <p class="text-truncate">{{ticket.ticketId}} </p>
-            </mat-cell>
-        </ng-container>
-    
-
-
-    <!-- Title Column -->
-   
-    <ng-container cdkColumnDef="title">
-        <mat-header-cell *cdkHeaderCellDef class=" font-weight-600">Title</mat-header-cell>
-        <mat-cell *cdkCellDef="let ticket">
-            <p class="text-truncate">{{ticket.title}} </p>
-        </mat-cell>
-    </ng-container>
-
-    <!-- creationdate Column -->
-    <ng-container cdkColumnDef="creationdate">
-        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef>Created_On</mat-header-cell>
-        <mat-cell *cdkCellDef="let ticket" >
-            <p class="email text-truncate">
-                {{ticket.creationdate}}
-            </p>
-        </mat-cell>
-    </ng-container>
-
-    <!-- Descrption Column -->
-    <ng-container cdkColumnDef="description">
-        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Descrption</mat-header-cell>
-        <mat-cell *cdkCellDef="let ticket" >
-            <p class="phone text-truncate">
-                {{ticket.description}}
-            </p>
-        </mat-cell>
-    </ng-container> 
  
-    <!-- Status Column -->
-    <ng-container cdkColumnDef="status">
-        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Status</mat-header-cell>
-        <mat-cell *cdkCellDef="let ticket" >
-            <p class="job-title text-truncate">
-                {{ticket.status.status}}
-            </p>
-        </mat-cell>
-    </ng-container>
 
-    <!-- ticketnumber Column -->
-    <ng-container cdkColumnDef="ticketnumber">
-        <mat-header-cell class=" font-weight-600" *cdkHeaderCellDef >Ticket Number</mat-header-cell>
-        <mat-cell *cdkCellDef="let ticket">
-            <p class="company text-truncate">
-                {{ticket.ticketnumber}}
-            </p>
-        </mat-cell>
-    </ng-container>
+ <!-- ID Column -->
+<!--     <ng-container cdkColumnDef="ticketId">
+         <mat-header-cell class="th" *cdkHeaderCellDef >ID</mat-header-cell>
+         <mat-cell class="td" *cdkCellDef="let ticket">
+             <p class="text-truncate">{{ticket.ticketId}} </p>
+         </mat-cell>
+     </ng-container>
+-->    
+ 
 
 
-     
+ <!-- Title Column -->
 
-     <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *cdkRowDef="let ticket; columns: displayedColumns;"
-             class="ticket"
-             (click)="editTicket(ticket)"
-             [ngClass]="{'mat-accent-50-bg':checkboxes[ticket.ticketId]}"
-             matRipple
-             [@animate]="{value:'*',params:{y:'100%'}}">
-    </mat-row>
-     
+ <ng-container cdkColumnDef="title">
+     <mat-header-cell class="th" *cdkHeaderCellDef>Title</mat-header-cell>
+     <mat-cell class="td" *cdkCellDef="let ticket">
+         {{ticket.title}}
+     </mat-cell>
+ </ng-container>
+
+ <!-- creationdate Column -->
+ <ng-container cdkColumnDef="creationdate">
+     <mat-header-cell class="th" *cdkHeaderCellDef>Created_On</mat-header-cell>
+     <mat-cell class="td" *cdkCellDef="let ticket" >
+             {{ticket.creationdate}}
+     </mat-cell>
+ </ng-container>
+
+ <!-- Descrption Column -->
+ <ng-container cdkColumnDef="description">
+     <mat-header-cell class="th" *cdkHeaderCellDef >Descrption</mat-header-cell>
+     <mat-cell class="td" *cdkCellDef="let ticket" >
+             {{ticket.description}}
+     </mat-cell>
+ </ng-container> 
+
+ <!-- Status Column -->
+ <ng-container cdkColumnDef="status">
+     <mat-header-cell class="th" *cdkHeaderCellDef >Status</mat-header-cell>
+     <mat-cell class="td" *cdkCellDef="let ticket" >
+           <span class="status-pullet {{ticket.status.status}}" matTooltip="{{ticket.status.status}}" matTooltipPosition="above"></span>
+     </mat-cell>
+ </ng-container>
+
+ <!-- ticketnumber Column -->
+ <ng-container cdkColumnDef="ticketnumber">
+     <mat-header-cell class="th" *cdkHeaderCellDef >Ticket Number</mat-header-cell>
+     <mat-cell class="td" *cdkCellDef="let ticket">
+             {{ticket.ticketnumber}}
+     </mat-cell>
+ </ng-container>
+
+
+  
+
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <!--  (click)="editTicket(ticket)"
+              [ngClass]="{'mat-accent-50-bg':checkboxes[ticket.ticketId]}"
+                          [@animate]="{value:'*',params:{y:'100%'}}"
+-->
+
+ <mat-row *cdkRowDef="let ticket; columns: displayedColumns;"
+          class="ticket"
+          matRipple
+          [routerLink]="'/teaminbox/'+ticket.ticketId">
+ </mat-row>
+  
 </mat-table>
+</div>
+
 
 
