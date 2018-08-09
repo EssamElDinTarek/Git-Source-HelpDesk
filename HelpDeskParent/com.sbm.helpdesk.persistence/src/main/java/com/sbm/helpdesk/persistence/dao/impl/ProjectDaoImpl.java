@@ -37,10 +37,9 @@ public class ProjectDaoImpl extends GenericDaoImpl<Project> implements ProjectDa
 	public List<ProjectDBDetailsDTO> getDashBoardProject(long portfolioId) throws RespositoryException {
 		List<ProjectDBDetailsDTO> projectDBList = new ArrayList<ProjectDBDetailsDTO>();
 		try{
-			String sqlString = "select  * from (select * from PORTFOLIO) , " + 
-					"(Select PROJECT.PORTFOLIO_ID as tab1, count(*) as open from Project where PROJECT.PROJECT_STATUS_ID = 1 GROUP BY PROJECT.PROJECT_STATUS_ID,PROJECT.PORTFOLIO_ID), " + 
-					"(Select PROJECT.PORTFOLIO_ID as tab2, count(*) as closed from Project where PROJECT.PROJECT_STATUS_ID = 2 GROUP BY PROJECT.PROJECT_STATUS_ID,PROJECT.PORTFOLIO_ID) " + 
-					"where PORTFOLIO_ID = tab1 and PORTFOLIO_ID =tab2 ;";
+			String sqlString = "select  * from (select * from PROJECT, PROJECT_STATUS  where PROJECT.PROJECT_STATUS_ID = PROJECT_STATUS.STATUS_ID and PROJECT.PORTFOLIO_ID = 1) , " + 
+					"(Select PROJECT.PROJECT_ID as tab1, count(*) as USERCOUNT from HDUSER, TEAM, Project where HDUSER.PROJECT_ID = Project.PROJECT_ID and HDUSER.TEAM_ID = TEAM.REC_ID GROUP BY PROJECT.PROJECT_ID) ,( " + 
+					"select PROJECT.PROJECT_ID as tab2, count(*) as TICKETCOUNT from PROJECT, TICKET where PROJECT.PROJECT_ID = TICKET.PROJECT_ID  GROUP BY PROJECT.PROJECT_ID) where PROJECT_ID = tab1 and PROJECT_ID =tab2";
 			Query query = this.entityManager.createNativeQuery(sqlString);
 			
 			List<Object[]> list =(List<Object[]>) query.getResultList();
