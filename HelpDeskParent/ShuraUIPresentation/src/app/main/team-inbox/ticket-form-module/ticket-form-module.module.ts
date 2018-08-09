@@ -64,11 +64,10 @@ const routes: Routes = [
     FuseSidebarModule,
     FuseWidgetModule,
     HttpClientModule,
-  TicketAttachementsModule,TicketCommentModule,MatDialogRef
+  TicketAttachementsModule,TicketCommentModule
   ],
   declarations: [TicketFormModuleComponent],
-  exports: [
-    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+  exports: [    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
 
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
 
