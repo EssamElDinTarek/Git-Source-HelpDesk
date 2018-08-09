@@ -145,7 +145,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
         //this.selectedProject = this.user.projects[0];
         //this._sharedService.selectedProject =  this.selectedProject;
         this._ticketservice.getUserDetails().subscribe(_user =>{
-            this._sharedService.user = _user != null ? _user : this._sharedService.user;
+            this._sharedService.user = _user;
             this.projects = _user.projects;
             if(this.projects != null && this.projects.length > 0){
                 this._sharedService.selectedProject = this.projects[0];

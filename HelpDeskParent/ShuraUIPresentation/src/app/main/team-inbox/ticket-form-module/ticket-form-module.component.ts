@@ -14,6 +14,11 @@ import { reject } from '../../../../../node_modules/@types/q';
 import { Contact } from '../contact.model';
 import { TicketService } from '../../../services/ticket.service';
 import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overview-example.component';
+import { TicketCommentService } from '../../../services/ticket-comment.service';
+import { TicketComment } from '../../../model/TicketComment';
+import { SharedDataService } from '../../../services/shared-data.service';
+import { Router } from '@angular/router';
+
 
 
 export class State {
@@ -39,15 +44,15 @@ export class TicketFormModuleComponent {
     //step back dialoug
     stepBackComment: string;
     stepBackDialogName: string = "Send Previous";
-    stepBackDialogMessage: string = "Please add a comment before send this ticket to the previous step ?";
+    stepBackDialogMessage: string = "Please add a comment before send this ticket to the previous step !!";
     stepBackDialogOkLabel: string = "Ok";
     stepBackDialogCancelLabel: string = "Cancel";
     stepBackConfirmed: boolean = false;
 
     //step forward dialoug
     stepForwardComment: string;
-    stepForwardDialogName: string = "Delete";
-    stepForwardDialogMessage: string = "Please add a comment before send this ticket to the next step ?";
+    stepForwardDialogName: string = "Next";
+    stepForwardDialogMessage: string = "Please add a comment before send this ticket to the next step !!";
     stepForwardDialogOkLabel: string = "Ok";
     stepForwardDialogCancelLabel: string = "Cancel";
     stepForwardConfirmed: boolean = false;
@@ -76,6 +81,9 @@ export class TicketFormModuleComponent {
     ticketSeverityList: TicketSeverity[];
     ticketPeriorityList: TicketPriority[];
     ticketStatusList: String[] = ["open", "close", "pending"];
+
+    addedStepBackComment: TicketComment;
+    addedStepForwardComment: TicketComment;
 
     formData: FormData = new FormData();
     // -----------------------------------------------------------------------------------------------------
@@ -124,7 +132,7 @@ export class TicketFormModuleComponent {
     constructor(private httpService: HttpClient, private _ticketService: TicketService,
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, public dialog: MatDialog, ) {
+        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService,private router: Router) {
 
         this.action = _data.action;
 
@@ -152,10 +160,12 @@ export class TicketFormModuleComponent {
 
     stepTickBack(): void {
         this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
+        this.router.navigate(['/teaminbox']);
     }
 
     stepTickForward(): void {
         this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
+        this.router.navigate(['/teaminbox']);
     }
 
 
@@ -169,15 +179,23 @@ export class TicketFormModuleComponent {
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');
             console.log(result);
+            this.stepBackConfirmed = result.confirmed;
             if (result.confirmationComment != null && result.confirmationComment != "") {
-                this.stepBackConfirmed = result.confirmed;
+
                 console.log(this.stepBackConfirmed);
                 if (this.stepBackConfirmed) {
+
+                    this.addedStepBackComment = new TicketComment();
+                    this.addedStepBackComment.commentValue = this.sharedService.user.firstName+" returned the ticket to previous step with comment :- \n"+result.confirmationComment;
+                    this.addedStepBackComment.hduser = this.sharedService.user;
+                    this.addedStepBackComment.ticketId = +this.contact.ticketId;
+                    this.ticketCommentService.addTicketComment(this.addedStepBackComment);
                     this.stepTickBack();
+
                 }
             }
-            else
-                alert('You have to add a comment before send the ticket previous');
+            else if (this.stepBackConfirmed)
+                alert('You have to add a comment before you return the ticket to previous');
         });
 
     }
@@ -185,22 +203,31 @@ export class TicketFormModuleComponent {
     openStepForwardDialog(): void {
         let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
             width: '250px',
-            data: { dialogName: this.stepForwardDialogName, dialogMessage: this.stepForwardDialogMessage, dialogOkLabel: this.stepForwardDialogOkLabel, dialogCancelLabel: this.stepForwardDialogCancelLabel, confirmed: this.stepForwardConfirmed, confirmationComment: this.stepForwardComment  }
+            data: { dialogName: this.stepForwardDialogName, dialogMessage: this.stepForwardDialogMessage, dialogOkLabel: this.stepForwardDialogOkLabel, dialogCancelLabel: this.stepForwardDialogCancelLabel, confirmed: this.stepForwardConfirmed, confirmationComment: this.stepForwardComment }
         });
 
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');
             console.log(result);
+            this.stepForwardConfirmed = result.confirmed;
             if (result.confirmationComment != null && result.confirmationComment != "") {
-                this.stepBackConfirmed = result.confirmed;
-                console.log(this.stepBackConfirmed);
-                if (this.stepBackConfirmed) {
+
+                console.log(this.stepForwardConfirmed);
+                if (this.stepForwardConfirmed) {
+
+                    this.addedStepForwardComment = new TicketComment();
+                    this.addedStepForwardComment.commentValue = this.sharedService.user.firstName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
+                    this.addedStepForwardComment.hduser = this.sharedService.user;
+                    this.contact.ticketId = 5053;
+                    this.addedStepForwardComment.ticketId = this.contact.ticketId;
+                    this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
                     this.stepTickBack();
+
                 }
             }
-            else
-                alert('You have to add a comment before send the ticket previous');
+            else if (this.stepForwardConfirmed)
+                alert('You have to add a comment before send the ticket to next');
         });
 
     }

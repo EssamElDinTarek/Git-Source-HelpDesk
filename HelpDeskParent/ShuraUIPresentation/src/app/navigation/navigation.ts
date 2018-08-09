@@ -79,13 +79,7 @@ export const navigation: FuseNavigation[] = [
                 type      : 'item',
                 url       : '/teaminbox/:ticketId',
                 exactMatch: true
-            },
-            { 
-                id        : 'lookups',
-                title     : 'Lookups Management',
-                type      : 'item',
-                url       : '/lookups'
-            }
+        }
         
             /* 
             {
