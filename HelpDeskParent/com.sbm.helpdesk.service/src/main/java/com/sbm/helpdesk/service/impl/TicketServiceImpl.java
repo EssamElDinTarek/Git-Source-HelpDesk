@@ -85,8 +85,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			TicketSeverity severity = severityDao.findById(ticket.getTicketSeverity().getSeverityId());
 			TicketPriority priority = priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId());
 			Workflow workflow = workflowDao.findById(ticket.getWorkflow().getFlowId());
-			if(hduser == null || step == null || status == null || project == null || severity == null ||  priority == null ||  workflow == null  )
+			if(hduser == null || step == null || status == null || project == null || severity == null ||  priority == null ||  workflow == null  ) {
 				throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+			}
 			ticket.setTicketnumber(ticketNumber);
 			ticket.setStatus(status);
 			ticket.setStep(step);
@@ -259,6 +260,38 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		MainTicketChartDTO result;
 		try {
 			result = ticketDao.getSeverityPriorityStatusByUserName(userEmail);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	@Override
+	@Transactional
+	public List<WidgetDTO> getDashBoardCountByProjectIDAndUserName(Long projectId, String userEmail) throws BusinessException {
+		List<WidgetDTO> result;
+		try {
+			result =  ticketDao.getDashBoardCountByProjectIDAndUserName(projectId, userEmail);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	@Override
+	@Transactional
+	public List<WidgetDTO> getWeekChartStatusesNumber(Long projectId) throws BusinessException {
+		List<WidgetDTO> result;
+		try {
+			result =  ticketDao.getWeekChartStatusesNumber(projectId);
 			
 		} catch (RespositoryException e) {
 			e.printStackTrace();

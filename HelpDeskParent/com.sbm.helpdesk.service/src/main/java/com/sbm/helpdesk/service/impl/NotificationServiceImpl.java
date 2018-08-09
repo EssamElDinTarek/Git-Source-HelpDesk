@@ -20,7 +20,7 @@ public class NotificationServiceImpl {
 	Mailer mailer = new Mailer();
 	
 	public void sendEmailNotification(Ticket ticket) {
-		mailer.send(new String[]{ticket.getHduser().getEmailAddress()}, ticket.getTicketnumber(), ticket.getDescription() );
+		//mailer.send(new String[]{ticket.getHduser().getEmailAddress()} ticket.getTicketnumber(), ticket.getDescription() );
 	}
 
 }

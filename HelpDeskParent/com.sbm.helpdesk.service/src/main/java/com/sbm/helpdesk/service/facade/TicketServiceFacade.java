@@ -230,5 +230,41 @@ public class TicketServiceFacade {
 		return result;
 
 	}
+	public ResponseDTO getDashBoardCountByProjectIDAndUserName(Long projectId, String userEmail) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			List<WidgetDTO> list ;
+			list = service.getDashBoardCountByProjectIDAndUserName(projectId, userEmail);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001",
+					"Tickets has been retrived successfully", "Tickets has been retrived successfully", null);
+			result = new ResponseDTO(status, list);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION, e1);
+		}
+		return result;
+
+	}
+	public ResponseDTO getWeekChartStatusesNumber(Long projectId) throws ControllerException {
+		ResponseDTO result = null;
+		try {
+			List<WidgetDTO> list ;
+			list = service.getWeekChartStatusesNumber(projectId);
+			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001",
+					"Tickets has been retrived successfully", "Tickets has been retrived successfully", null);
+			result = new ResponseDTO(status, list);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new ControllerException(ExceptionEnums.INVALID_OPERATION, e1);
+		}
+		return result;
+
+	}
 
 }

@@ -43,5 +43,15 @@ public class PortfolioRestController {
 	public ResponseDTO getPortfolioById(@PathVariable(IntegrationServicesConstant.PORTFOLIO_ID) Long portfolioId) throws ControllerException {
 			return facadeService.getPortfolioById(portfolioId);
 	}
+	@RequestMapping(value="/dashboardweekchartprojectscount", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getWeekChartPortfolioProjectNumber() throws ControllerException {
+			return facadeService.getWeekChartPortfolioProjectNumber();
+	}
 
+	@RequestMapping(value = "/portfoliodbdetails", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getDashBoardportfolio() throws ControllerException {
+		return facadeService.getDashBoardportfolio();
+	}
 }

@@ -27,4 +27,6 @@ public interface TicketService {
 	public TicketDTO stepTicketForward(long ticketId) throws BusinessException;
 	public TicketDTO stepTicketBackward(long ticketId) throws BusinessException;
 	public MainTicketChartDTO getSeverityPriorityStatusByUserName(String userEmail) throws BusinessException;
+	public List<WidgetDTO> getDashBoardCountByProjectIDAndUserName(Long projectId, String userEmail) throws BusinessException;
+	public List<WidgetDTO> getWeekChartStatusesNumber(Long projectId) throws BusinessException;
 }

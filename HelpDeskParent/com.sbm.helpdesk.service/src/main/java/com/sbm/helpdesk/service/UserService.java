@@ -4,16 +4,19 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
+import com.sbm.helpdesk.persistence.entity.Hduser;
 import com.sbm.helpdesk.common.dto.*;
 
 @Transactional
 public interface UserService {
 	
-	UserDTO add(UserDTO user) throws BusinessException;
+	public UserDTO add(UserDTO user) throws BusinessException;
 
-	List<UserDTO> listUsers() throws BusinessException;
+	public List<UserDTO> listUsers() throws BusinessException;
 
-	UserDTO login(String email, String password) throws BusinessException;
+	public UserDTO login(String email, String password) throws BusinessException;
 
-	UserDTO getUserByEmailAddress(String emailAddress) throws BusinessException;
+	public UserDTO getUserByEmailAddress(String emailAddress) throws BusinessException;
+	
 }

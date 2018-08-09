@@ -58,4 +58,9 @@ public class ProjectController {
 	public ResponseDTO getProjectByPortfolioId(@RequestParam(IntegrationServicesConstant.PORTFOLIO_ID) Long portfolioId) throws ControllerException {
 		return facadeService.getAllProjectByPortfolioId(portfolioId);
 	}
+	@RequestMapping(value = "/projectdbdetails", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getDashBoardProject(@RequestParam(IntegrationServicesConstant.PORTFOLIO_ID) Long portfolioId) throws ControllerException {
+		return facadeService.getDashBoardProject(portfolioId);
+	}
 }

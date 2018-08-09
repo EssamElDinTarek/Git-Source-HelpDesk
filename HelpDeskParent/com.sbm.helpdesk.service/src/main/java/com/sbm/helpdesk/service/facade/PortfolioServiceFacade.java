@@ -106,4 +106,40 @@ public class PortfolioServiceFacade {
 		 return result;
 	}
 
+	public ResponseDTO getWeekChartPortfolioProjectNumber() throws ControllerException {
+		ResponseDTO result = null;
+		 try {
+			 List<WidgetDTO> list = service.getWeekChartPortfolioProjectNumber();
+		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+				"get all portfolio successfully", 
+				"get all portfolio successfully", null);
+		result = new ResponseDTO(status, list);
+		 }catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+	}
+	public ResponseDTO getDashBoardportfolio() throws ControllerException {
+		ResponseDTO result = null;
+		 try {
+		List<PortfolioDBDetailsDTO> _projectList = service.getDashBoardportfolio();
+		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+				"get all Step successfully", 
+				"get all Step successfully", null);
+		result = new ResponseDTO(status, _projectList);
+		 }catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+	}
 }

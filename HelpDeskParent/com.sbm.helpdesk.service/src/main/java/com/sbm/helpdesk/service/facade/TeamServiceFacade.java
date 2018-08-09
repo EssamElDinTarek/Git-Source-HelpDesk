@@ -105,5 +105,23 @@ public class TeamServiceFacade {
 		 }
 		 return result;
 	}
+	public ResponseDTO getProjectTeamsandMembersCount(Long projectId) throws ControllerException {
+		ResponseDTO result = null;
+		 try {
+		List<WidgetDTO> list = service.getProjectTeamsandMembersCount(projectId);
+		ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
+				"get all Team successfully", 
+				"get all Team successfully", null);
+		result = new ResponseDTO(status, list);
+		 }catch(BusinessException e) {
+			 e.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.BUSINESS_ERROR);
+			}
+		 catch(Exception e1) {
+			 e1.printStackTrace();
+			 throw new ControllerException(ExceptionEnums.INVALID_OPERATION,e1);
+		 }
+		 return result;
+	}
 
 }

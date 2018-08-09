@@ -101,5 +101,20 @@ public class TeamServiceImpl extends BasicServiceImpl<TeamDTO, Team> implements 
 		}
 		return teamDTO;
 	}
+	public List<WidgetDTO> getProjectTeamsandMembersCount(long projectId) throws BusinessException{
+		List<WidgetDTO> result;
+		try {
+			 result = dao.getProjectTeamsandMembersCount(projectId);
+		
+		}catch(RespositoryException e) {
+		e.printStackTrace();
+		throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+	}
+	catch(Exception e1) {
+		e1.printStackTrace();
+    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+    	}
+		return result;
+	}
 
 }

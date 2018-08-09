@@ -89,5 +89,14 @@ public class TicketRestController {
 	public ResponseDTO getSeverityPriorityStatusByUserName(@RequestParam(IntegrationServicesConstant.USER_EMAIL) String userEmail) throws ControllerException {
 		return facadeService.getSeverityPriorityStatusByUserName(userEmail);
 	}
-
+	@RequestMapping(value = "/dashboardcountountprojectidandusername", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getDashBoardCountByProjectIDAndUserName(@RequestParam(IntegrationServicesConstant.PROJECT_ID) Long projectId,@RequestParam(IntegrationServicesConstant.USER_EMAIL) String userEmail) throws ControllerException {
+		return facadeService.getDashBoardCountByProjectIDAndUserName(projectId,userEmail);
+	}
+	@RequestMapping(value = "/dashboardweekchartstatusescount", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getWeekChartStatusesNumber(@RequestParam(IntegrationServicesConstant.PROJECT_ID) Long projectId) throws ControllerException {
+		return facadeService.getWeekChartStatusesNumber(projectId);
+	}
 }

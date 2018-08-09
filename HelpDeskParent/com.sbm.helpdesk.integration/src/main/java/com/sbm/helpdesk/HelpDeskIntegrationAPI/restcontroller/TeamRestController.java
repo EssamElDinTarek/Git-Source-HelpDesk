@@ -42,5 +42,10 @@ public class TeamRestController {
 	public ResponseDTO getTeamById(@PathVariable(IntegrationServicesConstant.TEAM_ID) Long teamId) throws ControllerException {
 			return facadeService.getTeamById(teamId);
 	}
+	@RequestMapping(value="/projectmemberandcount", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getProjectTeamsandMembersCount(@RequestParam(IntegrationServicesConstant.PROJECT_ID) Long projectId) throws ControllerException {
+			return facadeService.getProjectTeamsandMembersCount(projectId);
+	}
 
 }

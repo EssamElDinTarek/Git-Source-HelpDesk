@@ -144,4 +144,19 @@ public class ProjectServiceImpl  extends BasicServiceImpl<ProjectDTO, Project>  
     	}
 		return result;
 	}
+	@Override
+	public List<ProjectDBDetailsDTO> getDashBoardProject(Long portfolioId) throws BusinessException {
+		List<ProjectDBDetailsDTO> result;
+		try {
+			 result = dao.getDashBoardProject(portfolioId);
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		 return result;
+	}
 }

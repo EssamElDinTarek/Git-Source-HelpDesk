@@ -19,5 +19,6 @@ public interface ProjectService {
  public String deleteProject(Long id) throws BusinessException;
  public List<ProjectDTO> getAllProject() throws BusinessException;
  public ProjectDTO getByProjectId(Long projectId) throws BusinessException;
+ public List<ProjectDBDetailsDTO> getDashBoardProject(Long portfolioId) throws BusinessException;
 
 }

@@ -108,5 +108,36 @@ public class PortfolioServiceImpl extends BasicServiceImpl<PortfolioDTO, Portfol
 		}
 		return portfolioDTO;
 	}
+	@Override
+	@Transactional
+	public List<WidgetDTO> getWeekChartPortfolioProjectNumber() throws BusinessException {
+		List<WidgetDTO> result;
+		try {
+			result =  dao.getWeekChartPortfolioProjectNumber();
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	@Override
+	public List<PortfolioDBDetailsDTO> getDashBoardportfolio() throws BusinessException {
+		List<PortfolioDBDetailsDTO> result;
+		try {
+			 result = dao.getDashBoardportfolio();
+		}catch(RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}
+		catch(Exception e1) {
+			e1.printStackTrace();
+	    	throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+	    	}
+		 return result;
+	}
 
 }

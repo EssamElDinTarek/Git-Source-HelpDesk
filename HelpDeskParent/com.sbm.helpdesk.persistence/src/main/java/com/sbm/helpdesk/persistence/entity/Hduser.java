@@ -19,6 +19,8 @@ import java.util.List;
 
 @NamedQueries({ @NamedQuery(name = "Hduser.findAll", query = "SELECT h FROM Hduser h"),
 	@NamedQuery(name = "Hduser.findByEmail", query = "SELECT h FROM Hduser h WHERE h.emailAddress =:emailAddress"),
+	@NamedQuery(name = "Hduser.findByProjectId", query = "SELECT h FROM Hduser h  join h.project p WHERE p.projectId =:projectId"),
+	@NamedQuery(name = "Hduser.findByPortfolioId", query = "SELECT h FROM Hduser h  join h.project p join p.portfolio f WHERE f.portfolioId =:portfolioId"),
 	@NamedQuery(name = "Hduser.findByEmailAndPassword", query = "SELECT u FROM Hduser u WHERE u.emailAddress =:emailAddress AND u.userPassword =:userPassword") })
 public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	private static final long serialVersionUID = 1L;
@@ -60,6 +62,9 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 	@ManyToOne
 	@JoinColumn(name="TEAM_ID")
 	private Team team;
+	@ManyToOne
+	@JoinColumn(name="PROJECT_ID")
+	private Project project;
 
 	//bi-directional many-to-one association to Ticket
 	@OneToMany(mappedBy="hduser")
@@ -250,6 +255,16 @@ public class Hduser extends BaseEntity implements Serializable ,UserDetails {
 		workitem.setHduser(null);
 
 		return workitem;
+	}
+	
+	
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	@Override
