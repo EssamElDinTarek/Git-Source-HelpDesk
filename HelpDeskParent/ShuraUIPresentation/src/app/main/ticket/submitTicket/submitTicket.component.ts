@@ -42,8 +42,14 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     formData: FormData = new FormData();
     filelist: FileList;
     filesData: FileData[] = [];
-    serviceNotAvailable: boolean = false;
+    wfServiceNotAvailable: boolean = false;
     noWorkflows: boolean = false;
+    pServiceNotAvailable: boolean = false;
+    noPriorities: boolean = false;
+    severServiceNotAvailable: boolean = false;
+    noSeverities: boolean = false;
+    selectedWorkFlow: Workflow = new Workflow();
+    // ticketUser:User = new User();
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -89,14 +95,14 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             });
 
 
-        if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != "undefined") {
+        if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != undefined) {
             // update
 
             this.isUpdate = true;
 
-            this._ticketService.getTicketById(this.updatedTicketId).subscribe(_ticket => {
+            this._ticketService.getTicketToUpdate(this.updatedTicketId).subscribe(_ticket => {
 
-                this.ticket = _ticket;
+                this.ticket = _ticket.data;
 
             });
         }
@@ -129,31 +135,41 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
 
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            for (let index = 0; index < _ticketPriority.data.length; index++) {
-                this.ticketPeriorityList.push(_ticketPriority.data[index]);
-            }
 
+            if ((_ticketPriority.data != undefined && _ticketPriority.data != [] && _ticketPriority.data != null)) {
+                for (let index = 0; index < _ticketPriority.data.length; index++) {
+                    this.ticketPeriorityList.push(_ticketPriority.data[index]);
+                }
+            } else {
+                this.noPriorities = true;
+            }
+        }, _error => {
+            this.pServiceNotAvailable = true;
         });
         this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            for (let index = 0; index < _ticketSeverity.data.length; index++) {
-                this.ticketSeverityList.push(_ticketSeverity.data[index]);
+
+            if ((_ticketSeverity.data != undefined && _ticketSeverity.data != [] && _ticketSeverity.data != null)) {
+                for (let index = 0; index < _ticketSeverity.data.length; index++) {
+                    this.ticketSeverityList.push(_ticketSeverity.data[index]);
+                }
+            } else {
+                this.noSeverities = true;
             }
+        }, _error => {
+            this.severServiceNotAvailable = true;
         });
 
         this._ticketService.getWorkflow().subscribe(_workflowlist => {
-            //_workflowlist.data = [];
-            if ((_workflowlist != null && _workflowlist != undefined)) {
-                if ((_workflowlist.data != undefined && _workflowlist.data != [] && _workflowlist.data != null)) {
-                    for (let index = 0; index < _workflowlist.data.length; index++) {
-                        this.workflowList.push(_workflowlist.data[index]);
-                    }
-                } else {
-                    this.noWorkflows = true;
-                }
 
+            if ((_workflowlist.data != undefined && _workflowlist.data != [] && _workflowlist.data != null)) {
+                for (let index = 0; index < _workflowlist.data.length; index++) {
+                    this.workflowList.push(_workflowlist.data[index]);
+                }
             } else {
-                this.serviceNotAvailable = true;
+                this.noWorkflows = true;
             }
+        }, _error => {
+            this.wfServiceNotAvailable = true;
         });
 
     }
@@ -209,6 +225,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     submitTicket(): void {
         debugger;
         if (this.isUpdate) {
+            this.ticket.hduser.userId = this.sharedDataService.user.userId;
             this.formData.append('ticket', JSON.stringify(this.ticket));
             if (this.filelist != null && this.filelist.length > 0) {
                 for (let index = 0; index < this.filelist.length; index++) {
@@ -218,12 +235,16 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             }
             this._ticketService.editTicket(this.formData).subscribe(_ticket => {
                 alert('updated successfully');
+                this.router.navigate(['/ticketview']);
 
             });
         } else {
             this.ticket.project = this.sharedDataService.selectedProject;
+            this.ticket.hduser.userId = this.sharedDataService.user.userId;
             this.formData.append('ticket', JSON.stringify(this.ticket));
-            this.formData.append('hduser', JSON.stringify(this.sharedDataService.user));
+            //this.ticketUser = this.sharedDataService.user;
+            //this.ticketUser.
+            //  this.formData.append('hduser', JSON.stringify(this.sharedDataService.user));
             if (this.filelist != null && this.filelist.length > 0) {
                 for (let index = 0; index < this.filelist.length; index++) {
                     this.formData.append('files', this.filelist.item(index));
@@ -233,11 +254,13 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             }
             this._ticketService.addTicket(this.formData).subscribe(_ticket => {
                 alert('added successfully');
-                this.ticket = null;
+                this.router.navigate(['/ticketview']);
+            },_error => {
+                alert(_error);
             });
         }
         // forward to ticketView
-        this.router.navigate(['/ticketview']);
+        
     }
 
     fileChange(files: FileList) {
@@ -261,7 +284,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             //    this.filesData[i].size = files.item(i).size;
             //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
             //    this.filesData[i].type = files.item(i).type;
-        
+
             let file: FileData = new FileData();
             file.name = files.item(i).name;
             file.size = files.item(i).size;
@@ -273,11 +296,11 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             var hours = date.getHours();
             var minuts = date.getMinutes();
             var day = date.getUTCDate();
-            var month= date.getMonth();
-            var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
-            var year= date.getUTCFullYear();
-            file.formatedDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
-    
+            var month = date.getMonth();
+            var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            var year = date.getUTCFullYear();
+            file.formatedDate = day + " " + monthName[month] + " " + year + "  -  " + hours + ":" + minuts;
+
 
             //    this.addFilesData();
         }
@@ -302,4 +325,9 @@ export class SeverityResponse {
 export class WorkFlowResponse {
     status: string;
     data: Workflow[];
+}
+
+export class UpdatedTicketResponse {
+    status: string;
+    data: Ticket;
 }

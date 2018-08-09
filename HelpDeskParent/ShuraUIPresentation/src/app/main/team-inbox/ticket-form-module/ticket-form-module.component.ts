@@ -17,7 +17,8 @@ import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overvi
 import { TicketCommentService } from '../../../services/ticket-comment.service';
 import { TicketComment } from '../../../model/TicketComment';
 import { SharedDataService } from '../../../services/shared-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Ticket } from '../../../models/ticket';
 
 
 
@@ -39,7 +40,9 @@ export class State {
 
 
 
-export class TicketFormModuleComponent {
+export class TicketFormModuleComponent implements OnInit{
+
+
 
     //step back dialoug
     stepBackComment: string;
@@ -56,6 +59,30 @@ export class TicketFormModuleComponent {
     stepForwardDialogOkLabel: string = "Ok";
     stepForwardDialogCancelLabel: string = "Cancel";
     stepForwardConfirmed: boolean = false;
+
+    updatedTicketId: string;
+    ticket: Ticket = new Ticket(this.ticket);
+
+    ngOnInit(): void {
+
+        // --------------- query params for update page ------------------
+
+        this.route.queryParams.subscribe((queryParams: Params) => {
+            this.updatedTicketId = queryParams['id'];
+            //console.log(updatedTicketId);
+        });
+
+        if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != undefined) {
+            // update
+        
+            this._ticketService.getTicketToUpdate(this.updatedTicketId).subscribe(_ticket => {
+    
+                this.ticket = _ticket.data;
+    
+            });
+        }
+
+    }
 
 
 
@@ -132,7 +159,7 @@ export class TicketFormModuleComponent {
     constructor(private httpService: HttpClient, private _ticketService: TicketService,
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService,private router: Router) {
+        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService,private router: Router,private route: ActivatedRoute) {
 
         this.action = _data.action;
 
@@ -222,7 +249,7 @@ export class TicketFormModuleComponent {
                     this.contact.ticketId = 5053;
                     this.addedStepForwardComment.ticketId = this.contact.ticketId;
                     this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
-                    this.stepTickBack();
+                    this.stepTickForward();
 
                 }
             }

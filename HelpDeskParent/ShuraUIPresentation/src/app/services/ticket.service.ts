@@ -15,8 +15,8 @@ import { BehaviorSubject, of, Observable, Subject } from 'rxjs';
 
 
 import { FuseUtils } from '@fuse/utils';
-import { TicketResponse } from '../ticketview/ticketview.component';
-import { PriorityResponse, WorkFlowResponse, SeverityResponse } from '../main/ticket/submitticket/submitTicket.component';
+import { TicketResponse, TicketDetails } from '../ticketview/ticketview.component';
+import { PriorityResponse, WorkFlowResponse, SeverityResponse, UpdatedTicketResponse } from '../main/ticket/submitticket/submitTicket.component';
 
 
 
@@ -337,6 +337,22 @@ export class TicketService //implements Resolve<any>
 
     }
 
+    getTicketToUpdate(ticketId: string): Observable<UpdatedTicketResponse> {
+
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket';
+        let identifier = "TICKET_ID";
+        //let value = "1953";
+        const requestUrl = `${href}?identifier=` + identifier + `&value=` + ticketId;
+
+        return this._httpClient.get<UpdatedTicketResponse>(requestUrl, {
+            headers: this.headers
+        })
+            .pipe(
+                //catchError(/*this.handleError('addHero', ticket)*/)
+            );
+
+    }
+
 
 
     getTicketPriority(): Observable<PriorityResponse> {
@@ -363,8 +379,7 @@ export class TicketService //implements Resolve<any>
 
     editTicket(formData: FormData): Observable<Ticket> {
 
-        return this._httpClient.put<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
-            headers: this.headers
+        return this._httpClient.post<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/update', formData, {
         })
 
     }
