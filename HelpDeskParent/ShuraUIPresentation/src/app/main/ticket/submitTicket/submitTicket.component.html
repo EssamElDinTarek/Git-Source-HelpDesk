@@ -3,7 +3,7 @@
 
     <div class="h2 mb-24">Submit Ticket</div>
 
-                   
+
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
         <mat-form-field fxFlex="100">
@@ -17,7 +17,7 @@
         </mat-form-field>
 
 
-       <!--  <mat-form-field fxFlex="100">
+        <!--  <mat-form-field fxFlex="100">
             <textarea *ngIf="isUpdate" matInput placeholder="Ticket Number" [(ngModel)]="ticket.ticketNO" formControlName="ticketNO"
                 disabled="true"></textarea>
         </mat-form-field> -->
@@ -25,7 +25,7 @@
 
     </div>
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-        
+
         <mat-form-field fxFlex="33.3333">
             <mat-select placeholder="Workflow" [(ngModel)]="ticket.workflow" formControlName="workflow" required>
                 <mat-option *ngFor="let item of workflowList" [value]="item">
@@ -36,11 +36,11 @@
                 WorkFlow is required!
             </mat-error>
             <mat-error *ngIf="serviceNotAvailable">
-                    Unfortunaley Service is not Available !
-                </mat-error>
-                <mat-error *ngIf="noWorkflows">
-                        Sorry, No Records Found !
-                    </mat-error>
+                Unfortunaley Service is not Available !
+            </mat-error>
+            <mat-error *ngIf="noWorkflows">
+                Sorry, No Records Found !
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="33.3333">
@@ -85,33 +85,35 @@
 
     <div class="center" fxFlex>
 
-            <!-- HEADER -->
-                <!-- ADD FILE BUTTON -->
-                <!--<input type="file" (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx">-->
+        <!-- HEADER -->
+        <!-- ADD FILE BUTTON -->
+        <!--<input type="file" (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx">-->
 
-                <div class="file-uploader" id="uploadDropArea">
-                    <input type="file" multiple (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx" #fileInput/>
-                    <div class="drop-area-cont">
-                        <mat-icon>add</mat-icon>
-                        <span class="hint">Click or Drop your files here</span>
-                    </div><!-- /.drop-area-cont -->
-                    <!-- <button mat-fab 
+        <div class="file-uploader" id="uploadDropArea">
+            <input type="file" multiple (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx"
+                #fileInput/>
+            <div class="drop-area-cont">
+                <mat-icon>add</mat-icon>
+                <span class="hint">Click or Drop your files here</span>
+            </div>
+            <!-- /.drop-area-cont -->
+            <!-- <button mat-fab 
                             class="add-file-button mat-warn"
                             (click)="fileInput.click()"
                             aria-label="Add file"
                             [@animate]="{value:'*', params:{delay:'300ms',scale:'0.2'}}">
                     </button> -->
-                </div>
-                <!-- / ADD FILE BUTTON -->
-            <!-- / HEADER -->
-            <!-- CONTENT -->
-            <div class="content mat-white-bg" fusePerfectScrollbar>
-                <file-list [childFilesData]="filesData"></file-list>
-            </div>
-            <!-- / CONTENT -->
+        </div>
+        <!-- / ADD FILE BUTTON -->
+        <!-- / HEADER -->
+        <!-- CONTENT -->
+        <div class="content mat-white-bg" fusePerfectScrollbar>
+            <file-list [(childFilesData)]="filesData"></file-list>
+        </div>
+        <!-- / CONTENT -->
     </div>
     <div class="row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         <button mat-button (click)="submitTicket()" [disabled]="form.invalid">Submit</button>
     </div>
-    
+
 </form>
