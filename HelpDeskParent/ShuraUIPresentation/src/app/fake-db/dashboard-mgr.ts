@@ -592,16 +592,13 @@ export class ManagerDashboardDb
                         'title': 'Project Name'
                     },
                     {
-                        'title': 'Assigned Team'
-                    },
-                    {
                         'title': 'Status'
                     },
                     {
-                        'title': 'Number of tickets'
+                        'title': 'Number of assigned users'
                     },
                     {
-                        'title': 'Notes'
+                        'title': 'Number of tickets'
                     }
                 ],
                 'rows'   : [

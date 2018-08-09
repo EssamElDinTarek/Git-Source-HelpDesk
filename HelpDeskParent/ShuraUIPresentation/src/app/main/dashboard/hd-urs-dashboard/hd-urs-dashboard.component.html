@@ -391,7 +391,9 @@
 
                                   <div class="h-420 my-16" fxLayout="row" fxFlex="100" fxFlex.gt-sm="50">
                                       <ngx-charts-bar-vertical-stacked 
-                                          *fuseIfOnDom
+                                     
+
+                                      *fuseIfOnDom
                                           [scheme]="widget5.scheme"
                                           [results]="this.widgets.widget5.mainChart[this.widget5.currentRange]"
                                           [gradient]="widget5.gradient"
@@ -400,7 +402,7 @@
                                           [legend]="widget5.legend"
                                           [showXAxisLabel]="widget5.showXAxisLabel"
                                           [showYAxisLabel]="widget5.showYAxisLabel"
-                                          [xAxisLabel]="widget5.xAxisLabel"
+                                          [xAxisLabel]="this.alphas"
                                           [yAxisLabel]="widget5.yAxisLabel"
                                           (select)="widget5.onSelect($event)">
                                       </ngx-charts-bar-vertical-stacked>
@@ -452,7 +454,7 @@
                        
                           <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-                             <!--  <div class="px-16 py-8 border-bottom" fxLayout="row"
+                              <div class="px-16 py-8 border-bottom" fxLayout="row"
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets By Categories</div>
                                   <mat-form-field>
@@ -471,7 +473,7 @@
                                     [results]="selectedCategory.value"
                                     [labels]="widget6.labels">
                                   </ngx-charts-pie-chart>
-                              </div>  -->
+                              </div>  
 <!-- 
                               <div class="py-8 mh-16 border-top" fxLayout="row wrap" fxLayoutAlign="start center">
 

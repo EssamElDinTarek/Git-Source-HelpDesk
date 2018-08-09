@@ -36,8 +36,11 @@ export class HDURSDashboardComponent implements OnInit {
     workflowList: Workflow[];
     ticketsOfWorkflowList: Ticket[];
     ticketsOfWorkflow: any;
-    weeklyTasks:any;
+    weeklyTasks:any[];
+    weekelytaskDate:any;
+    weekelyTaskFullDate:any[];
     countOfTickets:any[];
+     alphas:string[] = ["1","2","3","4"] ;
 
     widgets: any;
     widget5: any = {};
@@ -240,6 +243,10 @@ export class HDURSDashboardComponent implements OnInit {
 
     weatherData: WeatherModel = new WeatherModel;
 
+
+
+    
+
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _dashBoardService: DashBoardService,
         private _projectDashboardService: ProjectDashboardService) {
@@ -414,13 +421,21 @@ export class HDURSDashboardComponent implements OnInit {
 
       this._dashBoardService.getWeeklyTickets().subscribe(_result=>{
              this.weeklyTasks=_result.data;
-             console.log('date is : '+(this.weeklyTasks[1].date).dateNow);
+             for (let index = 0; index < this.weeklyTasks.length; index++) {        
+               this.weekelytaskDate= this.weeklyTasks[index].date;    
+                //this.weekelyTaskFullDate=(new Date(this.weekelytaskDate).getDay()+'-'+new Date(this.weekelytaskDate).getMonth()+'-'+new Date(this.weekelytaskDate).getUTCFullYear()); 
+                 console.log(this.weekelyTaskFullDate);
+            }
+
+  
+            /*  console.log('date is : '+(this.weeklyTasks[1].date).dateNow);
              //console.log(this.weeklyTasks[1].date);
              let currDate=new Date(this.weeklyTasks[0].date);
              for (let index = 0; index < this.weeklyTasks.length; index++) {            
                 console.log('Value : '+this.weeklyTasks[index].value);
                 console.log('Name : '+this.weeklyTasks[index].name);
-            }
+
+            } */
              
       })
 
@@ -459,7 +474,8 @@ export class HDURSDashboardComponent implements OnInit {
               console.log(this.selectedCategory);
           });
   
-          this._dashBoardService.getUsersByProjectID().subscribe(_result => {
+          //users per project service...
+          /* this._dashBoardService.getUsersByProjectID().subscribe(_result => {
             this.usersPerProjects = _result.data;
             var rows = [];
             for (let index = 0; index < this.usersPerProjects.length; index++) {
@@ -475,14 +491,14 @@ export class HDURSDashboardComponent implements OnInit {
             }
             
 
-        });
+        }); */
         
 
 
         this.projects = this._projectDashboardService.projects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.widgets;
-
+       // this.widgets.widget5.mainChart. = {};
     
 
 

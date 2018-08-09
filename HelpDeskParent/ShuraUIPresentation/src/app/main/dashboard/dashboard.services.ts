@@ -222,7 +222,87 @@ export class DashBoardService //implements Resolve<any>
                     catchError(this.handleError('getWeeklyTickets'))
                 );
         }
+
+        getProjectChart():Observable<any>{
+            console.log('Start Calling getPortofolioChart');
+            const requestUrl='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/portfolio/dashboardweekchartprojectscount';
+            console.log('End Calling getPortofolioChart');
+            return this._httpClient.get<any>(requestUrl,{headers:this.headers})
+            .pipe(catchError(this.handleError('getPortofolioChart')));
+
+        }
+
+      getTeamsPerProject():Observable<any>{
+        console.log('Start Calling getTeamsPerProject service...!');
+        const href='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/team/projectmemberandcount';
+        const requestUrl=`${href}?PROJECT_ID=1`;
+        console.log('End Calling getTeamsPerProject  service...!');
+
+        return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+        .pipe(
+            catchError(this.handleError('getTeamsPerProject'))
+        );
+    }
+       
+        getProjectsByPortofolioID():Observable<any>{
+            console.log('Start Calling getProjectsByPortofolioID service...!');
+            const href=' http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/project/getByPortfolioId';
+            const requestUrl=`${href}?PORTFOLIO_ID=1`;
+            console.log('End Calling getProjectsByPortofolioID  service...!');
+
+            return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getProjectsByPortofolioID'))
+            );
+        }
+
+        getProjectDetailsByPortofolioID():Observable<any>{
+            console.log('Start Calling getProjectDetailsByPortofolioID service...!');
+            const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/project/projectdbdetails';
+            const requestUrl = `${href}?PORTFOLIO_ID=1`;
+            console.log('End Calling getProjectDetailsByPortofolioID  service...!');
     
+            return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+                .pipe(
+                    catchError(this.handleError('getProjectDetailsByPortofolioID'))
+                );
+        }
+
+        getPortofolioDetails():Observable<any>{
+            console.log('Start Calling getPortofolioDetails');
+            const requestUrl='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/portfolio/portfoliodbdetails';
+            console.log('End Calling getPortofolioDetails');
+
+            return this._httpClient.get<any>(requestUrl,{headers:this.headers})
+            .pipe(catchError(this.handleError('getPortofolioDetails')));
+        }
+    
+        getPortofolioChart():Observable<any>{
+            console.log('Start Calling getPortofolioChart');
+            const requestUrl='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/portfolio/dashboardweekchartprojectscount';
+            console.log('End Calling getPortofolioChart');
+            return this._httpClient.get<any>(requestUrl,{headers:this.headers})
+            .pipe(catchError(this.handleError('getPortofolioChart')));
+
+        }
+        getAllPortofolios():Observable<any>{
+            console.log('Start Calling getAllPortofolios');
+            const requestUrl='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/portfolio';
+            console.log('End Calling getAllPortofolios');
+            return this._httpClient.get<any>(requestUrl,{headers:this.headers})
+            .pipe(catchError(this.handleError('getAllPortofolios')));
+
+        }
+
+        getUsersByPortofolioID():Observable<any>{
+            console.log('Start Calling getUsersByPortofolioID');
+            const href='http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/allbyportfolioid';
+            const requestUrl = `${href}?PORTFOLIO_ID=1`;
+            console.log('End Calling getUsersByPortofolioID');
+            return this._httpClient.get<any>(requestUrl,{headers:this.headers})
+            .pipe(catchError(this.handleError('getUsersByPortofolioID')));
+
+        }
     /**
      * Handle Http operation that failed.
      * Let the app continue.
