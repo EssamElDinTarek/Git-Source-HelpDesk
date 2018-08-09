@@ -276,7 +276,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
             var month= date.getMonth();
             var monthName= ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"]
             var year= date.getUTCFullYear();
-            file.ModifiedDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
+            file.formatedDate= day +" "+ monthName[month] +" "+ year+"  -  "+hours+":"+minuts;
     
 
             //    this.addFilesData();

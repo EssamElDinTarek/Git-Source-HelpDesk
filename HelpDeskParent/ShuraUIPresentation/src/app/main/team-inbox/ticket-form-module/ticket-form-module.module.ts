@@ -66,8 +66,7 @@ const routes: Routes = [
   TicketAttachementsModule,TicketCommentModule
   ],
   declarations: [TicketFormModuleComponent],
-  exports: [
-    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+  exports: [    MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
 
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
 
