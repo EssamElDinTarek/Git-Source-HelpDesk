@@ -14,6 +14,10 @@ import { reject } from '../../../../../node_modules/@types/q';
 import { Contact } from '../contact.model';
 import { TicketService } from '../../../services/ticket.service';
 import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overview-example.component';
+import { TicketCommentService } from '../../../services/ticket-comment.service';
+import { TicketComment } from '../../../model/TicketComment';
+import { SharedDataService } from '../../../services/shared-data.service';
+
 
 
 export class State {
@@ -46,7 +50,7 @@ export class TicketFormModuleComponent {
 
     //step forward dialoug
     stepForwardComment: string;
-    stepForwardDialogName: string = "Delete";
+    stepForwardDialogName: string = "Next";
     stepForwardDialogMessage: string = "Please add a comment before send this ticket to the next step ?";
     stepForwardDialogOkLabel: string = "Ok";
     stepForwardDialogCancelLabel: string = "Cancel";
@@ -76,6 +80,9 @@ export class TicketFormModuleComponent {
     ticketSeverityList: TicketSeverity[];
     ticketPeriorityList: TicketPriority[];
     ticketStatusList: String[] = ["open", "close", "pending"];
+
+    addedStepBackComment: TicketComment;
+    addedStepForwardComment: TicketComment;
 
     formData: FormData = new FormData();
     // -----------------------------------------------------------------------------------------------------
@@ -124,7 +131,7 @@ export class TicketFormModuleComponent {
     constructor(private httpService: HttpClient, private _ticketService: TicketService,
         public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, public dialog: MatDialog, ) {
+        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService) {
 
         this.action = _data.action;
 
@@ -173,7 +180,14 @@ export class TicketFormModuleComponent {
                 this.stepBackConfirmed = result.confirmed;
                 console.log(this.stepBackConfirmed);
                 if (this.stepBackConfirmed) {
+
+                    this.addedStepBackComment = new TicketComment();
+                    this.addedStepBackComment.commentValue = result.confirmationComment;
+                    this.addedStepBackComment.hduser = this.sharedService.user;
+                    this.addedStepBackComment.ticketId = +this.contact.ticketId;
+                    this.ticketCommentService.addTicketComment(this.addedStepBackComment);
                     this.stepTickBack();
+
                 }
             }
             else
@@ -185,7 +199,7 @@ export class TicketFormModuleComponent {
     openStepForwardDialog(): void {
         let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
             width: '250px',
-            data: { dialogName: this.stepForwardDialogName, dialogMessage: this.stepForwardDialogMessage, dialogOkLabel: this.stepForwardDialogOkLabel, dialogCancelLabel: this.stepForwardDialogCancelLabel, confirmed: this.stepForwardConfirmed, confirmationComment: this.stepForwardComment  }
+            data: { dialogName: this.stepForwardDialogName, dialogMessage: this.stepForwardDialogMessage, dialogOkLabel: this.stepForwardDialogOkLabel, dialogCancelLabel: this.stepForwardDialogCancelLabel, confirmed: this.stepForwardConfirmed, confirmationComment: this.stepForwardComment }
         });
 
 
@@ -193,10 +207,17 @@ export class TicketFormModuleComponent {
             console.log('The dialog was closed');
             console.log(result);
             if (result.confirmationComment != null && result.confirmationComment != "") {
-                this.stepBackConfirmed = result.confirmed;
-                console.log(this.stepBackConfirmed);
-                if (this.stepBackConfirmed) {
+                this.stepForwardConfirmed = result.confirmed;
+                console.log(this.stepForwardConfirmed);
+                if (this.stepForwardConfirmed) {
+
+                    this.addedStepForwardComment = new TicketComment();
+                    this.addedStepForwardComment.commentValue = result.confirmationComment;
+                    this.addedStepForwardComment.hduser = this.sharedService.user;
+                    this.addedStepForwardComment.ticketId = +this.contact.ticketId;
+                    this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
                     this.stepTickBack();
+
                 }
             }
             else

@@ -10,7 +10,6 @@ import { ProjectDashboardService } from '../../../welcome/project.service';
 import { TicketService } from '../../../services/ticket.service';
 import { Ticket } from '../../../model/ticket';
 import { Workflow } from '../../../models/workflow';
-import { Status } from '../../../models/status';
 import { TicketCategory } from '../../../models/TicketCategory';
 import { MainChart } from '../../../models/MainChart';
 
