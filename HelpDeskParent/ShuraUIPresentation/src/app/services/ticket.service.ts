@@ -39,7 +39,7 @@ export class TicketService //implements Resolve<any>
 
     tickets: Ticket[];
     user: any;
-    selectedTickets: string[] = [];
+    selectedTickets: number[] = [];
 
     searchText: string;
     filterBy: string;
@@ -278,7 +278,7 @@ export class TicketService //implements Resolve<any>
             );
     }
 
-    stepTicketForward(ticketID: string): Observable<Ticket> {
+    stepTicketForward(ticketID: number): Observable<Ticket> {
 
         return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketForward?TICKET_ID=' + ticketID, {
             headers: this.headers
@@ -288,7 +288,7 @@ export class TicketService //implements Resolve<any>
             );
     }
 
-    stepTicketBackward(ticketID: string): Observable<Ticket> {
+    stepTicketBackward(ticketID: number): Observable<Ticket> {
 
         return this._httpClient.get<Ticket>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketBackward?TICKET_ID=' + ticketID, {
             headers: this.headers

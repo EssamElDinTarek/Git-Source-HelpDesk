@@ -19,7 +19,7 @@ export class ContactsService implements Resolve<any>
 
     contacts: Contact[];
     user: any;
-    selectedContacts: string[] = [];
+    selectedContacts: number[] = [];
 
     searchText: string;
     filterBy: string;

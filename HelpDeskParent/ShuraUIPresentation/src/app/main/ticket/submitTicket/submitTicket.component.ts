@@ -42,6 +42,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     formData: FormData = new FormData();
     filelist: FileList;
     filesData: FileData[] = [];
+    serviceNotAvailable: boolean = false;
+    noWorkflows: boolean = false;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -112,7 +114,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.form = this._formBuilder.group({
 
             title: ['', Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
-            description: ['',Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
+            description: ['', Validators.pattern('^[a-zA-Z]+[ a-zA-Z0-9_-]+')],
             workflow: [''],
             severity: [''],
             priority: ['']
@@ -137,10 +139,20 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                 this.ticketSeverityList.push(_ticketSeverity.data[index]);
             }
         });
-        
+
         this._ticketService.getWorkflow().subscribe(_workflowlist => {
-            for (let index = 0; index < _workflowlist.data.length; index++) {
-                this.workflowList.push(_workflowlist.data[index]);
+            //_workflowlist.data = [];
+            if ((_workflowlist != null && _workflowlist != undefined)) {
+                if ((_workflowlist.data != undefined && _workflowlist.data != [] && _workflowlist.data != null)) {
+                    for (let index = 0; index < _workflowlist.data.length; index++) {
+                        this.workflowList.push(_workflowlist.data[index]);
+                    }
+                } else {
+                    this.noWorkflows = true;
+                }
+
+            } else {
+                this.serviceNotAvailable = true;
             }
         });
 
@@ -234,18 +246,18 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
         this.filelist = files;
         console.log("files : " + files.length);
         for (let i = 0; i < files.length; i++) {
-        debugger;
-        //    this.filesData[i].name = files.item(i).name;
-        //    this.filesData[i].size = files.item(i).size;
-        //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
-        //    this.filesData[i].type = files.item(i).type;
+            debugger;
+            //    this.filesData[i].name = files.item(i).name;
+            //    this.filesData[i].size = files.item(i).size;
+            //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+            //    this.filesData[i].type = files.item(i).type;
             let file: FileData = new FileData();
             file.name = files.item(i).name;
             file.size = files.item(i).size;
             file.ModifiedDate = files.item(i).lastModifiedDate;
             file.type = files.item(i).type;
             this.filesData.push(file);
-        //    this.addFilesData();
+            //    this.addFilesData();
         }
 
     }

@@ -2,7 +2,7 @@ import { FuseUtils } from '@fuse/utils';
 
 export class Contact
 {
-    ticketId: string;
+    ticketId: number;
     title: string;
     creationdate: string;
     description: string;

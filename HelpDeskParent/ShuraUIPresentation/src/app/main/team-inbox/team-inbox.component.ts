@@ -22,7 +22,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DataSource } from '@angular/cdk/collections';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, ViewChild} from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog} from '@angular/material';
 import { merge, Observable, of as observableOf} from 'rxjs';
 import { catchError, map, startWith, switchMap} from 'rxjs/operators'
 import { Location } from '@angular/common';
