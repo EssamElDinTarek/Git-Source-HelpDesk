@@ -246,7 +246,7 @@ export class TicketFormModuleComponent implements OnInit{
                     this.addedStepForwardComment = new TicketComment();
                     this.addedStepForwardComment.commentValue = this.sharedService.user.firstName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
                     this.addedStepForwardComment.hduser = this.sharedService.user;
-                    this.contact.ticketId = 5053;
+                    this.contact.ticketId = 13852;
                     this.addedStepForwardComment.ticketId = this.contact.ticketId;
                     this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
                     this.stepTickForward();
