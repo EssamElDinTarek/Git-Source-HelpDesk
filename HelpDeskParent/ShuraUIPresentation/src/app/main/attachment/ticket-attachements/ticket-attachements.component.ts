@@ -29,7 +29,7 @@ export class TicketAttachementsComponent implements OnInit, AfterViewInit {
   filelist: FileList;
   ticketID: number;
   userID:number;
-  displayedColumns = ['name', 'type', 'description', 'size',  'ModifiedDate', 'user', 'delete','upload'];
+  displayedColumns = ['name', 'description', 'type',  'size',  'ModifiedDate', 'user', 'delete'];
   attachments = new MatTableDataSource();
   resultsLength = 0;
   isLoadingResults = true;

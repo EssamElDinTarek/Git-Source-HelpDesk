@@ -3,6 +3,9 @@
 .relative{
 	position: relative;
 }
+.f-width{
+	width: 100% !important;
+}
 .header{
 	&.mat-accent-bg {
 		display: block !important;
@@ -127,5 +130,13 @@ content{
 				}
 			}
 		}
+	}
+}
+
+.content{
+	width: 100%;
+	.custom-grid{
+		max-height: 500px;
+		overflow: auto;
 	}
 }
