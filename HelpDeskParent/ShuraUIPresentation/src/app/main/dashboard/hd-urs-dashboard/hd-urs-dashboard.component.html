@@ -390,12 +390,13 @@
                               <div fxLayout="row wrap" fxLayoutAlign="start start">
 
                                   <div class="h-420 my-16" fxLayout="row" fxFlex="100" fxFlex.gt-sm="50">
-                                      <ngx-charts-bar-vertical-stacked
+                                      <ngx-charts-bar-vertical-stacked 
                                           *fuseIfOnDom
                                           [scheme]="widget5.scheme"
                                           [results]="this.widgets.widget5.mainChart[this.widget5.currentRange]"
                                           [gradient]="widget5.gradient"
-                                        
+                                          [xAxis]="widget5.xAxis"
+                                          [yAxis]="widget5.yAxis"
                                           [legend]="widget5.legend"
                                           [showXAxisLabel]="widget5.showXAxisLabel"
                                           [showYAxisLabel]="widget5.showYAxisLabel"

@@ -416,6 +416,12 @@ export class HDURSDashboardComponent implements OnInit {
              this.weeklyTasks=_result.data;
              console.log('date is : '+(this.weeklyTasks[1].date).dateNow);
              //console.log(this.weeklyTasks[1].date);
+             let currDate=new Date(this.weeklyTasks[0].date);
+             for (let index = 0; index < this.weeklyTasks.length; index++) {            
+                console.log('Value : '+this.weeklyTasks[index].value);
+                console.log('Name : '+this.weeklyTasks[index].name);
+            }
+             
       })
 
           
