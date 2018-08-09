@@ -1,5 +1,5 @@
 import { Component, Inject, ViewEncapsulation, OnDestroy, OnInit, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -129,9 +129,10 @@ export class TicketFormModuleComponent {
      * @param {FormBuilder} _formBuilder
      */
     constructor(private httpService: HttpClient, private _ticketService: TicketService,
-        public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
+        //public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService) {
+         public dialog: MatDialog,
+        private _formBuilder: FormBuilder, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService) {
 
         this.action = _data.action;
 

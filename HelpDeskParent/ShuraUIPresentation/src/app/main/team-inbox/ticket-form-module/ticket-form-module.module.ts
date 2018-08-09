@@ -6,7 +6,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { CdkTableModule } from '@angular/cdk/table';
 import { TicketAttachementsModule } from '../../attachment/ticket-attachements/ticket-attachements.module';
 import { TicketCommentModule } from '../../ticket-comment/ticket-comment.module';
-import {MatDialogModule,MatDialogRef} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {
 
@@ -64,7 +64,7 @@ const routes: Routes = [
     FuseSidebarModule,
     FuseWidgetModule,
     HttpClientModule,
-  TicketAttachementsModule,TicketCommentModule,MatDialogRef
+  TicketAttachementsModule,TicketCommentModule
   ],
   declarations: [TicketFormModuleComponent],
   exports: [
@@ -84,7 +84,7 @@ const routes: Routes = [
     
     FuseSharedModule,
     FuseSidebarModule,
-    FuseWidgetModule,MatDialogRef
+    FuseWidgetModule
   ]
 
 })

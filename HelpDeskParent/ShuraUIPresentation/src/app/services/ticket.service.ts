@@ -17,6 +17,7 @@ import { BehaviorSubject, of, Observable, Subject } from 'rxjs';
 import { FuseUtils } from '@fuse/utils';
 import { TicketResponse } from '../ticketview/ticketview.component';
 import { PriorityResponse, WorkFlowResponse, SeverityResponse } from '../main/ticket/submitticket/submitTicket.component';
+import { WeatherModel } from '../models/WeatherModel';
 
 
 
@@ -43,6 +44,7 @@ export class TicketService //implements Resolve<any>
 
     searchText: string;
     filterBy: string;
+    url:any;
 
     /**
      * Constructor
@@ -419,6 +421,45 @@ export class TicketService //implements Resolve<any>
             );
     }
 
+
+   /*  getCurrentWeatherRequestURL(): any {
+        navigator.geolocation.getCurrentPosition(
+            function (position) { 
+                var lat,lon;
+ debugger;
+                lat=position.coords.latitude;
+                lon= position.coords.longitude;
+                console.log('Latitude is : '+lat);
+                console.log('Longitude is : '+lon); 
+                const requestUrl =
+                return requestUrl;
+            });
+
+    } */
+
+    getCurrentWeather(lat:Number,lon:Number):Observable<any> {
+        
+        var requestURL = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&APPID=6253586246a34d3f7a5273ff34231df3';
+            console.log('Start getCurrentWeather method : ' + requestURL);
+            return this._httpClient.get<any>(requestURL)
+            .pipe(
+                catchError(this.handleError('getCurrentWeather'))
+            );
+        }
+
+
+        getUsersByProjectID():Observable<any>{
+            console.log('Start Calling getCategorizationList service...!');
+            const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/allbyprojectid';
+            const requestUrl = `${href}?PROJECT_ID=1`;
+            console.log('End Calling getCategorizationList');
+    
+            return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+                .pipe(
+                    catchError(this.handleError('getCategorizationList'))
+                );
+                
+        }
     /**
      * Handle Http operation that failed.
      * Let the app continue.

@@ -63,8 +63,8 @@
 
                           <div class="h4" fxLayout="row" fxLayoutAlign="start center">
                               <mat-icon class="secondary-text mr-8">place</mat-icon>
-                              <!-- {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].name}} -->
-                            <p>Cairo</p>
+                           {{country}}   {{place}}
+                           
                           </div>
 
                           <div>
@@ -87,19 +87,20 @@
                                         [fontIcon]="widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].icon"
                                         class="icon s-40 secondary-text mr-16"></mat-icon>
                               <span class="mat-display-2 m-0 font-weight-300 secondary-text">
-                                  {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].temp[widgets.weatherWidget.tempUnit]}}
+                                  {{temp}}
                               </span>
                               <span class="font-size-48 font-weight-300 hint-text text-super ml-8">°</span>
                               <span class="mat-display-2 mb-0 font-weight-300 hint-text ng-binding">C</span>
                           </div>
-                      </div>
+                    
+                        </div>
 
                       <div class="grey-300-bg p-16" fxLayout="row" fxLayoutAlign="space-between center">
                           <div fxLayout="row" fxLayoutAlign="start center">
                               <mat-icon fontSet="meteocons" fontIcon="icon-windy"
                                         class="s-16 secondary-text mr-8"></mat-icon>
                               <span>
-                                  {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].windSpeed[widgets.weatherWidget.speedUnit]}}
+                                  {{windSpeed}}
                               </span>
                               <span class="secondary-text ml-5">{{widgets.weatherWidget.speedUnit}}</span>
                           </div>
@@ -108,7 +109,7 @@
                               <mat-icon fontSet="meteocons" fontIcon="icon-compass"
                                         class="s-16 secondary-text mr-8"></mat-icon>
                               <span>
-                                  {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].windDirection}}
+                                 {{windDegree}}
                               </span>
                           </div>
 
@@ -116,26 +117,32 @@
                               <mat-icon fontSet="meteocons" fontIcon="icon-rainy"
                                         class="s-16 secondary-text mr-8"></mat-icon>
                               <span>
-                                  {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].rainProbability}}
+                                  {{humidity}}
                               </span>
                           </div>
                       </div>
 
                       <div class="py-16">
-                          <div class="py-16 px-24" fxLayout="row" fxLayoutAlign="space-between center"
-                               *ngFor="let day of widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].next3Days">
-                              <span class="h4">{{day.name}}</span>
-                              <div fxLayout="row" fxLayoutAlign="start center">
-                                  <mat-icon fontSet="meteocons" [fontIcon]="day.icon" class="secondary-text mr-16"></mat-icon>
-                                  <span class="h2">{{day.temp[widgets.weatherWidget.tempUnit]}}</span>
-                                  <span class="h2 font-weight-300 secondary-text text-super">&deg;</span>
-                                  <span class="h2 font-weight-300 secondary-text">
-                                      {{widgets.weatherWidget.tempUnit}}
-                                  </span>
-                              </div>
-                          </div>
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                   <span>Max Tempreture</span>
+                                    <span class="mat-display-2 m-0 font-weight-300 secondary-text">
+                                        {{maxTemp}}
+                                    </span>
+                                    <span class="font-size-48 font-weight-300 hint-text text-super ml-8">°</span>
+                                    <span class="mat-display-2 mb-0 font-weight-300 hint-text ng-binding">C</span>
+                                </div>  
                       </div>
 
+                      <div class="py-16">
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                   <span>Min Tempreture</span>
+                                    <span class="mat-display-2 m-0 font-weight-300 secondary-text">
+                                        {{minTemp}}
+                                    </span>
+                                    <span class="font-size-48 font-weight-300 hint-text text-super ml-8">°</span>
+                                    <span class="mat-display-2 mb-0 font-weight-300 hint-text ng-binding">C</span>
+                                </div>  
+                      </div>
                       <mat-divider></mat-divider>
 
                   </div>
@@ -210,26 +217,20 @@
 
                           <!-- Front -->
                           <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
+                            
                               <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
-                                   fxLayoutAlign="space-between center">
-                                  <mat-form-field>
-                                      <mat-select class="simplified font-size-16"
-                                                  [(ngModel)]="widgets.widget1.currentRange"
-                                                  aria-label="Change range">
-                                          <mat-option *ngFor="let range of widgets.widget1.ranges | keys"
-                                                      [value]="range.key">
-                                              {{range.value}}
-                                          </mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
-                                  <button mat-icon-button fuseWidgetToggle aria-label="more">
-                                      <mat-icon>more_vert</mat-icon>
-                                  </button>
-                              </div>
+                              fxLayoutAlign="space-between center">
+                             <div class="h3">Created Tasks</div>
+
+                             <button mat-icon-button fuseWidgetToggle class="fuse-widget-flip-button"
+                                     aria-label="more">
+                                 <mat-icon>more_vert</mat-icon>
+                             </button>
+                         </div>
 
                               <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
-                                  <div class="light-blue-fg font-size-72 line-height-72">
-                                      {{widgets.widget1.data.count[widgets.widget1.currentRange]}}
+                                  <div class="light-blue-fg font-size-72 line-height-72" >    
+                                    {{openTD}}
                                   </div>
                                   <div class="h3 secondary-text font-weight-500">{{widgets.widget1.data.label}}
                                   </div>
@@ -240,7 +241,7 @@
                                       {{widgets.widget1.data.extra.label}}:
                                   </span>
                                   <span class="h4 ml-8">
-                                      {{widgets.widget1.data.extra.count[widgets.widget1.currentRange]}}
+                                     {{openYD}}
                                   </span>
                               </div>
                           </div>
@@ -270,7 +271,7 @@
                           <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
                               <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
                                    fxLayoutAlign="space-between center">
-                                  <div class="h3">{{widgets.widget2.title}}</div>
+                                  <div class="h3">Overdue</div>
 
                                   <button mat-icon-button fuseWidgetToggle class="fuse-widget-flip-button"
                                           aria-label="more">
@@ -280,7 +281,7 @@
 
                               <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
                                   <div class="red-fg font-size-72 line-height-72">
-                                      {{widgets.widget2.data.count}}
+                                {{widgets.widget2.data.count}}
                                   </div>
                                   <div class="h3 secondary-text font-weight-500">{{widgets.widget2.data.label}}
                                   </div>
@@ -329,7 +330,7 @@
 
                               <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
                                   <div class="orange-fg font-size-72 line-height-72">
-                                      {{widgets.widget3.data.count}}
+                                     {{open}}
                                   </div>
                                   <div class="h3 secondary-text font-weight-500">{{widgets.widget3.data.label}}
                                   </div>
@@ -339,7 +340,7 @@
                                   <span class="h4 secondary-text text-truncate">
                                       {{widgets.widget3.data.extra.label}}:
                                   </span>
-                                  <span class="h4 ml-8">{{widgets.widget3.data.extra.count}}</span>
+                                  <span class="h4 ml-8">{{closed}}</span>
                               </div>
                           </div>
                           <!-- / Front -->
@@ -448,9 +449,10 @@
                                    fxFlex="100" fxFlex.gt-sm="50">
 
                           <!-- Front -->
+                       
                           <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-                              <div class="px-16 py-8 border-bottom" fxLayout="row"
+                             <!--  <div class="px-16 py-8 border-bottom" fxLayout="row"
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets By Categories</div>
                                   <mat-form-field>
@@ -469,7 +471,7 @@
                                     [results]="selectedCategory.value"
                                     [labels]="widget6.labels">
                                   </ngx-charts-pie-chart>
-                              </div>
+                              </div>  -->
 <!-- 
                               <div class="py-8 mh-16 border-top" fxLayout="row wrap" fxLayoutAlign="start center">
 
@@ -515,20 +517,19 @@
                                   </mat-form-field>
                               </div>
 
-                              <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center"
+                             <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center"
                                    *ngFor="let ticket of ticketsOfWorkflowList">
                                    <div >
                                   
-                                       <p>{{ticket.title}}</p>
-
+                            
                                   <button mat-icon-button aria-label="More information">
                                       <mat-icon>more_vert</mat-icon>
                                   </button>
                               </div>
 
-                          </div>
+                          </div> 
                           <!-- / Front -->
-
+</div>
                       </fuse-widget>
                       <!-- / WIDGET 7 -->
 
@@ -552,24 +553,24 @@
 
                                 <div class="p-24 mb-8 border-bottom" fxLayout="row"
                                      fxLayoutAlign="space-between center">
-                                    <div class="h2">{{widgets.widget11.title}}</div>
+                                    <div class="h2">{{teamWidget.title}}</div>
                                     <div class="text-boxed red-bg white-fg m-0">
-                                        {{widgets.widget11.table.rows.length}}
+                                        {{teamWidget.table.rows.length}}
                                         members
                                     </div>
                                 </div>
 
-                                <mat-table #table [dataSource]="widget11.dataSource">
+                                <mat-table #table [dataSource]="teamWidget.dataSource">
 
                                     <!-- Avatar Column -->
-                                    <ng-container cdkColumnDef="avatar">
+                                    <!-- <ng-container cdkColumnDef="avatar">
                                         <mat-header-cell fxFlex="96px" *cdkHeaderCellDef></mat-header-cell>
                                         <mat-cell fxFlex="96px" *cdkCellDef="let contact">
-                                            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
+                                            <img class="avatar" *ngIf="contact.avatar" 
                                                  [src]="contact.avatar"/>
                                         </mat-cell>
-                                    </ng-container>
-
+                                    </ng-container> 
+ -->
                                     <!-- Name Column -->
                                     <ng-container cdkColumnDef="name">
                                         <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
@@ -614,8 +615,8 @@
                                     </ng-container>
 
                                     <mat-header-row
-                                        *cdkHeaderRowDef="widgets.widget11.table.columns"></mat-header-row>
-                                    <mat-row *cdkRowDef="let contact; columns: widgets.widget11.table.columns;">
+                                        *cdkHeaderRowDef="teamWidget.table.columns"></mat-header-row>
+                                    <mat-row *cdkRowDef="let contact; columns: teamWidget.table.columns;">
                                     </mat-row>
                                 </mat-table>
                             </div>
