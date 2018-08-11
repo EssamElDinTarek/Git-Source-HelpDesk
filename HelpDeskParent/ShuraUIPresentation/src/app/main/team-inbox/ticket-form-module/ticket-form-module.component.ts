@@ -187,11 +187,31 @@ export class TicketFormModuleComponent implements OnInit{
             ticketPriority: [this.ticket.ticketPriority]
         });
     }
+titleTempValue:string;
+descriptionTempValue:string;
 
-enableControl():void{
-    this.editTitle = true;
+toggleEditControls(control):void{
+    if(control ==='title'){
+        this.editTitle = !this.editTitle;
+        if(this.editTitle)
+                this.titleTempValue = this.ticket.title;
+            else
+                this.ticket.title = this.titleTempValue;
+    }else if(control ==='description'){
+        this.editDescription = !this.editDescription;
+        if(this.editDescription)
+            this.descriptionTempValue = this.ticket.description;
+        else
+            this.ticket.description = this.descriptionTempValue;
+    }
 }
-
+editTicket(control){
+    console.log("edit Ticket");
+    this._ticketService.editTicket(this.formData).subscribe(_data=>{
+        alert("success");
+        this.toggleEditControls(control);
+    });
+}
 
     /**
      * Constructor
