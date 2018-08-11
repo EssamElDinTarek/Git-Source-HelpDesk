@@ -207,6 +207,8 @@ toggleEditControls(control):void{
 }
 editTicket(control){
     console.log("edit Ticket");
+    this.ticket.hduser.userId = this.sharedService.user.userId;
+    this.formData.append('ticket', JSON.stringify(this.ticket));
     this._ticketService.editTicket(this.formData).subscribe(_data=>{
         alert("success");
         this.toggleEditControls(control);
