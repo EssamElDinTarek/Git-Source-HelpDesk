@@ -81,7 +81,7 @@ export class HDURSDashboardComponent implements OnInit {
                     avatar  : 'assets/images/avatars/katherine.jpg',
                     name    : 'Kathy Anderson',
                     position: 'Recruiting Manager',
-                    office  : 'Solţānābād',
+                    office  : 'Soltanabad',
                     email   : 'kanderson49@mail.com.br',
                     phone   : '+23 572 311 1136'
                 },
@@ -121,7 +121,7 @@ export class HDURSDashboardComponent implements OnInit {
                     avatar  : 'assets/images/avatars/joyce.jpg',
                     name    : 'Elizabeth Dixon',
                     position: 'Electrical Engineer',
-                    office  : 'Písečná',
+                    office  : 'P�secn�',
                     email   : 'edixon4e@mail.gov',
                     phone   : '+33 332 067 9063'
                 },
@@ -161,7 +161,7 @@ export class HDURSDashboardComponent implements OnInit {
                     avatar  : 'assets/images/avatars/james.jpg',
                     name    : 'Phyllis Gutierrez',
                     position: 'Administrative Assistant',
-                    office  : 'Shlissel’burg',
+                    office  : 'Shlissel�burg',
                     email   : 'pgutierrez4j@mail.net',
                     phone   : '+52 749 861 9304'
                 }, {
@@ -175,7 +175,7 @@ export class HDURSDashboardComponent implements OnInit {
                     avatar  : 'assets/images/avatars/vincent.jpg',
                     name    : 'Jeremy Anderson',
                     position: 'Systems Engineer',
-                    office  : 'Lũng Hồ',
+                    office  : 'Lung H?',
                     email   : 'janderson4l@mail.uk',
                     phone   : '+40 384 115 1448'
                 },
@@ -197,7 +197,7 @@ export class HDURSDashboardComponent implements OnInit {
                     avatar  : 'assets/images/avatars/danielle.jpg',
                     name    : 'Daniel Johnston',
                     position: 'Help Desk',
-                    office  : 'São Carlos',
+                    office  : 'S�o Carlos',
                     email   : 'djohnston4o@mail.gov',
                     phone   : '+60 028 943 7919'
                 },
@@ -383,6 +383,7 @@ export class HDURSDashboardComponent implements OnInit {
        */
     ngOnInit(): void {
 
+/*
         this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_response=>{
             this.ticketsOfWorkflowList=_response.data;
         })
@@ -474,7 +475,7 @@ export class HDURSDashboardComponent implements OnInit {
         
           this._dashBoardService.getWorkFlowList().subscribe(_result => {
               this.workflowList = _result.data;
-  
+                this.workflowID = this.workflowList[0].flowId;
           });
 
 

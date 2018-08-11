@@ -159,7 +159,7 @@ export class HDADMDashboardComponent implements OnInit {
             this.portofolio=this.portofolioList;
         });
 
-        this._dashboardService.getProjectsByPortofolioID().subscribe(_response=>{
+        this._dashboardService.getProjectsByPortofolioID(1).subscribe(_response=>{
             this.projectsOfPortfolio=_response.data;
             for (let index = 0; index < this.projectsOfPortfolio.length; index++) {
                 console.log('Project Name is : '+this.projectsOfPortfolio[index].name);
@@ -186,7 +186,7 @@ export class HDADMDashboardComponent implements OnInit {
         });
 
 
-        this._dashboardService.getUsersByPortofolioID().subscribe(_response => {
+        this._dashboardService.getUsersByPortofolioID(1).subscribe(_response => {
             this.dataSourceArray1 = _response.data;
 
             
