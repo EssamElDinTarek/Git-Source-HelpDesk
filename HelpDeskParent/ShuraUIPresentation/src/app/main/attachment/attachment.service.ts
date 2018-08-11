@@ -19,7 +19,7 @@ export class AttachmentService {
 
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  private attachmentsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment';  // URL to web api
+  private attachmentsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/';  // URL to web api
 
 
   apiEndPoint:string;
@@ -44,7 +44,7 @@ export class AttachmentService {
   }
 
   addAttachment(formData: FormData) {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment';
+    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/uploadAttachment';
 
     return this._http.post(href, formData,{
       //headers: this.headers
