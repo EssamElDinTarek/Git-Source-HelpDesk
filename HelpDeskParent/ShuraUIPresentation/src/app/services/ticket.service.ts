@@ -301,9 +301,9 @@ export class TicketService //implements Resolve<any>
     }
 
 
-    getUserDetails(): Observable<User> {
+    getUserDetails(userMail: string): Observable<User> {
 
-        return this._httpClient.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
+        return this._httpClient.get<User>('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value='+userMail, {
             headers: this.headers
         })
             .pipe(

@@ -15,6 +15,8 @@ import { User } from '../../../models/user.model';
 import { DashBoardService } from '../dashboard.services';
 import { TicketCategory } from '../../../models/TicketCategory';
 import { SharedDataService } from '../../../services/shared-data.service';
+import { disableDebugTools } from '../../../../../node_modules/@angular/platform-browser';
+import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
 
 
 @Component({
@@ -30,16 +32,19 @@ export class HDURSDashboardComponent implements OnInit {
     selectedProject: any;
     tickets: Ticket[];
     usersPerProjects:User[];
-    projectId: number = this._shareData.selectedProject.projectId;
-    userEmail: string = this._shareData.user.emailAddress;
+    projectId: number ;//=1;
+    userEmail: string ;//= 'ahmed.farrag';
+
+    dataSourceArray1 =  new MatTableDataSource();
 
     categoryData: MainChart;
     selectedCategory: any;
 
     workflowList: Workflow[];
     selectedWorkflow:Workflow;
-    workflowID:Number;
     ticketsOfWorkflowList: Ticket[];
+    
+    workflowID:Number;
     ticketsOfWorkflow: any[];
     weeklyTasks:any[];
     weekelytaskDate:any;
@@ -429,6 +434,11 @@ export class HDURSDashboardComponent implements OnInit {
         }
     */
 
+    debugger;
+    
+    this.projectId = this._shareData.selectedProject.projectId;
+    this.userEmail = this._shareData.user.emailAddress;
+
       this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
              this.weeklyTasks=_result.data;
              for (let index = 0; index < this.weeklyTasks.length; index++) {        
@@ -485,6 +495,10 @@ export class HDURSDashboardComponent implements OnInit {
               console.log(this.selectedCategory);
           });
   
+          this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
+            this.dataSourceArray1 = _result.data;
+            console.log('Number of users : '+this.dataSourceArray1);
+        });
           //users per project service...
           /* this._dashBoardService.getUsersByProjectID().subscribe(_result => {
             this.usersPerProjects = _result.data;
@@ -520,7 +534,7 @@ export class HDURSDashboardComponent implements OnInit {
         console.log('Team Widget is '+JSON.stringify(this.teamWidget));
         this.teamWidget.onContactsChanged = new BehaviorSubject({});
         this.teamWidget.onContactsChanged.next(this.teamWidget.table.rows);
-        this.teamWidget.dataSource = new FilesDataSource(this.teamWidget);
+        this.teamWidget.dataSource = new FilesDataSource(this.usersPerProjects);
     }
 
     // -----------------------------------------------------------------------------------------------------

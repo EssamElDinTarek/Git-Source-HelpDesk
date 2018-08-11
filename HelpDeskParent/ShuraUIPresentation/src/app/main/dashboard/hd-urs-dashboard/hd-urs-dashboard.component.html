@@ -561,7 +561,7 @@
                                     </div>
                                 </div>
 
-                                <mat-table #table [dataSource]="teamWidget.dataSource">
+                                <mat-table #table [dataSource]="dataSourceArray1">
 
                                     <!-- Avatar Column -->
                                     <!-- <ng-container cdkColumnDef="avatar">
@@ -575,7 +575,7 @@
                                     <!-- Name Column -->
                                     <ng-container cdkColumnDef="name">
                                         <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
-                                        <mat-cell *cdkCellDef="let contact">
+                                        <mat-cell *cdkCellDef="let usersPerProjects">
                                             <p class="text-truncate font-weight-600">{{contact.name}}
                                                 {{contact.lastName}}</p>
                                         </mat-cell>
@@ -585,7 +585,7 @@
                                     <ng-container cdkColumnDef="position">
                                         <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Position
                                         </mat-header-cell>
-                                        <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
+                                        <mat-cell *cdkCellDef="let usersPerProjects" fxHide fxShow.gt-sm>
                                             <p class="position text-truncate">
                                                 {{contact.position}}
                                             </p>
