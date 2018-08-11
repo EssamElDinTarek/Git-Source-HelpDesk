@@ -33,9 +33,30 @@
                 &:first-of-type{
                     border-right: rgba(0, 0, 0, 0.12) 1px solid;
                 }
+                form{
+                    margin-right: -10px !important;
+                    margin-left: -10px !important;
+                    mat-form-field{
+                        padding-right: 10px;
+                        padding-left: 10px;
+                        .mat-form-field-infix{
+                            position: relative;
+                            button{
+                                position: absolute;
+                                right: 0px;
+                                top: 0px;
+                            }
+                            input{
+                                padding-right: 30px;
+                            }
+                        }
+                    }
+                }
             }
         }
-
+        .mat-tab-body{
+            padding: 10px;
+        }
         form {
             width: 100%;
             max-width: 800px !important;
@@ -54,6 +75,7 @@
             position: relative;
             padding-left: 30px;
             overflow: auto;
+            max-height: 340px;
             &:before{
                 content: "";
                 display: block;
@@ -124,9 +146,9 @@
         }
         .comment{
             .comment-list{
-                padding: 20px;
+                padding: 00px;
                 overflow: auto;
-                max-height: 350px;
+                max-height: 330px;
                 li{
                     padding-left: 60px;
                     position: relative;

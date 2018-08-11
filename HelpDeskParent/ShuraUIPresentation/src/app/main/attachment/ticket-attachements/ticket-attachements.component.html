@@ -95,16 +95,31 @@
   <div class="center" fxFlex> 
 
     <!-- HEADER -->
-    <div class="header mat-accent-bg p-25" fxLayout="column" fxLayoutAlign="space-between start">
+<!--     <div class="header mat-accent-bg p-25" fxLayout="column" fxLayoutAlign="space-between start">
       <div class="file-uploader">
-        <input hidden type="file" (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx"
-          #fileInput/>
         <button mat-fab class="add-file-button mat-warn" (click)="fileInput.click()" aria-label="Add file" [@animate]="{value:'*', params:{delay:'300ms',scale:'0.2'}}">
           <mat-icon>add</mat-icon>
         </button>
       </div>
 
     </div>
+ -->
+    <div class="file-uploader" id="uploadDropArea">
+        <input hidden type="file" (change)="fileChange($event.target.files)" placeholder="Upload file" accept=".pdf,.doc,.docx"
+          #fileInput/>
+        <div class="drop-area-cont">
+            <mat-icon>add</mat-icon>
+            <span class="hint">Click or Drop your files here</span>
+        </div>
+        <!-- /.drop-area-cont -->
+        <!-- <button mat-fab 
+                        class="add-file-button mat-warn"
+                        (click)="fileInput.click()"
+                        aria-label="Add file"
+                        [@animate]="{value:'*', params:{delay:'300ms',scale:'0.2'}}">
+                </button> -->
+    </div>
+
     <!-- / HEADER -->
 
 
