@@ -1,7 +1,8 @@
 <div id="dashboard-project" class="page-layout simple right-sidebar" fxLayout="row">
-
+    
+    <div class="col">
     <!-- SIDEBAR -->
-    <fuse-sidebar class="sidebar" name="project-dashboard-right-sidebar-1" position="right" lockedOpen="gt-md">
+    <fuse-sidebar class="sidebar mat-white-bg mat-elevation-z8" name="project-dashboard-right-sidebar-1" position="right" lockedOpen="gt-md">
 
         <!-- SIDEBAR CONTENT -->
         <div class="content">
@@ -151,42 +152,12 @@
 
     </fuse-sidebar>
     <!-- / SIDEBAR -->
+    </div><!-- /.col -->
 
+    <div class="col">
     <!-- CENTER -->
-    <div class="center" fusePerfectScrollbar>
+    <div class="center mat-white-bg mat-elevation-z8" fusePerfectScrollbar>
 
-        <!-- HEADER -->
-        <div class="header mat-accent-bg p-24 pb-0" fxLayout="column" fxLayoutAlign="space-between">
-
-            <div fxLayout="row" fxLayoutAlign="space-between start">
-
-                    <span class="mat-display-1 mb-0 welcome-message"
-                          [@animate]="{value:'*',params:{x:'50px'}}">Welcome back, John!
-                </span>
-
-                    <button mat-icon-button class="sidebar-toggle mr-8" fxHide.gt-md
-                            (click)="toggleSidebar('project-dashboard-right-sidebar-1')">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </div>
-
-            <div fxLayout="row">
-
-                <div class="selected-project">{{selectedProject.name}}</div>
-
-                    <button mat-icon-button class="project-selector" [matMenuTriggerFor]="projectsMenu"
-                            aria-label="Select project">
-                    <mat-icon>more_horiz</mat-icon>
-                </button>
-
-                <mat-menu #projectsMenu="matMenu">
-                    <button mat-menu-item *ngFor="let project of projects" (click)="selectedProject = project">
-                        <span>{{project.name}}</span>
-                    </button>
-                </mat-menu>
-            </div>
-        </div>
-        <!-- / HEADER -->
 
         <!-- CONTENT -->
         <div class="content">
@@ -429,6 +400,7 @@
 
     </div>
     <!-- / CENTER -->
+    </div><!-- /.col -->
 
     </div>
     
