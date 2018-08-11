@@ -200,15 +200,15 @@
                                 <div class="px-16 py-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
                                     <div class="h3">{{widgets.widget7.title}}</div>
                                     <mat-form-field>
-                                        <mat-select class="simplified" [(ngModel)]="portofolio" (ngModelChange)="portfolioChanged()">
-                                            <mat-option *ngFor="let portofolios of portofolioList">
+                                        <mat-select class="simplified" [(ngModel)]="selectedPortfolio" (ngModelChange)="portfolioChanged()">
+                                            <mat-option *ngFor="let portofolios of portofolioList" [value]="portofolios">
                                                 {{portofolios.name}}
                                             </mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
 
-                                <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let projects of projectsOfPortfolio">
+                                <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let projects of projectOfPortoflioList">
                                     <div>
                                         <div>
                                             <span class="secondary-text">{{projects.name}}</span>

@@ -30,7 +30,7 @@ export class HDMGRDashboardComponent implements OnInit {
    portofolioID:Number=this._shareData.portfolio.portfolioId;
 
 
-   projectList: Project[];
+   projectList: any;
    selectedProject:Project;
    ticketsOfProjectList: Ticket[];
 
@@ -48,7 +48,7 @@ export class HDMGRDashboardComponent implements OnInit {
 
 
   //  projectList: Project[];
-    projectDetailstList: any[];
+    projectDetailstList: any;
 
     projectChart:any;
 

@@ -11,6 +11,7 @@ import { DashBoardService } from '../dashboard.services';
 import { Portfolio } from '../../../models/portfolio';
 import { Project } from '../../../models/project';
 import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 
 @Component({
@@ -22,20 +23,29 @@ import { MatTableDataSource } from '../../../../../node_modules/@angular/materia
 })
 export class HDADMDashboardComponent implements OnInit {
 
+    portofolioID: Number = this._shareData.portfolio.portfolioId;
+    userEmail: string = this._shareData.user.emailAddress;
+    projectID: number = this._shareData.selectedProject.projectId;
+
+    portoflioList:any;
+    selectedPortfolio:Portfolio;
+    projectOfPortoflioList:Project[];
+
+
     projects: any[];
     selectedProject: any;
     portofolioList: Portfolio[];
-    portofolioDetails:any;
-    portofolio:any;
-    portofolioChartData:any;
+    portofolioDetails: any;
+    portofolio: any;
+    portofolioChartData: any;
     totalNoOfProjects: number;
-    projectsOfPortfolio:Project[];
+    projectsOfPortfolio: Project[];
 
-    portofolios:Portfolio[];
-    dataSourceArray1 =  new MatTableDataSource();
-    userList:any;
-    
-    usersByPortofolio:any=[];
+    portofolios: Portfolio[];
+    dataSourceArray1 = new MatTableDataSource();
+    userList: any;
+
+    usersByPortofolio: any = [];
 
     widgets: any;
     widget5: any = {};
@@ -48,6 +58,7 @@ export class HDADMDashboardComponent implements OnInit {
     dateNow = Date.now();
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _dashboardService: DashBoardService,
+        private _shareData: SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
 
         /**
@@ -152,20 +163,20 @@ export class HDADMDashboardComponent implements OnInit {
         }, 1000);
 
     }
-    portfolioChanged():void{
-
-            this._dashboardService.getAllPortofolios().subscribe(_response => {
-            this.portofolioList = _response.data;
-            this.portofolio=this.portofolioList;
+    portfolioChanged(): void {
+        debugger;
+       this.portofolioID=this.selectedPortfolio.portfolioId;
+        this._dashboardService.getProjectsByPortofolioID(this.portofolioID).subscribe(_response => {
+            this.projectOfPortoflioList = _response.data;
         });
 
-        this._dashboardService.getProjectsByPortofolioID(1).subscribe(_response=>{
-            this.projectsOfPortfolio=_response.data;
+        /* this._dashboardService.getProjectsByPortofolioID(this.portofolioID).subscribe(_response => {
+            this.projectsOfPortfolio = _response.data;
             for (let index = 0; index < this.projectsOfPortfolio.length; index++) {
-                console.log('Project Name is : '+this.projectsOfPortfolio[index].name);
-                
+                console.log('Project Name is : ' + this.projectsOfPortfolio[index].name);
+
             }
-        });
+        }); */
     }
 
     /**
@@ -182,28 +193,28 @@ export class HDADMDashboardComponent implements OnInit {
 
         this._dashboardService.getPortofolioChart().subscribe(_response => {
             this.portofolioChartData = _response.data;
-            
+
         });
 
 
-        this._dashboardService.getUsersByPortofolioID(1).subscribe(_response => {
+        this._dashboardService.getUsersByPortofolioID(this.portofolioID).subscribe(_response => {
             this.dataSourceArray1 = _response.data;
 
-            
+
         });
 
 
         this._dashboardService.getAllPortofolios().subscribe(_response => {
             this.portofolioList = _response.data;
-            this.portofolio=this.portofolioList;
+            this.portofolio = this.portofolioList;
             for (let index = 0; index < this.portofolios.length; index++) {
-                 console.log(this.portofolios[index].name);
-                
+                console.log(this.portofolios[index].name);
+
             }
-            
+
         });
 
-        
+
         this.projects = this._projectDashboardService.adminProjects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.adminWidget;
@@ -211,7 +222,7 @@ export class HDADMDashboardComponent implements OnInit {
         this.widget11.onContactsChanged = new BehaviorSubject({});
         this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
 
-        
+
         this.widget11.dataSource = new FilesDataSource(this.usersByPortofolio);
 
     }

@@ -500,8 +500,10 @@ export class HDURSDashboardComponent implements OnInit {
             console.log('Number of users : '+this.dataSourceArray1);
         });
           //users per project service...
-          /* this._dashBoardService.getUsersByProjectID().subscribe(_result => {
+           this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
             this.usersPerProjects = _result.data;
+           });
+            /*
             var rows = [];
             for (let index = 0; index < this.usersPerProjects.length; index++) {
                 //const element = this.usersPerProjects[index];

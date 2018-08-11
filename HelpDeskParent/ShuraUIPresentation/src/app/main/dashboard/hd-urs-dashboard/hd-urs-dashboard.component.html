@@ -573,47 +573,27 @@
                                     </ng-container> 
  -->
                                     <!-- Name Column -->
-                                    <ng-container cdkColumnDef="name">
+                                    <ng-container cdkColumnDef="username">
                                         <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersPerProjects">
-                                            <p class="text-truncate font-weight-600">{{contact.name}}
-                                                {{contact.lastName}}</p>
+                                            <p class="text-truncate font-weight-600">{{usersPerProjects.username}}
+                                              </p>
                                         </mat-cell>
                                     </ng-container>
 
-                                    <!-- Position Column -->
-                                    <ng-container cdkColumnDef="position">
-                                        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Position
+                                    <!-- email Column -->
+                                    <ng-container cdkColumnDef="email">
+                                        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Email
                                         </mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersPerProjects" fxHide fxShow.gt-sm>
                                             <p class="position text-truncate">
-                                                {{contact.position}}
+                                                {{usersPerProjects.email}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>
 
                      
-                                    <!-- Email Column -->
-                                    <ng-container cdkColumnDef="email">
-                                        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Email
-                                        </mat-header-cell>
-                                        <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
-                                            <p class="email text-truncate">
-                                                {{contact.email}}
-                                            </p>
-                                        </mat-cell>
-                                    </ng-container>
-
-                                    <!-- Phone Column -->
-                                    <ng-container cdkColumnDef="phone">
-                                        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Phone
-                                        </mat-header-cell>
-                                        <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-md>
-                                            <p class="phone text-truncate">
-                                                {{contact.phone}}
-                                            </p>
-                                        </mat-cell>
-                                    </ng-container>
+                                   
 
                                     <mat-header-row
                                         *cdkHeaderRowDef="teamWidget.table.columns"></mat-header-row>

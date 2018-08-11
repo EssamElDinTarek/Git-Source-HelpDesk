@@ -155,7 +155,7 @@ export class LoginComponent implements OnInit, OnDestroy
         console.log('Try to log in...! ');
         console.log(this.logParam.email);
         console.log(this.logParam.password);
-      
+      debugger;
         this.loginService.login(this.logParam)
             .subscribe(user => {
                
