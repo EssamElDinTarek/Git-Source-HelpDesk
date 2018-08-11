@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { SharedDataService } from '../../../services/shared-data.service';
@@ -16,9 +16,10 @@ import { Ticket } from '../../../models/ticket';
 })
 export class TicketCommentComponent implements OnInit {
 
+  @Input('updatedTicketId') ticketID: number;
+
   formData: FormData = new FormData();
   filelist: FileList;
-  ticketID: number;
   displayedColumns = ['commentValue', 'user', 'delete'];
   comments = new MatTableDataSource();
   resultsLength = 0;
