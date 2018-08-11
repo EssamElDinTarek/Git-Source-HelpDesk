@@ -6,7 +6,7 @@ public class PortfolioDTO extends BaseDTO  {
 	
 	private long portfolioId;
 	private String name;
-	private HduserDTO hduser;
+	//private HduserDTO hduser;
 	
 	public long getPortfolioId() {
 		return portfolioId;
@@ -20,12 +20,7 @@ public class PortfolioDTO extends BaseDTO  {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public HduserDTO getHduser() {
-		return hduser;
-	}
-	public void setHduser(HduserDTO hduser) {
-		this.hduser = hduser;
-	}
+	
 	
 	
 }
