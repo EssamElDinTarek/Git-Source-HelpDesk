@@ -78,27 +78,27 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			Timestamp ts = new Timestamp(date.getTime());
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String ticketNumber = "Tic_" + sdf.format(ts) + String.format("%03d", new Random().nextInt(1000));
-			Hduser hduser = userDao.findByEmail(ticket.getHduser().getEmailAddress());
-			Step step = stepDao.findById(1L);
-			Status status = statusDao.findById(1L);
-			Project project = projectDao.findById(ticket.getProject().getProjectId());
-			TicketSeverity severity = severityDao.findById(ticket.getTicketSeverity().getSeverityId());
-			TicketPriority priority = priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId());
-			Workflow workflow = workflowDao.findById(ticket.getWorkflow().getFlowId());
-			if(hduser == null || step == null || status == null || project == null || severity == null ||  priority == null ||  workflow == null  ) {
+			//Hduser hduser = userDao.findByEmail(ticket.getHduser().getEmailAddress());
+			//Step step = stepDao.findById(1L);
+			//Status status = statusDao.findById(1L);
+			//Project project = projectDao.findById(ticket.getProject().getProjectId());
+			//TicketSeverity severity = severityDao.findById(ticket.getTicketSeverity().getSeverityId());
+			//TicketPriority priority = priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId());
+			//Workflow workflow = workflowDao.findById(ticket.getWorkflow().getFlowId());
+			/*if(hduser == null || step == null || status == null || project == null || severity == null ||  priority == null ||  workflow == null  ) {
 				throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-			}
+			}*/
 			ticket.setTicketnumber(ticketNumber);
-			ticket.setStatus(status);
-			ticket.setStep(step);
-			ticket.setHduser(hduser);
-			ticket.setProject(project);
-			ticket.setTicketSeverity(severity);
-			ticket.setTicketPriority(priority);
-			ticket.setWorkflow(workflow);
+			ticket.setStatus(statusDao.findById(1L));
+			ticket.setStep(stepDao.findById(1L));
+			ticket.setHduser(userDao.findById(ticket.getHduser().getUserId()));
+			ticket.setProject( projectDao.findById(ticket.getProject().getProjectId()));
+			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
+			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
+			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
 			ticket = ticketDao.persist(ticket);
 			ticket.setCreationdate(new Date());
-			attachmentService.saveAttachment(null, files, ticket);
+			attachmentService.saveAttachment(ticket.getHduser(), files, ticket);
 			result = stepTicketForward(ticket.getTicketId());
 //			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
@@ -357,24 +357,19 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			if (stepIndex == null)
 				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);	
 			
-			//Ticket Already Completed (Completed status = 3)
-			if(ticket.getStatus().getStatusId() == 3)
-				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 			
 			//Forwarding to Last Step
-			if( (stepIndex + 1) == (workflowSteps.size()-1) ) {
+			if( (stepIndex + 1) == (workflowSteps.size()) ) {
 				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_COMPLETED.getStringValue())));
 			}else {
 				//Forwarding From First Step to Second Step or Forwarding to any middle Steps
 				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue())));
+				ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex + 1).getStep().getStepId()));
 			}
-			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex + 1).getStep().getStepId()));
+			
 			ticket = ticketDao.update(ticket);
 			behavioralDetailsService.
         	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_FORWARD.getStringValue()));
-			List<String> to = new ArrayList<String>();
-			to.add(ticket.getHduser().getEmailAddress());
-			Mailer.send(to, "Ticket Move Forwared", "Ticket Move Forwared");
 			
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
@@ -414,19 +409,19 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 				throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 			
 			//Backward to First Step
-			if(stepIndex == 1) {
+			/*if(stepIndex == 1) {
 				ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_CREATED.getStringValue())));
 			}else {
 			//Forwarding to middle Steps or Backward From Last Step
 			ticket.setStatus(statusDao.findById(Long.parseLong(ServicesEnums.TICKET_STATUS_INPROGRESS.getStringValue())));
-			}
+			}*/
 			ticket.setStep(stepDao.findById(workflowSteps.get(stepIndex - 1).getStep().getStepId()));
 			ticket = ticketDao.update(ticket);
 	         behavioralDetailsService.
         	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_BACKWARD.getStringValue()));
 	         List<String> to = new ArrayList<String>();
 			 to.add(ticket.getHduser().getEmailAddress());
-	         Mailer.send(to, "Ticket Move Backword", "Ticket Move Backword");
+	       //  Mailer.send(to, "Ticket Move Backword", "Ticket Move Backword");
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
