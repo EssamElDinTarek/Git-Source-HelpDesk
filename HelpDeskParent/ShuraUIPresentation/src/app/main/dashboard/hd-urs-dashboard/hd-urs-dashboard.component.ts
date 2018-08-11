@@ -22,7 +22,7 @@ import { MatTableDataSource } from '../../../../../node_modules/@angular/materia
 @Component({
     selector: 'app-hd-urs-dashboard',
     templateUrl: './hd-urs-dashboard.component.html',
-    styleUrls: ['./hd-urs-dashboard.component.css'],
+    styleUrls: ['hd-urs-dashboard.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
 })

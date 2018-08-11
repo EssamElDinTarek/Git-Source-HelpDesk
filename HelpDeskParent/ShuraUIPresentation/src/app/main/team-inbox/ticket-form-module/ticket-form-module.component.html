@@ -16,18 +16,6 @@
                                 </p>
                             </li>
         
-                            <!--  <mat-step [stepControl]="verticalStepperStep2">
-                                <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                                    <i *ngFor="let data of ticketHistory ">
-                                    {{data.behaviorValue}}
-                                            </i> 
-                            </mat-step>
-                            
-                                <mat-step [stepControl]="verticalStepperStep3">
-        
-                                <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                            </mat-step> -->
-        
                         </ul>
                         <!-- / VERTICAL STEPPER EXAMPLE -->
         
@@ -50,30 +38,38 @@
         
         
                         <mat-form-field class="w-50-p">
-                            <input name="ticketId" [disabled]="true" formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
-                            <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                            <input name="ticketNO" [disabled]="true" formControlName="ticketNO"  placeholder="Ticket Number" matInput  [disabled]="true">
+                            
                         </mat-form-field>
-                    
-        
                         <mat-form-field class="w-50-p">
+                                <input name="creationdate" formControlName="creationdate" matInput placeholder="Created On" [disabled]='true'>
+                                
+                            </mat-form-field>
+        
+                        <mat-form-field class="w-100-p">
                             <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
                             <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
         
                         </mat-form-field>
-                       
-                        <mat-form-field class="w-50-p">
-                            <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
-                            <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                        </mat-form-field>
-        
-                     
-                        <mat-form-field class="w-50-p">
-                                <input name="description" 
-                                formControlName="description" matInput placeholder="Description" required>
+
+                        <mat-form-field class="w-100-p">
+                                <textarea name="description" formControlName="description" matInput placeholder="Description" required></textarea>
                                 <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                        </mat-form-field>
+                        <!-- <mat-form-field class="w-50-p">
+                                <mat-select placeholder="Priority" formControlName="ticketPriority" required>
+                                    <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
+                                        {{item.priorityLevel}}
+                                    </mat-option>
+                                </mat-select>
                             </mat-form-field>
-        
-                      
+                            <mat-form-field class="w-50-p">
+                                    <mat-select placeholder="Severity"  formControlName="ticketSeverity" required>
+                                        <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
+                                            {{item.severityName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field> -->
                     </form>
         
                 </div>
@@ -109,11 +105,11 @@
             <mat-tab-group dynamicHeight>
 
                 <mat-tab label="Comments">
-                    <app-ticket-comment></app-ticket-comment>
+                    <app-ticket-comment [updatedTicketId]="updatedTicketId"></app-ticket-comment>
                 </mat-tab>
 
                 <mat-tab label="Attachments">
-                    <app-ticket-attachements></app-ticket-attachements>
+                    <app-ticket-attachements [updatedTicketId]="updatedTicketId"></app-ticket-attachements>
                 </mat-tab>
 
 

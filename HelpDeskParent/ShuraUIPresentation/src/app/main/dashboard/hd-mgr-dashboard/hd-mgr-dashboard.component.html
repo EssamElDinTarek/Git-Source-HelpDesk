@@ -1,7 +1,8 @@
 <div id="dashboard-project" class="page-layout simple right-sidebar" fxLayout="row">
 
+    <div class="col">
     <!-- SIDEBAR -->
-    <fuse-sidebar class="sidebar" name="project-dashboard-right-sidebar-1" position="right" lockedOpen="gt-md">
+    <fuse-sidebar class="sidebar mat-white-bg mat-elevation-z8" name="project-dashboard-right-sidebar-1" position="right" lockedOpen="gt-md">
 
         <!-- SIDEBAR CONTENT -->
         <div class="content">
@@ -145,22 +146,13 @@
 
     </fuse-sidebar>
     <!-- / SIDEBAR -->
+    </div><!-- /.col -->
 
+    <div class="col">
     <!-- CENTER -->
-    <div class="center" fusePerfectScrollbar>
+    <div class="center mat-white-bg mat-elevation-z8" fusePerfectScrollbar>
 
-        <!-- HEADER -->
-        <div class="header mat-accent-bg p-24 pb-0" fxLayout="column" fxLayoutAlign="space-between">
 
-            <div fxLayout="row" fxLayoutAlign="space-between start">
-
-                <span class="mat-display-1 mb-0 welcome-message" [@animate]="{value:'*',params:{x:'50px'}}">Welcome back, John!
-                </span>
-
-                <button mat-icon-button class="sidebar-toggle mr-8" fxHide.gt-md (click)="toggleSidebar('project-dashboard-right-sidebar-1')">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </div>
 
             <div fxLayout="row">
 
@@ -203,14 +195,15 @@
                                 <mat-divider></mat-divider>
 
                                 <div class="h-400">
+                                    <!--
                                     <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectList" [legend]="widget8.legend"
                                         [explodeSlices]="widget8.explodeSlices" [labels]="widget8.labels" [doughnut]="widget8.doughnut"
                                         [gradient]="widget8.gradient" >
-                                    </ngx-charts-pie-chart>
+                                    </ngx-charts-pie-chart> -->
                                 </div>
-
                             </div>
                             <!-- / Front -->
+
 
                         </fuse-widget>
                         <!-- / WIDGET 8 -->
@@ -398,5 +391,4 @@
 
     </div>
     <!-- / CENTER -->
-
-</div>
+    </div><!-- /.col -->

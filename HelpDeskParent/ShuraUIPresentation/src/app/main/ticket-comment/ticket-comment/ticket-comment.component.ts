@@ -1,10 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { SharedDataService } from '../../../services/shared-data.service';
 import { TicketCommentService, CommentResponse } from '../../../services/ticket-comment.service';
 import { TicketComment } from '../../../model/TicketComment';
 import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overview-example.component';
+import { ActivatedRoute } from '@angular/router';
+import { TicketService } from '../../../services/ticket.service';
+import { Ticket } from '../../../models/ticket';
 
 @Component({
   selector: 'app-ticket-comment',
@@ -13,9 +16,10 @@ import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overvi
 })
 export class TicketCommentComponent implements OnInit {
 
+  @Input('updatedTicketId') ticketID: number;
+
   formData: FormData = new FormData();
   filelist: FileList;
-  ticketID: number;
   displayedColumns = ['commentValue', 'user', 'delete'];
   comments = new MatTableDataSource();
   resultsLength = 0;
@@ -35,15 +39,23 @@ export class TicketCommentComponent implements OnInit {
   commentDialogOkLabel: string = "Ok";
   commentDialogCancelLabel: string = "Cancel";
   commentConfirmed: boolean = false;
+  ticket: Ticket = new Ticket(this.ticket);
 
-  constructor(private http: HttpClient, public dialog: MatDialog, private _shareData: SharedDataService, private commentService: TicketCommentService) { }
+  constructor(private http: HttpClient, public dialog: MatDialog,private _ticketService: TicketService, private _shareData: SharedDataService, private commentService: TicketCommentService,private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.commentsResponse.data = new Array<TicketComment>();
+
+    /* console.log('this.route : '+ JSON.stringify(this.route.params) );
+        this.route.params.subscribe(_params => {
+            this.ticketID = _params['ticketId'];
+            console.log("params : "+_params);
+            console.log("updatedTicketId : " + this.ticketID);
+        }); */
   }
   ngAfterViewInit() {
     //get ticket id and user id to add comment
-    this.ticketID = 4952;
+    //this.ticketID = 4952;
     //this.user.userId = 1;
     console.log('on after view init');
     this.commentService.getCommentByTickId(this.ticketID).subscribe(_commentsResponse => {
