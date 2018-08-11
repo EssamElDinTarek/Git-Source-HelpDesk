@@ -50,7 +50,7 @@ public class TicketDaoImpl extends GenericDaoImpl<Ticket> implements TicketDao {
 		try{
 			String sqlString = "select TICKET.* FROM TICKET, PROJECT,TEAM, STEPS,HDUSER where"
 					+ " TICKET.PROJECT_ID = PROJECT.PROJECT_ID and ticket.step_id = STEPS.STEP_ID and STEPS.TEAM_ID = TEAM.REC_ID "
-					+ "and HDUSER.TEAM_ID =TEAM.REC_ID and PROJECT.PROJECT_ID = ? and  HDUSER.EMAIL_ADDRESS = ?";
+					+ "and HDUSER.TEAM_ID =TEAM.REC_ID and PROJECT.PROJECT_ID = ? and  HDUSER.EMAIL_ADDRESS = ? and TICKET.IS_DELETED = 0 ";
 			Query query = this.entityManager.createNativeQuery(sqlString,Ticket.class);
 			query.setParameter(1, projectId);
 			query.setParameter(2, userEmail);
