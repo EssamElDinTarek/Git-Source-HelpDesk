@@ -463,10 +463,10 @@ export class TicketService //implements Resolve<any>
         }
 
 
-        getUsersByProjectID():Observable<any>{
+        getUsersByProjectID(projectID:Number):Observable<any>{
             console.log('Start Calling getCategorizationList service...!');
             const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/allbyprojectid';
-            const requestUrl = `${href}?PROJECT_ID=1`;
+            const requestUrl = `${href}?PROJECT_ID=`+projectID;
             console.log('End Calling getCategorizationList');
     
             return this._httpClient.get<any>(requestUrl, { headers: this.headers })

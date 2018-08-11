@@ -281,7 +281,7 @@
 
                               <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
                                   <div class="red-fg font-size-72 line-height-72">
-                                {{widgets.widget2.data.count}}
+                                {{closedTD}}
                                   </div>
                                   <div class="h3 secondary-text font-weight-500">{{widgets.widget2.data.label}}
                                   </div>
@@ -291,7 +291,7 @@
                                   <span class="h4 secondary-text text-truncate">
                                       {{widgets.widget2.data.extra.label}}:
                                   </span>
-                                  <span class="h4 ml-8">{{widgets.widget2.data.extra.count}}</span>
+                                  <span class="h4 ml-8">{{closedYD}}</span>
                               </div>
                           </div>
                           <!-- / Front -->
@@ -511,8 +511,8 @@
                                    fxLayoutAlign="space-between center">
                                   <div class="h3">Tickets Workflow</div>
                                   <mat-form-field>
-                                      <mat-select  [(ngModel)]="ticketsOfWorkflow"  (ngModelChange)="workFlowChanged()">
-                                                   <mat-option *ngFor="let workflow of workflowList">  
+                                      <mat-select  [(ngModel)]="selectedWorkflow"  (ngModelChange)="workFlowChanged()">
+                                                   <mat-option *ngFor="let workflow of workflowList"  [value]="workflow">  
                                               {{workflow.ticketType}}
                                           </mat-option>
                                       </mat-select>
@@ -522,11 +522,10 @@
                              <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center"
                                    *ngFor="let ticket of ticketsOfWorkflowList">
                                    <div >
-                                  
-                            
-                                  <button mat-icon-button aria-label="More information">
-                                      <mat-icon>more_vert</mat-icon>
-                                  </button>
+                                        <div>   Ticket Title :   {{ticket.title}}</div> 
+                                        <div>Ticket Description : {{ticket.description}}</div> 
+                                        <div>  Created On :     {{ticket.creationdate}}</div>
+                                 
                               </div>
 
                           </div> 

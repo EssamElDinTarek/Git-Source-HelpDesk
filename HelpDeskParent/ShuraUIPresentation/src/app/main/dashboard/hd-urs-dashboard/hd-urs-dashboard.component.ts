@@ -14,6 +14,7 @@ import { WeatherModel } from '../../../models/WeatherModel';
 import { User } from '../../../models/user.model';
 import { DashBoardService } from '../dashboard.services';
 import { TicketCategory } from '../../../models/TicketCategory';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 
 @Component({
@@ -29,18 +30,21 @@ export class HDURSDashboardComponent implements OnInit {
     selectedProject: any;
     tickets: Ticket[];
     usersPerProjects:User[];
+    projectId: number = this._shareData.selectedProject.projectId;
+    userEmail: string = this._shareData.user.emailAddress;
 
     categoryData: MainChart;
-    selectedCategory: any;//Map<String,any> = new Map<String,any>();//TicketCategory[] = [];
+    selectedCategory: any;
 
     workflowList: Workflow[];
+    selectedWorkflow:Workflow;
+    workflowID:Number;
     ticketsOfWorkflowList: Ticket[];
-    ticketsOfWorkflow: any;
+    ticketsOfWorkflow: any[];
     weeklyTasks:any[];
     weekelytaskDate:any;
     weekelyTaskFullDate:any[];
     countOfTickets:any[];
-     alphas:string[] = ["1","2","3","4"] ;
 
     widgets: any;
     widget5: any = {};
@@ -249,6 +253,7 @@ export class HDURSDashboardComponent implements OnInit {
 
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _dashBoardService: DashBoardService,
+        private _shareData: SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
      
         this.chart = {
@@ -363,10 +368,11 @@ export class HDURSDashboardComponent implements OnInit {
 
 
     workFlowChanged(): void {
-        this._dashBoardService.getTicketsByWorkFlowID().subscribe(_result => {
-            this.ticketsOfWorkflowList = _result;
-            this.ticketsOfWorkflow = this.ticketsOfWorkflowList;
-            //  console.log(this.ticketsOfWorkflow);
+        //debugger;
+        this.workflowID=this.selectedWorkflow.flowId;
+        this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_result => {
+            //debugger;
+            this.ticketsOfWorkflowList = _result.data;
         });
     }
 
@@ -376,7 +382,10 @@ export class HDURSDashboardComponent implements OnInit {
        * On init
        */
     ngOnInit(): void {
-   
+
+        this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_response=>{
+            this.ticketsOfWorkflowList=_response.data;
+        })
        
 /*
         if(navigator.geolocation){
@@ -417,9 +426,9 @@ export class HDURSDashboardComponent implements OnInit {
                
             });
         }
-       */
+    */
 
-      this._dashBoardService.getWeeklyTickets().subscribe(_result=>{
+      this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
              this.weeklyTasks=_result.data;
              for (let index = 0; index < this.weeklyTasks.length; index++) {        
                this.weekelytaskDate= this.weeklyTasks[index].date;    
@@ -440,7 +449,8 @@ export class HDURSDashboardComponent implements OnInit {
       })
 
           
-         this._dashBoardService.getTicketsCounts().subscribe(_result=>{
+         this._dashBoardService.getTicketsCounts(this.projectId,this.userEmail).subscribe(_result=>{
+             console.log('Project is  : '+this.projectId);
              this.countOfTickets=_result.data;
 
              for (let index = 0; index < this.countOfTickets.length; index++) {
@@ -468,7 +478,7 @@ export class HDURSDashboardComponent implements OnInit {
           });
 
 
-          this._dashBoardService.getCategorizationList().subscribe(_result => {
+          this._dashBoardService.getCategorizationList(this.userEmail).subscribe(_result => {
               this.categoryData = _result.data;
               this.selectedCategory = { key: "status", value: this.categoryData.status };
               console.log(this.selectedCategory);

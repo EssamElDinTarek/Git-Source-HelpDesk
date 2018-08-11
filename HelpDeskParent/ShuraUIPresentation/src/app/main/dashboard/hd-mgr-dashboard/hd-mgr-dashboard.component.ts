@@ -9,6 +9,8 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { ProjectDashboardService } from '../../../welcome/project.service';
 import { DashBoardService } from '../dashboard.services';
 import { Project } from '../../../models/project';
+import { SharedDataService } from '../../../services/shared-data.service';
+import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
 
 
 @Component({
@@ -22,6 +24,8 @@ export class HDMGRDashboardComponent implements OnInit {
     projects: any[];
    // selectedProject: any;
 
+   projectId: number = this._shareData.selectedProject.projectId;
+
     widgets: any;
     widget5: any = {};
     widget6: any = {};
@@ -29,6 +33,10 @@ export class HDMGRDashboardComponent implements OnInit {
     widget8: any = {};
     widget9: any = {};
     widget11: any = {};
+
+    usersPerProject:any=[];
+    dataSourceArray1 =  new MatTableDataSource();
+
 
     projectList: Project[];
     projectDetailstList: any[];
@@ -43,6 +51,7 @@ export class HDMGRDashboardComponent implements OnInit {
     dateNow = Date.now();
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _mgrDashBoard: DashBoardService,
+        private _shareData:SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
 
         /**
@@ -154,13 +163,19 @@ export class HDMGRDashboardComponent implements OnInit {
         this.projects = this._projectDashboardService.mgrProjects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.mgrWidget;
+
+        this._mgrDashBoard.getTeamsPerProject(this.projectId).subscribe(_response=>{
+            console.log('Project is : '+this.projectId);
+            this.teamPerProject=_response.data;
+        })
  
         this.widget11.onContactsChanged = new BehaviorSubject({});
         this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
-        this.widget11.dataSource = new FilesDataSource(this.widget11);
+        this.widget11.dataSource = new FilesDataSource(this.usersPerProject);
 
-        this._mgrDashBoard.getTeamsPerProject().subscribe(_response=>{
-            this.teamPerProject=_response.data;
+        this._mgrDashBoard.getTeamsPerProject(this.projectId).subscribe(_response=>{
+            console.log('Project is : '+this.projectId);
+            this.dataSourceArray1=_response.data;
         })
 
         this._mgrDashBoard.getProjectChart().subscribe(_response => {
