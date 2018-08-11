@@ -146,7 +146,8 @@ export class LoginComponent implements OnInit, OnDestroy
         this.authParam.grant_type = 'password';
         this.loginService.authorize(this.authParam)
             .subscribe(authList => {
-               this.login();
+                debugger;
+              // this.login();
             },
             error => this.errorMessage = <any>error);
     }
