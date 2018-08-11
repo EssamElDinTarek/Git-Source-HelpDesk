@@ -59,11 +59,26 @@ export class TicketFormModuleComponent implements OnInit{
     stepForwardDialogOkLabel: string = "Ok";
     stepForwardDialogCancelLabel: string = "Cancel";
     stepForwardConfirmed: boolean = false;
-
+    monthName:string[] = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
     updatedTicketId: number=0;
     ticket: Ticket = new Ticket(this.ticket);
 
     ngOnInit(): void {
+
+        this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
+            for (let index = 0; index < _ticketPriority.data.length; index++) {
+                this.ticketPeriorityList.push(_ticketPriority.data[index]);
+            }
+        },_error=>{
+            console.log(_error);
+        });
+        this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
+            for (let index = 0; index < _ticketSeverity.data.length; index++) {
+                this.ticketSeverityList.push(_ticketSeverity.data[index]);
+            }
+        },_error=>{
+            console.log(_error);
+        });
 
         // --------------- query params for update page ------------------
         console.log('this.route : '+ JSON.stringify(this.route.params) );
@@ -77,27 +92,37 @@ export class TicketFormModuleComponent implements OnInit{
             // update
         
             this._ticketService.getTicketToUpdate(""+this.updatedTicketId).subscribe(_ticket => {
-    
                 this.ticket = _ticket.data;
                 this.contactForm = this.createContactForm();
+               
+        console.log("this.ticket.creationdate : " + this.ticket.creationdate);
+        console.log("creationdate : "+this.formatDate(this.ticket.creationdate));
             });
         }
         console.log('Before calling getTicketHistoryByID service...!');
 
         this._ticketService.getTicketHistoryByID(this.updatedTicketId).subscribe((response: any) => {
-                this.ticketHistory = response.data;
-                console.log("inside service calling")
-            });
+            this.ticketHistory = response.data;
+            for (let index = 0; index < this.ticketHistory.length; index++) {
+                const element = this.ticketHistory[index];
+                //this.ticketHistoryModified
+            }
+            console.log("inside service calling")
+        });
 
-        console.log('After getTicketHistoryByID calling service...!');
+        
         
     }
 
-
+    formatDate(dateLong):string {
+        var date = new Date(dateLong);
+        return date.getUTCDate() +" "+ this.monthName[date.getMonth()] +" "+ 
+            date.getUTCFullYear()+"  -  "+date.getHours()+":"+date.getMinutes();
+    }
 
 
     ticketHistory: TicketHistory[];
-
+    ticketHistoryModified:any[]=[];
 
 
     verticalStepperStep1: FormGroup;
@@ -111,11 +136,17 @@ export class TicketFormModuleComponent implements OnInit{
 
     action: string;
     contact: Contact;
-    contactForm: FormGroup;
+    contactForm: FormGroup= new FormGroup({
+        ticketId:new FormControl(),
+        title:new FormControl(),
+        creationdate:new FormControl(),
+        description:new FormControl(),
+        ticketNO:new FormControl()
+    });
     dialogTitle: string;
     // _ticketService : TicketService;
-    ticketSeverityList: TicketSeverity[];
-    ticketPeriorityList: TicketPriority[];
+    ticketSeverityList: TicketSeverity[]=[];
+    ticketPeriorityList: TicketPriority[]=[];
     ticketStatusList: String[] = ["open", "close", "pending"];
 
     addedStepBackComment: TicketComment;
@@ -147,11 +178,12 @@ export class TicketFormModuleComponent implements OnInit{
         return this._formBuilder.group({
             ticketId: [this.updatedTicketId],
             title: [this.ticket.title],
-            creationdate: [this.ticket.creationdate],
+            creationdate: this.formatDate(this.ticket.creationdate),
             description: [this.ticket.description],
             status: [this.ticket.status],
-            ticketnumber: [this.ticket.ticketNO],
-            ticketSeverity: [this.ticket.ticketSeverity]
+            ticketNO: [this.ticket.ticketnumber],
+            ticketSeverity: [this.ticket.ticketSeverity],
+            ticketPriority: [this.ticket.ticketPriority]
         });
     }
 
@@ -263,17 +295,7 @@ export class TicketFormModuleComponent implements OnInit{
      */
     OnInit() {
 
-        this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            for (let index = 0; index < _ticketPriority.data.length; index++) {
-                this.ticketPeriorityList.push(_ticketPriority.data[index]);
-            }
-        });
-        this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            for (let index = 0; index < _ticketSeverity.data.length; index++) {
-                this.ticketSeverityList.push(_ticketSeverity.data[index]);
-            }
-        });
-
+       
     }
 
     submitTicket(): void {
