@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
+import javax.print.attribute.standard.Severity;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sbm.helpdesk.common.constant.IntegrationServicesConstant;
 import com.sbm.helpdesk.common.exceptions.enums.ExceptionEnums.ExceptionEnums;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
 import com.sbm.helpdesk.common.exceptions.types.RespositoryException;
@@ -21,6 +21,7 @@ import com.sbm.helpdesk.service.*;
 import com.sbm.helpdesk.persistence.dao.*;
 import com.sbm.helpdesk.persistence.entity.*;
 import com.sbm.helpdesk.common.dto.*;
+import com.sbm.helpdesk.common.mailer.*;
 import com.sbm.helpdesk.common.enums.servicesEnums.ServicesEnums;
 
 @Service
@@ -41,8 +42,6 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 	@Autowired
 	private TicketPriorityDao priorityDao;
 	
-	@Autowired
-	private AttachmentDao attachmentDao;
 	
 	@Autowired
 	private StepDao stepDao;
@@ -79,21 +78,36 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			Timestamp ts = new Timestamp(date.getTime());
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String ticketNumber = "Tic_" + sdf.format(ts) + String.format("%03d", new Random().nextInt(1000));
+			Hduser hduser = userDao.findByEmail(ticket.getHduser().getEmailAddress());
+			Step step = stepDao.findById(1L);
+			Status status = statusDao.findById(1L);
+			Project project = projectDao.findById(ticket.getProject().getProjectId());
+			TicketSeverity severity = severityDao.findById(ticket.getTicketSeverity().getSeverityId());
+			TicketPriority priority = priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId());
+			Workflow workflow = workflowDao.findById(ticket.getWorkflow().getFlowId());
+			if(hduser == null || step == null || status == null || project == null || severity == null ||  priority == null ||  workflow == null  ) {
+				throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+			}
 			ticket.setTicketnumber(ticketNumber);
-			ticket.setStatus(statusDao.findById(1L));
-			ticket.setStep(stepDao.findById(1L));
-			ticket.setProject(projectDao.findById(ticket.getProject().getProjectId()));
-			ticket.setTicketSeverity(severityDao.findById(ticket.getTicketSeverity().getSeverityId()));
-			ticket.setTicketPriority(priorityDao.findById(ticket.getTicketPriority().getPrioprtiyId()));
-			ticket.setWorkflow(workflowDao.findById(ticket.getWorkflow().getFlowId()));
+			ticket.setStatus(status);
+			ticket.setStep(step);
+			ticket.setHduser(hduser);
+			ticket.setProject(project);
+			ticket.setTicketSeverity(severity);
+			ticket.setTicketPriority(priority);
+			ticket.setWorkflow(workflow);
 			ticket = ticketDao.persist(ticket);
+			ticket.setCreationdate(new Date());
 			attachmentService.saveAttachment(null, files, ticket);
 			result = stepTicketForward(ticket.getTicketId());
 //			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		} catch (Exception e1) {
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}catch (Exception e1) {
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
@@ -114,13 +128,17 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setStatus(statusDao.findById(ticket.getStatus().getStatusId()));
 			ticket.setHduser(userDao.findById(ticket.getHduser().getUserId()));
 			ticket.setStep(stepDao.findById(ticket.getStep().getStepId()));
+			ticket.setUpdateDate(new Date());
 			result = ticketDao.update(ticket);
 			createInformationalDetailsHistory(oldTicket, ticket);
 		
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
-		} catch (Exception e1) {
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}catch (Exception e1) {
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
@@ -137,9 +155,12 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket = convertToEntity(ticket, ticketdto);
 			ticket = updateTicket(ticket);
 			result = convertToDTO(ticket, ticketdto);
-			String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
+			//String folderPath = IntegrationServicesConstant.ATTACHMENT_PATH+ticket.getTicketnumber()+"_attachment/";
 			attachmentService.saveAttachment(null, files, ticket);
-		} catch (Exception e1) {
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}catch (Exception e1) {
 			e1.printStackTrace();
 			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
 		}
@@ -216,7 +237,71 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		}
 		return result;
 	}
-
+	@Override
+	@Transactional
+	public List<TicketDTO> getByWorkflowIDAndUserName(long workflowId, String userEmail) throws BusinessException {
+		List<TicketDTO> result;
+		try {
+			List<Ticket> ticketList = ticketDao.getByWorkflowIDAndUserName(workflowId, userEmail);
+			result = ticketList.stream().map(item -> convertToDTO(item, new TicketDTO())).collect(Collectors.toList());
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	
+	@Override
+	@Transactional
+	public MainTicketChartDTO getSeverityPriorityStatusByUserName(String userEmail) throws BusinessException {
+		MainTicketChartDTO result;
+		try {
+			result = ticketDao.getSeverityPriorityStatusByUserName(userEmail);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	@Override
+	@Transactional
+	public List<WidgetDTO> getDashBoardCountByProjectIDAndUserName(Long projectId, String userEmail) throws BusinessException {
+		List<WidgetDTO> result;
+		try {
+			result =  ticketDao.getDashBoardCountByProjectIDAndUserName(projectId, userEmail);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
+	@Override
+	@Transactional
+	public List<WidgetDTO> getWeekChartStatusesNumber(Long projectId) throws BusinessException {
+		List<WidgetDTO> result;
+		try {
+			result =  ticketDao.getWeekChartStatusesNumber(projectId);
+			
+		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw new BusinessException(ExceptionEnums.BUSINESS_ERROR);
+		}
+		return result;
+	}
 	@Override
 	@Transactional
 	public String deleteTicket(Long id) throws BusinessException {
@@ -252,25 +337,7 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 		return result;
 	}
 	
-	/*@Transactional
-	public Ticket changeStepAndStatus(Ticket ticket) throws RespositoryException, BusinessException{
-		Iterator workflowstepsit = ticket.getWorkflow().getWorkflowSteps().iterator();
-		Step step = null;
-		//BigDecimal x =new BigDecimal(2);
-		while (workflowstepsit.hasNext()) {
-			WorkflowStep workflowstep = (WorkflowStep) workflowstepsit.next();
-			//BigDecimal y = workflowstep.getStepOrder() ;
-			if (workflowstep.getStepOrder().intValue() == 2) {
-				step = workflowstep.getStep();
-				break;
-			}
-
-		}
-		ticket.setStatus(statusDao.findById(2L));
-		ticket.setStep(stepDao.findById(step.getStepId()));
-		ticket = updateTicket(ticket);
-		return ticket;
-	}*/
+	
 	
 	@Override
 	@Transactional
@@ -305,9 +372,15 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket = ticketDao.update(ticket);
 			behavioralDetailsService.
         	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_FORWARD.getStringValue()));
+			List<String> to = new ArrayList<String>();
+			to.add(ticket.getHduser().getEmailAddress());
+			Mailer.send(to, "Ticket Move Forwared", "Ticket Move Forwared");
 			
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}catch (BusinessException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
 		} catch (Exception e1) {
@@ -351,9 +424,14 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket = ticketDao.update(ticket);
 	         behavioralDetailsService.
         	createBehavioralDetails(createBehavioralDetailsHistory(ticket,ServicesEnums.BEHAVIOR_VALUE_BACKWARD.getStringValue()));
-	         
+	         List<String> to = new ArrayList<String>();
+			 to.add(ticket.getHduser().getEmailAddress());
+	         Mailer.send(to, "Ticket Move Backword", "Ticket Move Backword");
 			result = convertToDTO(ticket, result);
 		} catch (RespositoryException e) {
+			e.printStackTrace();
+			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
+		}catch (BusinessException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);
 		} catch (Exception e1) {

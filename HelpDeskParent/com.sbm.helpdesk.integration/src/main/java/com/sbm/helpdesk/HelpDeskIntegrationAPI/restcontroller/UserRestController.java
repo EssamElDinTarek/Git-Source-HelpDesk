@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.sbm.helpdesk.service.facade.*;
 import com.sbm.helpdesk.service.UserService;
 import com.sbm.helpdesk.common.dto.*;
 import com.sbm.helpdesk.common.constant.IntegrationServicesConstant;
 import com.sbm.helpdesk.common.exceptions.types.BusinessException;
+import com.sbm.helpdesk.common.exceptions.types.ControllerException;
 
 @RestController
 @RequestMapping("/api")
@@ -28,6 +29,8 @@ public class UserRestController {
 	@Resource
 	private UserService service;
 	
+	@Resource
+	private UserServiceFacade facadeService;
 	
 	@Resource
 	private RestDTOProvider dtoProvider;
@@ -58,5 +61,15 @@ public class UserRestController {
 	public ResponseEntity<BaseDTO> getUserByEmail(@RequestParam(IntegrationServicesConstant.SERVICE_RETRIVAL_VALUE) String emailAddress) throws BusinessException {
 		
 		return dtoProvider.getObj((UserDTO) service.getUserByEmailAddress(emailAddress));
+	}
+	@RequestMapping(value = "/user/allbyprojectid", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllByProject(@RequestParam(IntegrationServicesConstant.PROJECT_ID) Long projectId) throws ControllerException {
+		return facadeService.findByProjectId(projectId) ;
+	}
+	@RequestMapping(value = "/user/allbyportfolioid", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseDTO getAllByPortfolio(@RequestParam(IntegrationServicesConstant.PORTFOLIO_ID) Long portfolioId) throws ControllerException {
+		return facadeService.findByPortfolioId(portfolioId) ;
 	}
 }

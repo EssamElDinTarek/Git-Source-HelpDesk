@@ -3,6 +3,7 @@ import {TicketPriority} from './ticket-priority';
 import {Workflow} from './workflow';
 import { Project } from './Project';
 import { Status } from './status';
+import { User } from './user';
 
 export class Ticket {
 	ticketId:number;
@@ -14,5 +15,8 @@ export class Ticket {
 	workflow: Workflow;
 	ticketNO : string;
 	project: Project;
+	creationdate: string;
+	hduser:User = new User();
+	
 	constructor(ticket){}
 }

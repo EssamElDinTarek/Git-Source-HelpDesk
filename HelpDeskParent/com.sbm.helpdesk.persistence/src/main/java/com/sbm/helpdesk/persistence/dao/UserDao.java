@@ -7,12 +7,11 @@ import com.sbm.helpdesk.persistence.entity.*;
 
 public interface UserDao extends GenericDao<Hduser> {
 
-	Hduser add(Hduser user) throws RespositoryException;
-
-	List<Hduser> listUsers() throws RespositoryException;
-	
-	Hduser login(String email, String password) throws RespositoryException;
-	
-	Hduser findByEmail(String email) throws RespositoryException;
+	public Hduser add(Hduser user) throws RespositoryException;
+	public List<Hduser> listUsers() throws RespositoryException;
+	public Hduser login(String email, String password) throws RespositoryException;
+	public Hduser findByEmail(String email) throws RespositoryException;
+	public List<Hduser> findByProjectId(Long projectId) throws RespositoryException;
+	public List<Hduser> findByPortfolioId(Long portfolioId) throws RespositoryException;
 
 }

@@ -60,6 +60,7 @@ export class TicketCommentComponent implements OnInit {
 
   addComment(comment : TicketComment){
     //var newComment : TicketComment;
+    comment.hduser = this._shareData.user;
     this.commentService.addTicketComment(comment).subscribe(_ticket => {
       alert('comment added successfully');
       this.commentsResponse.data[this.commentsResponse.data.length] = comment;

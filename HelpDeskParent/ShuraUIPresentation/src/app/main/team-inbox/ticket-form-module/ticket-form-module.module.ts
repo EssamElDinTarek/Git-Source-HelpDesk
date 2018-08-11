@@ -6,6 +6,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { CdkTableModule } from '@angular/cdk/table';
 import { TicketAttachementsModule } from '../../attachment/ticket-attachements/ticket-attachements.module';
 import { TicketCommentModule } from '../../ticket-comment/ticket-comment.module';
+//import {MatDialogModule,MatDialogRef} from '@angular/material/dialog';
 
 import {
 
@@ -34,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
-    path: 'teaminbox/:id',
+    path: 'teaminbox/:ticketId',
     component: TicketFormModuleComponent
   }
 ];
@@ -87,7 +88,7 @@ const routes: Routes = [
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
-]
+  ]
 
 })
 export class TicketFormModuleModule { }

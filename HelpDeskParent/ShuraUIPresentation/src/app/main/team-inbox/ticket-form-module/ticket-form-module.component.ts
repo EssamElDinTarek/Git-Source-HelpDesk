@@ -1,5 +1,5 @@
 import { Component, Inject, ViewEncapsulation, OnDestroy, OnInit, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -17,7 +17,8 @@ import { DialogOverviewExampleDialog } from '../../dialog-overview/dialog-overvi
 import { TicketCommentService } from '../../../services/ticket-comment.service';
 import { TicketComment } from '../../../model/TicketComment';
 import { SharedDataService } from '../../../services/shared-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Ticket } from '../../../models/ticket';
 
 
 
@@ -39,7 +40,9 @@ export class State {
 
 
 
-export class TicketFormModuleComponent {
+export class TicketFormModuleComponent implements OnInit{
+
+
 
     //step back dialoug
     stepBackComment: string;
@@ -56,6 +59,39 @@ export class TicketFormModuleComponent {
     stepForwardDialogOkLabel: string = "Ok";
     stepForwardDialogCancelLabel: string = "Cancel";
     stepForwardConfirmed: boolean = false;
+
+    updatedTicketId: number=0;
+    ticket: Ticket = new Ticket(this.ticket);
+
+    ngOnInit(): void {
+
+        // --------------- query params for update page ------------------
+        console.log('this.route : '+ JSON.stringify(this.route.params) );
+        this.route.params.subscribe(_params => {
+            this.updatedTicketId = _params['ticketId'];
+            console.log("params : "+_params);
+            console.log("updatedTicketId : " + this.updatedTicketId);
+        });
+
+        if (this.updatedTicketId != null && this.updatedTicketId > 0 && this.updatedTicketId != undefined) {
+            // update
+        
+            this._ticketService.getTicketToUpdate(""+this.updatedTicketId).subscribe(_ticket => {
+    
+                this.ticket = _ticket.data;
+                this.contactForm = this.createContactForm();
+            });
+        }
+        console.log('Before calling getTicketHistoryByID service...!');
+
+        this._ticketService.getTicketHistoryByID(this.updatedTicketId).subscribe((response: any) => {
+                this.ticketHistory = response.data;
+                console.log("inside service calling")
+            });
+
+        console.log('After getTicketHistoryByID calling service...!');
+        
+    }
 
 
 
@@ -109,16 +145,14 @@ export class TicketFormModuleComponent {
      */
     createContactForm(): FormGroup {
         return this._formBuilder.group({
-
-            ticketId: [this.contact.ticketId],
-            title: [this.contact.title],
-            creationdate: [this.contact.creationdate],
-            description: [this.contact.description],
-            status: [this.contact.status],
-            ticketnumber: [this.contact.ticketnumber],
-            ticketSeverity: [this.contact.severityList]
+            ticketId: [this.updatedTicketId],
+            title: [this.ticket.title],
+            creationdate: [this.ticket.creationdate],
+            description: [this.ticket.description],
+            status: [this.ticket.status],
+            ticketnumber: [this.ticket.ticketNO],
+            ticketSeverity: [this.ticket.ticketSeverity]
         });
-
     }
 
 
@@ -130,11 +164,11 @@ export class TicketFormModuleComponent {
      * @param {FormBuilder} _formBuilder
      */
     constructor(private httpService: HttpClient, private _ticketService: TicketService,
-        public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
+        //public matDialogRef: MatDialogRef<TicketFormModuleComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
-        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService,private router: Router) {
+        private _formBuilder: FormBuilder, public dialog: MatDialog, public ticketCommentService: TicketCommentService, public sharedService: SharedDataService,private router: Router,private route: ActivatedRoute) {
 
-        this.action = _data.action;
+         this.action = _data.action;
 
         if (this.action === 'edit') {
             this.dialogTitle = 'Edit Ticket';
@@ -144,27 +178,16 @@ export class TicketFormModuleComponent {
             this.dialogTitle = 'New Ticket';
             this.contact = new Contact({});
         }
-
-        this.contactForm = this.createContactForm();
-        console.log('Before calling service...!');
-
-        this._ticketService.getTicketHistoryByID('13852').subscribe((response: any) => {
-                this.ticketHistory = response.data;
-                console.log("inside service calling")
-            });
-
-        console.log('After calling service...!');
-
     }
     // Reactive form errors
 
     stepTickBack(): void {
-        this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
+        this._ticketService.stepTicketBackward(this.updatedTicketId).subscribe();
         this.router.navigate(['/teaminbox']);
     }
 
     stepTickForward(): void {
-        this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
+        this._ticketService.stepTicketForward(this.updatedTicketId).subscribe();
         this.router.navigate(['/teaminbox']);
     }
 
@@ -188,7 +211,7 @@ export class TicketFormModuleComponent {
                     this.addedStepBackComment = new TicketComment();
                     this.addedStepBackComment.commentValue = this.sharedService.user.firstName+" returned the ticket to previous step with comment :- \n"+result.confirmationComment;
                     this.addedStepBackComment.hduser = this.sharedService.user;
-                    this.addedStepBackComment.ticketId = +this.contact.ticketId;
+                    this.addedStepBackComment.ticketId = this.updatedTicketId;
                     this.ticketCommentService.addTicketComment(this.addedStepBackComment);
                     this.stepTickBack();
 
@@ -219,10 +242,9 @@ export class TicketFormModuleComponent {
                     this.addedStepForwardComment = new TicketComment();
                     this.addedStepForwardComment.commentValue = this.sharedService.user.firstName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
                     this.addedStepForwardComment.hduser = this.sharedService.user;
-                    this.contact.ticketId = 5053;
-                    this.addedStepForwardComment.ticketId = this.contact.ticketId;
+                    this.addedStepForwardComment.ticketId = this.updatedTicketId;
                     this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
-                    this.stepTickBack();
+                    this.stepTickForward();
 
                 }
             }

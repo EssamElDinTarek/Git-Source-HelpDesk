@@ -20,8 +20,8 @@ import { IconsFakeDb } from 'app/fake-db/icons';
 import { QuickPanelFakeDb } from 'app/fake-db/quick-panel';
 import { AdminDashboardDb } from 'app/fake-db/dashboard-admin';
 import { ManagerDashboardDb } from 'app/fake-db/dashboard-mgr';
-import { TicketHistoryFakeDb } from './ticket01_Data';
-import { TicketssFakeDb } from './tickets';
+/* import { TicketHistoryFakeDb } from './ticket01_Data';
+ */import { TicketssFakeDb } from './tickets';
 
 export class FakeDbService implements InMemoryDbService
 {
@@ -41,7 +41,7 @@ export class FakeDbService implements InMemoryDbService
               'mgr-dashboard-projects' : ManagerDashboardDb.projects,
               'mgr-dashboard-widgets'  : ManagerDashboardDb.widgets,
 
-              'Ticket-History':TicketHistoryFakeDb.data,
+             // 'Ticket-History':TicketHistoryFakeDb.data,
 
 
             // Calendar
