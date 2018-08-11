@@ -62,7 +62,8 @@ export class TicketFormModuleComponent implements OnInit{
     monthName:string[] = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
     updatedTicketId: number=0;
     ticket: Ticket = new Ticket(this.ticket);
-
+    editTitle:boolean = false;
+    editDescription:boolean = false;
     ngOnInit(): void {
 
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
@@ -91,13 +92,13 @@ export class TicketFormModuleComponent implements OnInit{
         if (this.updatedTicketId != null && this.updatedTicketId > 0 && this.updatedTicketId != undefined) {
             // update
         
-            this._ticketService.getTicketToUpdate(""+this.updatedTicketId).subscribe(_ticket => {
+            /* this._ticketService.getTicketToUpdate(""+this.updatedTicketId).subscribe(_ticket => {
                 this.ticket = _ticket.data;
                 this.contactForm = this.createContactForm();
-               
-        console.log("this.ticket.creationdate : " + this.ticket.creationdate);
-        console.log("creationdate : "+this.formatDate(this.ticket.creationdate));
-            });
+                console.log("this.ticket.creationdate : " + this.ticket.creationdate);
+                console.log("creationdate : "+this.formatDate(this.ticket.creationdate));
+            }); */
+            this.getTicketToUpdate();
         }
         console.log('Before calling getTicketHistoryByID service...!');
 
@@ -113,7 +114,16 @@ export class TicketFormModuleComponent implements OnInit{
         
         
     }
-
+    getTicketToUpdate():Promise<Ticket>{
+        return new Promise((resolve, reject) => {
+            this._ticketService.getTicketToUpdate(""+this.updatedTicketId).subscribe(_ticket => {
+                this.ticket = _ticket.data;
+                this.contactForm = this.createContactForm();
+                console.log("this.ticket.creationdate : " + this.ticket.creationdate);
+                console.log("creationdate : "+this.formatDate(this.ticket.creationdate));
+            });
+        });
+    }
     formatDate(dateLong):string {
         var date = new Date(dateLong);
         return date.getUTCDate() +" "+ this.monthName[date.getMonth()] +" "+ 
@@ -177,18 +187,59 @@ export class TicketFormModuleComponent implements OnInit{
     createContactForm(): FormGroup {
         return this._formBuilder.group({
             ticketId: [this.updatedTicketId],
-            title: [this.ticket.title],
-            creationdate: this.formatDate(this.ticket.creationdate),
-            description: [this.ticket.description],
+            title: [{value:this.ticket.title, disabled: true}],
+            creationdate: [{value:this.formatDate(this.ticket.creationdate), disabled: true}],
+            description: [{value:this.ticket.description, disabled: true}],
             status: [this.ticket.status],
-            ticketNO: [this.ticket.ticketnumber],
+            ticketNO: [{value:this.ticket.ticketnumber, disabled: true}],
             ticketSeverity: [this.ticket.ticketSeverity],
             ticketPriority: [this.ticket.ticketPriority]
         });
     }
+titleTempValue:string;
+descriptionTempValue:string;
 
-
-
+toggleEditControls(control):void{
+    if(control ==='title'){
+        this.editTitle = !this.editTitle;       
+        if(this.editTitle){ // for edit
+            this.titleTempValue = this.contactForm.controls.title.value;
+            this.contactForm.controls.title.enable();
+        }else{ // for closing
+            this.contactForm.controls.title.setValue(this.ticket.title);
+            this.contactForm.controls.title.disable();
+        }
+    }else if(control ==='description'){
+        this.editDescription = !this.editDescription;
+        if(this.editDescription){ //for Edit
+            this.descriptionTempValue = this.contactForm.controls.description.value;
+            this.contactForm.controls.description.enable();
+        } else{ //for closing
+            this.contactForm.controls.description.setValue(this.ticket.description);
+            this.contactForm.controls.description.disable();
+        }
+    }
+}
+editTicket(control){
+    console.log("edit Ticket : " + this.sharedService.user.userId);
+    console.log("this.ticket : " + this.ticket);
+    this.ticket.hduser.userId = this.sharedService.user.userId;
+    console.log("this.contactForm.controls.title.value : " + this.contactForm.controls.title.value);
+    console.log("this.contactForm.controls.description.value : " + this.contactForm.controls.description.value);
+    this.ticket.title = this.contactForm.controls.title.value;
+    this.ticket.description = this.contactForm.controls.description.value;
+    this.formData.append('ticket', JSON.stringify(this.ticket));
+    this._ticketService.editTicket(this.formData).subscribe(_data=>{
+    alert("Updated Successfully");
+    document.location.reload();
+    //this.editTitle = false;
+    //this.editDescription = false;
+    //this.titleTempValue = "";
+    //this.descriptionTempValue= "";
+    },_error=>{
+        alert("Sorry Service not available");
+    });
+}
 
     /**
      * Constructor

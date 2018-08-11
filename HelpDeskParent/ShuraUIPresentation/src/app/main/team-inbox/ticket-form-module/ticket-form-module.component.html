@@ -43,18 +43,26 @@
                         </mat-form-field>
                         <mat-form-field class="w-50-p">
                                 <input name="creationdate" formControlName="creationdate" matInput placeholder="Created On" [disabled]='true'>
-                                
                             </mat-form-field>
         
                         <mat-form-field class="w-100-p">
                             <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
-                            <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-        
+                            <a *ngIf="!editTitle" href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
+                            <div *ngIf="editTitle">
+                                    <a href="javascript:void(0);" (click)="editTicket('title')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
+                                    <a href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
+                            </div>
+                            
                         </mat-form-field>
 
                         <mat-form-field class="w-100-p">
                                 <textarea name="description" formControlName="description" matInput placeholder="Description" required></textarea>
-                                <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
+                                <a *ngIf="!editDescription" href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
+                                <div *ngIf="editDescription">
+                                        <a href="javascript:void(0);" (click)="editTicket('description')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
+                                        <a href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
+                                </div>
+                                
                         </mat-form-field>
                         <!-- <mat-form-field class="w-50-p">
                                 <mat-select placeholder="Priority" formControlName="ticketPriority" required>
