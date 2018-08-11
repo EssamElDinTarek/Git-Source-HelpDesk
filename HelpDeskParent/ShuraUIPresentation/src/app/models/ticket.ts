@@ -13,7 +13,7 @@ export class Ticket {
 	ticketPriority: TicketPriority;
 	ticketSeverity: TicketSeverity;
 	workflow: Workflow;
-	ticketNO : string;
+	ticketnumber : string;
 	project: Project;
 	creationdate: string;
 	hduser:User = new User();

@@ -485,7 +485,6 @@ export class TicketService //implements Resolve<any>
                 .pipe(
                     catchError(this.handleError('getTicketHistoryByID'))
                 );
-                
         }
     /**
      * Handle Http operation that failed.
