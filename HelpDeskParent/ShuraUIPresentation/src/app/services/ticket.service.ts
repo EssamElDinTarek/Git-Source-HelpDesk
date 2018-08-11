@@ -463,15 +463,27 @@ export class TicketService //implements Resolve<any>
         }
 
 
-        getUsersByProjectID(projectID:Number):Observable<any>{
+        getUsersByProjectID():Observable<any>{
             console.log('Start Calling getCategorizationList service...!');
             const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/allbyprojectid';
-            const requestUrl = `${href}?PROJECT_ID=`+projectID;
+            const requestUrl = `${href}?PROJECT_ID=1`;
             console.log('End Calling getCategorizationList');
     
             return this._httpClient.get<any>(requestUrl, { headers: this.headers })
                 .pipe(
                     catchError(this.handleError('getCategorizationList'))
+                );
+                
+        }
+
+        getTicketHistoryByID(ticketID):Observable<any>{
+            console.log('Start Calling getTicketHistoryByID service...!');
+            const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/history?TICKET_ID='+ticketID;
+            console.log('End Calling getTicketHistoryByID');
+    
+            return this._httpClient.get<any>(href, { headers: this.headers })
+                .pipe(
+                    catchError(this.handleError('getTicketHistoryByID'))
                 );
                 
         }

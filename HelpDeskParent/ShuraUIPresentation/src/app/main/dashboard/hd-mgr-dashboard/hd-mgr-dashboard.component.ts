@@ -183,12 +183,12 @@ export class HDMGRDashboardComponent implements OnInit {
             console.log(this.projectChart);
         });
 
-        this._mgrDashBoard.getProjectDetailsByPortofolioID().subscribe(_response => {
+        this._mgrDashBoard.getProjectDetailsByPortofolioID(0).subscribe(_response => {
             this.projectDetailstList = _response.data;
             console.log(this.projectDetailstList);
         });
 
-        this._mgrDashBoard.getProjectsByPortofolioID().subscribe(_response=>{
+        this._mgrDashBoard.getProjectsByPortofolioID(0).subscribe(_response=>{
             this.projectList=_response.data;
             console.log(this.projectList);
 
