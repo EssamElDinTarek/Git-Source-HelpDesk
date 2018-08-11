@@ -148,11 +148,11 @@ export class TicketFormModuleComponent {
         this.contactForm = this.createContactForm();
         console.log('Before calling service...!');
 
-        this.httpService.get('api/Ticket-History')
-            .subscribe((response: any) => {
-
-                this.ticketHistory = response;
+        this._ticketService.getTicketHistoryByID('13852').subscribe((response: any) => {
+                this.ticketHistory = response.data;
+                console.log("inside service calling")
             });
+
         console.log('After calling service...!');
 
     }

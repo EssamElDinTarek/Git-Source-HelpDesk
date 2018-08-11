@@ -419,6 +419,18 @@ export class TicketService //implements Resolve<any>
             );
     }
 
+
+        getTicketHistoryByID(ticketID):Observable<any>{
+            console.log('Start Calling getTicketHistoryByID service...!');
+            const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/history?TICKET_ID='+ticketID;
+            console.log('End Calling getTicketHistoryByID');
+    
+            return this._httpClient.get<any>(href, { headers: this.headers })
+                .pipe(
+                    catchError(this.handleError('getTicketHistoryByID'))
+                );
+                
+        }
     /**
      * Handle Http operation that failed.
      * Let the app continue.
