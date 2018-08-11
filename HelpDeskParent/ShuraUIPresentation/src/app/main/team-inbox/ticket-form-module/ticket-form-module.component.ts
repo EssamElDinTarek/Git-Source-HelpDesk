@@ -62,7 +62,8 @@ export class TicketFormModuleComponent implements OnInit{
     monthName:string[] = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
     updatedTicketId: number=0;
     ticket: Ticket = new Ticket(this.ticket);
-
+    editTitle:boolean = false;
+    editDescription:boolean = false;
     ngOnInit(): void {
 
         this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
@@ -178,16 +179,18 @@ export class TicketFormModuleComponent implements OnInit{
         return this._formBuilder.group({
             ticketId: [this.updatedTicketId],
             title: [this.ticket.title],
-            creationdate: this.formatDate(this.ticket.creationdate),
+            creationdate: [{value:this.formatDate(this.ticket.creationdate), disabled: true}],
             description: [this.ticket.description],
             status: [this.ticket.status],
-            ticketNO: [this.ticket.ticketnumber],
+            ticketNO: [{value:this.ticket.ticketnumber, disabled: true}],
             ticketSeverity: [this.ticket.ticketSeverity],
             ticketPriority: [this.ticket.ticketPriority]
         });
     }
 
-
+enableControl():void{
+    this.editTitle = true;
+}
 
 
     /**
