@@ -140,3 +140,15 @@ content{
 		overflow: auto;
 	}
 }
+
+#dashboard-project{
+	margin-right: -10px;
+	margin-left: -10px;
+	.mat-tab-label{
+		height: 75px;
+	}
+	.col{
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+}
