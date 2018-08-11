@@ -1,5 +1,5 @@
 <div id="dashboard-project" class="page-layout simple right-sidebar" fxLayout="row">
-    
+
     <div class="col">
     <!-- SIDEBAR -->
     <fuse-sidebar class="sidebar mat-white-bg mat-elevation-z8" name="project-dashboard-right-sidebar-1" position="right" lockedOpen="gt-md">
@@ -83,9 +83,7 @@
                         <div class="p-16 pb-32" fxLayout="column" fxLayoutAlign="center center">
 
                             <div fxLayout="row" fxLayoutAlign="center center">
-                                    <mat-icon fontSet="meteocons"
-                                              [fontIcon]="widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].icon"
-                                              class="icon s-40 secondary-text mr-16"></mat-icon>
+                                <mat-icon fontSet="meteocons" [fontIcon]="widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].icon" class="icon s-40 secondary-text mr-16"></mat-icon>
                                 <span class="mat-display-2 m-0 font-weight-300 secondary-text">
                                     {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].temp[widgets.weatherWidget.tempUnit]}}
                                 </span>
@@ -96,8 +94,7 @@
 
                         <div class="grey-300-bg p-16" fxLayout="row" fxLayoutAlign="space-between center">
                             <div fxLayout="row" fxLayoutAlign="start center">
-                                    <mat-icon fontSet="meteocons" fontIcon="icon-windy"
-                                              class="s-16 secondary-text mr-8"></mat-icon>
+                                <mat-icon fontSet="meteocons" fontIcon="icon-windy" class="s-16 secondary-text mr-8"></mat-icon>
                                 <span>
                                     {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].windSpeed[widgets.weatherWidget.speedUnit]}}
                                 </span>
@@ -105,16 +102,14 @@
                             </div>
 
                             <div fxLayout="row" fxLayoutAlign="start center">
-                                    <mat-icon fontSet="meteocons" fontIcon="icon-compass"
-                                              class="s-16 secondary-text mr-8"></mat-icon>
+                                <mat-icon fontSet="meteocons" fontIcon="icon-compass" class="s-16 secondary-text mr-8"></mat-icon>
                                 <span>
                                     {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].windDirection}}
                                 </span>
                             </div>
 
                             <div fxLayout="row" fxLayoutAlign="start center">
-                                    <mat-icon fontSet="meteocons" fontIcon="icon-rainy"
-                                              class="s-16 secondary-text mr-8"></mat-icon>
+                                <mat-icon fontSet="meteocons" fontIcon="icon-rainy" class="s-16 secondary-text mr-8"></mat-icon>
                                 <span>
                                     {{widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].rainProbability}}
                                 </span>
@@ -122,8 +117,7 @@
                         </div>
 
                         <div class="py-16">
-                                <div class="py-16 px-24" fxLayout="row" fxLayoutAlign="space-between center"
-                                     *ngFor="let day of widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].next3Days">
+                            <div class="py-16 px-24" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let day of widgets.weatherWidget.locations[widgets.weatherWidget.currentLocation].next3Days">
                                 <span class="h4">{{day.name}}</span>
                                 <div fxLayout="row" fxLayoutAlign="start center">
                                     <mat-icon fontSet="meteocons" [fontIcon]="day.icon" class="secondary-text mr-16"></mat-icon>
@@ -158,6 +152,34 @@
     <!-- CENTER -->
     <div class="center mat-white-bg mat-elevation-z8" fusePerfectScrollbar>
 
+            <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
+                
+                <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
+                  fxLayoutAlign="space-between center">
+                <div class="h3">{{selectedProject.name}}</div>
+
+
+                <mat-menu #projectsMenu="matMenu">
+                    <button mat-menu-item *ngFor="let project of projects" (click)="selectedProject = project">
+                        <span>{{project.name}}</span>
+                    </button>
+                </mat-menu>
+                <button mat-icon-button class="project-selector" [matMenuTriggerFor]="projectsMenu" aria-label="Select project">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
+
+<!--             <div fxLayout="row">
+
+            <div class="selected-project"></div>
+            <div class="h3"></div>
+            <button mat-icon-button class="project-selector" [matMenuTriggerFor]="projectsMenu" aria-label="Select project">
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+
+        </div>
+-->        
+        <!-- / HEADER -->
 
         <!-- CONTENT -->
         <div class="content">
@@ -169,12 +191,10 @@
                 <mat-tab label="Protflio Summary">
 
                     <!-- WIDGET GROUP -->
-                        <div class="widget-group grey-100-bg" fxLayout="row wrap" fxFlex="100" *fuseIfOnDom
-                             [@animateStagger]="{value:'50'}">
+                    <div class="widget-group grey-100-bg" fxLayout="row wrap" fxFlex="100" *fuseIfOnDom [@animateStagger]="{value:'50'}">
 
                         <!-- WIDGET 8 -->
-                            <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
-                                         fxFlex="100" fxFlex.gt-sm="50">
+                        <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
@@ -185,21 +205,15 @@
                                 <mat-divider></mat-divider>
 
                                 <div class="h-400">
-                                        <ngx-charts-pie-chart
-                                            *fuseIfOnDom
-                                            [scheme]="widget8.scheme"
-                                            [results]="widgets.widget8.mainChart"
-                                            [legend]="widget8.legend"
-                                            [explodeSlices]="widget8.explodeSlices"
-                                            [labels]="widget8.labels"
-                                            [doughnut]="widget8.doughnut"
-                                            [gradient]="widget8.gradient"
-                                            (select)="widget8.onSelect($event)">
-                                    </ngx-charts-pie-chart>
+                                    <!--
+                                    <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectList" [legend]="widget8.legend"
+                                        [explodeSlices]="widget8.explodeSlices" [labels]="widget8.labels" [doughnut]="widget8.doughnut"
+                                        [gradient]="widget8.gradient" >
+                                    </ngx-charts-pie-chart> -->
                                 </div>
-
                             </div>
                             <!-- / Front -->
+
 
                         </fuse-widget>
                         <!-- / WIDGET 8 -->
@@ -208,33 +222,27 @@
 
 
                         <!-- WIDGET 7 -->
- <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column"
- fxFlex="100" fxFlex.gt-sm="50">
+                        <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50">
 
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-<div class="px-16 py-8 border-bottom" fxLayout="row"
- fxLayoutAlign="space-between center">
+                                <div class="px-16 py-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
                                     <div class="h3">{{widgets.widget7.title}}</div>
                                     <mat-form-field>
-    <mat-select class="simplified" [(ngModel)]="widget7.currentRange"
-                aria-label="Change range">
-        <mat-option *ngFor="let range of widgets.widget7.ranges | keys"
-                    [value]="range.key">
-                                                {{range.value}}
-                                            </mat-option>
-                                        </mat-select>
+                                            <mat-select  [(ngModel)]="selectedProject"  (ngModelChange)="projectChanged()">
+                                                    <mat-option *ngFor="let project of projectList"  [value]="project">  
+                                               {{project.name}}
+                                           </mat-option>
+                                       </mat-select>
                                     </mat-form-field>
                                 </div>
 
-<div class="p-16" fxLayout="row" fxLayoutAlign="space-between center"
- *ngFor="let event of widgets.widget7.schedule[widget7.currentRange]">
+                                <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let ticket of ticketsOfProjectList">
                                     <div>
-                                        <div class="h3">{{event.title}}</div>
+                                        <div class="h3">{{ticket.title}}</div>
                                         <div>
-                                            <span class="secondary-text">{{event.time}}</span>
-                                            <span *ngIf="event.location">, {{event.location}}</span>
+                                            <span class="secondary-text">{{ticket.description}}</span>
                                         </div>
                                     </div>
 
@@ -253,8 +261,7 @@
 
 
                         <!-- WIDGET 10 -->
-                            <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row"
-                                         fxFlex="100">
+                        <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
 
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
@@ -275,13 +282,13 @@
                                         </thead>
 
                                         <tbody>
-                                                <tr *ngFor="let row of widgets.widget10.table.rows">
-                                                    <td *ngFor="let cell of row">
-                                                        <span class="p-4" [ngClass]="cell.classes">
-                                                            {{cell.value}}
+                                            <tr *ngFor="let row of widgets.widget10.table.rows">
+                                                <td *ngFor="let cell of row">
+                                                    <span class="p-4" [ngClass]="cell.classes">
+                                                        {{cell.value}}
                                                     </span>
-                                                        <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
-                                                        </mat-icon>
+                                                    <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
+                                                    </mat-icon>
 
                                                 </td>
                                             </tr>
@@ -304,22 +311,18 @@
                 <mat-tab label="Users">
 
                     <!-- WIDGET GROUP -->
-                            <div class="widget-group grey-100-bg" fxLayout="row wrap" fxFlex="100" *fuseIfOnDom
-                                 [@animateStagger]="{value:'50'}">
+                    <div class="widget-group grey-100-bg" fxLayout="row wrap" fxFlex="100" *fuseIfOnDom [@animateStagger]="{value:'50'}">
 
                         <!-- WIDGET 11 -->
-                                <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row"
-                                             fxFlex="100">
+                        <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
 
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-                                        <div class="p-24 mb-8 border-bottom" fxLayout="row"
-                                             fxLayoutAlign="space-between center">
+                                <div class="p-24 mb-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
                                     <div class="h2">{{widgets.widget11.title}}</div>
                                     <div class="text-boxed red-bg white-fg m-0">
-                                                {{widgets.widget11.table.rows.length}}
-                                                members
+                                        {{widgets.widget11.table.rows.length}} members
                                     </div>
                                 </div>
 
@@ -329,8 +332,7 @@
                                     <ng-container cdkColumnDef="avatar">
                                         <mat-header-cell fxFlex="96px" *cdkHeaderCellDef></mat-header-cell>
                                         <mat-cell fxFlex="96px" *cdkCellDef="let contact">
-                                                    <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
-                                                         [src]="contact.avatar"/>
+                                            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name" [src]="contact.avatar" />
                                         </mat-cell>
                                     </ng-container>
 
@@ -338,8 +340,8 @@
                                     <ng-container cdkColumnDef="name">
                                         <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
                                         <mat-cell *cdkCellDef="let contact">
-                                                    <p class="text-truncate font-weight-600">{{contact.name}}
-                                                        {{contact.lastName}}</p>
+                                            <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}
+                                            </p>
                                         </mat-cell>
                                     </ng-container>
 
@@ -377,8 +379,7 @@
                                         </mat-cell>
                                     </ng-container>
 
-                                            <mat-header-row
-                                                *cdkHeaderRowDef="widgets.widget11.table.columns"></mat-header-row>
+                                    <mat-header-row *cdkHeaderRowDef="widgets.widget11.table.columns"></mat-header-row>
                                     <mat-row *cdkRowDef="let contact; columns: widgets.widget11.table.columns;">
                                     </mat-row>
                                 </mat-table>
@@ -397,10 +398,7 @@
 
         </div>
         <!-- / CONTENT -->
-
+    </div>
     </div>
     <!-- / CENTER -->
     </div><!-- /.col -->
-
-    </div>
-    

@@ -34,6 +34,8 @@ import { TicketService } from '../services/ticket.service';
 
 
 export class TicketViewComponent implements OnInit, AfterViewInit {
+
+  noTickets:boolean = false;
   //child: DialogOverviewExampleDialog;
   deleteComment: string;
   deleteDialogName: string = "Delete";
@@ -110,6 +112,9 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
       this.tickets.data = this.allTickets.data;
       //this.tickets.data[0].creationdate == "";
       this.isLoadingResults = false;
+    }, _catchError =>{
+      this.isLoadingResults = false;
+      this.noTickets = true;
     });
 
 

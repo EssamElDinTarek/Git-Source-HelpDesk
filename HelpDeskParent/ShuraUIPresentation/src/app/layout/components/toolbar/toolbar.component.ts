@@ -14,6 +14,7 @@ import { Project } from '../../../models/Project';
 import { User } from '../../../models/user';
 import { SharedDataService } from '../../../services/shared-data.service';
 import { TicketService } from '../../../services/ticket.service';
+import { bootloader } from '../../../../../node_modules/@angularclass/hmr';
 
 @Component({
     selector   : 'toolbar',
@@ -144,15 +145,22 @@ export class ToolbarComponent implements OnInit, OnDestroy
         this.selectedLanguage = _.find(this.languages, {'id': this._translateService.currentLang});
         //this.selectedProject = this.user.projects[0];
         //this._sharedService.selectedProject =  this.selectedProject;
-        this._ticketservice.getUserDetails().subscribe(_user =>{
+        
+         this._ticketservice.getUserDetails('ahmed.farrag').subscribe(_user =>{
             this._sharedService.user = _user;
-            this.projects = _user.projects;
-            if(this.projects != null && this.projects.length > 0){
-                this._sharedService.selectedProject = this.projects[0];
+            this._sharedService.user.emailAddress = _user.email;
+            this._sharedService.projects = _user.projects;
+            
+            if(this._sharedService.projects != null && this._sharedService.projects.length > 0){
+                this._sharedService.selectedProject =  this._sharedService.projects[0];
+                this._sharedService.portfolio = _user.projects[0].portfolio
+               // this._sharedService.selectedProject = this.projects[0];
             this.selectedProject =  this._sharedService.selectedProject;
             }
-            
-        });
+            this._sharedService.showContent = true;
+        }); 
+
+        
         // if the service was not avaliable get the user info form the mockup data.
         if(this._sharedService.user ==null){
             this._sharedService.user = UserData;
