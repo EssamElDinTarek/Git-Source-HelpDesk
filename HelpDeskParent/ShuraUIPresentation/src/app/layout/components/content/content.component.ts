@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 @Component({
     selector     : 'content',
@@ -11,7 +12,7 @@ export class ContentComponent
     /**
      * Constructor
      */
-    constructor()
+    constructor(private _sharedService:SharedDataService)
     {
     }
 }

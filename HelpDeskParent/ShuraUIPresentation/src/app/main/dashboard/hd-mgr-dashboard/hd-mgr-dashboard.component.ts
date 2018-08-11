@@ -11,6 +11,7 @@ import { DashBoardService } from '../dashboard.services';
 import { Project } from '../../../models/project';
 import { SharedDataService } from '../../../services/shared-data.service';
 import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
+import { Ticket } from '../../../models/ticket';
 
 
 @Component({
@@ -22,9 +23,17 @@ import { MatTableDataSource } from '../../../../../node_modules/@angular/materia
 })
 export class HDMGRDashboardComponent implements OnInit {
     projects: any[];
-   // selectedProject: any;
+  // selectedProject: any;
 
-   projectId: number = this._shareData.selectedProject.projectId;
+   projectID: number = this._shareData.selectedProject.projectId;
+   userEmail: string = this._shareData.user.emailAddress;
+   portofolioID:Number=this._shareData.portfolio.portfolioId;
+
+
+   projectList: Project[];
+   selectedProject:Project;
+   ticketsOfProjectList: Ticket[];
+
 
     widgets: any;
     widget5: any = {};
@@ -38,7 +47,7 @@ export class HDMGRDashboardComponent implements OnInit {
     dataSourceArray1 =  new MatTableDataSource();
 
 
-    projectList: Project[];
+  //  projectList: Project[];
     projectDetailstList: any[];
 
     projectChart:any;
@@ -46,7 +55,7 @@ export class HDMGRDashboardComponent implements OnInit {
     teamPerProject:any;
 
     projectData:Project;
-    selectedProject:any;
+    //selectedProject:any;
 
     dateNow = Date.now();
     constructor(private _fuseSidebarService: FuseSidebarService,
@@ -156,43 +165,54 @@ export class HDMGRDashboardComponent implements OnInit {
         }, 1000);
 
     }
+
+
+    projectChanged(): void {
+        this.projectID=this.selectedProject.projectId;
+        this._mgrDashBoard.getTicketsByProjectID(this.projectID,this.userEmail).subscribe(_result => {
+            this.ticketsOfProjectList = _result.data;
+        });
+    }
     /**
          * On init
          */
     ngOnInit(): void {
+
         this.projects = this._projectDashboardService.mgrProjects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.mgrWidget;
 
-        this._mgrDashBoard.getTeamsPerProject(this.projectId).subscribe(_response=>{
-            console.log('Project is : '+this.projectId);
+        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response=>{
+            console.log('Project is : '+this.projectID);
             this.teamPerProject=_response.data;
-        })
+        });
  
-        this.widget11.onContactsChanged = new BehaviorSubject({});
-        this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
-        this.widget11.dataSource = new FilesDataSource(this.usersPerProject);
+       
 
-        this._mgrDashBoard.getTeamsPerProject(this.projectId).subscribe(_response=>{
-            console.log('Project is : '+this.projectId);
+        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response=>{
+            console.log('Project is : '+this.projectID);
             this.dataSourceArray1=_response.data;
-        })
+        });
 
         this._mgrDashBoard.getProjectChart().subscribe(_response => {
             this.projectChart = _response.data;
             console.log(this.projectChart);
         });
 
-        this._mgrDashBoard.getProjectDetailsByPortofolioID(0).subscribe(_response => {
+        this._mgrDashBoard.getProjectDetailsByPortofolioID(this.portofolioID).subscribe(_response => {
             this.projectDetailstList = _response.data;
             console.log(this.projectDetailstList);
         });
 
-        this._mgrDashBoard.getProjectsByPortofolioID(0).subscribe(_response=>{
+        this._mgrDashBoard.getProjectsByPortofolioID(this.portofolioID).subscribe(_response=>{
             this.projectList=_response.data;
             console.log(this.projectList);
 
-        })
+        });
+        
+        this.widget11.onContactsChanged = new BehaviorSubject({});
+        this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
+        this.widget11.dataSource = new FilesDataSource(this.usersPerProject);
 
     }
 
