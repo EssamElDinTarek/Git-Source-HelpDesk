@@ -434,7 +434,7 @@ export class HDURSDashboardComponent implements OnInit {
         }
     */
 
-    debugger;
+    // debugger;
     
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
