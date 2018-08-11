@@ -146,7 +146,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
         //this.selectedProject = this.user.projects[0];
         //this._sharedService.selectedProject =  this.selectedProject;
         
-         this._ticketservice.getUserDetails('ahmed.farrag').subscribe(_user =>{
+         /* this._ticketservice.getUserDetails('ahmed.farrag').subscribe(_user =>{
             this._sharedService.user = _user;
             this._sharedService.user.emailAddress = _user.email;
             this._sharedService.projects = _user.projects;
@@ -158,8 +158,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
             this.selectedProject =  this._sharedService.selectedProject;
             }
             this._sharedService.showContent = true;
-        }); 
-
+        });  */
+        this.selectedProject =  this._sharedService.selectedProject;
         
         // if the service was not avaliable get the user info form the mockup data.
         if(this._sharedService.user ==null){

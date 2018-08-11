@@ -150,6 +150,20 @@ export class LoginComponent implements OnInit, OnDestroy
               // this.login();
             },
             error => this.errorMessage = <any>error);
+            this._ticketservice.getUserDetails(this.logParam.email).subscribe(_user =>{
+                this._sharedData.user = _user;
+                this._sharedData.user.emailAddress = _user.email;
+                this._sharedData.projects = _user.projects;
+                
+                if(this._sharedData.projects != null && this._sharedData.projects.length > 0){
+                    this._sharedData.selectedProject =  this._sharedData.projects[0];
+                    this._sharedData.portfolio = _user.projects[0].portfolio
+                   // this._sharedService.selectedProject = this.projects[0];
+               
+                }
+                this.router.navigate(['user']);
+                
+            });
     }
 
 	 login(): void {
