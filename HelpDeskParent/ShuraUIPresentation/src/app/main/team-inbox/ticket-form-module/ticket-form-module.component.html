@@ -5,12 +5,9 @@
 
                     <div  class="vertical-stepper-wrapper">
         
-                        <!-- VERTICAL STEPPER EXAMPLE -->
                         <ul class="timeline">
-        
-                            <li  *ngFor="let data of ticketHistory">
+                            <li *ngFor="let data of ticketHistory">
                                 <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
-                                
                                 <p>This Ticket was 
                                     {{data.behaviorValue}}
                                     {{data.behaviorName}}

@@ -15,6 +15,7 @@ export class Ticket {
 	workflow: Workflow;
 	ticketNO : string;
 	project: Project;
+	creationdate: string;
 	hduser:User = new User();
 	
 	constructor(ticket){}

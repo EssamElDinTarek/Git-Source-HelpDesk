@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
-    path: 'teaminbox/:id',
+    path: 'teaminbox/:ticketId',
     component: TicketFormModuleComponent
   }
 ];
