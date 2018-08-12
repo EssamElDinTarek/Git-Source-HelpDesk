@@ -202,12 +202,12 @@
                                         [gradient]="widget8.gradient" (select)="widget8.onSelect($event)">
                                     </ngx-charts-pie-chart>  -->
                                     
-                                <div class="h-400">
+                               <!--  <div class="h-400">
                                         <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend" [explodeSlices]="widget8.explodeSlices"
                                             [labels]="widget8.labels" [doughnut]="widget8.doughnut" [gradient]="widget8.gradient"
                                             (select)="widget8.onSelect($event)">
                                         </ngx-charts-pie-chart>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- / Front -->
@@ -244,6 +244,7 @@
                                         </div>
                                     </div>
 
+                                 
                                    <!--  <button mat-icon-button aria-label="More information">
                                         <mat-icon>more_vert</mat-icon>
                                     </button> -->
@@ -269,7 +270,7 @@
                                         {{widgets.widget10.title}}
                                     </div>
 
-                                    <table class="simple">
+                                    <table class="simple table fixed-header">
 
                                         <thead>
                                             <tr>
@@ -280,15 +281,29 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr *ngFor="let row of widgets.widget10.table.rows">
-                                                <td *ngFor="let cell of row">
-                                                    <span class="p-4" [ngClass]="cell.classes">
-                                                        {{cell.value}}
+                                            <tr *ngFor="let project of projectDetailstList">
+                                                <td class="td">
+                                                    <span>
+                                                        {{project.name}}
                                                     </span>
-                                                    <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
-                                                    </mat-icon>
+                                                  <!--   <mat-icon *ngIf="cell.icon" class="s-16">{{cell.icon}}
+                                                    </mat-icon> -->
 
                                                 </td>
+                                                <td class="td">
+                                                            
+                                                            <span class="status-pullet {{project.status}}"></span>
+                                                    </td>
+                                                    <td class="td">
+                                                            <span>
+                                                                {{project.userCount}}
+                                                            </span>
+                                                        </td>
+                                                        <td class="td">
+                                                                <span>
+                                                                    {{project.ticketCount}}
+                                                                </span>
+                                                            </td>
                                             </tr>
                                         </tbody>
                                     </table>
