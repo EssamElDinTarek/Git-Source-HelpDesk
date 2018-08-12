@@ -332,12 +332,14 @@
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-                                <div class="p-24 mb-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
-                                    <div class="h2">{{widgets.widget11.title}}</div>
-                                    <div class="text-boxed red-bg white-fg m-0">
-                                        {{widgets.widget11.table.rows.length}} members
-                                    </div>
-                                </div>
+                                    <div class="p-24 mb-8 border-bottom" fxLayout="row"
+                                    fxLayoutAlign="space-between center">
+                                   <div class="h2">{{teamWidget.title}}</div>
+                                   <div class="text-boxed red-bg white-fg m-0">
+                                       {{numberOfRows}}
+                                       members
+                                   </div>
+                               </div>
 
                                 <mat-table #table [dataSource]="dataSourceArray1">
 

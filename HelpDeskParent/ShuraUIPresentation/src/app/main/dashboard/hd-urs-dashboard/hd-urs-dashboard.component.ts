@@ -381,7 +381,7 @@ export class HDURSDashboardComponent implements OnInit {
         });
     }
 
-    
+         numberOfRows:number ;
 
     /**
        * On init
@@ -393,7 +393,7 @@ export class HDURSDashboardComponent implements OnInit {
             this.ticketsOfWorkflowList=_response.data;
         })
        
-/*
+*/
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition( _pos =>{
                 this._dashBoardService.getCurrentWeather(_pos.coords.latitude,_pos.coords.longitude).subscribe(_result => {
@@ -432,7 +432,7 @@ export class HDURSDashboardComponent implements OnInit {
                
             });
         }
-    */
+    
 
     // debugger;
     
@@ -496,6 +496,9 @@ export class HDURSDashboardComponent implements OnInit {
             debugger;
             this.usersPerProjects = _result.data;
             this.dataSourceArray1=this.usersPerProjects;
+            debugger;
+            this.numberOfRows=this.usersPerProjects.length;
+            debugger;
            });
 
             /*
