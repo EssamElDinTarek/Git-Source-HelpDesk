@@ -439,7 +439,7 @@ export class HDURSDashboardComponent implements OnInit {
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
 
-      this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
+     /*  this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
              this.weeklyTasks=_result.data;
              for (let index = 0; index < this.weeklyTasks.length; index++) {        
                this.weekelytaskDate= this.weeklyTasks[index].date;    
@@ -447,18 +447,9 @@ export class HDURSDashboardComponent implements OnInit {
                  console.log(this.weekelyTaskFullDate);
             }
 
-  
-            /*  console.log('date is : '+(this.weeklyTasks[1].date).dateNow);
-             //console.log(this.weeklyTasks[1].date);
-             let currDate=new Date(this.weeklyTasks[0].date);
-             for (let index = 0; index < this.weeklyTasks.length; index++) {            
-                console.log('Value : '+this.weeklyTasks[index].value);
-                console.log('Name : '+this.weeklyTasks[index].name);
-
-            } */
              
-      })
-
+      });
+ */
           
          this._dashBoardService.getTicketsCounts(this.projectId,this.userEmail).subscribe(_result=>{
              console.log('Project is  : '+this.projectId);
@@ -501,7 +492,7 @@ export class HDURSDashboardComponent implements OnInit {
             console.log('Number of users : '+this.dataSourceArray1);
         }); */
           //users per project service...
-           this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
+           this._dashBoardService.getUsersByProjectID(1).subscribe(_result => {
             debugger;
             this.usersPerProjects = _result.data;
             this.dataSourceArray1=this.usersPerProjects;

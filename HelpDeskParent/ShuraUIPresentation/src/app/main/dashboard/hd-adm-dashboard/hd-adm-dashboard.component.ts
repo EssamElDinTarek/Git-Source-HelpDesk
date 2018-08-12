@@ -189,9 +189,9 @@ export class HDADMDashboardComponent implements OnInit {
             this.portofolioDetails = _response.data;
             //this.totalNoOfProjects=this.portofolioDetails.closedProject+this.portofolioDetails.openProject;
             for (let index = 0; index < this.portofolioDetails.length; index++) {
-                this.totalNoOfProjects= this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
+                this.totalNoOfProjects[index]= this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
                 debugger;
-                console.log('Total Number of projects = ' + this.totalNoOfProjects);
+                console.log('Total Number of projects = ' + this.totalNoOfProjects[index]);
             }
         });
 
