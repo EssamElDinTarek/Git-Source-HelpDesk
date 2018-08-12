@@ -8,10 +8,9 @@
                         <ul class="timeline">
                             <li *ngFor="let data of ticketHistory">
                                 <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
-                                <p>This Ticket was 
-                                    {{data.behaviorValue}}
+                                <p>{{data.behaviorValue}}
                                     {{data.behaviorName}}
-                                    {{data.type}}  
+                                    {{data.type}}  action applied at
                                     {{data.actionAt}}
                                 </p>
                             </li>
@@ -64,20 +63,15 @@
                                 </div>
                                 
                         </mat-form-field>
-                        <!-- <mat-form-field class="w-50-p">
-                                <mat-select placeholder="Priority" formControlName="ticketPriority" required>
-                                    <mat-option *ngFor="let item of ticketPeriorityList" [value]="item">
-                                        {{item.priorityLevel}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="w-50-p">
-                                    <mat-select placeholder="Severity"  formControlName="ticketSeverity" required>
-                                        <mat-option *ngFor="let item of ticketSeverityList" [value]="item">
-                                            {{item.severityName}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field> -->
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketPriority" formControlName="ticketPriority" placeholder="Priority " disabled matInput required>
+                        </mat-form-field>
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketSeverity" formControlName="ticketSeverity" placeholder="Severity " disabled matInput required>
+                        </mat-form-field>
+                        <mat-form-field class="w-100-p">
+                            <input name="workflow" formControlName="workflow" placeholder="Workflow " disabled matInput required>
+                        </mat-form-field>
                     </form>
         
                 </div>
