@@ -270,7 +270,7 @@
 
                                                 <td>
                                                     <span>
-                                                        {{totalProjects}}
+                                                        {{totalNoOfProjects}}
                                                     </span>
 
                                                 </td>
@@ -294,6 +294,17 @@
 
                     <!-- WIDGET GROUP -->
                     <div class="widget-group grey-100-bg" fxLayout="row wrap" fxFlex="100" *fuseIfOnDom [@animateStagger]="{value:'50'}">
+
+                           <!--  <div class="px-16 py-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
+                                    <div class="h3">{{widgets.widget7.title}}</div>
+                                    <mat-form-field>
+                                        <mat-select class="simplified" [(ngModel)]="selectedPortfolio" (ngModelChange)="portfolioChanged()">
+                                            <mat-option *ngFor="let portofolios of portofolioList" [value]="portofolios">
+                                                {{portofolios.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div> -->
 
                         <!-- WIDGET 11 -->
                         <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
@@ -322,7 +333,7 @@
                                     <ng-container cdkColumnDef="name">
                                         <mat-header-cell *cdkHeaderCellDef>User Name</mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersByPortofolio">
-                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.username}}
+                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.userName}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>
@@ -331,7 +342,7 @@
                                     <ng-container cdkColumnDef="email">
                                         <mat-header-cell *cdkHeaderCellDef>Email</mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersByPortofolio">
-                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.email}}
+                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.emailAddress}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>

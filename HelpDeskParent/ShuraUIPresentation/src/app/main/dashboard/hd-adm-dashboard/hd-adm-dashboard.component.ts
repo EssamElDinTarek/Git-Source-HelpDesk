@@ -36,7 +36,7 @@ export class HDADMDashboardComponent implements OnInit {
     projects: any[];
     selectedProject: any;
     portofolioList: Portfolio[];
-    portofolioDetails: any[];
+    portofolioDetails: any;
     portofolio: any;
     portofolioChartData: any;
     totalNoOfProjects: number;
@@ -187,10 +187,11 @@ export class HDADMDashboardComponent implements OnInit {
     ngOnInit(): void {
         this._dashboardService.getPortofolioDetails().subscribe(_response => {
             this.portofolioDetails = _response.data;
+            //this.totalNoOfProjects=this.portofolioDetails.closedProject+this.portofolioDetails.openProject;
             for (let index = 0; index < this.portofolioDetails.length; index++) {
-                this.totalNoOfProjects[index] = this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
-                this.totalProjects=this.totalNoOfProjects[index];
-                console.log('Total Number of projects = ' + this.totalNoOfProjects[index]);
+                this.totalNoOfProjects= this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
+                debugger;
+                console.log('Total Number of projects = ' + this.totalNoOfProjects);
             }
         });
 
@@ -202,6 +203,7 @@ export class HDADMDashboardComponent implements OnInit {
 
         this._dashboardService.getUsersByPortofolioID(this.portofolioID).subscribe(_response => {
             this.usersByPortofolio=_response.data;
+            console.log('List size = '+this.usersByPortofolio.length);
             this.dataSourceArray1 = this.usersByPortofolio;
 
 
