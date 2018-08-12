@@ -400,6 +400,18 @@ export class TicketService //implements Resolve<any>
             );
     }
 
+    getTicketsByProjectName(projectName:string): Observable<any> {
+        const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/list';
+        //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
+        const requestUrl = `${href}?identifier=PROJECT_NAME&value=`+projectName;
+        console.log('inside getTicketsByProjectID');
+
+        return this._httpClient.get<any>(requestUrl, { headers: this.headers })
+            .pipe(
+                catchError(this.handleError('getTicketsByProjectID'))
+            );
+    }
+
     getTicketsByWorkFlowID(): Observable<any> {
         console.log('Start Calling getTicketsByWorkFlowID service...!');
         const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbywfidanduser';
