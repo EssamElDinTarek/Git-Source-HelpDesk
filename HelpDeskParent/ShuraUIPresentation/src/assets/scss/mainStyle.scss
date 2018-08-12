@@ -122,10 +122,10 @@ content{
 				height: 15px;
 				border-radius: 100%;
 				background-color: #d2d2d2;
-				&.created{
+				&.created,&.open{
 					background-color: #F44336;
 				}
-				&.completed{
+				&.completed,&.closed{
 					background-color: #039BE5;
 				}
 				&.inprogress{
