@@ -350,7 +350,7 @@ editTicket(control){
     }
 
     submitTicket(): void {
-        debugger;
+         
         this.formData.append('ticket', JSON.stringify(this.contact));
         console.log('Before calling submit ticket...!');
         this._ticketService.editTicket(this.formData).subscribe(_ticket => {

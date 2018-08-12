@@ -223,7 +223,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     //   }
 
     submitTicket(): void {
-        debugger;
+         
         if (this.isUpdate) {
             this.ticket.hduser.userId = this.sharedDataService.user.userId;
             this.formData.append('ticket', JSON.stringify(this.ticket));
@@ -307,7 +307,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     }
 
     addFilesData(): void {
-        debugger;
+         
         this.fileListService.viewFilesData(this.filesData);
     }
 

@@ -183,7 +183,7 @@ export class TicketFormComponent implements OnInit {
 
 
     submitTicket(): void {
-        debugger;
+         
         if (this.isUpdate) {
             this.formData.append('ticket', JSON.stringify(this.ticket));
             if (this.filelist != null && this.filelist.length > 0) {
@@ -237,7 +237,7 @@ export class TicketFormComponent implements OnInit {
     }
 
     addFilesData(): void {
-        debugger;
+         
             this.fileListService.viewFilesData(this.filesData);
         }
 

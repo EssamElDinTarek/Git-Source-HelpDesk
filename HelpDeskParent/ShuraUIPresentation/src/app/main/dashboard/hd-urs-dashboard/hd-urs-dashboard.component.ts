@@ -373,10 +373,10 @@ export class HDURSDashboardComponent implements OnInit {
 
 
     workFlowChanged(): void {
-        //debugger;
+        // 
         this.workflowID=this.selectedWorkflow.flowId;
         this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_result => {
-            //debugger;
+            // 
             this.ticketsOfWorkflowList = _result.data;
         });
     }
@@ -434,7 +434,7 @@ export class HDURSDashboardComponent implements OnInit {
         }
     */
 
-    // debugger;
+    //  
     
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
@@ -496,13 +496,13 @@ export class HDURSDashboardComponent implements OnInit {
           });
   
   /*         this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
-            debugger;
+             
             this.dataSourceArray1 = _result.data;
             console.log('Number of users : '+this.dataSourceArray1);
         }); */
           //users per project service...
            this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
-            debugger;
+             
             this.usersPerProjects = _result.data;
             this.dataSourceArray1=this.usersPerProjects;
            });

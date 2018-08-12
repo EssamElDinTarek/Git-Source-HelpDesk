@@ -48,9 +48,9 @@
                         <mat-form-field class="w-100-p">
                             <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
                             <a *ngIf="!editTitle" href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
-                            <div *ngIf="editTitle">
-                                    <a href="javascript:void(0);" (click)="editTicket('title')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
-                                    <a href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
+                            <div class="edit" *ngIf="editTitle">
+                                <a href="javascript:void(0);" (click)="editTicket('title')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
+                                <a href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
                             </div>
                             
                         </mat-form-field>
@@ -58,7 +58,7 @@
                         <mat-form-field class="w-100-p">
                                 <textarea name="description" formControlName="description" matInput placeholder="Description" required></textarea>
                                 <a *ngIf="!editDescription" href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
-                                <div *ngIf="editDescription">
+                                <div class="edit" *ngIf="editDescription">
                                         <a href="javascript:void(0);" (click)="editTicket('description')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
                                         <a href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
                                 </div>

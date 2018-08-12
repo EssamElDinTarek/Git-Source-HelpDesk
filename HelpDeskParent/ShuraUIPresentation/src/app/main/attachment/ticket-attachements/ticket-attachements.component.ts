@@ -80,7 +80,7 @@ export class TicketAttachementsComponent implements OnInit, AfterViewInit {
   }
 
   upload(attachment: Attachment): void {
-    debugger;
+     
 
     this.formData.append('TICKET_ID', JSON.stringify(this.ticketID));
     this.formData.append('files', attachment.file);
