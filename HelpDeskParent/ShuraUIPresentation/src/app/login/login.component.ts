@@ -158,7 +158,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
             if (this.logParam.email == 'admin@gmail.com') {
                 this.router.navigate(['admin']);
-            } else if (this.logParam.email == 'manager@gmail.com') {
+            } else if (this.logParam.email == 'manager@gmail.com' || this.logParam.email == 'manager.ali@gmail.com') {
                 this.router.navigate(['manager']);
             } else{
                 this.router.navigate(['user']);

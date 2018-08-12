@@ -9,12 +9,12 @@ export const navigation: FuseNavigation[] = [
         icon     : 'apps',
         children : [
             {
-                id       : 'welcome',
-                title    : 'Welcome',
-                translate: 'NAV.WELCOME',
+                id       : 'dashboard',
+                title    : 'Dashboard',
+                translate: 'NAV.DASHBOARD',
                 type     : 'item',
                 icon     : 'face',
-                url      : '/welcome'
+                url      : '/user'
             },
             {
                 id       : 'tickets',
@@ -47,14 +47,14 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'account_box',
                 url      : '/teaminbox'
-            },
+            }/* ,
             { 
                 id        : 'ticketDetail',
                 title     : 'Ticket Detail',
                 type      : 'item',
                 url       : '/teaminbox/:ticketId',
                 exactMatch: true
-        }
+        } */
         
             /* 
             {
