@@ -35,6 +35,7 @@ export class HDMGRDashboardComponent implements OnInit {
    selectedProject:Project;
    ticketsOfProjectList: Ticket[];
 
+    emptyList:string;
 
     widgets: any;
     widget5: any = {};
@@ -172,6 +173,9 @@ export class HDMGRDashboardComponent implements OnInit {
         this.projectID=this.selectedProject.projectId;
         this._mgrDashBoard.getTicketsByProjectID(this.projectID,this.userEmail).subscribe(_result => {
             this.ticketsOfProjectList = _result.data;
+            if(this.ticketsOfProjectList.length==0){
+                this.emptyList="No Data Found.";
+            }
         });
     }
     /**
