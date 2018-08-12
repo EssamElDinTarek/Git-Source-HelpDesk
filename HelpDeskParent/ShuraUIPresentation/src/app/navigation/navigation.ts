@@ -41,31 +41,6 @@ export const navigation: FuseNavigation[] = [
                 ]
             },
             {
-                id       : 'dashboard',
-                title    : 'User-DashBoard',
-                translate: 'NAV.USERDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/user'
-            },
-
-            {
-                id       : 'dashboard',
-                title    : 'Admin-DashBoard',
-                translate: 'NAV.ADMINDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/admin'
-            },
-            {
-                id       : 'dashboard',
-                title    : 'Manager-DashBoard',
-                translate: 'NAV.MGRDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/manager'
-            },
-            {
                 id       : 'teamtickets',
                 title    : 'Team Inbox',
                 translate: 'Team Inbox',

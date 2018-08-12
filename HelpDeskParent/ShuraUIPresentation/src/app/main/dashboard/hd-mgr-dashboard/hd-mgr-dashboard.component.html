@@ -156,7 +156,7 @@
                 
                 <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
                   fxLayoutAlign="space-between center">
-                <div class="h3">{{selectedProject.name}}</div>
+               <!--  <div class="h3">{{selectedProject.name}}</div> -->
 
 
                 <mat-menu #projectsMenu="matMenu">
@@ -206,11 +206,17 @@
 
                                 <div class="h-400">
                                    
-                                  <!--   <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend"
+                              <!-- <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend"
                                         [explodeSlices]="widget8.explodeSlices" [labels]="widget8.labels" [doughnut]="widget8.doughnut"
                                         [gradient]="widget8.gradient" (select)="widget8.onSelect($event)">
-                                    </ngx-charts-pie-chart> --> 
+                                    </ngx-charts-pie-chart>  -->
                                     
+                                <div class="h-400">
+                                        <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend" [explodeSlices]="widget8.explodeSlices"
+                                            [labels]="widget8.labels" [doughnut]="widget8.doughnut" [gradient]="widget8.gradient"
+                                            (select)="widget8.onSelect($event)">
+                                        </ngx-charts-pie-chart>
+                                    </div>
                                 </div>
                             </div>
                             <!-- / Front -->
@@ -247,9 +253,9 @@
                                         </div>
                                     </div>
 
-                                    <button mat-icon-button aria-label="More information">
+                                   <!--  <button mat-icon-button aria-label="More information">
                                         <mat-icon>more_vert</mat-icon>
-                                    </button>
+                                    </button> -->
                                 </div>
 
                             </div>

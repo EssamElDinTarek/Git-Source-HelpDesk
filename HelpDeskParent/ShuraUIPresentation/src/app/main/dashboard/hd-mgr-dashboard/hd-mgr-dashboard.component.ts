@@ -12,6 +12,7 @@ import { Project } from '../../../models/project';
 import { SharedDataService } from '../../../services/shared-data.service';
 import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
 import { Ticket } from '../../../models/ticket';
+import { User } from '../../../models/user.model';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class HDMGRDashboardComponent implements OnInit {
     widget9: any = {};
     widget11: any = {};
 
-    usersPerProject:any=[];
+    usersPerProject:User[];
     dataSourceArray1 =  new MatTableDataSource();
 
 

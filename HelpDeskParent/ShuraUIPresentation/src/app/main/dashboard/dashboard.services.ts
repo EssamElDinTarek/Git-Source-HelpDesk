@@ -268,7 +268,7 @@ export class DashBoardService //implements Resolve<any>
             );
     }
 
-    getPortofolioDetails(): Observable<any> {
+        getPortofolioDetails(): Observable<any> {
         console.log('Start Calling getPortofolioDetails');
         const requestUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/portfolio/portfoliodbdetails';
         console.log('End Calling getPortofolioDetails');

@@ -270,7 +270,7 @@
 
                                                 <td>
                                                     <span>
-                                                        {{totalNoOfProjects}}
+                                                        {{totalProjects}}
                                                     </span>
 
                                                 </td>
@@ -311,41 +311,32 @@
                                 <mat-table #table [dataSource]="dataSourceArray1">
 
                                     <!-- Avatar Column -->
-                                    <ng-container cdkColumnDef="avatar">
+                                    <!-- <ng-container cdkColumnDef="avatar">
                                         <mat-header-cell fxFlex="96px" *cdkHeaderCellDef></mat-header-cell>
-                                        <mat-cell fxFlex="96px" *cdkCellDef="let contact">
+                                        <mat-cell fxFlex="96px" *cdkCellDef="let usersByPortofolio">
                                             <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name" [src]="contact.avatar" />
                                         </mat-cell>
                                     </ng-container>
-
+ -->
                                     <!-- Name Column -->
-                                    <ng-container cdkColumnDef="firstName">
-                                        <mat-header-cell *cdkHeaderCellDef>First Name</mat-header-cell>
+                                    <ng-container cdkColumnDef="name">
+                                        <mat-header-cell *cdkHeaderCellDef>User Name</mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersByPortofolio">
-                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.firstName}}
+                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.username}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>
 
                                     <!-- Name Column -->
-                                    <ng-container cdkColumnDef="lastName">
-                                        <mat-header-cell *cdkHeaderCellDef>Last Name</mat-header-cell>
-                                        <mat-cell *cdkCellDef="let usersByPortofolio">
-                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.lastName}}
-                                            </p>
-                                        </mat-cell>
-                                    </ng-container>
-
-                                    <!-- Position Column -->
                                     <ng-container cdkColumnDef="email">
-                                        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Email
-                                        </mat-header-cell>
-                                        <mat-cell *cdkCellDef="let usersByPortofolio" fxHide fxShow.gt-sm>
-                                            <p class="position text-truncate">
-                                                {{usersByPortofolio.emailAddress}}
+                                        <mat-header-cell *cdkHeaderCellDef>Email</mat-header-cell>
+                                        <mat-cell *cdkCellDef="let usersByPortofolio">
+                                            <p class="text-truncate font-weight-600">{{usersByPortofolio.email}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>
+
+                                   
 
 
 

@@ -12,6 +12,7 @@ import { Portfolio } from '../../../models/portfolio';
 import { Project } from '../../../models/project';
 import { MatTableDataSource } from '../../../../../node_modules/@angular/material';
 import { SharedDataService } from '../../../services/shared-data.service';
+import { User } from '../../../models/user.model';
 
 
 @Component({
@@ -35,17 +36,18 @@ export class HDADMDashboardComponent implements OnInit {
     projects: any[];
     selectedProject: any;
     portofolioList: Portfolio[];
-    portofolioDetails: any;
+    portofolioDetails: any[];
     portofolio: any;
     portofolioChartData: any;
     totalNoOfProjects: number;
     projectsOfPortfolio: Project[];
 
+    totalProjects:number;
     portofolios: Portfolio[];
-    dataSourceArray1 = new MatTableDataSource();
+    dataSourceArray1:any = new MatTableDataSource();
     userList: any;
 
-    usersByPortofolio: any = [];
+    usersByPortofolio :User[];
 
     widgets: any;
     widget5: any = {};
@@ -186,8 +188,9 @@ export class HDADMDashboardComponent implements OnInit {
         this._dashboardService.getPortofolioDetails().subscribe(_response => {
             this.portofolioDetails = _response.data;
             for (let index = 0; index < this.portofolioDetails.length; index++) {
-                this.totalNoOfProjects = this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
-                console.log('Total Number of projects = ' + this.totalNoOfProjects);
+                this.totalNoOfProjects[index] = this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
+                this.totalProjects=this.totalNoOfProjects[index];
+                console.log('Total Number of projects = ' + this.totalNoOfProjects[index]);
             }
         });
 
@@ -198,7 +201,8 @@ export class HDADMDashboardComponent implements OnInit {
 
 
         this._dashboardService.getUsersByPortofolioID(this.portofolioID).subscribe(_response => {
-            this.dataSourceArray1 = _response.data;
+            this.usersByPortofolio=_response.data;
+            this.dataSourceArray1 = this.usersByPortofolio;
 
 
         });
@@ -207,8 +211,8 @@ export class HDADMDashboardComponent implements OnInit {
         this._dashboardService.getAllPortofolios().subscribe(_response => {
             this.portofolioList = _response.data;
             this.portofolio = this.portofolioList;
-            for (let index = 0; index < this.portofolios.length; index++) {
-                console.log(this.portofolios[index].name);
+            for (let index = 0; index < this.portofolio.length; index++) {
+                console.log(this.portofolio[index].name);
 
             }
 

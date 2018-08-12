@@ -35,7 +35,7 @@ export class HDURSDashboardComponent implements OnInit {
     projectId: number ;//=1;
     userEmail: string ;//= 'ahmed.farrag';
 
-    dataSourceArray1 =  new MatTableDataSource();
+    dataSourceArray1:any =  new MatTableDataSource();
 
     categoryData: MainChart;
     selectedCategory: any;
@@ -72,7 +72,7 @@ export class HDURSDashboardComponent implements OnInit {
     teamWidget:any={
         'title': 'Team Members',
         'table': {
-            'columns': [ 'name', 'position', 'email', 'phone'],
+            'columns': [ 'username',  'email', ],
             'rows'   : [
                 /* {
                     avatar  : 'assets/images/avatars/james.jpg',
@@ -495,14 +495,18 @@ export class HDURSDashboardComponent implements OnInit {
               console.log(this.selectedCategory);
           });
   
-          this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
+  /*         this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
+            debugger;
             this.dataSourceArray1 = _result.data;
             console.log('Number of users : '+this.dataSourceArray1);
-        });
+        }); */
           //users per project service...
            this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
+            debugger;
             this.usersPerProjects = _result.data;
+            this.dataSourceArray1=this.usersPerProjects;
            });
+
             /*
             var rows = [];
             for (let index = 0; index < this.usersPerProjects.length; index++) {
@@ -525,7 +529,6 @@ export class HDURSDashboardComponent implements OnInit {
         this.projects = this._projectDashboardService.projects;
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.widgets;
-       // this.widgets.widget5.mainChart. = {};
     
 
 
