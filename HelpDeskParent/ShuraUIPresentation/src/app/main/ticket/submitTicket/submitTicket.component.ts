@@ -259,7 +259,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                 this.formData.append('files', this.filelist.item(0));
             }
             this._ticketService.addTicket(this.formData).subscribe(_ticket => {
-                alert('added successfully');
+                alert('Ticket Created successfully');
                 this.router.navigate(['/ticketview']);
             },_error => {
                 alert(_error);

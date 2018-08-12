@@ -331,7 +331,7 @@ editTicket(control){
                 if (this.stepForwardConfirmed) {
 
                     this.addedStepForwardComment = new TicketComment();
-                    this.addedStepForwardComment.commentValue = this.sharedService.user.firstName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
+                    this.addedStepForwardComment.commentValue = this.sharedService.user.userName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
                     this.addedStepForwardComment.hduser = this.sharedService.user;
                     this.addedStepForwardComment.ticketId = this.updatedTicketId;
                     this.ticketCommentService.addTicketComment(this.addedStepForwardComment);
