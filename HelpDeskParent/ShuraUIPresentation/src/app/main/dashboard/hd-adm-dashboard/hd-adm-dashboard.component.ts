@@ -39,8 +39,9 @@ export class HDADMDashboardComponent implements OnInit {
     portofolioDetails: any;
     portofolio: any;
     portofolioChartData: any;
-    totalNoOfProjects: number;
+    totalNoOfProjects: number[];
     projectsOfPortfolio: Project[];
+    numberOfRows:number;
 
     totalProjects:number;
     portofolios: Portfolio[];
@@ -189,9 +190,9 @@ export class HDADMDashboardComponent implements OnInit {
             this.portofolioDetails = _response.data;
             //this.totalNoOfProjects=this.portofolioDetails.closedProject+this.portofolioDetails.openProject;
             for (let index = 0; index < this.portofolioDetails.length; index++) {
-                this.totalNoOfProjects= this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
-                 
-                console.log('Total Number of projects = ' + this.totalNoOfProjects);
+                this.totalNoOfProjects[index]= this.portofolioDetails[index].closedProject + this.portofolioDetails[index].openProject;
+                 debugger;
+                console.log('Total Number of projects = ' + this.totalNoOfProjects[index]);
             }
         });
 
@@ -204,7 +205,10 @@ export class HDADMDashboardComponent implements OnInit {
         this._dashboardService.getUsersByPortofolioID(this.portofolioID).subscribe(_response => {
             this.usersByPortofolio=_response.data;
             console.log('List size = '+this.usersByPortofolio.length);
-            this.dataSourceArray1 = this.usersByPortofolio;
+            debugger;
+            this.numberOfRows=this.usersByPortofolio.length;
+            console.log('No : '+this.numberOfRows);
+            this.dataSourceArray1 = this.usersByPortofolio;            
 
 
         });

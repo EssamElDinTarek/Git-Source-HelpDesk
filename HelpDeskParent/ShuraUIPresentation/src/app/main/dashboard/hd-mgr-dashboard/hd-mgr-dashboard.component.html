@@ -197,10 +197,10 @@
 
                                 <div class="h-400">
                                    
-                              <!-- <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend"
+                              <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="teamPerProject" [legend]="widget8.legend"
                                         [explodeSlices]="widget8.explodeSlices" [labels]="widget8.labels" [doughnut]="widget8.doughnut"
                                         [gradient]="widget8.gradient" (select)="widget8.onSelect($event)">
-                                    </ngx-charts-pie-chart>  -->
+                                    </ngx-charts-pie-chart> 
                                     
                                <!--  <div class="h-400">
                                         <ngx-charts-pie-chart *fuseIfOnDom [scheme]="widget8.scheme" [results]="projectDetailstList" [legend]="widget8.legend" [explodeSlices]="widget8.explodeSlices"
@@ -332,12 +332,14 @@
                             <!-- Front -->
                             <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
-                                <div class="p-24 mb-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
-                                    <div class="h2">{{widgets.widget11.title}}</div>
-                                    <div class="text-boxed red-bg white-fg m-0">
-                                        {{widgets.widget11.table.rows.length}} members
-                                    </div>
-                                </div>
+                                    <div class="p-24 mb-8 border-bottom" fxLayout="row"
+                                    fxLayoutAlign="space-between center">
+                                   <div class="h2">Users</div>
+                                   <div class="text-boxed red-bg white-fg m-0">
+                                       {{numberOfRows}}
+                                       members
+                                   </div>
+                               </div>
 
                                 <mat-table #table [dataSource]="dataSourceArray1">
 

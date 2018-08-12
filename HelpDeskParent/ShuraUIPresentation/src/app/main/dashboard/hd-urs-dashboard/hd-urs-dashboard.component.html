@@ -520,7 +520,7 @@
                                      fxLayoutAlign="space-between center">
                                     <div class="h2">{{teamWidget.title}}</div>
                                     <div class="text-boxed red-bg white-fg m-0">
-                                        {{teamWidget.table.rows.length}}
+                                        {{numberOfRows}}
                                         members
                                     </div>
                                 </div>
@@ -540,7 +540,7 @@
                                     <ng-container cdkColumnDef="username">
                                         <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersPerProjects">
-                                            <p>{{usersPerProjects.username}}
+                                            <p>{{usersPerProjects.userName}}
                                               </p>
                                         </mat-cell>
                                     </ng-container>
@@ -551,7 +551,7 @@
                                         </mat-header-cell>
                                         <mat-cell *cdkCellDef="let usersPerProjects" fxHide fxShow.gt-sm>
                                             <p>
-                                                {{usersPerProjects.email}}
+                                                {{usersPerProjects.emailAddress}}
                                             </p>
                                         </mat-cell>
                                     </ng-container>

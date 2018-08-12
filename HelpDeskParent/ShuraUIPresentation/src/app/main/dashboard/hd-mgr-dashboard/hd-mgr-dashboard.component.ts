@@ -24,18 +24,18 @@ import { User } from '../../../models/user.model';
 })
 export class HDMGRDashboardComponent implements OnInit {
     projects: any[];
-  // selectedProject: any;
+    // selectedProject: any;
 
-   projectID: number = this._shareData.selectedProject.projectId;
-   userEmail: string = this._shareData.user.emailAddress;
-   portofolioID:Number=this._shareData.portfolio.portfolioId;
+    projectID: number = this._shareData.selectedProject.projectId;
+    userEmail: string = this._shareData.user.emailAddress;
+    portofolioID: Number = this._shareData.portfolio.portfolioId;
 
+    numberOfRows:number;
+    projectList: any;
+    selectedProject: Project;
+    ticketsOfProjectList: Ticket[];
 
-   projectList: any;
-   selectedProject:Project;
-   ticketsOfProjectList: Ticket[];
-
-    emptyList:string;
+    emptyList: string;
 
     widgets: any;
     widget5: any = {};
@@ -45,24 +45,24 @@ export class HDMGRDashboardComponent implements OnInit {
     widget9: any = {};
     widget11: any = {};
 
-    usersPerProject:User[];
-    dataSourceArray1 =  new MatTableDataSource();
+    usersPerProject: User[];
+    dataSourceArray1 = new MatTableDataSource();
 
 
-  //  projectList: Project[];
+    //  projectList: Project[];
     projectDetailstList: any;
 
-    projectChart:any;
+    projectChart: any;
 
-    teamPerProject:any;
+    teamPerProject: any;
 
-    projectData:Project;
+    projectData: Project;
     //selectedProject:any;
 
     dateNow = Date.now();
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _mgrDashBoard: DashBoardService,
-        private _shareData:SharedDataService,
+        private _shareData: SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
 
         /**
@@ -170,12 +170,14 @@ export class HDMGRDashboardComponent implements OnInit {
 
 
     projectChanged(): void {
-        this.projectID=this.selectedProject.projectId;
-        this._mgrDashBoard.getTicketsByProjectID(this.projectID,this.userEmail).subscribe(_result => {
+        this.projectID = this.selectedProject.projectId;
+        this._mgrDashBoard.getTicketsByProjectID(this.projectID, this.userEmail).subscribe(_result => {
             this.ticketsOfProjectList = _result.data;
-            if(this.ticketsOfProjectList.length==0){
-                this.emptyList="No Data Found.";
+            if (this.ticketsOfProjectList.length == 0) {
+                this.emptyList = "No Data Found.";
             }
+        }, _error => {
+            console.log("Service unavaliable");
         });
     }
     /**
@@ -187,34 +189,42 @@ export class HDMGRDashboardComponent implements OnInit {
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.mgrWidget;
 
-        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response=>{
-            console.log('Project is : '+this.projectID);
-            this.teamPerProject=_response.data;
-        });
- 
-       
+        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response => {
+            console.log('Project is : ' + this.projectID);
+            this.teamPerProject = _response.data;
+            this.numberOfRows = this.teamPerProject.length;
 
-        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response=>{
-            console.log('Project is : '+this.projectID);
-            this.dataSourceArray1=_response.data;
+        }, _error => {
+            console.log("Service unavaliable");
         });
 
-        this._mgrDashBoard.getProjectChart().subscribe(_response => {
-            this.projectChart = _response.data;
-            console.log(this.projectChart);
-        });
+
+
+        /*         this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response=>{
+                    console.log('Project is : '+this.projectID);
+                    this.dataSourceArray1=_response.data;
+                }); */
+        /* 
+                this._mgrDashBoard.getProjectChart().subscribe(_response => {
+                    this.projectChart = _response.data;
+                    console.log(this.projectChart);
+                }); */
 
         this._mgrDashBoard.getProjectDetailsByPortofolioID(this.portofolioID).subscribe(_response => {
             this.projectDetailstList = _response.data;
             console.log(this.projectDetailstList);
+        }, _error => {
+            console.log("Service unavaliable");
         });
 
-        this._mgrDashBoard.getProjectsByPortofolioID(this.portofolioID).subscribe(_response=>{
-            this.projectList=_response.data;
+        this._mgrDashBoard.getProjectsByPortofolioID(this.portofolioID).subscribe(_response => {
+            this.projectList = _response.data;
             console.log(this.projectList);
 
+        }, _error => {
+            console.log("Service unavaliable");
         });
-        
+
         this.widget11.onContactsChanged = new BehaviorSubject({});
         this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
         this.widget11.dataSource = new FilesDataSource(this.usersPerProject);
