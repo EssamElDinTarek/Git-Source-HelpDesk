@@ -270,7 +270,7 @@
                                         {{widgets.widget10.title}}
                                     </div>
 
-                                    <table class="simple">
+                                    <table class="simple table fixed-header">
 
                                         <thead>
                                             <tr>
@@ -282,7 +282,7 @@
 
                                         <tbody>
                                             <tr *ngFor="let project of projectDetailstList">
-                                                <td>
+                                                <td class="td">
                                                     <span>
                                                         {{project.name}}
                                                     </span>
@@ -290,17 +290,16 @@
                                                     </mat-icon> -->
 
                                                 </td>
-                                                <td>
-                                                        <span>
-                                                            {{project.status}}
-                                                        </span>
+                                                <td class="td">
+                                                            
+                                                            <span class="status-pullet {{project.status}}"></span>
                                                     </td>
-                                                    <td>
+                                                    <td class="td">
                                                             <span>
                                                                 {{project.userCount}}
                                                             </span>
                                                         </td>
-                                                        <td>
+                                                        <td class="td">
                                                                 <span>
                                                                     {{project.ticketCount}}
                                                                 </span>
