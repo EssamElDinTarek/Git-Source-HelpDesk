@@ -78,12 +78,18 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
 
+        console.log('this.route : '+ JSON.stringify(this.route.params) );
+        this.route.params.subscribe(_params => {
+            this.updatedTicketId = _params['id'];
+            console.log("params : "+_params);
+            console.log("updatedTicketId : " + this.updatedTicketId);
+        });
         // --------------- query params for update page ------------------
 
-        this.route.queryParams.subscribe((queryParams: Params) => {
+        /* this.route.queryParams.subscribe((queryParams: Params) => {
             this.updatedTicketId = queryParams['id'];
             //console.log(updatedTicketId);
-        });
+        }); */
 
 
         this._fileManagerService.onFileSelected

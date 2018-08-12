@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, TemplateRef, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DialogOverviewExampleDialog } from '../main/dialog-overview/dialog-overview-example.component';
@@ -77,7 +77,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  projectId: number = this._shareData.selectedProject.projectId;
+  projectName: string = this._shareData.selectedProject.name;
   userEmail: string = this._shareData.user.emailAddress;
 
   allTickets: TicketResponse = new TicketResponse();
@@ -88,7 +88,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
   constructor(private http: HttpClient, private ticketViewService: TicketViewService, public dialog: MatDialog, private _shareData: SharedDataService, public _matDialog: MatDialog, private ticketService: TicketService
-  ) {
+    ,private router: Router,private route: ActivatedRoute) {
 
   }
 
@@ -100,7 +100,7 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
 
 
 
-    this.ticketService.getTicketsByProjectID(this.projectId, 'ahmed.farrag').subscribe(_TicketResponse => {
+    this.ticketService.getTicketsByProjectName(this.projectName).subscribe(_TicketResponse => {
       this.allTickets = _TicketResponse;
 
       for (let index = 0; index < _TicketResponse.data.length; index++) {
@@ -118,6 +118,10 @@ export class TicketViewComponent implements OnInit, AfterViewInit {
     });
 
 
+  }
+  updateTicket(ticket: TicketDetails):void{
+    console.log("ticket : " + ticket);
+    this.router.navigate(['/submitTicket/'+ticket.ticketId]);//submitTicket?id={{ row.ticketId }}
   }
 
   delete(ticket: TicketDetails): void {

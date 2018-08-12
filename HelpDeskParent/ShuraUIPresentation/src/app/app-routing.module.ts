@@ -36,13 +36,13 @@ const appRoutes: Routes = [
 	},{
 		path        : '**',
 		component   : LoginComponent
-	},{
+	}/* ,{
 		path      : 'submitTicket',
 		redirectTo: 'submitTicket'
 	} ,{
 		path      : 'submitTicket/:id',
 		redirectTo: 'submitTicket'
-	},{
+	} */,{
 		path      : 'user',
 		redirectTo: 'user'
 	},{
@@ -51,15 +51,15 @@ const appRoutes: Routes = [
 	},{
 		path : 'manager',
 		redirectTo : 'manager'
-	},
+	}/*,
 	{
 		path:'teaminbox',
 		redirectTo:'teaminbox'
-	},
+	} ,
 	{
 		path:'teaminbox/:ticketId',
 		redirectTo: 'teaminbox'
-	},
+	} */,
 	{
 		path:'attachment',
 		redirectTo:'attachment'
