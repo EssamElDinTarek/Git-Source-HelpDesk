@@ -268,12 +268,12 @@
                                                     </span>
                                                 </td>
 
-                                                <td>
+                                               <!--  <td>
                                                     <span>
                                                         {{totalNoOfProjects}}
                                                     </span>
 
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         </tbody>
                                     </table>
@@ -319,6 +319,14 @@
                                     </div>
                                 </div> -->
 
+                                <div class="p-24 mb-8 border-bottom" fxLayout="row"
+                                fxLayoutAlign="space-between center">
+                               <div class="h2">Users</div>
+                               <div class="text-boxed red-bg white-fg m-0">
+                                   {{numberOfRows}}
+                                   members
+                               </div>
+                           </div>
                                 <mat-table #table [dataSource]="dataSourceArray1">
 
                                     <!-- Avatar Column -->

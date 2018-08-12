@@ -138,7 +138,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.authParam.grant_type = 'password';
         this.loginService.authorize(this.authParam)
             .subscribe(authList => {
-                debugger;
+                 
                 // this.login();
             },
                 error => this.errorMessage = <any>error);
@@ -172,7 +172,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         console.log('Try to log in...! ');
         console.log(this.logParam.email);
         console.log(this.logParam.password);
-        debugger;
+         
         this.loginService.login(this.logParam)
             .subscribe(user => {
 

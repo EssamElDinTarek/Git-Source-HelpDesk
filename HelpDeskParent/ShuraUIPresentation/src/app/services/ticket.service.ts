@@ -102,7 +102,7 @@ export class TicketService //implements Resolve<any>
         return new Promise((resolve, reject) => {
 
             /*   this._httpClient.get('getTicketsByProjectID()').subscribe(response=>{
-                  debugger;
+                   
                   this.tickets=response;
                   console.log("tickets : "+this.tickets);
 
@@ -441,7 +441,7 @@ export class TicketService //implements Resolve<any>
         navigator.geolocation.getCurrentPosition(
             function (position) { 
                 var lat,lon;
- debugger;
+  
                 lat=position.coords.latitude;
                 lon= position.coords.longitude;
                 console.log('Latitude is : '+lat);
