@@ -189,9 +189,10 @@ export class HDMGRDashboardComponent implements OnInit {
         this.selectedProject = this.projects[0];
         this.widgets = this._projectDashboardService.mgrWidget;
 
-        this._mgrDashBoard.getTeamsPerProject(this.projectID).subscribe(_response => {
+        this._mgrDashBoard.getUsersByProjectID(this.projectID).subscribe(_response => {
             console.log('Project is : ' + this.projectID);
             this.teamPerProject = _response.data;
+            this.dataSourceArray1=this.teamPerProject;
             this.numberOfRows = this.teamPerProject.length;
 
         }, _error => {
@@ -204,11 +205,11 @@ export class HDMGRDashboardComponent implements OnInit {
                     console.log('Project is : '+this.projectID);
                     this.dataSourceArray1=_response.data;
                 }); */
-        /* 
-                this._mgrDashBoard.getProjectChart().subscribe(_response => {
+         
+               /*  this._mgrDashBoard.getProjectChart().subscribe(_response => {
                     this.projectChart = _response.data;
                     console.log(this.projectChart);
-                }); */
+                });  */
 
         this._mgrDashBoard.getProjectDetailsByPortofolioID(this.portofolioID).subscribe(_response => {
             this.projectDetailstList = _response.data;

@@ -1673,7 +1673,7 @@ export class ProjectDashboardDb
         'widget11'     : {
             'title': 'Team Members',
             'table': {
-                'columns': ['username',  'email'],
+                'columns': ['avatar','username',  'email'],
                 'rows'   : [
                     {
                         avatar  : 'assets/images/avatars/james.jpg',

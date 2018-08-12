@@ -612,9 +612,6 @@ export class AdminDashboardDb
                     },
                     {
                         'title': 'open'
-                    },
-                    {
-                        'title': 'No.Of projects'
                     }
                 ],
                 'rows'   : [

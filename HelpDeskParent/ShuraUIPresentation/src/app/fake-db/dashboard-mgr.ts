@@ -749,7 +749,7 @@ export class ManagerDashboardDb
                 '2W': 'IBM'
             },
             'table': {
-                'columns': ['avatar', 'name', 'position',  'email', 'phone'],
+                'columns': [ 'name',  'email'],
                 'rows'   : [
                     {
                         avatar  : 'assets/images/avatars/james.jpg',
