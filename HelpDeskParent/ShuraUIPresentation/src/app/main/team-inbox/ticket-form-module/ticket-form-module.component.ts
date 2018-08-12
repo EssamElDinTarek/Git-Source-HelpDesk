@@ -151,7 +151,12 @@ export class TicketFormModuleComponent implements OnInit{
         title:new FormControl(),
         creationdate:new FormControl(),
         description:new FormControl(),
-        ticketNO:new FormControl()
+        ticketNO:new FormControl(),
+
+        ticketPriority:new FormControl(),
+        ticketSeverity:new FormControl(),
+        status:new FormControl(),
+        workflow:new FormControl(),
     });
     dialogTitle: string;
     // _ticketService : TicketService;
@@ -190,10 +195,12 @@ export class TicketFormModuleComponent implements OnInit{
             title: [{value:this.ticket.title, disabled: true}],
             creationdate: [{value:this.formatDate(this.ticket.creationdate), disabled: true}],
             description: [{value:this.ticket.description, disabled: true}],
-            status: [this.ticket.status],
+           // status: [this.ticket.status],
             ticketNO: [{value:this.ticket.ticketnumber, disabled: true}],
-            ticketSeverity: [this.ticket.ticketSeverity],
-            ticketPriority: [this.ticket.ticketPriority]
+            ticketSeverity: [{value:this.ticket.ticketSeverity.severityName, disabled: true}],
+            ticketPriority: [{value:this.ticket.ticketPriority.priorityLevel, disabled: true}],
+            //status: [{value:this.ticket.status.value, disabled: true}],
+            workflow:[{value:this.ticket.workflow.ticketType, disabled: true}],
         });
     }
 titleTempValue:string;
@@ -223,7 +230,7 @@ toggleEditControls(control):void{
 editTicket(control){
     console.log("edit Ticket : " + this.sharedService.user.userId);
     console.log("this.ticket : " + this.ticket);
-    this.ticket.hduser.userId = this.sharedService.user.userId;
+    this.ticket.hduser = this.sharedService.user;
     console.log("this.contactForm.controls.title.value : " + this.contactForm.controls.title.value);
     console.log("this.contactForm.controls.description.value : " + this.contactForm.controls.description.value);
     this.ticket.title = this.contactForm.controls.title.value;
@@ -231,9 +238,10 @@ editTicket(control){
     this.formData.append('ticket', JSON.stringify(this.ticket));
     this._ticketService.editTicket(this.formData).subscribe(_data=>{
     alert("Updated Successfully");
-    document.location.reload();
-    //this.editTitle = false;
-    //this.editDescription = false;
+    //this.router.navigate(['/teaminbox/'+this.ticket.ticketId]);
+    //document.location.reload();
+    this.editTitle = false;
+    this.editDescription = false;
     //this.titleTempValue = "";
     //this.descriptionTempValue= "";
     },_error=>{
