@@ -99,8 +99,8 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket = ticketDao.persist(ticket);
 			ticket.setCreationdate(new Date());
 			attachmentService.saveAttachment(ticket.getHduser(), files, ticket);
-			result = stepTicketForward(ticket.getTicketId());
-//			result = convertToDTO(ticket, ticketdto);
+			//result = stepTicketForward(ticket.getTicketId());
+			result = convertToDTO(ticket, ticketdto);
 		} catch (RespositoryException e) {
 			e.printStackTrace();
 			throw new BusinessException(ExceptionEnums.REPOSITORY_ERROR);

@@ -21,6 +21,8 @@ public class TicketServiceFacade {
 		ResponseDTO result = null;
 		try {
 			TicketDTO ticketDTO = service.addTicket(files, ticket);
+			System.out.println("ticket inserted in db : " + ticketDTO.getTicketId());
+			service.stepTicketForward(ticketDTO.getTicketId()); 
 			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001",
 					"Ticket has been created successfully", "Ticket has been created successfully", null);
 			result = new ResponseDTO(status, ticketDTO);
