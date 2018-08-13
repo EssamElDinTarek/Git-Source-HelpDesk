@@ -59,7 +59,7 @@ public class TicketRestController {
 	
 	@RequestMapping(value = "/history", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseDTO getHistoryByTicketId(@RequestParam(IntegrationServicesConstant.SERVICE_RETRIVAL_VALUE) Long ticketId) throws ControllerException {
+	public ResponseDTO getHistoryByTicketId(@RequestParam(IntegrationServicesConstant.TICKET_ID) Long ticketId) throws ControllerException {
 		return facadeService.getHistoryByTicketId(ticketId);
 	}
 	
