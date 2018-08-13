@@ -84,8 +84,17 @@
 </div>
 
 <!-- QUICK PANEL -->
-<fuse-sidebar name="quickPanel" position="right" class="quick-panel">
-    <quick-panel></quick-panel>
+<fuse-sidebar name="quickPanel" position="right" class="quick-panel" >
+    <!-- <div class="projects">
+        
+        <div class="project">
+                <mat-radio-group >
+                        <mat-radio-button value=""  *ngFor="let item of _sharedService.projects">{{ item.name }}</mat-radio-button>
+                </mat-radio-group>
+                    
+        </div>
+
+    </div> -->
 </fuse-sidebar>
 <!-- / QUICK PANEL -->
 

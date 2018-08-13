@@ -608,13 +608,10 @@ export class AdminDashboardDb
                         'title': 'Portofolio Name'
                     },
                     {
-                        'title': 'No.Of projects'
-                    },
-                    {
-                        'title': 'Open'
-                    },
-                    {
                         'title': 'Closed'
+                    },
+                    {
+                        'title': 'open'
                     }
                 ],
                 'rows'   : [
@@ -736,7 +733,7 @@ export class AdminDashboardDb
         'widget11'     : {
             'title': 'Users',
             'table': {
-                'columns': ['avatar', 'name', 'position',  'email', 'phone'],
+                'columns': [ 'name',   'email'],
                 'rows'   : [
                     {
                         avatar  : 'assets/images/avatars/james.jpg',

@@ -1,49 +1,81 @@
-<div id="dashboard-project" class="page-layout">
-    <div class="content clearfix">
+<div id="dashboard-project" class="page-layout mat-elevation-z8  mat-white-bg f-width">
+    <div class="content">
+        <div class="cont-grid">
+            <div class="tf-time-line mb-24 t-cell" aria-label="Time line">
 
-        <div class="tf-time-line mb-24" aria-label="Time line">
-
-            <div  class="vertical-stepper-wrapper">
-
-                <!-- VERTICAL STEPPER EXAMPLE -->
-                <mat-vertical-stepper  [linear]="true" *ngFor="let data of ticketHistory">
-
-                    <mat-step [stepControl]="verticalStepperStep1">
-
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                      <p>This Ticket was </p> {{data.behaviorValue}}
-                                            {{data.behaviorName}}
-                   {{data.type}}  
-                  {{data.actionAt}}
-                    </mat-step>
-
-                   <!--  <mat-step [stepControl]="verticalStepperStep2">
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                         <i *ngFor="let data of ticketHistory ">
-                            {{data.behaviorValue}}
-                                    </i> 
-                    </mat-step>
-                    
-                     <mat-step [stepControl]="verticalStepperStep3">
-
-                        <ng-template matStepLabel>{{data.stepId}}</ng-template>
-                    </mat-step> -->
-
-                </mat-vertical-stepper>
-                <!-- / VERTICAL STEPPER EXAMPLE -->
-
+                    <div  class="vertical-stepper-wrapper">
+        
+                        <ul class="timeline">
+                            <li *ngFor="let data of ticketHistory">
+                                <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
+                                <p>{{data.behaviorValue}}
+                                    {{data.behaviorName}}
+                                    {{data.type}}  action applied at
+                                    {{data.actionAt | date: "dd/MM/yyyy"}}
+                                </p>
+                            </li>
+        
+                        </ul>
+                        <!-- / VERTICAL STEPPER EXAMPLE -->
+        
+                    </div>
+        
+                    <div class="navigate">
+                        <button class="mat-accent" mat-raised-button (click)="openStepBackDialog()">
+                            <mat-icon>arrow_back</mat-icon>
+                        </button>
+        
+                        <button class="mat-accent" mat-raised-button (click)="openStepForwardDialog()">
+                            <mat-icon>arrow_forward</mat-icon>
+                        </button>
+                    </div>
+        
             </div>
+            <div class="tf-fields t-cell">
+                    <form [formGroup]="contactForm">
+        
+        
+        
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketNO" [disabled]="true" formControlName="ticketNO"  placeholder="Ticket Number" matInput  [disabled]="true">
+                            
+                        </mat-form-field>
+                        <mat-form-field class="w-50-p">
+                                <input name="creationdate" formControlName="creationdate" matInput placeholder="Created On" [disabled]='true'>
+                            </mat-form-field>
+        
+                        <mat-form-field class="w-100-p">
+                            <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
+                            <a *ngIf="!editTitle" href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
+                            <div class="edit" *ngIf="editTitle">
+                                <a href="javascript:void(0);" (click)="editTicket('title')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
+                                <a href="javascript:void(0);" (click)="toggleEditControls('title')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
+                            </div>
+                            
+                        </mat-form-field>
 
-            <div class="navigate">
-                <button class="mat-accent" mat-raised-button (click)="stepTickBack()">
-                    <mat-icon>arrow_back</mat-icon>
-                </button>
-
-                <button class="mat-accent" mat-raised-button (click)="stepTickForward()">
-                    <mat-icon>arrow_forward</mat-icon>
-                </button>
-            </div>
-
+                        <mat-form-field class="w-100-p">
+                                <textarea name="description" formControlName="description" matInput placeholder="Description" required></textarea>
+                                <a *ngIf="!editDescription" href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;"><mat-icon>mode_edit</mat-icon></a>
+                                <div class="edit" *ngIf="editDescription">
+                                        <a href="javascript:void(0);" (click)="editTicket('description')" style="float: right;color: green;"><mat-icon>check</mat-icon></a>
+                                        <a href="javascript:void(0);" (click)="toggleEditControls('description')" style="float: right;color: red;"><mat-icon>clear</mat-icon></a>
+                                </div>
+                                
+                        </mat-form-field>
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketPriority" formControlName="ticketPriority" placeholder="Priority " disabled matInput required>
+                        </mat-form-field>
+                        <mat-form-field class="w-50-p">
+                            <input name="ticketSeverity" formControlName="ticketSeverity" placeholder="Severity " disabled matInput required>
+                        </mat-form-field>
+                        <mat-form-field class="w-100-p">
+                            <input name="workflow" formControlName="workflow" placeholder="Workflow " disabled matInput required>
+                        </mat-form-field>
+                    </form>
+        
+                </div>
+        
         </div>
 
 
@@ -69,50 +101,17 @@
 
 
 
-        <div class="tf-fields">
-            <form [formGroup]="contactForm">
-
-
-
-                <mat-form-field class="w-50-p">
-                    <input name="ticketId" [disabled]="true" formControlName="ticketId"  placeholder="ticket#" matInput required  disabled>
-                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                    </mat-form-field>
-            
-
-                <mat-form-field class="w-50-p">
-                    <input name="title" formControlName="title" placeholder="Title " disabled matInput required>
-                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-
-                </mat-form-field>
-               
-                <mat-form-field class="w-50-p">
-                    <input name="creationdate" formControlName="creationdate" matInput placeholder="Created_On (disabled)" required>
-                    <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                </mat-form-field>
-
-             
-                <mat-form-field class="w-50-p">
-                        <input name="description" 
-                        formControlName="description" matInput placeholder="Description" required>
-                        <button (click)="testMethod()" style="float: right;"><mat-icon>mode_edit</mat-icon></button>
-                    </mat-form-field>
-
-              
-            </form>
-
-        </div>
 
         <div class="tf-tabs my-24">
 
             <mat-tab-group dynamicHeight>
 
                 <mat-tab label="Comments">
-                    <app-ticket-comment></app-ticket-comment>
+                    <app-ticket-comment [updatedTicketId]="updatedTicketId"></app-ticket-comment>
                 </mat-tab>
 
                 <mat-tab label="Attachments">
-                    <app-ticket-attachements></app-ticket-attachements>
+                    <app-ticket-attachements [updatedTicketId]="updatedTicketId"></app-ticket-attachements>
                 </mat-tab>
 
 

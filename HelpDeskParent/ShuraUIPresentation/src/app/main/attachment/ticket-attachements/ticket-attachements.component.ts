@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -25,11 +25,12 @@ import { AttachmentService, AttachmentResponse } from './../attachment.service';
 })
 export class TicketAttachementsComponent implements OnInit, AfterViewInit {
 
+  @Input('updatedTicketId') ticketID: number;
+
   formData: FormData = new FormData();
   filelist: FileList;
-  ticketID: number;
   userID:number;
-  displayedColumns = ['name', 'type', 'description', 'size',  'ModifiedDate', 'user', 'delete','upload'];
+  displayedColumns = ['name', 'description', 'type',  'size',  'ModifiedDate', 'user', 'delete'];
   attachments = new MatTableDataSource();
   resultsLength = 0;
   isLoadingResults = true;
@@ -45,12 +46,12 @@ export class TicketAttachementsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.attachmentResponse.data = new Array<Attachment>();
+    this.userID = this._shareData.user.userId;
     
   }
   ngAfterViewInit() {
     //get ticket id and user id to upload attachment
-    this.ticketID = 9552;
-    this.userID = 1;
+    this.userID = this._shareData.user.userId;
     console.log('on after view init');
     // If the user changes the sort order, reset back to the first page.
     this.attachService.getAttachmentByTickId(this.ticketID).subscribe(_attachmentResponse => {
@@ -79,7 +80,7 @@ export class TicketAttachementsComponent implements OnInit, AfterViewInit {
   }
 
   upload(attachment: Attachment): void {
-    debugger;
+     
 
     this.formData.append('TICKET_ID', JSON.stringify(this.ticketID));
     this.formData.append('files', attachment.file);

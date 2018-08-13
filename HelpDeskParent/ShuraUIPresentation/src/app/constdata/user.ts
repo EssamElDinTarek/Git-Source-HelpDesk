@@ -4,10 +4,11 @@ export const UserData: User = {
 
   userId: 123,
   firstName: '',
+  email:'ahmed.farrag',
   lastName: '',
-  emailAddress: 'ser@gmail',
+  emailAddress: 'ahmed.farrag',
   userPassword: '123456',
-  userName: 'ser@gmail',
+  userName: 'ahmed.farrag',
   portfolio: {portfolioId: 1, name: 'asd', managerLogjn: ''},
-  projects: [{projectId: 1, name: 'sbmhelpdesk' }, {projectId: 2, name: 'sbmshura'}]
+  projects: [{projectId: 1, name: 'sbmhelpdesk' ,portfolio: {portfolioId: 1, name: 'asd', managerLogjn: ''}}, {projectId: 2, name: 'sbmshura',portfolio: {portfolioId: 1, name: 'asd', managerLogjn: ''}}]
 };

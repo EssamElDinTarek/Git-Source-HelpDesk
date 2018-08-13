@@ -2,8 +2,11 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { Project } from '../../../models/Project';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { navigation } from '../../../navigation/navigation';
+// import { SharedDataService } from '../../../services/shared-data.service';
+// import { UserData } from '../../../constdata/user';
 
 @Component({
     selector     : 'vertical-layout-1',
@@ -16,6 +19,8 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
     fuseConfig: any;
     navigation: any;
 
+    projects: Project[] = []
+    selectedProject: Project;
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -25,6 +30,7 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
      * @param {FuseConfigService} _fuseConfigService
      */
     constructor(
+        // private _sharedService: SharedDataService,
         private _fuseConfigService: FuseConfigService
     )
     {
@@ -34,6 +40,7 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
         // Set the private defaults
         this._unsubscribeAll = new Subject();
     }
+    
 
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -50,6 +57,19 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
             .subscribe((config) => {
                 this.fuseConfig = config;
             });
+
+        // this.selectedProject =  this._sharedService.selectedProject;
+
+        // if(this._sharedService.user ==null){
+        //     this._sharedService.user = UserData;
+        //     this.projects = this._sharedService.user.projects;
+        //     if(this.projects != null && this.projects.length > 0){
+        //         this._sharedService.selectedProject = this.projects[0];
+        //         this.selectedProject =  this._sharedService.selectedProject;
+        //     }
+        // }
+
+
     }
 
     /**
@@ -61,4 +81,10 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
+
+    // onChange(): void
+    // {
+    //    this._sharedService.selectedProject =  this.selectedProject ;
+    // }
+
 }

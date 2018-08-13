@@ -84,7 +84,7 @@ export class TicketFormComponent implements OnInit {
   ngOnInit(): void
   {
    console.log('Call get tickets service');
-    this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+    this._ticketService.getTicketsByProjectID(this.sharedDataService.selectedProject.projectId,this.sharedDataService.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
 
         // --------------- query params for update page ------------------
 
@@ -133,15 +133,22 @@ export class TicketFormComponent implements OnInit {
             });
 
 
-        this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
-            this.ticketPeriorityList = _ticketPriority;
-        });
-        this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
-            this.ticketSeverityList = _ticketSeverity;
-        });
-        this._ticketService.getWorkflow().subscribe(_workflowlist => {
-            this.workflowList = _workflowlist;
-        });
+            this._ticketService.getTicketPriority().subscribe(_ticketPriority => {
+                for (let index = 0; index < _ticketPriority.data.length; index++) {
+                    this.ticketPeriorityList.push(_ticketPriority.data[index]);
+                }
+    
+            });
+            this._ticketService.getTicketSeverity().subscribe(_ticketSeverity => {
+                for (let index = 0; index < _ticketSeverity.data.length; index++) {
+                    this.ticketSeverityList.push(_ticketSeverity.data[index]);
+                }
+            });
+            this._ticketService.getWorkflow().subscribe(_workflowlist => {
+                for (let index = 0; index < _workflowlist.data.length; index++) {
+                    this.workflowList.push(_workflowlist.data[index]);
+                }
+            });
   
   }
 
@@ -176,7 +183,7 @@ export class TicketFormComponent implements OnInit {
 
 
     submitTicket(): void {
-        debugger;
+         
         if (this.isUpdate) {
             this.formData.append('ticket', JSON.stringify(this.ticket));
             if (this.filelist != null && this.filelist.length > 0) {
@@ -230,7 +237,7 @@ export class TicketFormComponent implements OnInit {
     }
 
     addFilesData(): void {
-        debugger;
+         
             this.fileListService.viewFilesData(this.filesData);
         }
 

@@ -592,16 +592,13 @@ export class ManagerDashboardDb
                         'title': 'Project Name'
                     },
                     {
-                        'title': 'Assigned Team'
-                    },
-                    {
                         'title': 'Status'
                     },
                     {
-                        'title': 'Number of tickets'
+                        'title': 'Number of assigned users'
                     },
                     {
-                        'title': 'Notes'
+                        'title': 'Number of tickets'
                     }
                 ],
                 'rows'   : [
@@ -752,7 +749,7 @@ export class ManagerDashboardDb
                 '2W': 'IBM'
             },
             'table': {
-                'columns': ['avatar', 'name', 'position',  'email', 'phone'],
+                'columns': [ 'name',  'email'],
                 'rows'   : [
                     {
                         avatar  : 'assets/images/avatars/james.jpg',

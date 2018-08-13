@@ -9,12 +9,12 @@ export const navigation: FuseNavigation[] = [
         icon     : 'apps',
         children : [
             {
-                id       : 'welcome',
-                title    : 'Welcome',
-                translate: 'NAV.WELCOME',
+                id       : 'dashboard',
+                title    : 'Dashboard',
+                translate: 'NAV.DASHBOARD',
                 type     : 'item',
                 icon     : 'face',
-                url      : '/welcome'
+                url      : '/user'
             },
             {
                 id       : 'tickets',
@@ -41,38 +41,21 @@ export const navigation: FuseNavigation[] = [
                 ]
             },
             {
-                id       : 'dashboard',
-                title    : 'User-DashBoard',
-                translate: 'NAV.USERDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/user'
-            },
-
-            {
-                id       : 'dashboard',
-                title    : 'Admin-DashBoard',
-                translate: 'NAV.ADMINDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/admin'
-            },
-            {
-                id       : 'dashboard',
-                title    : 'Manager-DashBoard',
-                translate: 'NAV.MGRDASHBOARDS',
-                type     : 'item',
-                icon     : 'flag',
-                url       :'/manager'
-            },
-            {
                 id       : 'teamtickets',
                 title    : 'Team Inbox',
                 translate: 'Team Inbox',
                 type     : 'item',
                 icon     : 'account_box',
                 url      : '/teaminbox'
-            }
+            }/* ,
+            { 
+                id        : 'ticketDetail',
+                title     : 'Ticket Detail',
+                type      : 'item',
+                url       : '/teaminbox/:ticketId',
+                exactMatch: true
+        } */
+        
             /* 
             {
                 id       : 'teamtinboxickets',

@@ -22,13 +22,15 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DataSource } from '@angular/cdk/collections';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, ViewChild} from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog} from '@angular/material';
 import { merge, Observable, of as observableOf} from 'rxjs';
 import { catchError, map, startWith, switchMap} from 'rxjs/operators'
 import { Location } from '@angular/common';
 import { Ticket } from '../../model/ticket';
 import { TicketService } from '../../services/ticket.service';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
+import { TicketFormComponentComponent } from './ticket-form-component/ticket-form-component.component';
+
 
 @Component({
   selector: 'app-team-inbox',
@@ -62,7 +64,7 @@ ngOnInit(){
  //console.log(this.dataSource.data);
  }
 
-tickets: TicketFormComponent[];
+//tickets: TicketFormComponent[];
 deleted: boolean;
 
    
@@ -105,9 +107,11 @@ ngAfterViewInit() {
     editTicket(ticketId): void
     {
 
-        this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+        this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress).subscribe(data => this.dataSource.data = data.data);
       //  console.log('Ticket desc is : '+item.description);
-        this.dialogRef = this._matDialog.open(TicketFormComponent, {
+
+      
+        this.dialogRef = this._matDialog.open(TicketFormComponentComponent, {
             panelClass: 'ticket-form-dialog',
             data: { 
                    // ticket:item.ticketIds,
@@ -120,7 +124,7 @@ ngAfterViewInit() {
                       }
         });
 
-      
+       
     }
 
 
@@ -146,7 +150,7 @@ export class FilesDataSource extends DataSource<any>
      */
     constructor(
         private _ticketService: TicketService,
-        public dialog: MatDialog,
+        public dialog: MatDialog,public _shareData : SharedDataService
     )
     {
         super();
@@ -154,7 +158,7 @@ export class FilesDataSource extends DataSource<any>
 
     connect(): Observable<any[]>
     {
-        return this._ticketService.getTicketsByProjectID();
+        return this._ticketService.getTicketsByProjectID(this._shareData.selectedProject.projectId,this._shareData.user.emailAddress);
     }
     /**
      * Disconnect
