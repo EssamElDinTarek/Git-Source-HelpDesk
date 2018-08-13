@@ -37,19 +37,28 @@ public class ProjectDaoImpl extends GenericDaoImpl<Project> implements ProjectDa
 	public List<ProjectDBDetailsDTO> getDashBoardProject(long portfolioId) throws RespositoryException {
 		List<ProjectDBDetailsDTO> projectDBList = new ArrayList<ProjectDBDetailsDTO>();
 		try{
-			String sqlString = "select  * from (select * from PROJECT, PROJECT_STATUS  where PROJECT.PROJECT_STATUS_ID = PROJECT_STATUS.STATUS_ID and PROJECT.PORTFOLIO_ID = 1) , " + 
-					"(Select PROJECT.PROJECT_ID as tab1, count(*) as USERCOUNT from HDUSER, TEAM, Project where HDUSER.PROJECT_ID = Project.PROJECT_ID and HDUSER.TEAM_ID = TEAM.REC_ID GROUP BY PROJECT.PROJECT_ID) ,( " + 
-					"select PROJECT.PROJECT_ID as tab2, count(*) as TICKETCOUNT from PROJECT, TICKET where PROJECT.PROJECT_ID = TICKET.PROJECT_ID  GROUP BY PROJECT.PROJECT_ID) where PROJECT_ID = tab1 and PROJECT_ID =tab2";
+			String sqlString = "select  * from (select * from PROJECT, PROJECT_STATUS  where PROJECT.PROJECT_STATUS_ID = PROJECT_STATUS.STATUS_ID and PROJECT.PORTFOLIO_ID = ?) LEFT JOIN " + 
+					"(Select PROJECT.PROJECT_ID as tab1, count(*) as USERCOUNT from HDUSER, TEAM, Project where HDUSER.PROJECT_ID = Project.PROJECT_ID and HDUSER.TEAM_ID = TEAM.REC_ID GROUP BY PROJECT.PROJECT_ID)on PROJECT_ID = tab1   " + 
+					"LEFT JOIN ( select PROJECT.PROJECT_ID as tab2, count(*) as TICKETCOUNT from PROJECT, TICKET where PROJECT.PROJECT_ID = TICKET.PROJECT_ID  GROUP BY PROJECT.PROJECT_ID) on PROJECT_ID =tab2";
 			Query query = this.entityManager.createNativeQuery(sqlString);
-			
+			query.setParameter(1, portfolioId);
 			List<Object[]> list =(List<Object[]>) query.getResultList();
 			for (Object[] a : list) {
 				ProjectDBDetailsDTO projectDB = new ProjectDBDetailsDTO();
 				projectDB.setProjectId(Long.parseLong(a[0].toString()));
 				projectDB.setName(a[1].toString());
 				projectDB.setStatus(a[6].toString());
-				projectDB.setUserCount(Long.parseLong(a[8].toString()));
-				projectDB.setTicketCount(Long.parseLong(a[10].toString()));
+				if(a[8] != null) {
+					projectDB.setUserCount(Long.parseLong(a[8].toString()));
+				}else {
+					projectDB.setUserCount(0L);
+				}
+				if(a[10] != null) {
+					projectDB.setTicketCount(Long.parseLong(a[10].toString()));
+				}else {
+					projectDB.setTicketCount(0L);
+				}
+				
 				projectDBList.add(projectDB);
 				}
 			
