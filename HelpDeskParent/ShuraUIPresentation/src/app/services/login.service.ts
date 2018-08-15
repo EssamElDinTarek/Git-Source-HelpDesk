@@ -17,9 +17,9 @@ export class LoginService {
 
     constructor(private http: Http) { }
 
-    private baseUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/';
-    private authUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/oauth/token';
-    private loginURL = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/user/login';
+    private baseUrl = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/user/';
+    private authUrl = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/oauth/token';
+    private loginURL = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/user/login';
 
 
     authorize(param: Auth): Observable<any> {

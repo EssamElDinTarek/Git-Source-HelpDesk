@@ -47,7 +47,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) { 
 	        configurer.enable();
 	}*/
-	@Bean
+	 
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		
 		  PropertySourcesPlaceholderConfigurer pspc = new PropertySourcesPlaceholderConfigurer();

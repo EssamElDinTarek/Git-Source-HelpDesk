@@ -46,7 +46,7 @@ export class HDURSDashboardComponent implements OnInit {
     
     workflowID:Number;
     ticketsOfWorkflow: any[];
-    weeklyTasks:any[];
+    weeklyTasks:any;
     weekelytaskDate:any;
     weekelyTaskFullDate:any[];
     countOfTickets:any[];
@@ -68,6 +68,47 @@ export class HDURSDashboardComponent implements OnInit {
     closed:number= 0;
     open:number= 0;
     
+
+   
+    
+    weekCount:any= {
+        'title'     : 'Weekely Tasks',
+        'ranges'    : {
+             'TW': 'Last Week',
+             '2W': '2 Weeks Ago'
+        },
+        'mainChart' : {
+            'TW': [
+                {
+                    'name'  : '12-07-2018',
+                    'series': [
+                        {
+                            'name' : 'Tickets',
+                            'value': 37
+                        },
+                        {
+                            'name' : 'closed tickets',
+                            'value': 9
+                        }
+                    ]
+                },
+                {
+                    'name'  : '13-07-2018',
+                    'series': [
+                        {
+                            'name' : 'Tickets',
+                            'value': 32
+                        },
+                        {
+                            'name' : 'closed tickets',
+                            'value': 12
+                        }
+                    ]
+                }      
+            ]
+    }
+}
+
 
     teamWidget:any={
         'title': 'Team Members',
@@ -252,7 +293,9 @@ export class HDURSDashboardComponent implements OnInit {
 
     weatherData: WeatherModel = new WeatherModel;
 
-
+    completedList:any[];
+    createdList:any[];
+    inprogressList:any[];
 
     
 
@@ -311,7 +354,7 @@ export class HDURSDashboardComponent implements OnInit {
          * Widget 6
          */
         this.widget6 = {
-            currentRange: 'TW',
+            currentRange: '2W',
             legend: false,
             explodeSlices: false,
             labels: true,
@@ -388,12 +431,7 @@ export class HDURSDashboardComponent implements OnInit {
        */
     ngOnInit(): void {
 
-/*
-        this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_response=>{
-            this.ticketsOfWorkflowList=_response.data;
-        })
-       
-*/
+
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition( _pos =>{
                 this._dashBoardService.getCurrentWeather(_pos.coords.latitude,_pos.coords.longitude).subscribe(_result => {
@@ -439,17 +477,31 @@ export class HDURSDashboardComponent implements OnInit {
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
 
-     /*  this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
+       this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
              this.weeklyTasks=_result.data;
-             for (let index = 0; index < this.weeklyTasks.length; index++) {        
-               this.weekelytaskDate= this.weeklyTasks[index].date;    
-                //this.weekelyTaskFullDate=(new Date(this.weekelytaskDate).getDay()+'-'+new Date(this.weekelytaskDate).getMonth()+'-'+new Date(this.weekelytaskDate).getUTCFullYear()); 
-                 console.log(this.weekelyTaskFullDate);
-            }
-
-             
+              for (let index = 0; index < this.weeklyTasks.length; index++) {   
+                  debugger
+                 if(this.weeklyTasks[index].name=='created') {
+                  //  console.log('Craeted Tickets : '+this.weeklyTasks[index].value);
+                    this.createdList.push(this.weeklyTasks[index]);
+                    console.log('Craeted Tickets : '+this.createdList);
+                 }else if(this.weeklyTasks[index].name=='completed'){
+                     debugger;
+                     this.completedList.push(this.weeklyTasks[index]);
+                     console.log('Completed Tickets : '+this.weeklyTasks[index].value);
+                 }else{
+                     debugger;
+                    this.inprogressList.push(this.weeklyTasks[index]);
+                     console.log('All other are inprogress status...!');
+                 }
+               /*   
+               this.weekelytaskDate= this.weeklyTasks[index].date;   
+               console.log('Date is : '+this.weekelytaskDate);
+                this.weekelyTaskFullDate=(new Date(this.weekelytaskDate).getDay()+'-'+new Date(this.weekelytaskDate).getMonth()+'-'+new Date(this.weekelytaskDate).getUTCFullYear()); 
+                */  
+            }  
       });
- */
+ 
           
          this._dashBoardService.getTicketsCounts(this.projectId,this.userEmail).subscribe(_result=>{
              console.log('Project is  : '+this.projectId);
@@ -486,11 +538,7 @@ export class HDURSDashboardComponent implements OnInit {
               console.log(this.selectedCategory);
           });
   
-  /*         this._dashBoardService.getUsersByProjectID(this.projectId).subscribe(_result => {
-            debugger;
-            this.dataSourceArray1 = _result.data;
-            console.log('Number of users : '+this.dataSourceArray1);
-        }); */
+
           //users per project service...
            this._dashBoardService.getUsersByProjectID(1).subscribe(_result => {
             debugger;
