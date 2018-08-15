@@ -49,7 +49,7 @@ public class BehavioralDetails extends BaseEntity implements Serializable {
     private String behaviorValue;
     
     @Column(name = "ACTION_AT")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date actionAt;
     
     @JoinColumn(name = "ACTION_BY", referencedColumnName = "USER_ID")

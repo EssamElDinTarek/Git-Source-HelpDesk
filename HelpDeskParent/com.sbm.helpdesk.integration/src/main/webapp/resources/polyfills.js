@@ -10398,7 +10398,7 @@ if (typeof SVGElement.prototype.contains === 'undefined') {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Essam Tarek\git\Git-Source-HelpDesk\HelpDeskParent\ShuraUIPresentation\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! E:\HelpDeskWorkSpace\GitHelpdesk\Git-Source-HelpDesk\HelpDeskParent\ShuraUIPresentation\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

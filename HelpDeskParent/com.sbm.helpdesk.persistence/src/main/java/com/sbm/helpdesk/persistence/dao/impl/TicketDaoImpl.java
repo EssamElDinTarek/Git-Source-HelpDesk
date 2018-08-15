@@ -50,7 +50,7 @@ public class TicketDaoImpl extends GenericDaoImpl<Ticket> implements TicketDao {
 		try{
 			String sqlString = "select TICKET.* FROM TICKET, PROJECT,TEAM, STEPS,HDUSER where"
 					+ " TICKET.PROJECT_ID = PROJECT.PROJECT_ID and ticket.step_id = STEPS.STEP_ID and STEPS.TEAM_ID = TEAM.REC_ID "
-					+ "and HDUSER.TEAM_ID =TEAM.REC_ID and PROJECT.PROJECT_ID = ? and  HDUSER.EMAIL_ADDRESS = ?";
+					+ "and HDUSER.TEAM_ID =TEAM.REC_ID and PROJECT.PROJECT_ID = ? and  HDUSER.EMAIL_ADDRESS = ? and TICKET.IS_DELETED = 0 ";
 			Query query = this.entityManager.createNativeQuery(sqlString,Ticket.class);
 			query.setParameter(1, projectId);
 			query.setParameter(2, userEmail);
@@ -198,11 +198,11 @@ public class TicketDaoImpl extends GenericDaoImpl<Ticket> implements TicketDao {
 			List<Object[]> openClosedList =(List<Object[]>) queryOpenClosed.getResultList();
 			for (Object[] a : penList) {
 				WidgetDTO widgetdto = new WidgetDTO();
-				if(((Timestamp)a[1]).getTime() ==today.getTime() ) {
+				if(a[1] != null && ((Timestamp)a[1]).getTime() ==today.getTime() ) {
 					widgetdto.setName("openTD");
 					widgetdto.setValue(Long.parseLong(a[0].toString()));
 					widgetDTOList.add(widgetdto);
-				} else if(((Timestamp)a[1]).getTime() ==yesterday.getTime() ) {
+				} else if(a[1] != null && ((Timestamp)a[1]).getTime() ==yesterday.getTime() ) {
 					widgetdto.setName("openYD");
 					widgetdto.setValue(Long.parseLong(a[0].toString()));
 					widgetDTOList.add(widgetdto);
@@ -210,11 +210,11 @@ public class TicketDaoImpl extends GenericDaoImpl<Ticket> implements TicketDao {
 			}
 			for (Object[] a : movedList) {
 				WidgetDTO widgetdto = new WidgetDTO();
-				if(((Timestamp)a[1]).getTime() ==today.getTime()) {
+				if(a[1] != null &&  ((Timestamp)a[1]).getTime() ==today.getTime()) {
 					widgetdto.setName("closedTD");
 					widgetdto.setValue(Long.parseLong(a[0].toString()));
 					widgetDTOList.add(widgetdto);
-				} else if(((Timestamp)a[1]).getTime() ==yesterday.getTime()) {
+				} else if(a[1] != null &&  ((Timestamp)a[1]).getTime() ==yesterday.getTime()) {
 					widgetdto.setName("closedYD");
 					widgetdto.setValue(Long.parseLong(a[0].toString()));
 					widgetDTOList.add(widgetdto);

@@ -687,7 +687,7 @@ var fuseAnimations = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 matDialogTitle>Confirm</h1>\n<div mat-dialog-content>{{confirmMessage}}</div>\n<div mat-dialog-actions class=\"pt-24\">\n    <button mat-raised-button class=\"mat-accent mr-16\" (click)=\"dialogRef.close(true)\">Confirm</button>\n    <button mat-button (click)=\"dialogRef.close(false)\">Cancel</button>\n</div>\n"
+module.exports = "<h1 matDialogTitle>Confirm</h1>\r\n<div mat-dialog-content>{{confirmMessage}}</div>\r\n<div mat-dialog-actions class=\"pt-24\">\r\n    <button mat-raised-button class=\"mat-accent mr-16\" (click)=\"dialogRef.close(true)\">Confirm</button>\r\n    <button mat-button (click)=\"dialogRef.close(false)\">Cancel</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -802,7 +802,7 @@ var FuseConfirmDialogModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"fuse-countdown\">\n\n    <div class=\"time days\">\n        <div class=\"value\">\n            {{countdown.days}}\n        </div>\n        <div class=\"title\">\n            days\n        </div>\n    </div>\n\n    <div class=\"time hours\">\n        <div class=\"value\">\n            {{countdown.hours}}\n        </div>\n        <div class=\"title\">\n            hours\n        </div>\n    </div>\n\n    <div class=\"time minutes\">\n        <div class=\"value\">\n            {{countdown.minutes}}\n        </div>\n        <div class=\"title\">\n            minutes\n        </div>\n    </div>\n\n    <div class=\"time seconds\">\n        <div class=\"value\">\n            {{countdown.seconds}}\n        </div>\n        <div class=\"title\">\n            seconds\n        </div>\n    </div>\n\n</div>"
+module.exports = "<div class=\"fuse-countdown\">\r\n\r\n    <div class=\"time days\">\r\n        <div class=\"value\">\r\n            {{countdown.days}}\r\n        </div>\r\n        <div class=\"title\">\r\n            days\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"time hours\">\r\n        <div class=\"value\">\r\n            {{countdown.hours}}\r\n        </div>\r\n        <div class=\"title\">\r\n            hours\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"time minutes\">\r\n        <div class=\"value\">\r\n            {{countdown.minutes}}\r\n        </div>\r\n        <div class=\"title\">\r\n            minutes\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"time seconds\">\r\n        <div class=\"value\">\r\n            {{countdown.seconds}}\r\n        </div>\r\n        <div class=\"title\">\r\n            seconds\r\n        </div>\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -966,7 +966,7 @@ var FuseCountdownModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- DEMO CONTENT -->\n<div class=\"demo-content\">\n\n    <img src=\"assets/images/beach.jpg\" alt=\"beach\" style=\"max-width: 640px; width: 100%;\">\n\n    <h1>Early Sunrise</h1>\n    <h4 class=\"secondary-text\">Demo Content</h4>\n\n    <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tortor nibh, convallis sed purus nec,\n        auctor venenatis nisl. Suspendisse potenti. Nullam sagittis nulla in diam finibus, sed pharetra velit\n        vestibulum. Suspendisse euismod in urna eu posuere.\n    </p>\n\n    <blockquote>\n        <p>\n            Nunc vel lacinia lorem. Nullam tincidunt sed purus eu placerat. Donec id dictum erat. Etiam enim ex, dapibus\n            et tortor id, posuere pretium est. Maecenas fringilla ipsum vitae neque elementum, at eleifend ante\n            sollicitudin. Donec viverra augue dolor, a venenatis tellus consectetur sit amet.\n        </p>\n        <footer>\n            John Doe\n        </footer>\n    </blockquote>\n\n    <p>\n        Ut ornare sit amet velit vel congue. Ut nec tristique eros. Lorem ipsum dolor sit amet, consectetur adipiscing\n        elit. Vivamus sed lorem quis nibh porta iaculis. Vestibulum ut eleifend ante, at semper mi. Nam imperdiet est\n        nisi, quis hendrerit tellus convallis et. Morbi in luctus neque. Curabitur elementum ut est et gravida. In hac\n        habitasse platea dictumst.\n    </p>\n\n    <p>\n        In et placerat eros, eu tempor turpis. Curabitur ac felis finibus, elementum lectus vitae, venenatis est.\n        Integer mollis nisl a eros scelerisque varius. Etiam venenatis lectus vel erat condimentum tristique vel vel mi.\n        Nulla id euismod mi, et mollis tellus.\n    </p>\n\n    <p>\n        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti\n        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur vitae sagittis odio.\n        Suspendisse ullamcorper nunc non pellentesque laoreet. Curabitur eu tortor id quam pretium mattis. Proin ut quam\n        velit.\n    </p>\n\n    <p>\n        Quisque sit amet risus enim. Aliquam sit amet interdum justo, at ultricies sapien. Suspendisse et semper urna,\n        in gravida eros. Quisque id nibh iaculis, euismod urna sed, egestas nisi. Donec eros metus, congue a imperdiet\n        feugiat, sagittis nec ipsum. Quisque dapibus mollis felis non tristique.\n    </p>\n\n    <p>\n        Ut auctor, metus sed dapibus tempus, urna diam auctor odio, in malesuada odio risus vitae nisi. Etiam blandit\n        ante urna, vitae placerat massa mollis in. Duis nec urna ac purus semper dictum ut eget justo. Aenean non\n        sagittis augue. Sed venenatis rhoncus enim eget ornare. Donec viverra sed felis at venenatis. Mauris aliquam\n        fringilla nulla, sit amet congue felis dignissim at.\n    </p>\n\n    <p>\n        Quisque accumsan augue tempor ante mollis, sed placerat diam porttitor. Vestibulum dignissim sem vel velit\n        eleifend, non pellentesque quam convallis. Pellentesque est dolor, dignissim ac tortor tristique, hendrerit\n        iaculis metus. Praesent pulvinar quam eu leo consectetur faucibus. Vestibulum purus diam, gravida sagittis\n        feugiat sit amet, tincidunt in ligula. Sed semper vestibulum magna. Lorem ipsum dolor sit amet, consectetur\n        adipiscing elit. Suspendisse tortor nibh, convallis sed purus nec, auctor venenatis nisl. Suspendisse potenti.\n    </p>\n\n    <p>\n        Nullam sagittis nulla in diam finibus, sed pharetra velit vestibulum. Suspendisse euismod in urna eu posuere.\n        Etiam blandit nunc arcu, et consectetur orci blandit a. Aliquam condimentum pharetra quam at ultricies. Nunc vel\n        lacinia lorem. Nullam tincidunt sed purus eu placerat. Donec id dictum erat. Etiam enim ex, dapibus et tortor\n        id, posuere pretium est. Maecenas fringilla ipsum vitae neque elementum, at eleifend ante sollicitudin. Donec\n        viverra augue dolor, a venenatis tellus consectetur sit amet...\n    </p>\n</div>\n<!-- / DEMO CONTENT -->\n"
+module.exports = "<!-- DEMO CONTENT -->\r\n<div class=\"demo-content\">\r\n\r\n    <img src=\"assets/images/beach.jpg\" alt=\"beach\" style=\"max-width: 640px; width: 100%;\">\r\n\r\n    <h1>Early Sunrise</h1>\r\n    <h4 class=\"secondary-text\">Demo Content</h4>\r\n\r\n    <p>\r\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tortor nibh, convallis sed purus nec,\r\n        auctor venenatis nisl. Suspendisse potenti. Nullam sagittis nulla in diam finibus, sed pharetra velit\r\n        vestibulum. Suspendisse euismod in urna eu posuere.\r\n    </p>\r\n\r\n    <blockquote>\r\n        <p>\r\n            Nunc vel lacinia lorem. Nullam tincidunt sed purus eu placerat. Donec id dictum erat. Etiam enim ex, dapibus\r\n            et tortor id, posuere pretium est. Maecenas fringilla ipsum vitae neque elementum, at eleifend ante\r\n            sollicitudin. Donec viverra augue dolor, a venenatis tellus consectetur sit amet.\r\n        </p>\r\n        <footer>\r\n            John Doe\r\n        </footer>\r\n    </blockquote>\r\n\r\n    <p>\r\n        Ut ornare sit amet velit vel congue. Ut nec tristique eros. Lorem ipsum dolor sit amet, consectetur adipiscing\r\n        elit. Vivamus sed lorem quis nibh porta iaculis. Vestibulum ut eleifend ante, at semper mi. Nam imperdiet est\r\n        nisi, quis hendrerit tellus convallis et. Morbi in luctus neque. Curabitur elementum ut est et gravida. In hac\r\n        habitasse platea dictumst.\r\n    </p>\r\n\r\n    <p>\r\n        In et placerat eros, eu tempor turpis. Curabitur ac felis finibus, elementum lectus vitae, venenatis est.\r\n        Integer mollis nisl a eros scelerisque varius. Etiam venenatis lectus vel erat condimentum tristique vel vel mi.\r\n        Nulla id euismod mi, et mollis tellus.\r\n    </p>\r\n\r\n    <p>\r\n        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti\r\n        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur vitae sagittis odio.\r\n        Suspendisse ullamcorper nunc non pellentesque laoreet. Curabitur eu tortor id quam pretium mattis. Proin ut quam\r\n        velit.\r\n    </p>\r\n\r\n    <p>\r\n        Quisque sit amet risus enim. Aliquam sit amet interdum justo, at ultricies sapien. Suspendisse et semper urna,\r\n        in gravida eros. Quisque id nibh iaculis, euismod urna sed, egestas nisi. Donec eros metus, congue a imperdiet\r\n        feugiat, sagittis nec ipsum. Quisque dapibus mollis felis non tristique.\r\n    </p>\r\n\r\n    <p>\r\n        Ut auctor, metus sed dapibus tempus, urna diam auctor odio, in malesuada odio risus vitae nisi. Etiam blandit\r\n        ante urna, vitae placerat massa mollis in. Duis nec urna ac purus semper dictum ut eget justo. Aenean non\r\n        sagittis augue. Sed venenatis rhoncus enim eget ornare. Donec viverra sed felis at venenatis. Mauris aliquam\r\n        fringilla nulla, sit amet congue felis dignissim at.\r\n    </p>\r\n\r\n    <p>\r\n        Quisque accumsan augue tempor ante mollis, sed placerat diam porttitor. Vestibulum dignissim sem vel velit\r\n        eleifend, non pellentesque quam convallis. Pellentesque est dolor, dignissim ac tortor tristique, hendrerit\r\n        iaculis metus. Praesent pulvinar quam eu leo consectetur faucibus. Vestibulum purus diam, gravida sagittis\r\n        feugiat sit amet, tincidunt in ligula. Sed semper vestibulum magna. Lorem ipsum dolor sit amet, consectetur\r\n        adipiscing elit. Suspendisse tortor nibh, convallis sed purus nec, auctor venenatis nisl. Suspendisse potenti.\r\n    </p>\r\n\r\n    <p>\r\n        Nullam sagittis nulla in diam finibus, sed pharetra velit vestibulum. Suspendisse euismod in urna eu posuere.\r\n        Etiam blandit nunc arcu, et consectetur orci blandit a. Aliquam condimentum pharetra quam at ultricies. Nunc vel\r\n        lacinia lorem. Nullam tincidunt sed purus eu placerat. Donec id dictum erat. Etiam enim ex, dapibus et tortor\r\n        id, posuere pretium est. Maecenas fringilla ipsum vitae neque elementum, at eleifend ante sollicitudin. Donec\r\n        viverra augue dolor, a venenatis tellus consectetur sit amet...\r\n    </p>\r\n</div>\r\n<!-- / DEMO CONTENT -->\r\n"
 
 /***/ }),
 
@@ -1030,7 +1030,7 @@ var FuseDemoContentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"demo-sidebar\">\n    <mat-list>\n        <h3 matSubheader>Sidebar Demo</h3>\n\n        <mat-list-item>\n            <span>Sidebar Item 1</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 2</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 3</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 4</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 5</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 6</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 7</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 8</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 9</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 10</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 11</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 12</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 13</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 14</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 15</span>\n        </mat-list-item>\n\n        <mat-divider></mat-divider>\n\n        <mat-list-item>\n            <span>Sidebar Item 16</span>\n        </mat-list-item>\n\n    </mat-list>\n</div>\n"
+module.exports = "<div class=\"demo-sidebar\">\r\n    <mat-list>\r\n        <h3 matSubheader>Sidebar Demo</h3>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 1</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 2</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 3</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 4</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 5</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 6</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 7</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 8</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 9</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 10</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 11</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 12</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 13</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 14</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 15</span>\r\n        </mat-list-item>\r\n\r\n        <mat-divider></mat-divider>\r\n\r\n        <mat-list-item>\r\n            <span>Sidebar Item 16</span>\r\n        </mat-list-item>\r\n\r\n    </mat-list>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1474,7 +1474,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-icon-button\n        type=\"button\"\n        class=\"mat-elevation-z1\"\n        [matMenuTriggerFor]=\"colorMenu\"\n        (menuOpened)=\"onMenuOpen()\"\n        [ngClass]=\"'mat-'+selectedPalette+'-'+selectedHue+'-bg'\">\n    <mat-icon>palette</mat-icon>\n</button>\n\n<mat-menu #colorMenu=\"matMenu\" class=\"fuse-material-color-picker-menu\">\n\n    <header [ngClass]=\"selectedColor?.class || 'mat-accent-bg'\" class=\"mat-elevation-z4\"\n            fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n\n        <button mat-icon-button\n                [style.visibility]=\"view==='hues'?'visible':'hidden'\"\n                (click)=\"$event.stopPropagation();backToPaletteSelection()\" aria-label=\"Palette\">\n            <mat-icon class=\"s-20\">arrow_back</mat-icon>\n        </button>\n\n        <span *ngIf=\"selectedColor?.palette\">\n            {{selectedColor.palette}} {{selectedColor.hue}}\n        </span>\n\n        <span *ngIf=\"!selectedColor?.palette\">\n            Select Color\n        </span>\n\n        <button mat-icon-button\n                class=\"remove-color-button\"\n                (click)=\"$event.stopPropagation();removeColor()\"\n                aria-label=\"Remove Color\">\n            <mat-icon class=\"s-20\">delete</mat-icon>\n        </button>\n    </header>\n\n\n    <div [ngSwitch]=\"view\" class=\"views\">\n\n        <div class=\"view\" *ngSwitchCase=\"'palettes'\">\n\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start start\" class=\"colors\" fusePerfectScrollbar>\n                <div class=\"color\"\n                     [ngClass]=\"'mat-'+color.key+'-bg'\"\n                     *ngFor=\"let color of (colors | keys)\"\n                     (click)=\"$event.stopPropagation();selectPalette(color.key)\"\n                     fxLayout=\"row\" fxLayoutAlign=\"start end\" mat-ink-ripple>\n                    <span class=\"label\">\n                        {{color.key}}\n                    </span>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"view\" *ngSwitchCase=\"'hues'\" >\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start start\" class=\"colors\" fusePerfectScrollbar>\n                <div class=\"color\" *ngFor=\"let hue of hues\"\n                     [fxHide]=\"selectedPalette === 'white' && hue !== '500'|| selectedPalette === 'black' && hue !== '500'\"\n                     [ngClass]=\"'mat-'+selectedPalette+'-'+hue+'-bg'\"\n                     (click)=\"selectHue(hue)\" fxLayout=\"row\" fxLayoutAlign=\"start end\" mat-ink-ripple>\n                    <span class=\"label\">\n                        {{hue}}\n                    </span>\n                    <mat-icon *ngIf=\"selectedHue === hue\" class=\"s-16\">check</mat-icon>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</mat-menu>\n"
+module.exports = "<button mat-icon-button\r\n        type=\"button\"\r\n        class=\"mat-elevation-z1\"\r\n        [matMenuTriggerFor]=\"colorMenu\"\r\n        (menuOpened)=\"onMenuOpen()\"\r\n        [ngClass]=\"'mat-'+selectedPalette+'-'+selectedHue+'-bg'\">\r\n    <mat-icon>palette</mat-icon>\r\n</button>\r\n\r\n<mat-menu #colorMenu=\"matMenu\" class=\"fuse-material-color-picker-menu\">\r\n\r\n    <header [ngClass]=\"selectedColor?.class || 'mat-accent-bg'\" class=\"mat-elevation-z4\"\r\n            fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n\r\n        <button mat-icon-button\r\n                [style.visibility]=\"view==='hues'?'visible':'hidden'\"\r\n                (click)=\"$event.stopPropagation();backToPaletteSelection()\" aria-label=\"Palette\">\r\n            <mat-icon class=\"s-20\">arrow_back</mat-icon>\r\n        </button>\r\n\r\n        <span *ngIf=\"selectedColor?.palette\">\r\n            {{selectedColor.palette}} {{selectedColor.hue}}\r\n        </span>\r\n\r\n        <span *ngIf=\"!selectedColor?.palette\">\r\n            Select Color\r\n        </span>\r\n\r\n        <button mat-icon-button\r\n                class=\"remove-color-button\"\r\n                (click)=\"$event.stopPropagation();removeColor()\"\r\n                aria-label=\"Remove Color\">\r\n            <mat-icon class=\"s-20\">delete</mat-icon>\r\n        </button>\r\n    </header>\r\n\r\n\r\n    <div [ngSwitch]=\"view\" class=\"views\">\r\n\r\n        <div class=\"view\" *ngSwitchCase=\"'palettes'\">\r\n\r\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start start\" class=\"colors\" fusePerfectScrollbar>\r\n                <div class=\"color\"\r\n                     [ngClass]=\"'mat-'+color.key+'-bg'\"\r\n                     *ngFor=\"let color of (colors | keys)\"\r\n                     (click)=\"$event.stopPropagation();selectPalette(color.key)\"\r\n                     fxLayout=\"row\" fxLayoutAlign=\"start end\" mat-ink-ripple>\r\n                    <span class=\"label\">\r\n                        {{color.key}}\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"view\" *ngSwitchCase=\"'hues'\" >\r\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start start\" class=\"colors\" fusePerfectScrollbar>\r\n                <div class=\"color\" *ngFor=\"let hue of hues\"\r\n                     [fxHide]=\"selectedPalette === 'white' && hue !== '500'|| selectedPalette === 'black' && hue !== '500'\"\r\n                     [ngClass]=\"'mat-'+selectedPalette+'-'+hue+'-bg'\"\r\n                     (click)=\"selectHue(hue)\" fxLayout=\"row\" fxLayoutAlign=\"start end\" mat-ink-ripple>\r\n                    <span class=\"label\">\r\n                        {{hue}}\r\n                    </span>\r\n                    <mat-icon *ngIf=\"selectedHue === hue\" class=\"s-16\">check</mat-icon>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</mat-menu>\r\n"
 
 /***/ }),
 
@@ -1827,7 +1827,7 @@ var FuseMaterialColorPickerModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!item.hidden\">\n\n    <!-- normal collapse -->\n    <a class=\"nav-link\" *ngIf=\"!item.url && !item.function\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.url -->\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.function\"\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.function -->\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\" (click)=\"item.function()\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </span>\n\n    <!-- item.url && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.function\" (click)=\"item.function()\"\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\n            {{item.badge.title}}\n        </span>\n        <mat-icon class=\"collapsable-arrow\">keyboard_arrow_right</mat-icon>\n    </ng-template>\n\n    <div class=\"children\" [ngClass]=\"{'open': isOpen}\">\n\n        <div class=\"{{fuseConfig.layout.navbar.background}}\">\n\n            <ng-container *ngFor=\"let item of item.children\">\n                <fuse-nav-horizontal-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-horizontal-item>\n                <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='collapsable'\"\n                                                 [item]=\"item\"></fuse-nav-horizontal-collapsable>\n                <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='group'\"\n                                                 [item]=\"item\"></fuse-nav-horizontal-collapsable>\n            </ng-container>\n\n        </div>\n\n    </div>\n\n</ng-container>"
+module.exports = "<ng-container *ngIf=\"!item.hidden\">\r\n\r\n    <!-- normal collapse -->\r\n    <a class=\"nav-link\" *ngIf=\"!item.url && !item.function\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.url -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.function\"\r\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.function -->\r\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\" (click)=\"item.function()\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </span>\r\n\r\n    <!-- item.url && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.function\" (click)=\"item.function()\"\r\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <ng-template #itemContent>\r\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\r\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\r\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\r\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\r\n            {{item.badge.title}}\r\n        </span>\r\n        <mat-icon class=\"collapsable-arrow\">keyboard_arrow_right</mat-icon>\r\n    </ng-template>\r\n\r\n    <div class=\"children\" [ngClass]=\"{'open': isOpen}\">\r\n\r\n        <div class=\"{{fuseConfig.layout.navbar.background}}\">\r\n\r\n            <ng-container *ngFor=\"let item of item.children\">\r\n                <fuse-nav-horizontal-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-horizontal-item>\r\n                <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='collapsable'\"\r\n                                                 [item]=\"item\"></fuse-nav-horizontal-collapsable>\r\n                <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='group'\"\r\n                                                 [item]=\"item\"></fuse-nav-horizontal-collapsable>\r\n            </ng-container>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -1960,7 +1960,7 @@ var FuseNavHorizontalCollapsableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!item.hidden\">\n\n    <!-- item.url -->\n    <a class=\"nav-link\" *ngIf=\"item.url\" [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.function -->\n    <span class=\"nav-link\" *ngIf=\"item.function\" (click)=\"item.function()\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </span>\n\n    <!-- item.url && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.function\" (click)=\"item.function()\"\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\n            {{item.badge.title}}\n        </span>\n    </ng-template>\n\n</ng-container>\n"
+module.exports = "<ng-container *ngIf=\"!item.hidden\">\r\n\r\n    <!-- item.url -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url\" [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.function -->\r\n    <span class=\"nav-link\" *ngIf=\"item.function\" (click)=\"item.function()\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </span>\r\n\r\n    <!-- item.url && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.function\" (click)=\"item.function()\"\r\n       [routerLink]=\"[item.url]\" routerLinkActive=\"active\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <ng-template #itemContent>\r\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\r\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\r\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\r\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\r\n            {{item.badge.title}}\r\n        </span>\r\n    </ng-template>\r\n\r\n</ng-container>\r\n"
 
 /***/ }),
 
@@ -2033,7 +2033,7 @@ var FuseNavHorizontalItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-navigation\" class=\"nav\"\n     [ngClass]=\"{'horizontal':layout === 'horizontal', 'vertical':layout === 'vertical'}\">\n\n    <!-- Vertical Navigation Layout -->\n    <ng-container *ngIf=\"layout === 'vertical'\">\n\n        <ng-container *ngFor=\"let item of navigation\">\n\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapse'\" [item]=\"item\"></fuse-nav-vertical-collapsable>\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\n\n        </ng-container>\n\n    </ng-container>\n    <!-- / Vertical Navigation Layout -->\n\n    <!-- Horizontal Navigation Layout -->\n    <ng-container *ngIf=\"layout === 'horizontal'\">\n\n        <ng-container *ngFor=\"let item of navigation\">\n\n            <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-horizontal-collapsable>\n            <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='collapse'\" [item]=\"item\"></fuse-nav-horizontal-collapsable>\n            <fuse-nav-horizontal-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-horizontal-item>\n\n        </ng-container>\n\n    </ng-container>\n    <!-- / Horizontal Navigation Layout -->\n\n</div>\n"
+module.exports = "<div id=\"main-navigation\" class=\"nav\"\r\n     [ngClass]=\"{'horizontal':layout === 'horizontal', 'vertical':layout === 'vertical'}\">\r\n\r\n    <!-- Vertical Navigation Layout -->\r\n    <ng-container *ngIf=\"layout === 'vertical'\">\r\n\r\n        <ng-container *ngFor=\"let item of navigation\">\r\n\r\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\r\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapse'\" [item]=\"item\"></fuse-nav-vertical-collapsable>\r\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\r\n\r\n\r\n        </ng-container>\r\n\r\n    </ng-container>\r\n    <!-- / Vertical Navigation Layout -->\r\n\r\n    <!-- Horizontal Navigation Layout -->\r\n    <ng-container *ngIf=\"layout === 'horizontal'\">\r\n\r\n        <ng-container *ngFor=\"let item of navigation\">\r\n\r\n            <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-horizontal-collapsable>\r\n            <fuse-nav-horizontal-collapsable *ngIf=\"item.type=='collapse'\" [item]=\"item\"></fuse-nav-horizontal-collapsable>\r\n            <fuse-nav-horizontal-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-horizontal-item>\r\n\r\n        </ng-container>\r\n\r\n    </ng-container>\r\n    <!-- / Horizontal Navigation Layout -->\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2508,7 +2508,7 @@ var FuseNavigationService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!item.hidden\">\n\n    <!-- normal collapse -->\n    <a class=\"nav-link\" *ngIf=\"!item.url && !item.function\" (click)=\"toggleOpen($event)\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.url -->\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && !item.function\" (click)=\"toggleOpen($event)\"\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.externalUrl -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && !item.function\" (click)=\"toggleOpen($event)\"\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.function -->\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\"\n          (click)=\"toggleOpen($event);item.function()\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </span>\n\n    <!-- item.url && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && item.function\"\n       (click)=\"toggleOpen($event);item.function()\"\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.externalUrl && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && item.function\"\n       (click)=\"toggleOpen($event);item.function()\"\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\n            {{item.badge.title}}\n        </span>\n        <mat-icon class=\"collapsable-arrow\">keyboard_arrow_right</mat-icon>\n    </ng-template>\n\n    <div class=\"children\" [@slideInOut]=\"isOpen\">\n        <ng-container *ngFor=\"let item of item.children\">\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapsable'\"\n                                           [item]=\"item\"></fuse-nav-vertical-collapsable>\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\n        </ng-container>\n    </div>\n\n</ng-container>\n"
+module.exports = "<ng-container *ngIf=\"!item.hidden\">\r\n\r\n    <!-- normal collapse -->\r\n    <a class=\"nav-link\" *ngIf=\"!item.url && !item.function\" (click)=\"toggleOpen($event)\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.url -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && !item.function\" (click)=\"toggleOpen($event)\"\r\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\r\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.externalUrl -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && !item.function\" (click)=\"toggleOpen($event)\"\r\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.function -->\r\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\"\r\n          (click)=\"toggleOpen($event);item.function()\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </span>\r\n\r\n    <!-- item.url && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && item.function\"\r\n       (click)=\"toggleOpen($event);item.function()\"\r\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.externalUrl && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && item.function\"\r\n       (click)=\"toggleOpen($event);item.function()\"\r\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <ng-template #itemContent>\r\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\r\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\r\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\r\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\r\n            {{item.badge.title}}\r\n        </span>\r\n        <mat-icon class=\"collapsable-arrow\">keyboard_arrow_right</mat-icon>\r\n    </ng-template>\r\n\r\n    <div class=\"children\" [@slideInOut]=\"isOpen\">\r\n        <ng-container *ngFor=\"let item of item.children\">\r\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\r\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapsable'\"\r\n                                           [item]=\"item\"></fuse-nav-vertical-collapsable>\r\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\r\n        </ng-container>\r\n    </div>\r\n\r\n</ng-container>\r\n"
 
 /***/ }),
 
@@ -2745,7 +2745,7 @@ var FuseNavVerticalCollapsableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!item.hidden\">\n\n    <div class=\"group-title\">\n        <span class=\"hint-text\" [translate]=\"item.translate\">{{ item.title }}</span>\n    </div>\n\n    <div class=\"group-items\">\n        <ng-container *ngFor=\"let item of item.children\">\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapsable'\"\n                                           [item]=\"item\"></fuse-nav-vertical-collapsable>\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\n        </ng-container>\n    </div>\n\n</ng-container>"
+module.exports = "<ng-container *ngIf=\"!item.hidden\">\r\n\r\n    <div class=\"group-title\">\r\n        <span class=\"hint-text\" [translate]=\"item.translate\">{{ item.title }}</span>\r\n    </div>\r\n\r\n    <div class=\"group-items\">\r\n        <ng-container *ngFor=\"let item of item.children\">\r\n            <fuse-nav-vertical-group *ngIf=\"item.type=='group'\" [item]=\"item\"></fuse-nav-vertical-group>\r\n            <fuse-nav-vertical-collapsable *ngIf=\"item.type=='collapsable'\"\r\n                                           [item]=\"item\"></fuse-nav-vertical-collapsable>\r\n            <fuse-nav-vertical-item *ngIf=\"item.type=='item'\" [item]=\"item\"></fuse-nav-vertical-item>\r\n        </ng-container>\r\n    </div>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -2818,7 +2818,7 @@ var FuseNavVerticalGroupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!item.hidden\">\n\n    <!-- item.url -->\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && !item.function\"\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.externalUrl -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && !item.function\"\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.function -->\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\"\n          (click)=\"item.function()\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </span>\n\n    <!-- item.url && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && item.function\" (click)=\"item.function()\"\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.externalUrl && item.function -->\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && item.function\" (click)=\"item.function()\"\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\n            {{item.badge.title}}\n        </span>\n    </ng-template>\n\n</ng-container>"
+module.exports = "<ng-container *ngIf=\"!item.hidden\">\r\n\r\n    <!-- item.url -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && !item.function\"\r\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\r\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.externalUrl -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && !item.function\"\r\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.function -->\r\n    <span class=\"nav-link\" *ngIf=\"!item.url && item.function\"\r\n          (click)=\"item.function()\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </span>\r\n\r\n    <!-- item.url && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && !item.externalUrl && item.function\" (click)=\"item.function()\"\r\n       [routerLink]=\"[item.url]\" [routerLinkActive]=\"['active', 'mat-accent-bg']\"\r\n       [routerLinkActiveOptions]=\"{exact: item.exactMatch || false}\"\r\n       [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <!-- item.externalUrl && item.function -->\r\n    <a class=\"nav-link\" *ngIf=\"item.url && item.externalUrl && item.function\" (click)=\"item.function()\"\r\n       [href]=\"item.url\" [target]=\"item.openInNewTab ? '_blank' : '_self'\" matRipple>\r\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\r\n    </a>\r\n\r\n    <ng-template #itemContent>\r\n        <mat-icon class=\"nav-link-icon\" *ngIf=\"item.icon\">{{item.icon}}</mat-icon>\r\n        <span class=\"nav-link-title\" [translate]=\"item.translate\">{{item.title}}</span>\r\n        <span class=\"nav-link-badge\" *ngIf=\"item.badge\" [translate]=\"item.badge.translate\"\r\n              [ngStyle]=\"{'background-color': item.badge.bg,'color': item.badge.fg}\">\r\n            {{item.badge.title}}\r\n        </span>\r\n    </ng-template>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -2891,7 +2891,7 @@ var FuseNavVerticalItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"fuse-search-bar\" [ngClass]=\"{'expanded':!collapsed}\">\n\n    <div class=\"fuse-search-bar-content\" [ngClass]=\"fuseConfig.layout.toolbar.background\">\n\n        <label for=\"fuse-search-bar-input\">\n            <button mat-icon-button class=\"fuse-search-bar-expander\" aria-label=\"Expand Search Bar\" (click)=\"expand()\"\n                    *ngIf=\"collapsed\">\n                <mat-icon class=\"s-24 secondary-text\">search</mat-icon>\n            </button>\n            <!--<span class=\"fuse-search-bar-loader\" fxLayout=\"row\" fxLayoutAlign=\"center center\" *ngIf=\"!collapsed\">\n                <mat-progress-spinner color=\"mat-accent\" mode=\"indeterminate\"></mat-progress-spinner>\n            </span>-->\n        </label>\n\n        <input id=\"fuse-search-bar-input\" class=\"ml-24\" type=\"text\" placeholder=\"Search\" (input)=\"search($event)\"\n               fxFlex>\n\n        <button mat-icon-button class=\"fuse-search-bar-collapser\" (click)=\"collapse()\"\n                aria-label=\"Collapse Search Bar\">\n            <mat-icon class=\"s-24 secondary-text\">close</mat-icon>\n        </button>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"fuse-search-bar\" [ngClass]=\"{'expanded':!collapsed}\">\r\n\r\n    <div class=\"fuse-search-bar-content\" [ngClass]=\"fuseConfig.layout.toolbar.background\">\r\n\r\n        <label for=\"fuse-search-bar-input\">\r\n            <button mat-icon-button class=\"fuse-search-bar-expander\" aria-label=\"Expand Search Bar\" (click)=\"expand()\"\r\n                    *ngIf=\"collapsed\">\r\n                <mat-icon class=\"s-24 secondary-text\">search</mat-icon>\r\n            </button>\r\n            <!--<span class=\"fuse-search-bar-loader\" fxLayout=\"row\" fxLayoutAlign=\"center center\" *ngIf=\"!collapsed\">\r\n                <mat-progress-spinner color=\"mat-accent\" mode=\"indeterminate\"></mat-progress-spinner>\r\n            </span>-->\r\n        </label>\r\n\r\n        <input id=\"fuse-search-bar-input\" class=\"ml-24\" type=\"text\" placeholder=\"Search\" (input)=\"search($event)\"\r\n               fxFlex>\r\n\r\n        <button mat-icon-button class=\"fuse-search-bar-collapser\" (click)=\"collapse()\"\r\n                aria-label=\"Collapse Search Bar\">\r\n            <mat-icon class=\"s-24 secondary-text\">close</mat-icon>\r\n        </button>\r\n\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -3071,7 +3071,7 @@ var FuseSearchBarModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"fuse-shortcuts\" #shortcuts>\n\n    <div class=\"shortcuts-mobile-toggle\" *ngIf=\"!mobileShortcutsPanelActive\" fxLayout=\"row\" fxLayoutAlign=\"start center\"\n         fxHide fxShow.lt-md>\n        <button mat-icon-button (click)=\"showMobileShortcutsPanel()\">\n            <mat-icon class=\"amber-600-fg\">star</mat-icon>\n        </button>\n    </div>\n\n    <div class=\"shortcuts\" fxHide fxShow.gt-sm>\n\n        <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxFlex=\"0 1 auto\">\n\n            <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n                <div class=\"w-40 h-40 p-4\" fxLayout=\"row\" fxLayoutAlign=\"center center\"\n                     *ngFor=\"let shortcutItem of shortcutItems\">\n\n                    <a mat-icon-button matTooltip=\"{{shortcutItem.title}}\" [routerLink]=\"shortcutItem.url\">\n                        <mat-icon class=\"secondary-text\" *ngIf=\"shortcutItem.icon\">{{shortcutItem.icon}}</mat-icon>\n                        <span *ngIf=\"!shortcutItem.icon\" class=\"h2 secondary-text text-bold\">\n                            {{shortcutItem.title.substr(0, 1).toUpperCase()}}\n                        </span>\n                    </a>\n\n                </div>\n\n                <button mat-icon-button [matMenuTriggerFor]=\"addMenu\" matTooltip=\"Click to add/remove shortcut\"\n                        (menuOpened)=\"onMenuOpen()\">\n                    <mat-icon class=\"amber-600-fg\">star</mat-icon>\n                </button>\n\n            </div>\n\n            <div class=\"shortcuts-mobile-close\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxHide fxShow.lt-md>\n                <button mat-icon-button (click)=\"hideMobileShortcutsPanel()\">\n                    <mat-icon>close</mat-icon>\n                </button>\n            </div>\n\n        </div>\n\n        <mat-menu #addMenu=\"matMenu\" class=\"w-240\">\n\n            <mat-form-field class=\"px-16 w-100-p\" (click)=\"$event.stopPropagation()\" floatLabel=\"never\">\n                <input #searchInput matInput placeholder=\"Search for an app or a page\" (input)=\"search($event)\">\n            </mat-form-field>\n\n            <mat-divider></mat-divider>\n\n            <mat-nav-list *ngIf=\"!searching\" style=\"max-height: 312px; overflow: auto\" fusePerfectScrollbar>\n\n                <mat-list-item *ngFor=\"let shortcutItem of shortcutItems\"\n                               (click)=\"toggleShortcut($event, shortcutItem)\">\n\n                    <div class=\"w-100-p\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n                        <mat-icon mat-list-icon class=\"mr-8 secondary-text\" *ngIf=\"shortcutItem.icon\">\n                            {{shortcutItem.icon}}\n                        </mat-icon>\n\n                        <span class=\"h2 w-32 h-32 p-4 mr-8 secondary-text text-bold\" fxLayout=\"row\"\n                              fxLayoutAlign=\"center center\" *ngIf=\"!shortcutItem.icon\">\n                            {{shortcutItem.title.substr(0, 1).toUpperCase()}}\n                        </span>\n\n                        <p matLine fxFlex>{{shortcutItem.title}}</p>\n\n                        <mat-icon class=\"ml-8 amber-fg\">star</mat-icon>\n\n                    </div>\n\n                </mat-list-item>\n\n                <mat-list-item *ngIf=\"shortcutItems.length === 0\">\n                    <p>\n                        <small>No shortcuts yet!</small>\n                    </p>\n                </mat-list-item>\n\n            </mat-nav-list>\n\n            <mat-nav-list *ngIf=\"searching\" style=\"max-height: 312px; overflow: auto\" fusePerfectScrollbar>\n\n                <mat-list-item *ngFor=\"let navigationItem of filteredNavigationItems\"\n                               (click)=\"toggleShortcut($event, navigationItem)\">\n\n                    <div class=\"w-100-p\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n                        <mat-icon mat-list-icon class=\"mr-8 secondary-text\" *ngIf=\"navigationItem.icon\">\n                            {{navigationItem.icon}}\n                        </mat-icon>\n\n                        <span class=\"h2 w-32 h-32 p-4 mr-8 secondary-text text-bold\" fxLayout=\"row\"\n                              fxLayoutAlign=\"center center\" *ngIf=\"!navigationItem.icon\">\n                            {{navigationItem.title.substr(0, 1).toUpperCase()}}\n                        </span>\n\n                        <p matLine fxFlex>{{navigationItem.title}}</p>\n\n                        <mat-icon class=\"ml-8 amber-fg\" *ngIf=\"isInShortcuts(navigationItem)\">star</mat-icon>\n\n                    </div>\n\n                </mat-list-item>\n\n            </mat-nav-list>\n\n        </mat-menu>\n\n    </div>\n\n</div>\n"
+module.exports = "<div id=\"fuse-shortcuts\" #shortcuts>\r\n\r\n    <div class=\"shortcuts-mobile-toggle\" *ngIf=\"!mobileShortcutsPanelActive\" fxLayout=\"row\" fxLayoutAlign=\"start center\"\r\n         fxHide fxShow.lt-md>\r\n        <button mat-icon-button (click)=\"showMobileShortcutsPanel()\">\r\n            <mat-icon class=\"amber-600-fg\">star</mat-icon>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"shortcuts\" fxHide fxShow.gt-sm>\r\n\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxFlex=\"0 1 auto\">\r\n\r\n            <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n                <div class=\"w-40 h-40 p-4\" fxLayout=\"row\" fxLayoutAlign=\"center center\"\r\n                     *ngFor=\"let shortcutItem of shortcutItems\">\r\n\r\n                    <a mat-icon-button matTooltip=\"{{shortcutItem.title}}\" [routerLink]=\"shortcutItem.url\">\r\n                        <mat-icon class=\"secondary-text\" *ngIf=\"shortcutItem.icon\">{{shortcutItem.icon}}</mat-icon>\r\n                        <span *ngIf=\"!shortcutItem.icon\" class=\"h2 secondary-text text-bold\">\r\n                            {{shortcutItem.title.substr(0, 1).toUpperCase()}}\r\n                        </span>\r\n                    </a>\r\n\r\n                </div>\r\n\r\n                <button mat-icon-button [matMenuTriggerFor]=\"addMenu\" matTooltip=\"Click to add/remove shortcut\"\r\n                        (menuOpened)=\"onMenuOpen()\">\r\n                    <mat-icon class=\"amber-600-fg\">star</mat-icon>\r\n                </button>\r\n\r\n            </div>\r\n\r\n            <div class=\"shortcuts-mobile-close\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxHide fxShow.lt-md>\r\n                <button mat-icon-button (click)=\"hideMobileShortcutsPanel()\">\r\n                    <mat-icon>close</mat-icon>\r\n                </button>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <mat-menu #addMenu=\"matMenu\" class=\"w-240\">\r\n\r\n            <mat-form-field class=\"px-16 w-100-p\" (click)=\"$event.stopPropagation()\" floatLabel=\"never\">\r\n                <input #searchInput matInput placeholder=\"Search for an app or a page\" (input)=\"search($event)\">\r\n            </mat-form-field>\r\n\r\n            <mat-divider></mat-divider>\r\n\r\n            <mat-nav-list *ngIf=\"!searching\" style=\"max-height: 312px; overflow: auto\" fusePerfectScrollbar>\r\n\r\n                <mat-list-item *ngFor=\"let shortcutItem of shortcutItems\"\r\n                               (click)=\"toggleShortcut($event, shortcutItem)\">\r\n\r\n                    <div class=\"w-100-p\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n                        <mat-icon mat-list-icon class=\"mr-8 secondary-text\" *ngIf=\"shortcutItem.icon\">\r\n                            {{shortcutItem.icon}}\r\n                        </mat-icon>\r\n\r\n                        <span class=\"h2 w-32 h-32 p-4 mr-8 secondary-text text-bold\" fxLayout=\"row\"\r\n                              fxLayoutAlign=\"center center\" *ngIf=\"!shortcutItem.icon\">\r\n                            {{shortcutItem.title.substr(0, 1).toUpperCase()}}\r\n                        </span>\r\n\r\n                        <p matLine fxFlex>{{shortcutItem.title}}</p>\r\n\r\n                        <mat-icon class=\"ml-8 amber-fg\">star</mat-icon>\r\n\r\n                    </div>\r\n\r\n                </mat-list-item>\r\n\r\n                <mat-list-item *ngIf=\"shortcutItems.length === 0\">\r\n                    <p>\r\n                        <small>No shortcuts yet!</small>\r\n                    </p>\r\n                </mat-list-item>\r\n\r\n            </mat-nav-list>\r\n\r\n            <mat-nav-list *ngIf=\"searching\" style=\"max-height: 312px; overflow: auto\" fusePerfectScrollbar>\r\n\r\n                <mat-list-item *ngFor=\"let navigationItem of filteredNavigationItems\"\r\n                               (click)=\"toggleShortcut($event, navigationItem)\">\r\n\r\n                    <div class=\"w-100-p\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n                        <mat-icon mat-list-icon class=\"mr-8 secondary-text\" *ngIf=\"navigationItem.icon\">\r\n                            {{navigationItem.icon}}\r\n                        </mat-icon>\r\n\r\n                        <span class=\"h2 w-32 h-32 p-4 mr-8 secondary-text text-bold\" fxLayout=\"row\"\r\n                              fxLayoutAlign=\"center center\" *ngIf=\"!navigationItem.icon\">\r\n                            {{navigationItem.title.substr(0, 1).toUpperCase()}}\r\n                        </span>\r\n\r\n                        <p matLine fxFlex>{{navigationItem.title}}</p>\r\n\r\n                        <mat-icon class=\"ml-8 amber-fg\" *ngIf=\"isInShortcuts(navigationItem)\">star</mat-icon>\r\n\r\n                    </div>\r\n\r\n                </mat-list-item>\r\n\r\n            </mat-nav-list>\r\n\r\n        </mat-menu>\r\n\r\n    </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4119,7 +4119,7 @@ var FuseSidebarService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"theme-options-panel\" fusePerfectScrollbar>\n\n    <div class=\"header\">\n\n        <span class=\"title\">Theme Options</span>\n\n        <button mat-icon-button class=\"close-button\" (click)=\"toggleSidebarOpen('themeOptionsPanel')\">\n            <mat-icon>close</mat-icon>\n        </button>\n\n    </div>\n\n    <form [formGroup]=\"form\">\n\n        <!-- LAYOUT STYLES -->\n        <div class=\"group\" formGroupName=\"layout\">\n\n            <h2>Layout Styles</h2>\n\n            <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"style\">\n\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-1\">\n                    Vertical Layout #1\n                </mat-radio-button>\n\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-2\">\n                    Vertical Layout #2\n                </mat-radio-button>\n\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-3\">\n                    Vertical Layout #3\n                </mat-radio-button>\n\n                <mat-radio-button class=\"mb-12\" value=\"horizontal-layout-1\">\n                    Horizontal Layout #1\n                </mat-radio-button>\n\n            </mat-radio-group>\n\n            <!-- DIFFERENT FORMS BASED ON LAYOUT STYLES -->\n            <ng-container [ngSwitch]=\"fuseConfig.layout.style\">\n\n                <!-- VERTICAL LAYOUT #1 -->\n                <ng-container *ngSwitchCase=\"'vertical-layout-1'\">\n\n                    <!-- LAYOUT WIDTH -->\n                    <div class=\"group mt-32\">\n\n                        <h2>Layout Width</h2>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- NAVBAR -->\n                    <div class=\"group\" formGroupName=\"navbar\">\n\n                        <h2>Navbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\n                            Folded\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- TOOLBAR -->\n                    <div class=\"group\" formGroupName=\"toolbar\">\n\n                        <h2>Toolbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below-static\">Below Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below-fixed\">Below Fixed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- FOOTER -->\n                    <div class=\"group\" formGroupName=\"footer\">\n\n                        <h2>Footer</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below-static\">Below Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below-fixed\">Below Fixed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                </ng-container>\n\n                <!-- VERTICAL LAYOUT #2 -->\n                <ng-container *ngSwitchCase=\"'vertical-layout-2'\">\n\n                    <!-- LAYOUT WIDTH -->\n                    <div class=\"group mt-32\">\n\n                        <h2>Layout Width</h2>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- NAVBAR -->\n                    <div class=\"group\" formGroupName=\"navbar\">\n\n                        <h2>Navbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\n                            Folded\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- TOOLBAR -->\n                    <div class=\"group\" formGroupName=\"toolbar\">\n\n                        <h2>Toolbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- FOOTER -->\n                    <div class=\"group\" formGroupName=\"footer\">\n\n                        <h2>Footer</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                </ng-container>\n\n                <!-- VERTICAL LAYOUT #3 -->\n                <ng-container *ngSwitchCase=\"'vertical-layout-3'\">\n\n                    <!-- LAYOUT WIDTH -->\n                    <div class=\"group mt-32\">\n\n                        <h2>Layout Width</h2>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- NAVBAR -->\n                    <div class=\"group\" formGroupName=\"navbar\">\n\n                        <h2>Navbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\n                            Folded\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- TOOLBAR -->\n                    <div class=\"group\" formGroupName=\"toolbar\">\n\n                        <h2>Toolbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- FOOTER -->\n                    <div class=\"group\" formGroupName=\"footer\">\n\n                        <h2>Footer</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                </ng-container>\n\n                <!-- HORIZONTAL LAYOUT #1 -->\n                <ng-container *ngSwitchCase=\"'horizontal-layout-1'\">\n\n                    <!-- LAYOUT WIDTH -->\n                    <div class=\"group mt-32\">\n\n                        <h2>Layout Width</h2>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- NAVBAR -->\n                    <div class=\"group\" formGroupName=\"navbar\">\n\n                        <h2>Navbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-16\" value=\"top\">Top</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- TOOLBAR -->\n                    <div class=\"group\" formGroupName=\"toolbar\">\n\n                        <h2>Toolbar</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                    <!-- FOOTER -->\n                    <div class=\"group\" formGroupName=\"footer\">\n\n                        <h2>Footer</h2>\n\n                        <mat-slide-toggle formControlName=\"hidden\">\n                            Hide\n                        </mat-slide-toggle>\n\n                        <h3 class=\"mt-24\">Position:</h3>\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\n                        </mat-radio-group>\n\n                    </div>\n\n                </ng-container>\n\n            </ng-container>\n\n        </div>\n\n        <!-- CUSTOM SCROLLBARS -->\n        <div class=\"group\">\n\n            <h2>Custom scrollbars</h2>\n\n            <mat-slide-toggle class=\"mb-12\" formControlName=\"customScrollbars\">\n                Enable custom scrollbars\n            </mat-slide-toggle>\n\n        </div>\n\n        <!-- COLORS -->\n        <div class=\"group\">\n\n            <h2>Colors</h2>\n\n            <div class=\"colors\">\n\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n                    <h4 class=\"mr-8\">Toolbar Color</h4>\n                    <fuse-material-color-picker\n                        [(selectedClass)]=\"fuseConfig.layout.toolbar.background\"></fuse-material-color-picker>\n                </div>\n\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n                    <h4 class=\"mr-8\">Navbar Color</h4>\n                    <fuse-material-color-picker\n                        [(selectedClass)]=\"fuseConfig.layout.navbar.background\"></fuse-material-color-picker>\n                </div>\n\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n                    <h4 class=\"mr-8\">Footer Color</h4>\n                    <fuse-material-color-picker\n                        [(selectedClass)]=\"fuseConfig.layout.footer.background\"></fuse-material-color-picker>\n                </div>\n\n            </div>\n\n        </div>\n\n    </form>\n\n</div>\n"
+module.exports = "<div class=\"theme-options-panel\" fusePerfectScrollbar>\r\n\r\n    <div class=\"header\">\r\n\r\n        <span class=\"title\">Theme Options</span>\r\n\r\n        <button mat-icon-button class=\"close-button\" (click)=\"toggleSidebarOpen('themeOptionsPanel')\">\r\n            <mat-icon>close</mat-icon>\r\n        </button>\r\n\r\n    </div>\r\n\r\n    <form [formGroup]=\"form\">\r\n\r\n        <!-- LAYOUT STYLES -->\r\n        <div class=\"group\" formGroupName=\"layout\">\r\n\r\n            <h2>Layout Styles</h2>\r\n\r\n            <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"style\">\r\n\r\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-1\">\r\n                    Vertical Layout #1\r\n                </mat-radio-button>\r\n\r\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-2\">\r\n                    Vertical Layout #2\r\n                </mat-radio-button>\r\n\r\n                <mat-radio-button class=\"mb-12\" value=\"vertical-layout-3\">\r\n                    Vertical Layout #3\r\n                </mat-radio-button>\r\n\r\n                <mat-radio-button class=\"mb-12\" value=\"horizontal-layout-1\">\r\n                    Horizontal Layout #1\r\n                </mat-radio-button>\r\n\r\n            </mat-radio-group>\r\n\r\n            <!-- DIFFERENT FORMS BASED ON LAYOUT STYLES -->\r\n            <ng-container [ngSwitch]=\"fuseConfig.layout.style\">\r\n\r\n                <!-- VERTICAL LAYOUT #1 -->\r\n                <ng-container *ngSwitchCase=\"'vertical-layout-1'\">\r\n\r\n                    <!-- LAYOUT WIDTH -->\r\n                    <div class=\"group mt-32\">\r\n\r\n                        <h2>Layout Width</h2>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- NAVBAR -->\r\n                    <div class=\"group\" formGroupName=\"navbar\">\r\n\r\n                        <h2>Navbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\r\n                            Folded\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- TOOLBAR -->\r\n                    <div class=\"group\" formGroupName=\"toolbar\">\r\n\r\n                        <h2>Toolbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below-static\">Below Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below-fixed\">Below Fixed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- FOOTER -->\r\n                    <div class=\"group\" formGroupName=\"footer\">\r\n\r\n                        <h2>Footer</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below-static\">Below Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below-fixed\">Below Fixed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                </ng-container>\r\n\r\n                <!-- VERTICAL LAYOUT #2 -->\r\n                <ng-container *ngSwitchCase=\"'vertical-layout-2'\">\r\n\r\n                    <!-- LAYOUT WIDTH -->\r\n                    <div class=\"group mt-32\">\r\n\r\n                        <h2>Layout Width</h2>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- NAVBAR -->\r\n                    <div class=\"group\" formGroupName=\"navbar\">\r\n\r\n                        <h2>Navbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\r\n                            Folded\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- TOOLBAR -->\r\n                    <div class=\"group\" formGroupName=\"toolbar\">\r\n\r\n                        <h2>Toolbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- FOOTER -->\r\n                    <div class=\"group\" formGroupName=\"footer\">\r\n\r\n                        <h2>Footer</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                </ng-container>\r\n\r\n                <!-- VERTICAL LAYOUT #3 -->\r\n                <ng-container *ngSwitchCase=\"'vertical-layout-3'\">\r\n\r\n                    <!-- LAYOUT WIDTH -->\r\n                    <div class=\"group mt-32\">\r\n\r\n                        <h2>Layout Width</h2>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- NAVBAR -->\r\n                    <div class=\"group\" formGroupName=\"navbar\">\r\n\r\n                        <h2>Navbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <mat-slide-toggle class=\"mt-24\" formControlName=\"folded\">\r\n                            Folded\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-16\" value=\"left\">Left</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-16\" value=\"right\">Right</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- TOOLBAR -->\r\n                    <div class=\"group\" formGroupName=\"toolbar\">\r\n\r\n                        <h2>Toolbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- FOOTER -->\r\n                    <div class=\"group\" formGroupName=\"footer\">\r\n\r\n                        <h2>Footer</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                </ng-container>\r\n\r\n                <!-- HORIZONTAL LAYOUT #1 -->\r\n                <ng-container *ngSwitchCase=\"'horizontal-layout-1'\">\r\n\r\n                    <!-- LAYOUT WIDTH -->\r\n                    <div class=\"group mt-32\">\r\n\r\n                        <h2>Layout Width</h2>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"width\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"fullwidth\">Fullwidth</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"boxed\">Boxed</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- NAVBAR -->\r\n                    <div class=\"group\" formGroupName=\"navbar\">\r\n\r\n                        <h2>Navbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-16\" value=\"top\">Top</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- TOOLBAR -->\r\n                    <div class=\"group\" formGroupName=\"toolbar\">\r\n\r\n                        <h2>Toolbar</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above\">Above</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"below\">Below</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                    <!-- FOOTER -->\r\n                    <div class=\"group\" formGroupName=\"footer\">\r\n\r\n                        <h2>Footer</h2>\r\n\r\n                        <mat-slide-toggle formControlName=\"hidden\">\r\n                            Hide\r\n                        </mat-slide-toggle>\r\n\r\n                        <h3 class=\"mt-24\">Position:</h3>\r\n                        <mat-radio-group fxLayout=\"column\" fxLayoutAlign=\"start start\" formControlName=\"position\">\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-fixed\">Above Fixed</mat-radio-button>\r\n                            <mat-radio-button class=\"mb-12\" value=\"above-static\">Above Static</mat-radio-button>\r\n                        </mat-radio-group>\r\n\r\n                    </div>\r\n\r\n                </ng-container>\r\n\r\n            </ng-container>\r\n\r\n        </div>\r\n\r\n        <!-- CUSTOM SCROLLBARS -->\r\n        <div class=\"group\">\r\n\r\n            <h2>Custom scrollbars</h2>\r\n\r\n            <mat-slide-toggle class=\"mb-12\" formControlName=\"customScrollbars\">\r\n                Enable custom scrollbars\r\n            </mat-slide-toggle>\r\n\r\n        </div>\r\n\r\n        <!-- COLORS -->\r\n        <div class=\"group\">\r\n\r\n            <h2>Colors</h2>\r\n\r\n            <div class=\"colors\">\r\n\r\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n                    <h4 class=\"mr-8\">Toolbar Color</h4>\r\n                    <fuse-material-color-picker\r\n                        [(selectedClass)]=\"fuseConfig.layout.toolbar.background\"></fuse-material-color-picker>\r\n                </div>\r\n\r\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n                    <h4 class=\"mr-8\">Navbar Color</h4>\r\n                    <fuse-material-color-picker\r\n                        [(selectedClass)]=\"fuseConfig.layout.navbar.background\"></fuse-material-color-picker>\r\n                </div>\r\n\r\n                <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n                    <h4 class=\"mr-8\">Footer Color</h4>\r\n                    <fuse-material-color-picker\r\n                        [(selectedClass)]=\"fuseConfig.layout.footer.background\"></fuse-material-color-picker>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n\r\n    </form>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4552,7 +4552,7 @@ var FuseWidgetToggleDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-content></ng-content>\n"
+module.exports = "<ng-content></ng-content>\r\n"
 
 /***/ }),
 
@@ -7339,6 +7339,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_dashboard_hd_urs_dashboard_hd_urs_dashboard_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/dashboard/hd-urs-dashboard/hd-urs-dashboard.module */ "./src/app/main/dashboard/hd-urs-dashboard/hd-urs-dashboard.module.ts");
 /* harmony import */ var _main_dashboard_hd_adm_dashboard_hd_adm_dashboard_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main/dashboard/hd-adm-dashboard/hd-adm-dashboard.module */ "./src/app/main/dashboard/hd-adm-dashboard/hd-adm-dashboard.module.ts");
 /* harmony import */ var _main_dashboard_hd_mgr_dashboard_hd_mgr_dashboard_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./main/dashboard/hd-mgr-dashboard/hd-mgr-dashboard.module */ "./src/app/main/dashboard/hd-mgr-dashboard/hd-mgr-dashboard.module.ts");
+/* harmony import */ var _main_attachment_ticket_attachements_ticket_attachements_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/attachment/ticket-attachements/ticket-attachements.module */ "./src/app/main/attachment/ticket-attachements/ticket-attachements.module.ts");
+/* harmony import */ var _main_ticket_comment_ticket_comment_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main/ticket-comment/ticket-comment.module */ "./src/app/main/ticket-comment/ticket-comment.module.ts");
+/* harmony import */ var _main_team_inbox_team_inbox_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main/team-inbox/team-inbox.module */ "./src/app/main/team-inbox/team-inbox.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7355,41 +7358,54 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+//import { AttachmentModule } from './main/attachment/attachment.module';
+
+
+
 var appRoutes = [
     {
         path: 'welcome',
         component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_3__["WelcomeComponent"]
-    },
-    {
+    }, {
         path: 'ticketview',
         component: _ticketview_ticketview_component__WEBPACK_IMPORTED_MODULE_4__["TicketViewComponent"]
-    },
-    {
+    }, {
         path: 'perm',
         component: _group_perm_group_perm_component__WEBPACK_IMPORTED_MODULE_5__["GroupPermComponent"]
-    },
-    {
+    }, {
         path: '**',
         component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
-    },
-    {
+    }, {
         path: 'submitTicket',
         redirectTo: 'submitTicket'
     }, {
         path: 'submitTicket/:id',
         redirectTo: 'submitTicket'
-    },
-    {
+    }, {
         path: 'user',
         redirectTo: 'user'
-    },
-    {
+    }, {
         path: 'admin',
         redirectTo: 'admin'
-    },
-    {
+    }, {
         path: 'manager',
         redirectTo: 'manager'
+    },
+    {
+        path: 'teaminbox',
+        redirectTo: 'teaminbox'
+    },
+    {
+        path: 'teaminboxtemp',
+        redirectTo: 'teaminboxticket'
+    },
+    {
+        path: 'attachment',
+        redirectTo: 'attachment'
+    },
+    {
+        path: 'comment',
+        redirectTo: 'comment'
     }
     // {
     //     path      : '**',
@@ -7403,10 +7419,15 @@ var AppRoutingModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [],
             imports: [
-                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes), _main_ticket_submitticket_submitTicket_module__WEBPACK_IMPORTED_MODULE_6__["SubmitTicketModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes),
+                _main_ticket_submitticket_submitTicket_module__WEBPACK_IMPORTED_MODULE_6__["SubmitTicketModule"],
                 _main_dashboard_hd_urs_dashboard_hd_urs_dashboard_module__WEBPACK_IMPORTED_MODULE_7__["HDURSDashboardModule"],
                 _main_dashboard_hd_adm_dashboard_hd_adm_dashboard_module__WEBPACK_IMPORTED_MODULE_8__["HDADMDashboardModule"],
-                _main_dashboard_hd_mgr_dashboard_hd_mgr_dashboard_module__WEBPACK_IMPORTED_MODULE_9__["HDMGRDashboardModule"]
+                _main_dashboard_hd_mgr_dashboard_hd_mgr_dashboard_module__WEBPACK_IMPORTED_MODULE_9__["HDMGRDashboardModule"],
+                _main_attachment_ticket_attachements_ticket_attachements_module__WEBPACK_IMPORTED_MODULE_10__["TicketAttachementsModule"],
+                _main_ticket_comment_ticket_comment_module__WEBPACK_IMPORTED_MODULE_11__["TicketCommentModule"],
+                _main_team_inbox_team_inbox_module__WEBPACK_IMPORTED_MODULE_12__["TeamInboxModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]
             ],
             exports: [
                 _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]
@@ -7428,7 +7449,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- VERTICAL LAYOUT 1 -->\n<ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-1'\">\n    <vertical-layout-1></vertical-layout-1>\n</ng-container>\n\n<!-- VERTICAL LAYOUT 2 -->\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-2'\">\n    <vertical-layout-2></vertical-layout-2>\n</ng-container> -->\n\n<!-- VERTICAL LAYOUT 3 -->\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-3'\">\n    <vertical-layout-3></vertical-layout-3>\n</ng-container> -->\n\n<!-- HORIZONTAL LAYOUT 1 -->\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'horizontal-layout-1'\">\n    <horizontal-layout-1></horizontal-layout-1>\n</ng-container> -->\n\n<!-- THEME OPTIONS PANEL -->\n<!-- <button mat-icon-button class=\"mat-primary-bg mat-elevation-z2 theme-options-button\"\n        (click)=\"toggleSidebarOpen('themeOptionsPanel')\">\n    <mat-icon>settings</mat-icon>\n</button> -->\n\n<fuse-sidebar name=\"themeOptionsPanel\" class=\"theme-options-sidebar\" position=\"right\" [invisibleOverlay]=\"true\">\n    <fuse-theme-options></fuse-theme-options>\n</fuse-sidebar>"
+module.exports = "<!-- VERTICAL LAYOUT 1 -->\r\n<ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-1'\">\r\n    <vertical-layout-1></vertical-layout-1>\r\n</ng-container>\r\n\r\n<!-- VERTICAL LAYOUT 2 -->\r\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-2'\">\r\n    <vertical-layout-2></vertical-layout-2>\r\n</ng-container> -->\r\n\r\n<!-- VERTICAL LAYOUT 3 -->\r\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'vertical-layout-3'\">\r\n    <vertical-layout-3></vertical-layout-3>\r\n</ng-container> -->\r\n\r\n<!-- HORIZONTAL LAYOUT 1 -->\r\n<!-- <ng-container *ngIf=\"fuseConfig.layout.style === 'horizontal-layout-1'\">\r\n    <horizontal-layout-1></horizontal-layout-1>\r\n</ng-container> -->\r\n\r\n<!-- THEME OPTIONS PANEL -->\r\n<!-- <button mat-icon-button class=\"mat-primary-bg mat-elevation-z2 theme-options-button\"\r\n        (click)=\"toggleSidebarOpen('themeOptionsPanel')\">\r\n    <mat-icon>settings</mat-icon>\r\n</button> -->\r\n\r\n<fuse-sidebar name=\"themeOptionsPanel\" class=\"theme-options-sidebar\" position=\"right\" [invisibleOverlay]=\"true\">\r\n    <fuse-theme-options></fuse-theme-options>\r\n</fuse-sidebar>"
 
 /***/ }),
 
@@ -7611,6 +7632,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _group_perm_group_perm_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./group-perm/group-perm.module */ "./src/app/group-perm/group-perm.module.ts");
 /* harmony import */ var _ticketview_ticketview_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./ticketview/ticketview.module */ "./src/app/ticketview/ticketview.module.ts");
 /* harmony import */ var _main_dialog_overview_dialogoverviewexample_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./main/dialog-overview/dialogoverviewexample.module */ "./src/app/main/dialog-overview/dialogoverviewexample.module.ts");
+/* harmony import */ var _main_team_inbox_team_inbox_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./main/team-inbox/team-inbox.module */ "./src/app/main/team-inbox/team-inbox.module.ts");
+/* harmony import */ var _main_team_inbox_contacts_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./main/team-inbox/contacts.service */ "./src/app/main/team-inbox/contacts.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7644,6 +7667,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var materialModules = [
     _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatBadgeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatBottomSheetModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatButtonToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDatepickerModule"],
@@ -7654,9 +7679,8 @@ var materialModules = [
     _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTreeModule"],
     _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]
 ];
-/**
-const appRoutes: Routes = [
-    {
+var appRoutes = [
+    /**{
         path        : 'apps',
         loadChildren: './main/apps/apps.module#AppsModule'
     },
@@ -7675,13 +7699,12 @@ const appRoutes: Routes = [
     {
         path        : 'angular-material-elements',
         loadChildren: './main/angular-material-elements/angular-material-elements.module#AngularMaterialElementsModule'
-    },
+    },*/
     {
-        path      : '**',
+        path: '**',
         redirectTo: 'apps/dashboards/analytics'
     }
 ];
-*/
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -7720,12 +7743,13 @@ var AppModule = /** @class */ (function () {
                 _welcome_welcome_module__WEBPACK_IMPORTED_MODULE_20__["WelcomeModule"],
                 _login_login_module__WEBPACK_IMPORTED_MODULE_21__["LoginModule"],
                 _group_perm_group_perm_module__WEBPACK_IMPORTED_MODULE_22__["GroupPermModule"],
+                _main_team_inbox_team_inbox_module__WEBPACK_IMPORTED_MODULE_25__["TeamInboxModule"],
                 _main_dialog_overview_dialogoverviewexample_module__WEBPACK_IMPORTED_MODULE_24__["DialogOverviewExampleModule"]
             ],
             exports: [materialModules,
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"]],
-            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_18__["LoginService"]],
+            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_18__["LoginService"], _main_team_inbox_contacts_service__WEBPACK_IMPORTED_MODULE_26__["ContactsService"]],
             bootstrap: [
                 _app_component__WEBPACK_IMPORTED_MODULE_16__["AppComponent"]
             ]
@@ -7734,6 +7758,30 @@ var AppModule = /** @class */ (function () {
     return AppModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/constdata/user.ts":
+/*!***********************************!*\
+  !*** ./src/app/constdata/user.ts ***!
+  \***********************************/
+/*! exports provided: UserData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserData", function() { return UserData; });
+var UserData = {
+    userId: 123,
+    firstName: '',
+    lastName: '',
+    emailAddress: 'ser@gmail',
+    userPassword: '123456',
+    userName: 'ser@gmail',
+    portfolio: { portfolioId: 1, name: 'asd', managerLogjn: '' },
+    projects: [{ projectId: 1, name: 'sbmhelpdesk' }, { projectId: 2, name: 'sbmshura' }]
+};
 
 
 /***/ }),
@@ -8983,409 +9031,634 @@ var ContactsFakeDb = /** @class */ (function () {
     }
     ContactsFakeDb.contacts = [
         {
-            'id': '5725a680b3249760ea21de52',
-            'name': 'Abbott',
-            'lastName': 'Keitch',
-            'avatar': 'assets/images/avatars/Abbott.jpg',
-            'nickname': 'Royalguard',
-            'company': 'Saois',
-            'jobTitle': 'Digital Archivist',
-            'email': 'abbott@withinpixels.com',
-            'phone': '+1-202-555-0175',
-            'address': '933 8th Street Stamford, CT 06902',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 8252,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 2,
+                "status": "inprogress"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729170921431",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a680606588342058356d',
-            'name': 'Arnold',
-            'lastName': 'Matlock',
-            'avatar': 'assets/images/avatars/Arnold.jpg',
-            'nickname': 'Wanderer',
-            'company': 'Laotcone',
-            'jobTitle': 'Graphic Artist',
-            'email': 'arnold@withinpixels.com',
-            'phone': '+1-202-555-0141',
-            'address': '906 Valley Road Michigan City, IN 46360',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 8153,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729165354046",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a68009e20d0a9e9acf2a',
-            'name': 'Barrera',
-            'lastName': 'Bradbury',
-            'avatar': 'assets/images/avatars/Barrera.jpg',
-            'nickname': 'Jackal',
-            'company': 'Unizim',
-            'jobTitle': 'Graphic Designer',
-            'email': 'barrera@withinpixels.com',
-            'phone': '+1-202-555-0196',
-            'address': '183 River Street Passaic, NJ 07055',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 8152,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729165308279",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a6809fdd915739187ed5',
-            'name': 'Blair',
-            'lastName': 'Strangeway',
-            'avatar': 'assets/images/avatars/Blair.jpg',
-            'nickname': 'Knight',
-            'company': 'Conedubdax',
-            'jobTitle': 'Visual Designer',
-            'email': 'blair@withinpixels.com',
-            'phone': '+1-202-555-0118',
-            'address': '143 Jones Street Eau Claire, WI 54701',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 7253,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729161637417",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a68007920cf75051da64',
-            'name': 'Boyle',
-            'lastName': 'Winters',
-            'avatar': 'assets/images/avatars/Boyle.jpg',
-            'nickname': 'Jester',
-            'company': 'Newo',
-            'jobTitle': 'Catalogue Illustrator',
-            'email': 'boyle@withinpixels.com',
-            'phone': '+1-202-555-0177',
-            'address': '218 Pearl Street Brandon, FL 33510',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 7252,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729160550568",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a68031fdbb1db2c1af47',
-            'name': 'Christy',
-            'lastName': 'Camacho',
-            'avatar': 'assets/images/avatars/Christy.jpg',
-            'nickname': 'Mist',
-            'company': 'uniway',
-            'jobTitle': '3D Animator',
-            'email': 'christy@withinpixels.com',
-            'phone': '+1-202-555-0136',
-            'address': '329 Bridge Street Desoto, TX 75115',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 7153,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155915785",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a680bc670af746c435e2',
-            'name': 'Copeland',
-            'lastName': 'Redcliff',
-            'avatar': 'assets/images/avatars/Copeland.jpg',
-            'nickname': 'Cloudlaw',
-            'company': 'Tempron',
-            'jobTitle': 'Multimedia Artist',
-            'email': 'copeland@withinpixels.com',
-            'phone': '+1-202-555-0107',
-            'address': '956 6th Avenue North Bergen, NJ 0704',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 7152,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155804684",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a680e7eb988a58ddf303',
-            'name': 'Estes',
-            'lastName': 'Stevens',
-            'avatar': 'assets/images/avatars/Estes.jpg',
-            'nickname': 'Roamer',
-            'company': 'nam-dex',
-            'jobTitle': 'Special Effects Artist',
-            'email': 'estes@withinpixels.com',
-            'phone': '+1-202-555-0113',
-            'address': '664 York Street Cambridge, MA 02138',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 7052,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729155214392",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a680dcb077889f758961',
-            'name': 'Harper',
-            'lastName': 'MacGuffin',
-            'avatar': 'assets/images/avatars/Harper.jpg',
-            'nickname': 'Tempest',
-            'company': 'runcane',
-            'jobTitle': 'Application Developer',
-            'email': 'harper@withinpixels.com',
-            'phone': '+1-202-555-0173',
-            'address': '738 Route 11 Cornelius, NC 28031',
-            'birthday': null,
-            'notes': ''
+            "ticketId": 6954,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729154702439",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         },
         {
-            'id': '5725a6806acf030f9341e925',
-            'name': 'Helen',
-            'lastName': 'Sheridan',
-            'avatar': 'assets/images/avatars/Helen.jpg',
-            'nickname': 'Magicbattler',
-            'company': 'Subhow',
-            'jobTitle': 'Content Developer',
-            'email': 'helen@withinpixels.com',
-            'phone': '+1-202-555-0163',
-            'address': '194 Washington Avenue Saint Petersburg, FL 33702',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680ae1ae9a3c960d487',
-            'name': 'Henderson',
-            'lastName': 'Cambias',
-            'avatar': 'assets/images/avatars/Henderson.jpg',
-            'nickname': 'Blizzard',
-            'company': 'Howcom',
-            'jobTitle': 'Web Designer',
-            'email': 'henderson@withinpixels.com',
-            'phone': '+1-202-555-0151',
-            'address': '686 Roosevelt Avenue Oviedo, FL 32765',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680b8d240c011dd224b',
-            'name': 'Josefina',
-            'lastName': 'Lakefield',
-            'avatar': 'assets/images/avatars/Josefina.jpg',
-            'nickname': 'Violet',
-            'company': 'Gecko',
-            'jobTitle': 'Web Developer',
-            'email': 'josefina@withinpixels.com',
-            'phone': '+1-202-555-0160',
-            'address': '202 Hartford Road Lynchburg, VA 24502',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a68034cb3968e1f79eac',
-            'name': 'Katina',
-            'lastName': 'Bletchley',
-            'avatar': 'assets/images/avatars/Katina.jpg',
-            'nickname': 'Rose',
-            'company': 'Lexicom',
-            'jobTitle': 'Software Designer',
-            'email': 'katina@withinpixels.com',
-            'phone': '+1-202-555-0186',
-            'address': '219 Woodland Road Valrico, FL 33594',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a6801146cce777df2a08',
-            'name': 'Lily',
-            'lastName': 'Peasegood',
-            'avatar': 'assets/images/avatars/Lily.jpg',
-            'nickname': 'Star',
-            'company': 'zooflex',
-            'jobTitle': 'Software Specialist',
-            'email': 'lily@withinpixels.com',
-            'phone': '+1-202-555-0115',
-            'address': '305 Willow Drive Superior, WI 54880',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a6808a178bfd034d6ecf',
-            'name': 'Mai',
-            'lastName': 'Nox',
-            'avatar': 'assets/images/avatars/Mai.jpg',
-            'nickname': 'Violetmage',
-            'company': 'quadzone',
-            'jobTitle': 'Software Engineer',
-            'email': 'mai@withinpixels.com',
-            'phone': '+1-202-555-0199',
-            'address': '148 Heather Lane Mcminnville, TN 37110',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680653c265f5c79b5a9',
-            'name': 'Nancy',
-            'lastName': 'Jaggers',
-            'avatar': 'assets/images/avatars/Nancy.jpg',
-            'nickname': 'Silverwarden',
-            'company': 'Opetamnix',
-            'jobTitle': 'Software Architect',
-            'email': 'nancy@withinpixels.com',
-            'phone': '+1-202-555-0120',
-            'address': '345 Laurel Lane Union City, NJ 07087',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680bbcec3cc32a8488a',
-            'name': 'Nora',
-            'lastName': 'Franklin',
-            'avatar': 'assets/images/avatars/Nora.jpg',
-            'nickname': 'Katanachanter',
-            'company': 'Saoway',
-            'jobTitle': 'Database Coordinator',
-            'email': 'nora@withinpixels.com',
-            'phone': '+1-202-555-0172',
-            'address': '572 Rose Street Summerfield, FL 34491',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a6803d87f1b77e17b62b',
-            'name': 'Odessa',
-            'lastName': 'Goodman',
-            'avatar': 'assets/images/avatars/Odessa.jpg',
-            'nickname': 'Rose',
-            'company': 'transace',
-            'jobTitle': 'Database Administration Manager',
-            'email': 'odessa@withinpixels.com',
-            'phone': '+1-202-555-0190',
-            'address': '527 Jefferson Court Conyers, GA 30012',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680e87cb319bd9bd673',
-            'name': 'Reyna',
-            'lastName': 'Preece',
-            'avatar': 'assets/images/avatars/Reyna.jpg',
-            'nickname': 'Holydawn',
-            'company': 'Dingex',
-            'jobTitle': 'Data Processing Planner',
-            'email': 'reyna@withinpixels.com',
-            'phone': '+1-202-555-0116',
-            'address': '297 Strawberry Lane Faribault, MN 55021',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a6802d10e277a0f35775',
-            'name': 'Shauna',
-            'lastName': 'Atherton',
-            'avatar': 'assets/images/avatars/Shauna.jpg',
-            'nickname': 'Faunasoul',
-            'company': 'Vivaflex',
-            'jobTitle': 'Art Director',
-            'email': 'shauna@withinpixels.com',
-            'phone': '+1-202-555-0159',
-            'address': '928 Canterbury Court Pittsburgh, PA 15206',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680aef1e5cf26dd3d1f',
-            'name': 'Shepard',
-            'lastName': 'Rosco',
-            'avatar': 'assets/images/avatars/Shepard.jpg',
-            'nickname': 'Fireking',
-            'company': 'Goldenla',
-            'jobTitle': 'Magazine Designer',
-            'email': 'shepard@withinpixels.com',
-            'phone': '+1-202-555-0173',
-            'address': '904 Ridge Road Pickerington, OH 43147',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680cd7efa56a45aea5d',
-            'name': 'Tillman',
-            'lastName': 'Lee',
-            'avatar': 'assets/images/avatars/Tillman.jpg',
-            'nickname': 'Gust',
-            'company': 'K-techno',
-            'jobTitle': 'News Photographer',
-            'email': 'tillman@withinpixels.com',
-            'phone': '+1-202-555-0183',
-            'address': '447 Charles Street Dorchester, MA 02125',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a680fb65c91a82cb35e2',
-            'name': 'Trevino',
-            'lastName': 'Bush',
-            'avatar': 'assets/images/avatars/Trevino.jpg',
-            'nickname': 'Wolf',
-            'company': 'Dalthex',
-            'jobTitle': 'Photojournalist',
-            'email': 'trevino@withinpixels.com',
-            'phone': '+1-202-555-0138',
-            'address': '84 Valley View Road Norman, OK 73072',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a68018c663044be49cbf',
-            'name': 'Tyson',
-            'lastName': 'Marshall',
-            'avatar': 'assets/images/avatars/Tyson.jpg',
-            'nickname': 'Honordread',
-            'company': 'Geocon',
-            'jobTitle': 'Manuscript Editor',
-            'email': 'tyson@withinpixels.com',
-            'phone': '+1-202-555-0146',
-            'address': '204 Clark Street Monsey, NY 10952',
-            'birthday': null,
-            'notes': ''
-        },
-        {
-            'id': '5725a6809413bf8a0a5272b1',
-            'name': 'Velazquez',
-            'lastName': 'Smethley',
-            'avatar': 'assets/images/avatars/Velazquez.jpg',
-            'nickname': 'Strifedream',
-            'company': 'ranex',
-            'jobTitle': 'Publications Editor',
-            'email': 'velezquez@withinpixels.com',
-            'phone': '+1-202-555-0146',
-            'address': '261 Cleveland Street Riverside, NJ 08075',
-            'birthday': null,
-            'notes': ''
-        }
-    ];
-    ContactsFakeDb.user = [
-        {
-            'id': '5725a6802d10e277a0f35724',
-            'name': 'John Doe',
-            'avatar': 'assets/images/avatars/profile.jpg',
-            'starred': [
-                '5725a680ae1ae9a3c960d487',
-                '5725a6801146cce777df2a08',
-                '5725a680bbcec3cc32a8488a',
-                '5725a680bc670af746c435e2',
-                '5725a68009e20d0a9e9acf2a'
-            ],
-            'frequentContacts': [
-                '5725a6809fdd915739187ed5',
-                '5725a68031fdbb1db2c1af47',
-                '5725a680606588342058356d',
-                '5725a680e7eb988a58ddf303',
-                '5725a6806acf030f9341e925',
-                '5725a68034cb3968e1f79eac',
-                '5725a6801146cce777df2a08',
-                '5725a680653c265f5c79b5a9'
-            ],
-            'groups': [
-                {
-                    'id': '5725a6802d10e277a0f35739',
-                    'name': 'Friends',
-                    'contactIds': [
-                        '5725a680bbcec3cc32a8488a',
-                        '5725a680e87cb319bd9bd673',
-                        '5725a6802d10e277a0f35775'
-                    ]
-                },
-                {
-                    'id': '5725a6802d10e277a0f35749',
-                    'name': 'Clients',
-                    'contactIds': [
-                        '5725a680cd7efa56a45aea5d',
-                        '5725a68018c663044be49cbf',
-                        '5725a6809413bf8a0a5272b1',
-                        '5725a6803d87f1b77e17b62b'
-                    ]
-                },
-                {
-                    'id': '5725a6802d10e277a0f35329',
-                    'name': 'Recent Workers',
-                    'contactIds': [
-                        '5725a680bbcec3cc32a8488a',
-                        '5725a680653c265f5c79b5a9',
-                        '5725a6808a178bfd034d6ecf',
-                        '5725a6801146cce777df2a08'
-                    ]
-                }
-            ]
+            "ticketId": 6953,
+            "creationdate": null,
+            "description": "aasd11",
+            "status": {
+                "statusId": 1,
+                "status": "created"
+            },
+            "title": "asad1111",
+            "ticketnumber": "Tic_20180729154624838",
+            "step": {
+                "stepId": 1,
+                "step": "initial",
+                "stepprocesses": []
+            },
+            "project": {
+                "projectId": 1,
+                "name": "sbmhelpdesk"
+            },
+            "workflow": {
+                "flowId": 2,
+                "ticketType": "Request Internet access",
+                "workflowSteps": [
+                    {
+                        "id": 5,
+                        "stepOrder": 3,
+                        "step": {
+                            "stepId": 4,
+                            "step": "laptop delivery",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "stepOrder": 2,
+                        "step": {
+                            "stepId": 3,
+                            "step": "manager approval",
+                            "stepprocesses": []
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "stepOrder": 1,
+                        "step": {
+                            "stepId": 1,
+                            "step": "initial",
+                            "stepprocesses": []
+                        }
+                    }
+                ]
+            },
+            "ticketPriority": {
+                "prioprtiyId": 2,
+                "priorityDesc": "level2",
+                "priorityLevel": "level2"
+            },
+            "ticketSeverity": {
+                "severityId": 2,
+                "severityName": "2",
+                "sevrityTimeConstraint": 2
+            }
         }
     ];
     return ContactsFakeDb;
@@ -17389,6 +17662,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_fake_db_quick_panel__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! app/fake-db/quick-panel */ "./src/app/fake-db/quick-panel.ts");
 /* harmony import */ var app_fake_db_dashboard_admin__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! app/fake-db/dashboard-admin */ "./src/app/fake-db/dashboard-admin.ts");
 /* harmony import */ var app_fake_db_dashboard_mgr__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! app/fake-db/dashboard-mgr */ "./src/app/fake-db/dashboard-mgr.ts");
+/* harmony import */ var _ticket01_Data__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ticket01_Data */ "./src/app/fake-db/ticket01_Data.ts");
+/* harmony import */ var _tickets__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./tickets */ "./src/app/fake-db/tickets.ts");
+
+
 
 
 
@@ -17424,6 +17701,7 @@ var FakeDbService = /** @class */ (function () {
             //ManagerDashboards
             'mgr-dashboard-projects': app_fake_db_dashboard_mgr__WEBPACK_IMPORTED_MODULE_19__["ManagerDashboardDb"].projects,
             'mgr-dashboard-widgets': app_fake_db_dashboard_mgr__WEBPACK_IMPORTED_MODULE_19__["ManagerDashboardDb"].widgets,
+            'Ticket-History': _ticket01_Data__WEBPACK_IMPORTED_MODULE_20__["TicketHistoryFakeDb"].data,
             // Calendar
             'calendar': app_fake_db_calendar__WEBPACK_IMPORTED_MODULE_2__["CalendarFakeDb"].data,
             // E-Commerce
@@ -17447,7 +17725,8 @@ var FakeDbService = /** @class */ (function () {
             'file-manager': app_fake_db_file_manager__WEBPACK_IMPORTED_MODULE_7__["FileManagerFakeDb"].files,
             // Contacts
             'contacts-contacts': app_fake_db_contacts__WEBPACK_IMPORTED_MODULE_8__["ContactsFakeDb"].contacts,
-            'contacts-user': app_fake_db_contacts__WEBPACK_IMPORTED_MODULE_8__["ContactsFakeDb"].user,
+            //'contacts-user'    : ContactsFakeDb.user,
+            'ticket-mockup': _tickets__WEBPACK_IMPORTED_MODULE_21__["TicketssFakeDb"],
             // Todo
             'todo-todos': app_fake_db_todo__WEBPACK_IMPORTED_MODULE_9__["TodoFakeDb"].todos,
             'todo-filters': app_fake_db_todo__WEBPACK_IMPORTED_MODULE_9__["TodoFakeDb"].filters,
@@ -20759,6 +21038,122 @@ var SearchFakeDb = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/fake-db/ticket01_Data.ts":
+/*!******************************************!*\
+  !*** ./src/app/fake-db/ticket01_Data.ts ***!
+  \******************************************/
+/*! exports provided: TicketHistoryFakeDb */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketHistoryFakeDb", function() { return TicketHistoryFakeDb; });
+var TicketHistoryFakeDb = /** @class */ (function () {
+    function TicketHistoryFakeDb() {
+    }
+    TicketHistoryFakeDb.data = [
+        {
+            "type": "Behavior",
+            "colName": null,
+            "oldValue": null,
+            "newValue": null,
+            "actionBy": null,
+            "actionAt": 1532,
+            "behaviorName": "Action",
+            "behaviorValue": "Backward",
+            "id": 10052,
+            "ticketId": 10052,
+            "stepId": "Step03"
+        },
+        {
+            "type": "Behavior",
+            "colName": null,
+            "oldValue": null,
+            "newValue": null,
+            "actionBy": null,
+            "actionAt": 6666,
+            "behaviorName": "Action",
+            "behaviorValue": "Forward",
+            "id": 10052,
+            "ticketId": 10052,
+            "stepId": "Step04"
+        }
+    ];
+    return TicketHistoryFakeDb;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/fake-db/tickets.ts":
+/*!************************************!*\
+  !*** ./src/app/fake-db/tickets.ts ***!
+  \************************************/
+/*! exports provided: TicketssFakeDb */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketssFakeDb", function() { return TicketssFakeDb; });
+var TicketssFakeDb = /** @class */ (function () {
+    function TicketssFakeDb() {
+    }
+    TicketssFakeDb.tickets = [
+        {
+            'ticketId': '5725a680b3249760ea21de52',
+            'creationdate': 'Abbott',
+            'description': 'Keitch',
+            'status': 'assets/images/avatars/Abbott.jpg',
+            'title': 'Royalguard',
+            'ticketnumber': 'Saois'
+        },
+        {
+            'ticketId': '5725a680b3249760ea21de52',
+            'creationdate': 'Abbott',
+            'description': 'Keitch',
+            'status': 'assets/images/avatars/Abbott.jpg',
+            'title': 'Royalguard',
+            'ticketnumber': 'Saois'
+        },
+        {
+            'id': '5725a68009e20d0a9e9acf2a',
+            'name': 'Barrera',
+            'lastName': 'Bradbury',
+            'avatar': 'assets/images/avatars/Barrera.jpg',
+            'nickname': 'Jackal',
+            'company': 'Unizim',
+            'jobTitle': 'Graphic Designer',
+            'email': 'barrera@withinpixels.com',
+            'phone': '+1-202-555-0196',
+            'address': '183 River Street Passaic, NJ 07055',
+            'birthday': null,
+            'notes': ''
+        },
+        {
+            'ticketId': '5725a680b3249760ea21de52',
+            'creationdate': 'Abbott',
+            'description': 'Keitch',
+            'status': 'assets/images/avatars/Abbott.jpg',
+            'title': 'Royalguard',
+            'ticketnumber': 'Saois'
+        },
+        {
+            'ticketId': '5725a680b3249760ea21de52',
+            'creationdate': 'Abbott',
+            'description': 'Keitch',
+            'status': 'assets/images/avatars/Abbott.jpg',
+            'title': 'Royalguard',
+            'ticketnumber': 'Saois'
+        }
+    ];
+    return TicketssFakeDb;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/fake-db/todo.ts":
 /*!*********************************!*\
   !*** ./src/app/fake-db/todo.ts ***!
@@ -21149,7 +21544,7 @@ var fuseConfig = {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"forms\" class=\"page-layout simple fullwidth\" fxLayout=\"column\">\n\n\t<div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\n\n               <mat-form-field fxFlex=\"100\">\n                   <mat-select placeholder=\"Choose a group!\" formControlName=\"groups\" required>\n                       <mat-option [value]=\"'group1'\">\n                           Group 1\n                       </mat-option>\n                       <mat-option [value]=\"'group2'\">\n                           Group 2\n                       </mat-option>\n                       <mat-option [value]=\"'group3'\">\n                           Group 3\n                       </mat-option>\n                       <mat-option [value]=\"'group4'\">\n                           Group 4\n                       </mat-option>\n                       <mat-option [value]=\"'group5'\">\n                           Group 5\n                       </mat-option>\n                       <mat-option [value]=\"'group6'\">\n                           Group 6\n                       </mat-option>\n                   </mat-select>\n                  <!--  <mat-error *ngIf=\"formErrors.groups.required\">\n                       Group is required!\n\t</mat-error>-->\n\t\n\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t<div class=\"form-group\">\n\t\t<label for=\"sel1\">Select list:</label>\n\t\t<select class=\"form-control\" id=\"sel1\">\n\t\t\t<option>1</option>\n\t\t\t<option>2</option>\n\t\t\t<option>3</option>\n\t\t\t<option>4</option>\n\t\t</select>\n\t</div>\n               </mat-form-field>\n\n           </div>\n    <div class=\"content p-24\">\n\n        <div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\">\n\n            <form class=\"mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24\" fxLayout=\"column\" fxLayoutAlign=\"start\" fxFlex=\"1 0 auto\" name=\"form\"\n                [formGroup]=\"form\">\n\n                <div class=\"h2 mb-24\">\n\t\t\t\t\t<div fxFlex=\"70\">\n\t\t\t\t\t\tGroup Permissions\n\t\t\t\t\t</div>\n\t\t\t\t\t<mat-form-field fxFlex=\"15\" style=\"text-align: right\">\n\t\t\t\t\t\t<!-- <mat-checkbox>Check all!</mat-checkbox> -->\n\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Check all!\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<!-- <mat-form-field fxFlex=\"15\" style=\"text-align: right\">\n\t\t\t\t\t\t<mat-checkbox>Uncheck all!</mat-checkbox>\n\n\t\t\t\t\t\tThis input is here because Fuse inputs aren't working for now\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Uncheck all!\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-form-field> -->\n\t\t\t\t</div>\n\n                \n\n                <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\n\n                    <mat-form-field fxFlex=\"50\">\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission 1</mat-checkbox> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\">\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\">\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\">\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</div>\n                    </mat-form-field>\n\n                </div>\n            </form>\n        </div>\n    </div>\n</div>"
+module.exports = "<div id=\"forms\" class=\"page-layout simple fullwidth\" fxLayout=\"column\">\r\n\r\n\t<div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n               <mat-form-field fxFlex=\"100\">\r\n                   <mat-select placeholder=\"Choose a group!\" formControlName=\"groups\" required>\r\n                       <mat-option [value]=\"'group1'\">\r\n                           Group 1\r\n                       </mat-option>\r\n                       <mat-option [value]=\"'group2'\">\r\n                           Group 2\r\n                       </mat-option>\r\n                       <mat-option [value]=\"'group3'\">\r\n                           Group 3\r\n                       </mat-option>\r\n                       <mat-option [value]=\"'group4'\">\r\n                           Group 4\r\n                       </mat-option>\r\n                       <mat-option [value]=\"'group5'\">\r\n                           Group 5\r\n                       </mat-option>\r\n                       <mat-option [value]=\"'group6'\">\r\n                           Group 6\r\n                       </mat-option>\r\n                   </mat-select>\r\n                  <!--  <mat-error *ngIf=\"formErrors.groups.required\">\r\n                       Group is required!\r\n\t</mat-error>-->\r\n\t\r\n\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t<div class=\"form-group\">\r\n\t\t<label for=\"sel1\">Select list:</label>\r\n\t\t<select class=\"form-control\" id=\"sel1\">\r\n\t\t\t<option>1</option>\r\n\t\t\t<option>2</option>\r\n\t\t\t<option>3</option>\r\n\t\t\t<option>4</option>\r\n\t\t</select>\r\n\t</div>\r\n               </mat-form-field>\r\n\r\n           </div>\r\n    <div class=\"content p-24\">\r\n\r\n        <div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\">\r\n\r\n            <form class=\"mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24\" fxLayout=\"column\" fxLayoutAlign=\"start\" fxFlex=\"1 0 auto\" name=\"form\"\r\n                [formGroup]=\"form\">\r\n\r\n                <div class=\"h2 mb-24\">\r\n\t\t\t\t\t<div fxFlex=\"70\">\r\n\t\t\t\t\t\tGroup Permissions\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<mat-form-field fxFlex=\"15\">\r\n\t\t\t\t\t\t<!-- <mat-checkbox>Check all!</mat-checkbox> -->\r\n\r\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Check all!\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</mat-form-field>\r\n\t\t\t\t\t<!-- <mat-form-field fxFlex=\"15\" style=\"text-align: right\">\r\n\t\t\t\t\t\t<mat-checkbox>Uncheck all!</mat-checkbox>\r\n\r\n\t\t\t\t\t\tThis input is here because Fuse inputs aren't working for now\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Uncheck all!\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</mat-form-field> -->\r\n\t\t\t\t</div>\r\n\r\n                \r\n\r\n                <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n                    <mat-form-field fxFlex=\"50\">\r\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission 1</mat-checkbox> -->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n                    </mat-form-field>\r\n                    <mat-form-field fxFlex=\"50\">\r\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n                    </mat-form-field>\r\n                    <mat-form-field fxFlex=\"50\">\r\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n                    </mat-form-field>\r\n                    <mat-form-field fxFlex=\"50\">\r\n\t\t\t\t\t\t<!-- <mat-checkbox>Permission</mat-checkbox> -->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- This input is here because Fuse inputs aren't working for now -->\r\n\t\t\t\t\t\t<div class=\"form-check\">\r\n\t\t\t\t\t\t\t<label class=\"form-check-label\">\r\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" value=\"\">Permission\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t</div>\r\n                    </mat-form-field>\r\n\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -21287,7 +21682,7 @@ var GroupPermModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\n    *ngIf=\"true\" hack is required here for router-outlet to work\n    correctly. Otherwise, it won't register the changes on the\n    layout and won't update the view.\n -->\n<router-outlet *ngIf=\"true\"></router-outlet>"
+module.exports = "<!--\r\n    *ngIf=\"true\" hack is required here for router-outlet to work\r\n    correctly. Otherwise, it won't register the changes on the\r\n    layout and won't update the view.\r\n -->\r\n<router-outlet *ngIf=\"true\"></router-outlet>"
 
 /***/ }),
 
@@ -21400,7 +21795,7 @@ var ContentModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutAlign.gt-xs=\"space-between center\" fxFlex>\n\n        <a href=\"http://themeforest.net/item/fuse-angularjs-material-design-admin-template/12931855?ref=srcn\"\n           target=\"_blank\" mat-button class=\"mat-pink-bg\" fxFlex=\"0 0 auto\" fxLayout=\"row\"\n           fxLayoutAlign=\"start center\">\n            <mat-icon class=\"s-16 mr-sm-4\">shopping_cart</mat-icon>\n            <span>Purchase FUSE (Angular 6+)</span>\n        </a>\n\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxHide fxShow.gt-xs>\n            <a mat-button routerLink=\"/documentation/getting-started/introduction\">Documentation</a>\n            <span>&bull;</span>\n            <a mat-button routerLink=\"/documentation/changelog\">Changelog</a>\n        </div>\n\n\n\n    </div>\n\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar>\r\n\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutAlign.gt-xs=\"space-between center\" fxFlex>\r\n\r\n        <!-- <a href=\"http://themeforest.net/item/fuse-angularjs-material-design-admin-template/12931855?ref=srcn\"\r\n           target=\"_blank\" mat-button class=\"mat-pink-bg\" fxFlex=\"0 0 auto\" fxLayout=\"row\"\r\n           fxLayoutAlign=\"start center\">\r\n            <mat-icon class=\"s-16 mr-sm-4\">shopping_cart</mat-icon>\r\n            <span>Purchase FUSE (Angular 6+)</span>\r\n        </a> -->\r\n\r\n<!--         <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxHide fxShow.gt-xs>\r\n            <a mat-button routerLink=\"/documentation/getting-started/introduction\">Documentation</a>\r\n            <span>&bull;</span>\r\n            <a mat-button routerLink=\"/documentation/changelog\">Changelog</a>\r\n        </div>\r\n -->\r\n\r\n\r\n    </div>\r\n\r\n</mat-toolbar>\r\n"
 
 /***/ }),
 
@@ -21517,7 +21912,7 @@ var FooterModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"layout == 'vertical'\">\n\n    <div class=\"navbar-vertical\">\n\n        <div class=\"navbar-header\">\n\n            <div class=\"logo\">\n                <img class=\"logo-icon\" src=\"assets/images/logos/helpdesk.jpg\">\n                <span class=\"logo-text\">HelpDesk</span>\n            </div>\n\n            <button mat-icon-button class=\"toggle-sidebar-folded\"\n                    (click)=\"toggleSidebarFolded()\" fxHide.lt-lg>\n                <mat-icon>menu</mat-icon>\n            </button>\n\n            <button mat-icon-button class=\"toggle-sidebar-opened\"\n                    (click)=\"toggleSidebarOpened()\" fxHide.gt-md>\n                <mat-icon>arrow_back</mat-icon>\n            </button>\n\n        </div>\n\n        <div class=\"navbar-content\" fusePerfectScrollbar\n             [fusePerfectScrollbarOptions]=\"{suppressScrollX: true}\">\n            <fuse-navigation layout=\"vertical\"></fuse-navigation>\n        </div>\n\n    </div>\n\n</ng-container>\n\n<ng-container *ngIf=\"layout == 'horizontal'\">\n\n    <div class=\"navbar-horizontal\">\n        <fuse-navigation layout=\"horizontal\"></fuse-navigation>\n    </div>\n\n</ng-container>"
+module.exports = "<ng-container *ngIf=\"layout == 'vertical'\">\r\n\r\n    <div class=\"navbar-vertical\">\r\n\r\n        <div class=\"navbar-header\">\r\n\r\n            <div class=\"logo\">\r\n                <img class=\"logo-icon\" src=\"assets/images/logos/helpdesk.jpg\">\r\n                <span class=\"logo-text\">HelpDesk</span>\r\n            </div>\r\n\r\n            <button mat-icon-button class=\"toggle-sidebar-folded\"\r\n                    (click)=\"toggleSidebarFolded()\" fxHide.lt-lg>\r\n                <mat-icon>menu</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button class=\"toggle-sidebar-opened\"\r\n                    (click)=\"toggleSidebarOpened()\" fxHide.gt-md>\r\n                <mat-icon>arrow_back</mat-icon>\r\n            </button>\r\n\r\n        </div>\r\n\r\n        <div class=\"navbar-content\" fusePerfectScrollbar\r\n             [fusePerfectScrollbarOptions]=\"{suppressScrollX: true}\">\r\n            <fuse-navigation layout=\"vertical\"></fuse-navigation>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</ng-container>\r\n\r\n<ng-container *ngIf=\"layout == 'horizontal'\">\r\n\r\n    <div class=\"navbar-horizontal\">\r\n        <fuse-navigation layout=\"horizontal\"></fuse-navigation>\r\n    </div>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -21738,7 +22133,7 @@ var NavbarModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list class=\"date\" cdkFocusRegionStart>\n\n    <h3 matSubheader cdkFocusInit>\n        <span>Today</span>\n    </h3>\n\n    <div class=\"secondary-text mat-display-1 mb-0 p-16\">\n        <div class=\"mb-12\">\n            {{date | date:'EEEE'}}\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start start\">\n            <span> {{date | date:'d'}}</span>\n            <span class=\"mat-subheading-1\">th</span>\n            <span> {{date | date:'MMMM'}}</span>\n        </div>\n    </div>\n</mat-list>\n\n<mat-divider cdkFocusRegionEnd></mat-divider>\n\n<mat-list>\n    <h3 matSubheader>\n        <span>Events</span>\n    </h3>\n\n    <mat-list-item *ngFor=\"let event of events\">\n        <h3 matLine>{{event.title}}</h3>\n        <p matLine class=\"secondary-text\">{{event.detail}}</p>\n    </mat-list-item>\n</mat-list>\n\n<mat-divider></mat-divider>\n\n<mat-list>\n    <h3 matSubheader>\n        <span>Notes</span>\n    </h3>\n\n    <mat-list-item *ngFor=\"let note of notes\">\n        <h3 matLine>{{note.title}}</h3>\n        <p matLine class=\"secondary-text\">{{note.detail}}</p>\n    </mat-list-item>\n</mat-list>\n\n<mat-divider></mat-divider>\n\n<mat-list>\n    <h3 matSubheader>\n        <span>Quick Settings</span>\n    </h3>\n\n    <mat-list-item>\n        <mat-slide-toggle fxFlex class=\"mat-primary\" [(ngModel)]=\"settings.notify\" aria-label=\"Notifications\"\n                          labelPosition=\"before\">\n            <h3>Notifications</h3>\n        </mat-slide-toggle>\n    </mat-list-item>\n\n    <mat-list-item>\n        <mat-slide-toggle fxFlex class=\"mat-accent\" [(ngModel)]=\"settings.cloud\" aria-label=\"Cloud\"\n                          labelPosition=\"before\">\n            <h3>Cloud Sync</h3>\n        </mat-slide-toggle>\n    </mat-list-item>\n\n    <mat-list-item>\n        <mat-slide-toggle fxFlex class=\"mat-warn\" [(ngModel)]=\"settings.retro\" aria-label=\"Retro Thrusters\"\n                          labelPosition=\"before\">\n            <h3>Retro Thrusters</h3>\n        </mat-slide-toggle>\n    </mat-list-item>\n</mat-list>\n"
+module.exports = "<mat-list class=\"date\" cdkFocusRegionStart>\r\n\r\n    <h3 matSubheader cdkFocusInit>\r\n        <span>Today</span>\r\n    </h3>\r\n\r\n    <div class=\"secondary-text mat-display-1 mb-0 p-16\">\r\n        <div class=\"mb-12\">\r\n            {{date | date:'EEEE'}}\r\n        </div>\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"start start\">\r\n            <span> {{date | date:'d'}}</span>\r\n            <span class=\"mat-subheading-1\">th</span>\r\n            <span> {{date | date:'MMMM'}}</span>\r\n        </div>\r\n    </div>\r\n</mat-list>\r\n\r\n<mat-divider cdkFocusRegionEnd></mat-divider>\r\n\r\n<mat-list>\r\n    <h3 matSubheader>\r\n        <span>Events</span>\r\n    </h3>\r\n\r\n    <mat-list-item *ngFor=\"let event of events\">\r\n        <h3 matLine>{{event.title}}</h3>\r\n        <p matLine class=\"secondary-text\">{{event.detail}}</p>\r\n    </mat-list-item>\r\n</mat-list>\r\n\r\n<mat-divider></mat-divider>\r\n\r\n<mat-list>\r\n    <h3 matSubheader>\r\n        <span>Notes</span>\r\n    </h3>\r\n\r\n    <mat-list-item *ngFor=\"let note of notes\">\r\n        <h3 matLine>{{note.title}}</h3>\r\n        <p matLine class=\"secondary-text\">{{note.detail}}</p>\r\n    </mat-list-item>\r\n</mat-list>\r\n\r\n<mat-divider></mat-divider>\r\n\r\n<mat-list>\r\n    <h3 matSubheader>\r\n        <span>Quick Settings</span>\r\n    </h3>\r\n\r\n    <mat-list-item>\r\n        <mat-slide-toggle fxFlex class=\"mat-primary\" [(ngModel)]=\"settings.notify\" aria-label=\"Notifications\"\r\n                          labelPosition=\"before\">\r\n            <h3>Notifications</h3>\r\n        </mat-slide-toggle>\r\n    </mat-list-item>\r\n\r\n    <mat-list-item>\r\n        <mat-slide-toggle fxFlex class=\"mat-accent\" [(ngModel)]=\"settings.cloud\" aria-label=\"Cloud\"\r\n                          labelPosition=\"before\">\r\n            <h3>Cloud Sync</h3>\r\n        </mat-slide-toggle>\r\n    </mat-list-item>\r\n\r\n    <mat-list-item>\r\n        <mat-slide-toggle fxFlex class=\"mat-warn\" [(ngModel)]=\"settings.retro\" aria-label=\"Retro Thrusters\"\r\n                          labelPosition=\"before\">\r\n            <h3>Retro Thrusters</h3>\r\n        </mat-slide-toggle>\r\n    </mat-list-item>\r\n</mat-list>\r\n"
 
 /***/ }),
 
@@ -21898,7 +22293,7 @@ var QuickPanelModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"p-0 mat-elevation-z1\">\r\n\r\n    <mat-progress-bar *ngIf=\"showLoadingBar\" class=\"loading-bar\" color=\"accent\" mode=\"indeterminate\"></mat-progress-bar>\r\n\r\n    <div fxFlex fxFill fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n        <div fxFlex=\"1 0 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n            <button mat-icon-button class=\"navbar-toggle-button\"\r\n                    *ngIf=\"!hiddenNavbar && !rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\r\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\r\n            </button>\r\n\r\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && !rightNavbar\" fxHide.gt-md></div>\r\n\r\n            <div fxLayout=\"row\" fxLayoutAlign=\"start center\" *ngIf=\"horizontalNavbar\">\r\n                <div class=\"logo ml-16\">\r\n                    <img class=\"logo-icon\" src=\"assets/images/logos/fuse.svg\">\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"px-8 px-mat-16\">\r\n                <fuse-shortcuts [navigation]=\"navigation\"></fuse-shortcuts>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <div class=\"\" fxFlex=\"0 1 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n            Projects : \r\n\t\t\t<mat-form-field>\r\n                <mat-select [(ngModel)]=\"selectedProject\" (ngModelChange)=\"onChange()\" >\r\n                  <mat-option *ngFor=\"let item of projects\" [value]=\"item\">\r\n                    {{ item.name }}\r\n                  </mat-option>\r\n                </mat-select>\r\n              </mat-form-field>\r\n            <button mat-button [matMenuTriggerFor]=\"userMenu\"\r\n                    class=\"user-button\">\r\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                    <img class=\"avatar\" src=\"assets/images/avatars/profile.jpg\">\r\n                    <span class=\"username mr-12\" fxHide fxShow.gt-sm>{{_sharedService.user.username}}</span>\r\n                    <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\r\n                </div>\r\n            </button>\r\n\r\n            <mat-menu #userMenu=\"matMenu\" [overlapTrigger]=\"false\">\r\n\r\n                <button mat-menu-item>\r\n                    <mat-icon>account_circle</mat-icon>\r\n                    <span>My Profile</span>\r\n                </button>\r\n\r\n                <button mat-menu-item class=\"\">\r\n                    <mat-icon>mail</mat-icon>\r\n                    <span>Inbox</span>\r\n                </button>\r\n\r\n                <button mat-menu-item class=\"\">\r\n                    <mat-icon>exit_to_app</mat-icon>\r\n                    <span>Logout</span>\r\n                </button>\r\n\r\n            </mat-menu>\r\n\r\n            <div class=\"toolbar-separator\"></div>\r\n\r\n            <fuse-search-bar (input)=\"search($event)\"></fuse-search-bar>\r\n\r\n            <div class=\"toolbar-separator\"></div>\r\n\r\n            <button mat-button fxHide fxShow.gt-xs\r\n                    class=\"language-button\"\r\n                    [matMenuTriggerFor]=\"languageMenu\">\r\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                    <img class=\"flag mr-8\" [src]=\"'assets/images/flags/'+selectedLanguage.flag+'.png'\">\r\n                    <span class=\"iso text-uppercase\">{{selectedLanguage.id}}</span>\r\n                </div>\r\n            </button>\r\n\r\n            <mat-menu #languageMenu=\"matMenu\" [overlapTrigger]=\"false\">\r\n\r\n                <button mat-menu-item *ngFor=\"let lang of languages\" (click)=\"setLanguage(lang.id)\">\r\n                    <span fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                        <img class=\"flag mr-16\" [src]=\"'assets/images/flags/'+lang.flag+'.png'\">\r\n                        <span class=\"iso\">{{lang.title}}</span>\r\n                    </span>\r\n                </button>\r\n\r\n                <button mat-menu-item [routerLink]=\"'/components/multi-language'\">\r\n                    <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                        <span>Learn more</span>\r\n                    </div>\r\n                </button>\r\n\r\n            </mat-menu>\r\n\r\n            <div class=\"toolbar-separator\" fxHide fxShow.gt-xs></div>\r\n\r\n            <button mat-icon-button\r\n                    class=\"quick-panel-toggle-button\"\r\n                    (click)=\"toggleSidebarOpen('quickPanel')\"\r\n                    aria-label=\"Toggle quick panel\">\r\n                <mat-icon class=\"icon\">format_list_bulleted</mat-icon>\r\n            </button>\r\n\r\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && rightNavbar\" fxHide fxShow.gt-xs></div>\r\n\r\n            <button mat-icon-button class=\"navbar-toggle-button\"\r\n                    *ngIf=\"!hiddenNavbar && rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\r\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\r\n            </button>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar class=\"p-0 mat-elevation-z1\">\r\n\r\n    <mat-progress-bar *ngIf=\"showLoadingBar\" class=\"loading-bar\" color=\"accent\" mode=\"indeterminate\"></mat-progress-bar>\r\n\r\n    <div fxFlex fxFill fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n        <div fxFlex=\"1 0 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n\r\n            <button mat-icon-button class=\"navbar-toggle-button\"\r\n                    *ngIf=\"!hiddenNavbar && !rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\r\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\r\n            </button>\r\n\r\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && !rightNavbar\" fxHide.gt-md></div>\r\n\r\n            <div fxLayout=\"row\" fxLayoutAlign=\"start center\" *ngIf=\"horizontalNavbar\">\r\n                <div class=\"logo ml-16\">\r\n                    <img class=\"logo-icon\" src=\"assets/images/logos/fuse.svg\">\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"px-8 px-mat-16\">\r\n                <fuse-shortcuts [navigation]=\"navigation\"></fuse-shortcuts>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <div class=\"\" fxFlex=\"0 1 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n            Projects : \r\n\t\t\t<mat-form-field>\r\n                <mat-select [(ngModel)]=\"selectedProject\" (ngModelChange)=\"onChange()\" >\r\n                  <mat-option *ngFor=\"let item of projects\" [value]=\"item\">\r\n                    {{ item.name }}\r\n                  </mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n            <button mat-button [matMenuTriggerFor]=\"userMenu\"\r\n                    class=\"user-button\">\r\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                    <img class=\"avatar\" src=\"assets/images/avatars/profile.jpg\">\r\n                    <span class=\"username mr-12\" fxHide fxShow.gt-sm>{{_sharedService.user.username}}</span>\r\n                    <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\r\n                </div>\r\n            </button>\r\n\r\n            <mat-menu #userMenu=\"matMenu\" [overlapTrigger]=\"false\">\r\n\r\n                <button mat-menu-item>\r\n                    <mat-icon>account_circle</mat-icon>\r\n                    <span>My Profile</span>\r\n                </button>\r\n\r\n                <button mat-menu-item class=\"\">\r\n                    <mat-icon>mail</mat-icon>\r\n                    <span>Inbox</span>\r\n                </button>\r\n\r\n                <button mat-menu-item class=\"\">\r\n                    <mat-icon>exit_to_app</mat-icon>\r\n                    <span>Logout</span>\r\n                </button>\r\n\r\n            </mat-menu>\r\n\r\n            <div class=\"toolbar-separator\"></div>\r\n\r\n            <fuse-search-bar (input)=\"search($event)\"></fuse-search-bar>\r\n\r\n            <div class=\"toolbar-separator\"></div>\r\n\r\n            <button mat-button fxHide fxShow.gt-xs\r\n                    class=\"language-button\"\r\n                    [matMenuTriggerFor]=\"languageMenu\">\r\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                    <img class=\"flag mr-8\" [src]=\"'assets/images/flags/'+selectedLanguage.flag+'.png'\">\r\n                    <span class=\"iso text-uppercase\">{{selectedLanguage.id}}</span>\r\n                </div>\r\n            </button>\r\n\r\n            <mat-menu #languageMenu=\"matMenu\" [overlapTrigger]=\"false\">\r\n\r\n                <button mat-menu-item *ngFor=\"let lang of languages\" (click)=\"setLanguage(lang.id)\">\r\n                    <span fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                        <img class=\"flag mr-16\" [src]=\"'assets/images/flags/'+lang.flag+'.png'\">\r\n                        <span class=\"iso\">{{lang.title}}</span>\r\n                    </span>\r\n                </button>\r\n\r\n                <button mat-menu-item [routerLink]=\"'/components/multi-language'\">\r\n                    <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                        <span>Learn more</span>\r\n                    </div>\r\n                </button>\r\n\r\n            </mat-menu>\r\n\r\n            <div class=\"toolbar-separator\" fxHide fxShow.gt-xs></div>\r\n\r\n            <button mat-icon-button\r\n                    class=\"quick-panel-toggle-button\"\r\n                    (click)=\"toggleSidebarOpen('quickPanel')\"\r\n                    aria-label=\"Toggle quick panel\">\r\n                <mat-icon class=\"icon\">format_list_bulleted</mat-icon>\r\n            </button>\r\n\r\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && rightNavbar\" fxHide fxShow.gt-xs></div>\r\n\r\n            <button mat-icon-button class=\"navbar-toggle-button\"\r\n                    *ngIf=\"!hiddenNavbar && rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\r\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\r\n            </button>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n</mat-toolbar>\r\n"
 
 /***/ }),
 
@@ -21933,8 +22328,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fuse_services_config_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fuse/services/config.service */ "./src/@fuse/services/config.service.ts");
 /* harmony import */ var _fuse_components_sidebar_sidebar_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fuse/components/sidebar/sidebar.service */ "./src/@fuse/components/sidebar/sidebar.service.ts");
 /* harmony import */ var _navigation_navigation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../navigation/navigation */ "./src/app/navigation/navigation.ts");
-/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
-/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+/* harmony import */ var _constdata_user__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../constdata/user */ "./src/app/constdata/user.ts");
+/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../services/ticket.service */ "./src/app/services/ticket.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21944,6 +22340,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -22055,6 +22452,15 @@ var ToolbarComponent = /** @class */ (function () {
                 _this.selectedProject = _this._sharedService.selectedProject;
             }
         });
+        // if the service was not avaliable get the user info form the mockup data.
+        if (this._sharedService.user == null) {
+            this._sharedService.user = _constdata_user__WEBPACK_IMPORTED_MODULE_9__["UserData"];
+            this.projects = this._sharedService.user.projects;
+            if (this.projects != null && this.projects.length > 0) {
+                this._sharedService.selectedProject = this.projects[0];
+                this.selectedProject = this._sharedService.selectedProject;
+            }
+        }
     };
     /**
      * On destroy
@@ -22108,8 +22514,8 @@ var ToolbarComponent = /** @class */ (function () {
             _fuse_components_sidebar_sidebar_service__WEBPACK_IMPORTED_MODULE_7__["FuseSidebarService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-            _services_shared_data_service__WEBPACK_IMPORTED_MODULE_9__["SharedDataService"],
-            _services_ticket_service__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])
+            _services_shared_data_service__WEBPACK_IMPORTED_MODULE_10__["SharedDataService"],
+            _services_ticket_service__WEBPACK_IMPORTED_MODULE_11__["TicketService"]])
     ], ToolbarComponent);
     return ToolbarComponent;
 }());
@@ -22192,7 +22598,7 @@ var ToolbarModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\n\n    <!-- TOOLBAR: Above -->\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above'\">\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n    </ng-container>\n    <!-- / TOOLBAR: Above -->\n\n    <!-- NAVBAR: Top -->\n    <ng-container>\n        <ng-container *ngTemplateOutlet=\"topNavbar\"></ng-container>\n    </ng-container>\n    <!-- / NAVBAR: Top -->\n\n    <!-- TOOLBAR: Below -->\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below'\">\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n    </ng-container>\n    <!-- / TOOLBAR: Below -->\n\n    <div id=\"container-1\" class=\"container\">\n\n        <!-- NAVBAR: Left -->\n        <ng-container>\n            <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\n        </ng-container>\n        <!-- / NAVBAR: Left -->\n\n        <div id=\"container-2\" class=\"container\">\n\n            <div id=\"container-3\" class=\"container\" fusePerfectScrollbar\n                 [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\n\n                <!-- CONTENT -->\n                <content></content>\n                <!-- / CONTENT -->\n\n                <!-- FOOTER: Below -->\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n                </ng-container>\n                <!-- / FOOTER: Below -->\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <!-- FOOTER: Above -->\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n    </ng-container>\n    <!-- FOOTER: Above -->\n\n</div>\n\n<!-- QUICK PANEL -->\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\n    <quick-panel></quick-panel>\n</fuse-sidebar>\n<!-- / QUICK PANEL -->\n\n<!-- ----------------------------------------------------------------------------------------------------- -->\n<!-- @ PARTIALS\n<!-- ----------------------------------------------------------------------------------------------------- -->\n\n<!-- TOOLBAR -->\n<ng-template #toolbar>\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\n</ng-template>\n<!-- / TOOLBAR -->\n\n<!-- FOOTER -->\n<ng-template #footer>\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\n</ng-template>\n<!-- / FOOTER -->\n\n<!-- TOP NAVBAR -->\n<ng-template #topNavbar>\n    <navbar layout=\"horizontal\"\n            class=\"top-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\"\n            fxHide fxShow.gt-md\n            *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n    </navbar>\n</ng-template>\n<!-- / TOP NAVBAR -->\n\n<!-- LEFT NAVBAR -->\n<ng-template #leftNavbar>\n    <fuse-sidebar name=\"navbar\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / LEFT NAVBAR -->\n"
+module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\r\n\r\n    <!-- TOOLBAR: Above -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above'\">\r\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / TOOLBAR: Above -->\r\n\r\n    <!-- NAVBAR: Top -->\r\n    <ng-container>\r\n        <ng-container *ngTemplateOutlet=\"topNavbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / NAVBAR: Top -->\r\n\r\n    <!-- TOOLBAR: Below -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below'\">\r\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / TOOLBAR: Below -->\r\n\r\n    <div id=\"container-1\" class=\"container\">\r\n\r\n        <!-- NAVBAR: Left -->\r\n        <ng-container>\r\n            <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\r\n        </ng-container>\r\n        <!-- / NAVBAR: Left -->\r\n\r\n        <div id=\"container-2\" class=\"container\">\r\n\r\n            <div id=\"container-3\" class=\"container\" fusePerfectScrollbar\r\n                 [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\r\n\r\n                <!-- CONTENT -->\r\n                <content></content>\r\n                <!-- / CONTENT -->\r\n\r\n                <!-- FOOTER: Below -->\r\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\r\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n                </ng-container>\r\n                <!-- / FOOTER: Below -->\r\n\r\n            </div>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <!-- FOOTER: Above -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\r\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n    </ng-container>\r\n    <!-- FOOTER: Above -->\r\n\r\n</div>\r\n\r\n<!-- QUICK PANEL -->\r\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\r\n    <quick-panel></quick-panel>\r\n</fuse-sidebar>\r\n<!-- / QUICK PANEL -->\r\n\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n<!-- @ PARTIALS\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n\r\n<!-- TOOLBAR -->\r\n<ng-template #toolbar>\r\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\r\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\r\n</ng-template>\r\n<!-- / TOOLBAR -->\r\n\r\n<!-- FOOTER -->\r\n<ng-template #footer>\r\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\r\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\r\n</ng-template>\r\n<!-- / FOOTER -->\r\n\r\n<!-- TOP NAVBAR -->\r\n<ng-template #topNavbar>\r\n    <navbar layout=\"horizontal\"\r\n            class=\"top-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\"\r\n            fxHide fxShow.gt-md\r\n            *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n    </navbar>\r\n</ng-template>\r\n<!-- / TOP NAVBAR -->\r\n\r\n<!-- LEFT NAVBAR -->\r\n<ng-template #leftNavbar>\r\n    <fuse-sidebar name=\"navbar\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / LEFT NAVBAR -->\r\n"
 
 /***/ }),
 
@@ -22414,7 +22820,7 @@ var LayoutModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\n\n    <!-- TOOLBAR: Above -->\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above'\">\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n    </ng-container>\n    <!-- / TOOLBAR: Above -->\n\n    <div id=\"container-1\" class=\"container\">\n\n        <!-- NAVBAR: Left -->\n        <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\n            <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\n        </ng-container>\n        <!-- / NAVBAR: Left -->\n\n        <div id=\"container-2\" class=\"container\">\n\n            <!-- TOOLBAR: Below fixed -->\n            <!-- <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below-fixed'\">\n                <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n            </ng-container> -->\n            <!-- / TOOLBAR: Below fixed -->\n\n            <div id=\"container-3\" class=\"container\" fusePerfectScrollbar\n                 [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\n\n                <!-- TOOLBAR: Below static -->\n                <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below-static'\">\n                    <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n                </ng-container>\n                <!-- / TOOLBAR: Below static -->\n\n                <!-- HEADER -->\n                <div class=\"header mat-accent-bg p-24 h-110\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"row\" fxLayoutAlign.gt-xs=\"space-between center\">\n\n                    <div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"column\" fxLayoutAlign.gt-xs=\"center start\">\n                        <div class=\"black-fg\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n                            <!-- <mat-icon class=\"secondary-text s-18\">home</mat-icon>\n                            <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon> -->\n                            <span class=\"secondary-text\">SBM</span>\n                        </div>\n                        <div class=\"h1 mt-16\">HELPDESK</div>\n                    </div>\n\n\n                </div>\n                <!-- / HEADER -->\n\n                <!-- CONTENT -->\n                <content></content>\n                <!-- / CONTENT -->\n\n                <!-- FOOTER: Below static -->\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below-static'\">\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n                </ng-container>\n                <!-- / FOOTER: Below static -->\n\n            </div>\n\n            <!-- FOOTER: Below fixed -->\n            <!-- <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below-fixed'\">\n                <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n            </ng-container> -->\n            <!-- / FOOTER: Below fixed -->\n\n        </div>\n\n        <!-- NAVBAR: Right -->\n        <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\n            <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\n        </ng-container>\n        <!-- / NAVBAR: Right -->\n\n    </div>\n\n    <!-- FOOTER: Above -->\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above'\">\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n    </ng-container>\n    <!-- FOOTER: Above -->\n\n</div>\n\n<!-- QUICK PANEL -->\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\n    <quick-panel></quick-panel>\n</fuse-sidebar>\n<!-- / QUICK PANEL -->\n\n<!-- ----------------------------------------------------------------------------------------------------- -->\n<!-- @ PARTIALS\n<!-- ----------------------------------------------------------------------------------------------------- -->\n\n<!-- TOOLBAR -->\n<ng-template #toolbar>\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\n</ng-template>\n<!-- / TOOLBAR -->\n\n<!-- FOOTER -->\n<ng-template #footer>\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\n</ng-template>\n<!-- / FOOTER -->\n\n<!-- LEFT NAVBAR -->\n<ng-template #leftNavbar>\n    <fuse-sidebar name=\"navbar\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / LEFT NAVBAR -->\n\n<!-- RIGHT NAVBAR -->\n<ng-template #rightNavbar>\n    <fuse-sidebar name=\"navbar\" position=\"right\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / RIGHT NAVBAR -->"
+module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\r\n\r\n    <!-- TOOLBAR: Above -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above'\">\r\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / TOOLBAR: Above -->\r\n\r\n    <div id=\"container-1\" class=\"container\">\r\n\r\n        <!-- NAVBAR: Left -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\r\n            <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\r\n        </ng-container>\r\n        <!-- / NAVBAR: Left -->\r\n\r\n        <div id=\"container-2\" class=\"container\">\r\n\r\n            <!-- TOOLBAR: Below fixed -->\r\n            <!-- <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below-fixed'\">\r\n                <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n            </ng-container> -->\r\n            <!-- / TOOLBAR: Below fixed -->\r\n\r\n            <div id=\"container-3\" class=\"container\" fusePerfectScrollbar\r\n                 [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\r\n\r\n                <!-- TOOLBAR: Below static -->\r\n                <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below-static'\">\r\n                    <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n                </ng-container>\r\n                <!-- / TOOLBAR: Below static -->\r\n\r\n                <!-- HEADER -->\r\n                <div class=\"header mat-accent-bg p-24 h-110\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"row\" fxLayoutAlign.gt-xs=\"space-between center\">\r\n\r\n                    <div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"column\" fxLayoutAlign.gt-xs=\"center start\">\r\n                        <div class=\"black-fg\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                            <!-- <mat-icon class=\"secondary-text s-18\">home</mat-icon>\r\n                            <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon> -->\r\n                            <span class=\"secondary-text\">SBM</span>\r\n                        </div>\r\n                        <div class=\"h1 mt-16\">HELPDESK</div>\r\n                    </div>\r\n\r\n\r\n                </div>\r\n                <!-- / HEADER -->\r\n\r\n                <!-- CONTENT -->\r\n                <content></content>\r\n                <!-- / CONTENT -->\r\n\r\n                <!-- FOOTER: Below static -->\r\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below-static'\">\r\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n                </ng-container>\r\n                <!-- / FOOTER: Below static -->\r\n\r\n            </div>\r\n\r\n            <!-- FOOTER: Below fixed -->\r\n            <!-- <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below-fixed'\">\r\n                <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n            </ng-container> -->\r\n            <!-- / FOOTER: Below fixed -->\r\n\r\n        </div>\r\n\r\n        <!-- NAVBAR: Right -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\r\n            <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\r\n        </ng-container>\r\n        <!-- / NAVBAR: Right -->\r\n\r\n    </div>\r\n\r\n    <!-- FOOTER: Above -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above'\">\r\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n    </ng-container>\r\n    <!-- FOOTER: Above -->\r\n\r\n</div>\r\n\r\n<!-- QUICK PANEL -->\r\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\r\n    <quick-panel></quick-panel>\r\n</fuse-sidebar>\r\n<!-- / QUICK PANEL -->\r\n\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n<!-- @ PARTIALS\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n\r\n<!-- TOOLBAR -->\r\n<ng-template #toolbar>\r\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\r\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\r\n</ng-template>\r\n<!-- / TOOLBAR -->\r\n\r\n<!-- FOOTER -->\r\n<ng-template #footer>\r\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\r\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\r\n</ng-template>\r\n<!-- / FOOTER -->\r\n\r\n<!-- LEFT NAVBAR -->\r\n<ng-template #leftNavbar>\r\n    <fuse-sidebar name=\"navbar\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / LEFT NAVBAR -->\r\n\r\n<!-- RIGHT NAVBAR -->\r\n<ng-template #rightNavbar>\r\n    <fuse-sidebar name=\"navbar\" position=\"right\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / RIGHT NAVBAR -->"
 
 /***/ }),
 
@@ -22592,7 +22998,7 @@ var VerticalLayout1Module = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\n\n    <!-- TOOLBAR: Above fixed -->\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-fixed'\">\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n    </ng-container>\n    <!-- / TOOLBAR: Above fixed -->\n\n    <div id=\"container-1\" class=\"container\" fusePerfectScrollbar\n         [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\n\n        <!-- TOOLBAR: Above static -->\n        <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-static'\">\n            <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n        </ng-container>\n        <!-- / TOOLBAR: Above static -->\n\n        <div id=\"container-2\" class=\"container\">\n\n            <!-- NAVBAR: Left -->\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\n                <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\n            </ng-container>\n            <!-- / NAVBAR: Left -->\n\n            <div id=\"container-3\" class=\"container\">\n\n                <!-- TOOLBAR: Below -->\n                <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below'\">\n                    <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n                </ng-container>\n                <!-- / TOOLBAR: Below -->\n\n                <!-- CONTENT -->\n                <content></content>\n                <!-- / CONTENT -->\n\n                <!-- FOOTER: Below -->\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below'\">\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n                </ng-container>\n                <!-- / FOOTER: Below -->\n\n            </div>\n\n            <!-- NAVBAR: Right -->\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\n                <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\n            </ng-container>\n            <!-- / NAVBAR: Right -->\n\n        </div>\n\n        <!-- FOOTER: Above static -->\n        <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\n            <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n        </ng-container>\n        <!-- FOOTER: Above static -->\n\n    </div>\n\n    <!-- FOOTER: Above fixed -->\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n    </ng-container>\n    <!-- FOOTER: Above fixed -->\n\n</div>\n\n<!-- QUICK PANEL -->\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\n    <quick-panel></quick-panel>\n</fuse-sidebar>\n<!-- / QUICK PANEL -->\n\n<!-- ----------------------------------------------------------------------------------------------------- -->\n<!-- @ PARTIALS\n<!-- ----------------------------------------------------------------------------------------------------- -->\n\n<!-- TOOLBAR -->\n<ng-template #toolbar>\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\n</ng-template>\n<!-- / TOOLBAR -->\n\n<!-- FOOTER -->\n<ng-template #footer>\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\n</ng-template>\n<!-- / FOOTER -->\n\n<!-- LEFT NAVBAR -->\n<ng-template #leftNavbar>\n    <fuse-sidebar name=\"navbar\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / LEFT NAVBAR -->\n\n<!-- RIGHT NAVBAR -->\n<ng-template #rightNavbar>\n    <fuse-sidebar name=\"navbar\" position=\"right\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / RIGHT NAVBAR -->"
+module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\r\n\r\n    <!-- TOOLBAR: Above fixed -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-fixed'\">\r\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / TOOLBAR: Above fixed -->\r\n\r\n    <div id=\"container-1\" class=\"container\" fusePerfectScrollbar\r\n         [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\r\n\r\n        <!-- TOOLBAR: Above static -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-static'\">\r\n            <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n        </ng-container>\r\n        <!-- / TOOLBAR: Above static -->\r\n\r\n        <div id=\"container-2\" class=\"container\">\r\n\r\n            <!-- NAVBAR: Left -->\r\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\r\n                <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\r\n            </ng-container>\r\n            <!-- / NAVBAR: Left -->\r\n\r\n            <div id=\"container-3\" class=\"container\">\r\n\r\n                <!-- TOOLBAR: Below -->\r\n                <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'below'\">\r\n                    <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n                </ng-container>\r\n                <!-- / TOOLBAR: Below -->\r\n\r\n                <!-- CONTENT -->\r\n                <content></content>\r\n                <!-- / CONTENT -->\r\n\r\n                <!-- FOOTER: Below -->\r\n                <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'below'\">\r\n                    <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n                </ng-container>\r\n                <!-- / FOOTER: Below -->\r\n\r\n            </div>\r\n\r\n            <!-- NAVBAR: Right -->\r\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\r\n                <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\r\n            </ng-container>\r\n            <!-- / NAVBAR: Right -->\r\n\r\n        </div>\r\n\r\n        <!-- FOOTER: Above static -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\r\n            <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n        </ng-container>\r\n        <!-- FOOTER: Above static -->\r\n\r\n    </div>\r\n\r\n    <!-- FOOTER: Above fixed -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\r\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n    </ng-container>\r\n    <!-- FOOTER: Above fixed -->\r\n\r\n</div>\r\n\r\n<!-- QUICK PANEL -->\r\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\r\n    <quick-panel></quick-panel>\r\n</fuse-sidebar>\r\n<!-- / QUICK PANEL -->\r\n\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n<!-- @ PARTIALS\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n\r\n<!-- TOOLBAR -->\r\n<ng-template #toolbar>\r\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\r\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\r\n</ng-template>\r\n<!-- / TOOLBAR -->\r\n\r\n<!-- FOOTER -->\r\n<ng-template #footer>\r\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\r\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\r\n</ng-template>\r\n<!-- / FOOTER -->\r\n\r\n<!-- LEFT NAVBAR -->\r\n<ng-template #leftNavbar>\r\n    <fuse-sidebar name=\"navbar\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / LEFT NAVBAR -->\r\n\r\n<!-- RIGHT NAVBAR -->\r\n<ng-template #rightNavbar>\r\n    <fuse-sidebar name=\"navbar\" position=\"right\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / RIGHT NAVBAR -->"
 
 /***/ }),
 
@@ -22761,7 +23167,7 @@ var VerticalLayout2Module = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\n\n    <!-- TOOLBAR: Above fixed -->\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-fixed'\">\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n    </ng-container>\n    <!-- / TOOLBAR: Above fixed -->\n\n    <div id=\"container-1\" class=\"container\" fusePerfectScrollbar\n         [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\n\n        <!-- TOOLBAR: Above static -->\n        <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-static'\">\n            <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\n        </ng-container>\n        <!-- / TOOLBAR: Above static -->\n\n        <div id=\"container-2\" class=\"container\">\n\n            <!-- NAVBAR: Left -->\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\n                <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\n            </ng-container>\n            <!-- / NAVBAR: Left -->\n\n            <!-- CONTENT -->\n            <content\n                [ngClass]=\"{'ml-32':fuseConfig.layout.navbar.position === 'left', 'mr-32':fuseConfig.layout.navbar.position === 'right'}\">\n            </content>\n            <!-- / CONTENT -->\n\n            <!-- NAVBAR: Right -->\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\n                <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\n            </ng-container>\n            <!-- / NAVBAR: Right -->\n\n        </div>\n\n        <!-- FOOTER: Above static -->\n        <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\n            <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n        </ng-container>\n        <!-- FOOTER: Above static -->\n\n    </div>\n\n    <!-- FOOTER: Above fixed -->\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\n    </ng-container>\n    <!-- FOOTER: Above fixed -->\n\n</div>\n\n<!-- QUICK PANEL -->\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\n    <quick-panel></quick-panel>\n</fuse-sidebar>\n<!-- / QUICK PANEL -->\n\n<!-- ----------------------------------------------------------------------------------------------------- -->\n<!-- @ PARTIALS\n<!-- ----------------------------------------------------------------------------------------------------- -->\n\n<!-- TOOLBAR -->\n<ng-template #toolbar>\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\n</ng-template>\n<!-- / TOOLBAR -->\n\n<!-- FOOTER -->\n<ng-template #footer>\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\n</ng-template>\n<!-- / FOOTER -->\n\n<!-- LEFT NAVBAR -->\n<ng-template #leftNavbar>\n    <fuse-sidebar name=\"navbar\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / LEFT NAVBAR -->\n\n<!-- RIGHT NAVBAR -->\n<ng-template #rightNavbar>\n    <fuse-sidebar name=\"navbar\" position=\"right\"\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\n                  lockedOpen=\"gt-md\"\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\n    </fuse-sidebar>\n</ng-template>\n<!-- / RIGHT NAVBAR -->"
+module.exports = "<div id=\"main\" [ngClass]=\"{'boxed':fuseConfig.layout.width === 'boxed'}\">\r\n\r\n    <!-- TOOLBAR: Above fixed -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-fixed'\">\r\n        <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n    </ng-container>\r\n    <!-- / TOOLBAR: Above fixed -->\r\n\r\n    <div id=\"container-1\" class=\"container\" fusePerfectScrollbar\r\n         [fusePerfectScrollbarOptions]=\"{suppressScrollX: true, updateOnRouteChange : true}\">\r\n\r\n        <!-- TOOLBAR: Above static -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.toolbar.position === 'above-static'\">\r\n            <ng-container *ngTemplateOutlet=\"toolbar\"></ng-container>\r\n        </ng-container>\r\n        <!-- / TOOLBAR: Above static -->\r\n\r\n        <div id=\"container-2\" class=\"container\">\r\n\r\n            <!-- NAVBAR: Left -->\r\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'left'\">\r\n                <ng-container *ngTemplateOutlet=\"leftNavbar\"></ng-container>\r\n            </ng-container>\r\n            <!-- / NAVBAR: Left -->\r\n\r\n            <!-- CONTENT -->\r\n            <content\r\n                [ngClass]=\"{'ml-32':fuseConfig.layout.navbar.position === 'left', 'mr-32':fuseConfig.layout.navbar.position === 'right'}\">\r\n            </content>\r\n            <!-- / CONTENT -->\r\n\r\n            <!-- NAVBAR: Right -->\r\n            <ng-container *ngIf=\"fuseConfig.layout.navbar.position === 'right'\">\r\n                <ng-container *ngTemplateOutlet=\"rightNavbar\"></ng-container>\r\n            </ng-container>\r\n            <!-- / NAVBAR: Right -->\r\n\r\n        </div>\r\n\r\n        <!-- FOOTER: Above static -->\r\n        <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-static'\">\r\n            <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n        </ng-container>\r\n        <!-- FOOTER: Above static -->\r\n\r\n    </div>\r\n\r\n    <!-- FOOTER: Above fixed -->\r\n    <ng-container *ngIf=\"fuseConfig.layout.footer.position === 'above-fixed'\">\r\n        <ng-container *ngTemplateOutlet=\"footer\"></ng-container>\r\n    </ng-container>\r\n    <!-- FOOTER: Above fixed -->\r\n\r\n</div>\r\n\r\n<!-- QUICK PANEL -->\r\n<fuse-sidebar name=\"quickPanel\" position=\"right\" class=\"quick-panel\">\r\n    <quick-panel></quick-panel>\r\n</fuse-sidebar>\r\n<!-- / QUICK PANEL -->\r\n\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n<!-- @ PARTIALS\r\n<!-- ----------------------------------------------------------------------------------------------------- -->\r\n\r\n<!-- TOOLBAR -->\r\n<ng-template #toolbar>\r\n    <toolbar *ngIf=\"!fuseConfig.layout.toolbar.hidden\"\r\n             [ngClass]=\"[fuseConfig.layout.toolbar.position, fuseConfig.layout.toolbar.background]\"></toolbar>\r\n</ng-template>\r\n<!-- / TOOLBAR -->\r\n\r\n<!-- FOOTER -->\r\n<ng-template #footer>\r\n    <footer *ngIf=\"!fuseConfig.layout.footer.hidden\"\r\n            [ngClass]=\"[fuseConfig.layout.footer.position, fuseConfig.layout.footer.background]\"></footer>\r\n</ng-template>\r\n<!-- / FOOTER -->\r\n\r\n<!-- LEFT NAVBAR -->\r\n<ng-template #leftNavbar>\r\n    <fuse-sidebar name=\"navbar\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"left-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / LEFT NAVBAR -->\r\n\r\n<!-- RIGHT NAVBAR -->\r\n<ng-template #rightNavbar>\r\n    <fuse-sidebar name=\"navbar\" position=\"right\"\r\n                  [folded]=\"fuseConfig.layout.navbar.folded\"\r\n                  lockedOpen=\"gt-md\"\r\n                  *ngIf=\"!fuseConfig.layout.navbar.hidden\">\r\n        <navbar class=\"right-navbar\" [ngClass]=\"fuseConfig.layout.navbar.background\" layout=\"vertical\"></navbar>\r\n    </fuse-sidebar>\r\n</ng-template>\r\n<!-- / RIGHT NAVBAR -->"
 
 /***/ }),
 
@@ -22930,7 +23336,7 @@ var VerticalLayout3Module = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\" fxLayout=\"column\">\n\n    <div id=\"login-form-wrapper\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n        <div id=\"login-form\" [@animate]=\"{value:'*',params:{duration:'300ms',y:'100px'}}\">\n\n            <div class=\"logo\">\n                <img src=\"assets/images/logos/helpdesk.jpg\">\n            </div>\n\n            <div class=\"title\">LOGIN TO YOUR ACCOUNT</div>\n\n            <form name=\"loginForm\" [formGroup]=\"loginForm\" novalidate>\n\n                <mat-form-field>\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [(ngModel)]=\"logParam.email\">\n                    <mat-error *ngIf=\"loginFormErrors.email.required\">\n                        Email is required\n                    </mat-error>\n                    <mat-error *ngIf=\"!loginFormErrors.email.required && loginFormErrors.email.email\">\n                        Please enter a valid email address\n                    </mat-error>\n                </mat-form-field>\n\n                <mat-form-field>\n                    <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" [(ngModel)]=\"logParam.password\">\n                    <mat-error *ngIf=\"loginFormErrors.password.required\">\n                        Password is required\n                    </mat-error>\n                </mat-form-field>\n\n                <div class=\"remember-forgot-password\" fxLayout=\"row\" fxLayout.xs=\"column\"\n                     fxLayoutAlign=\"space-between center\">\n                    <mat-checkbox class=\"remember-me\" aria-label=\"Remember Me\">\n                        Remember Me\n                    </mat-checkbox>\n\n                    <a class=\"forgot-password\" [routerLink]=\"'/pages/auth/forgot-password'\">\n                        Forgot Password?\n                    </a>\n                </div>\n\n                <button mat-raised-button color=\"accent\" class=\"submit-button\" aria-label=\"LOG IN\"\n                        [disabled]=\"loginForm.invalid\" (click)=\"auth()\">\n                    LOGIN\n                </button>\n\n            </form>\n\n            <div class=\"separator\">\n                <span class=\"text\">OR</span>\n            </div>\n\n            <button mat-raised-button class=\"google\">\n                Log in with Google\n            </button>\n\n            <button mat-raised-button class=\"facebook\">\n                Log in with Facebook\n            </button>\n\n            <div class=\"register\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n                <span class=\"text\">Don't have an account?</span>\n                <a class=\"link\" [routerLink]=\"'/pages/auth/register'\">Create an account</a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div id=\"login\" fxLayout=\"column\">\r\n\r\n    <div id=\"login-form-wrapper\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\r\n\r\n        <div id=\"login-form\" [@animate]=\"{value:'*',params:{duration:'300ms',y:'100px'}}\">\r\n\r\n            <div class=\"logo\">\r\n                <img src=\"assets/images/logos/helpdesk.jpg\">\r\n            </div>\r\n\r\n            <div class=\"title\">LOGIN TO YOUR ACCOUNT</div>\r\n\r\n            <form name=\"loginForm\" [formGroup]=\"loginForm\" novalidate>\r\n\r\n                <mat-form-field>\r\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [(ngModel)]=\"logParam.email\">\r\n                    <mat-error *ngIf=\"loginFormErrors.email.required\">\r\n                        Email is required\r\n                    </mat-error>\r\n                    <mat-error *ngIf=\"!loginFormErrors.email.required && loginFormErrors.email.email\">\r\n                        Please enter a valid email address\r\n                    </mat-error>\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" [(ngModel)]=\"logParam.password\">\r\n                    <mat-error *ngIf=\"loginFormErrors.password.required\">\r\n                        Password is required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n\r\n                <div class=\"remember-forgot-password\" fxLayout=\"row\" fxLayout.xs=\"column\"\r\n                     fxLayoutAlign=\"space-between center\">\r\n                    <mat-checkbox class=\"remember-me\" aria-label=\"Remember Me\">\r\n                        Remember Me\r\n                    </mat-checkbox>\r\n\r\n                    <a class=\"forgot-password\" [routerLink]=\"'/pages/auth/forgot-password'\">\r\n                        Forgot Password?\r\n                    </a>\r\n                </div>\r\n\r\n                <button mat-raised-button color=\"accent\" class=\"submit-button\" aria-label=\"LOG IN\"\r\n                        [disabled]=\"loginForm.invalid\" (click)=\"auth()\">\r\n                    LOGIN\r\n                </button>\r\n\r\n            </form>\r\n\r\n            <div class=\"separator\">\r\n                <span class=\"text\">OR</span>\r\n            </div>\r\n\r\n            <button mat-raised-button class=\"google\">\r\n                Log in with Google\r\n            </button>\r\n\r\n            <button mat-raised-button class=\"facebook\">\r\n                Log in with Facebook\r\n            </button>\r\n\r\n            <div class=\"register\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\r\n                <span class=\"text\">Don't have an account?</span>\r\n                <a class=\"link\" [routerLink]=\"'/pages/auth/register'\">Create an account</a>\r\n            </div>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -23068,7 +23474,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.auth = function () {
         var _this = this;
-        this._sharedData.user.email = this.logParam.email;
+        this._sharedData.user.emailAddress = this.logParam.email;
         this.authParam.username = this.logParam.email;
         this.authParam.password = this.logParam.password;
         this.authParam.client_id = 'spring-security-oauth2-read-write-client';
@@ -23191,6 +23597,339 @@ var LoginModule = /** @class */ (function () {
         })
     ], LoginModule);
     return LoginModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/attachment/attachment.service.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/main/attachment/attachment.service.ts ***!
+  \*******************************************************/
+/*! exports provided: AttachmentService, AttachmentResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttachmentService", function() { return AttachmentService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttachmentResponse", function() { return AttachmentResponse; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+};
+var AttachmentService = /** @class */ (function () {
+    function AttachmentService(_http) {
+        this._http = _http;
+        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' });
+        this.attachmentsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/'; // URL to web api
+    }
+    AttachmentService.prototype.getAttachmentByTickId = function (ticketID) {
+        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/attachmentByTicId/' + ticketID;
+        var identifier = "TICKET_ID";
+        //let value = "1953";
+        var requestUrl = "" + href; //?identifier=` + identifier + `&value=` + ticketID;
+        return this._http.get(requestUrl, {
+            headers: this.headers
+        })
+            .pipe();
+    };
+    AttachmentService.prototype.addAttachment = function (formData) {
+        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/uploadAttachment';
+        return this._http.post(href, formData, {})
+            .pipe();
+    };
+    AttachmentService.prototype.deleteAttachment = function (attachment) {
+        var _this = this;
+        var id = typeof attachment === 'number' ? attachment : attachment.attachmentId;
+        var url = this.attachmentsUrl + "/" + id;
+        return this._http.delete(url, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("Deleted Attachment id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteAttachment')));
+    };
+    AttachmentService.prototype.downloadAttachment = function (attachment) {
+        var _this = this;
+        var query = 'attachment_id' + attachment.attachmentId;
+        var url = this.attachmentsUrl + "?" + query;
+        var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ responseType: _angular_http__WEBPACK_IMPORTED_MODULE_1__["ResponseContentType"].Blob });
+        /* return this._http.get(url, options).pipe(
+          tap(_ => this.log(`download Attachment id=${attachment.attachmentId}`)),
+          catchError(this.handleError<Attachment>('downloadAttachment'))
+        ); */
+        /* let headers = this.setHeaders({
+          'Content-Type': 'application/zip', 'Accept': 'application/zip'
+        }); */
+        return this._http.get(url, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("download Attachment id=" + attachment.attachmentId); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('downloadAttachment')));
+    };
+    AttachmentService.prototype.handleError = function (operation, result) {
+        var _this = this;
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            _this.log(operation + " failed: " + error.message);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    };
+    /** Log a HeroService message with the MessageService */
+    AttachmentService.prototype.log = function (message) {
+        // this.messageService.add(`HeroService: ${message}`);
+    };
+    AttachmentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AttachmentService);
+    return AttachmentService;
+}());
+
+var AttachmentResponse = /** @class */ (function () {
+    function AttachmentResponse() {
+    }
+    return AttachmentResponse;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.html":
+/*!****************************************************************************************!*\
+  !*** ./src/app/main/attachment/ticket-attachements/ticket-attachements.component.html ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\" fxFlex=\"1 1 100%\">\r\n\r\n  <div class=\"example-container mat-elevation-z8\" fxFlex=\"1 1 100%\">\r\n    <!-- <div class=\"example-loading-shade\"  *ngIf=\"isLoadingResults || isRateLimitReached\">\r\n      <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\r\n      <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\r\n        GitHub's API rate limit has been reached. It will be reset in one minute.\r\n      </div>\r\n    </div> -->\r\n\r\n    <table mat-table #table [dataSource]=\"attachments\" class=\"example-table\" matSort matSortActive=\"created\" matSortDisableClear\r\n      matSortDirection=\"asc\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n            The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Number Column -->\r\n      <ng-container matColumnDef=\"name\">\r\n        <th mat-header-cell *matHeaderCellDef>Attachment Name</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.name }}</td>\r\n      </ng-container>\r\n\r\n      <!-- Title Column -->\r\n      <ng-container matColumnDef=\"type\">\r\n        <th mat-header-cell *matHeaderCellDef>Type</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.type }}</td>\r\n      </ng-container>\r\n\r\n      <!-- Description Column -->\r\n      <ng-container matColumnDef=\"description\">\r\n        <th mat-header-cell *matHeaderCellDef>Description</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.description }}</td>\r\n      </ng-container>\r\n\r\n      <!-- State Column -->\r\n      <ng-container matColumnDef=\"size\">\r\n        <th mat-header-cell *matHeaderCellDef>Size</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.size }}</td>\r\n      </ng-container>\r\n\r\n\r\n      <!-- Creationdate Column -->\r\n      <ng-container matColumnDef=\"ModifiedDate\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\"> Modified Date </th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.ModifiedDate }}</td>\r\n      </ng-container>\r\n\r\n\r\n      <!-- User Column -->\r\n      <ng-container matColumnDef=\"user\">\r\n        <th mat-header-cell *matHeaderCellDef>Modifier</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.user }}</td>\r\n      </ng-container>\r\n\r\n      <!-- Update Column -->\r\n      <!-- <ng-container matColumnDef=\"updateTicketNumber\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Update</th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <!--<button mat-raised-button (click)=\"ticketview/row.ticketnumber\">Update</button>\r\n          <a href=\"/submitTicket?id={{ row.ticketId }}\">Update</a>\r\n        </td>\r\n      </ng-container> -->\r\n\r\n      <!-- Delete Column -->\r\n      <ng-container matColumnDef=\"delete\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Delete</th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <button mat-raised-button (click)=\"delete(row)\">Delete</button>\r\n        </td>\r\n      </ng-container>\r\n\"\r\n      <ng-container matColumnDef=\"upload\" >\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Upload</th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <button mat-raised-button (click)=\"upload(row)\" *ngIf=\"row.uploaded == false\">Upload</button>\r\n          <button mat-raised-button (click)=\"upload(row)\" *ngIf=\"row.uploaded == true\">Download</button>\r\n        </td>\r\n      </ng-container>\r\n\r\n\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n    </table>\r\n\r\n    <mat-paginator [length]=\"resultsLength\" [pageSize]=\"30\">\r\n    </mat-paginator>\r\n  </div>\r\n  <div class=\"center\" fxFlex> -->\r\n\r\n    <!-- HEADER -->\r\n    <div class=\"header mat-accent-bg p-24\" fxLayout=\"column\" fxLayoutAlign=\"space-between start\">\r\n      <div class=\"file-uploader\">\r\n        <input hidden type=\"file\" (change)=\"fileChange($event.target.files)\" placeholder=\"Upload file\" accept=\".pdf,.doc,.docx\"\r\n          #fileInput/>\r\n        <button mat-fab class=\"add-file-button mat-warn\" (click)=\"fileInput.click()\" aria-label=\"Add file\" [@animate]=\"{value:'*', params:{delay:'300ms',scale:'0.2'}}\">\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n\r\n    </div>\r\n    <!-- / HEADER -->\r\n\r\n\r\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.scss":
+/*!****************************************************************************************!*\
+  !*** ./src/app/main/attachment/ticket-attachements/ticket-attachements.component.scss ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/* Structure */\n.example-container {\n  display: flex;\n  flex-direction: column;\n  min-width: 300px;\n  position: relative;\n  max-height: 500px;\n  overflow: auto; }\n.example-header {\n  min-height: 64px;\n  display: flex;\n  align-items: center;\n  padding-left: 24px;\n  font-size: 20px; }\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center; }\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px; }\n.mat-column-created {\n  max-width: 124px; }\nbutton.delete {\n  position: relative;\n  left: 194px;\n  top: -32px;\n  background-color: gray !important;\n  color: white; }\n"
+
+/***/ }),
+
+/***/ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.ts":
+/*!**************************************************************************************!*\
+  !*** ./src/app/main/attachment/ticket-attachements/ticket-attachements.component.ts ***!
+  \**************************************************************************************/
+/*! exports provided: TicketAttachementsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketAttachementsComponent", function() { return TicketAttachementsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var _model_fileData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../model/fileData */ "./src/app/model/fileData.ts");
+/* harmony import */ var _model_attachment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../model/attachment */ "./src/app/model/attachment.ts");
+/* harmony import */ var _attachment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../attachment.service */ "./src/app/main/attachment/attachment.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var TicketAttachementsComponent = /** @class */ (function () {
+    //fileUploaded:boolean;
+    function TicketAttachementsComponent(http, dialog, _shareData, attachService) {
+        this.http = http;
+        this.dialog = dialog;
+        this._shareData = _shareData;
+        this.attachService = attachService;
+        this.formData = new FormData();
+        this.displayedColumns = ['name', 'type', 'description', 'size', 'ModifiedDate', 'user', 'delete', 'upload'];
+        this.attachments = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"]();
+        this.resultsLength = 0;
+        this.isLoadingResults = true;
+        this.isRateLimitReached = false;
+        this.attachmentResponse = new _attachment_service__WEBPACK_IMPORTED_MODULE_6__["AttachmentResponse"]();
+    }
+    TicketAttachementsComponent.prototype.ngOnInit = function () {
+        this.attachmentResponse.data = new Array();
+    };
+    TicketAttachementsComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        //get ticket id and user id to upload attachment
+        this.ticketID = 9552;
+        this.userID = 1;
+        console.log('on after view init');
+        // If the user changes the sort order, reset back to the first page.
+        this.attachService.getAttachmentByTickId(this.ticketID).subscribe(function (_attachmentResponse) {
+            _this.attachmentResponse = _attachmentResponse;
+            for (var index = 0; index < _attachmentResponse.data.length; index++) {
+                _this.attachmentResponse.data[index].uploaded = true;
+                //this.fileUploaded = this.attachmentResponse.data[index].uploaded ;
+            }
+            _this.attachments.data = _this.attachmentResponse.data;
+        });
+        // to moved inside the success senario in the above request
+        //this. isLoadingResults = false;
+    };
+    TicketAttachementsComponent.prototype.delete = function (attachment) {
+        this.attachments.data = this.attachments.data.filter(function (h) { return h !== attachment; });
+        this.attachService.deleteAttachment(attachment).subscribe();
+        location.reload;
+    };
+    TicketAttachementsComponent.prototype.download = function (attachment) {
+        this.attachments.data = this.attachments.data.filter(function (h) { return h !== attachment; });
+        this.attachService.deleteAttachment(attachment).subscribe();
+        location.reload;
+    };
+    TicketAttachementsComponent.prototype.upload = function (attachment) {
+        debugger;
+        this.formData.append('TICKET_ID', JSON.stringify(this.ticketID));
+        this.formData.append('files', attachment.file);
+        this.formData.append('USER_ID', JSON.stringify(this.userID));
+        this.attachService.addAttachment(this.formData).subscribe(function (_ticket) {
+            alert('attachment added successfully');
+            attachment.uploaded = true;
+        });
+    };
+    TicketAttachementsComponent.prototype.fileChange = function (files) {
+        this.filelist = files;
+        var attachment;
+        console.log("files : " + files.length);
+        for (var i = 0; i < files.length; i++) {
+            var file = new _model_fileData__WEBPACK_IMPORTED_MODULE_4__["FileData"]();
+            file.name = files.item(i).name;
+            file.size = files.item(i).size;
+            file.ModifiedDate = files.item(i).lastModifiedDate;
+            file.type = files.item(i).type;
+            attachment = new _model_attachment__WEBPACK_IMPORTED_MODULE_5__["Attachment"]();
+            attachment.name = files.item(i).name;
+            attachment.size = files.item(i).size;
+            attachment.type = files.item(i).type;
+            attachment.ModifiedDate = files.item(i).lastModifiedDate;
+            attachment.uploaded = false;
+            attachment.file = files.item(i);
+            this.attachmentResponse.data[this.attachmentResponse.data.length] = attachment;
+            this.attachments.data = this.attachmentResponse.data;
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], TicketAttachementsComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], TicketAttachementsComponent.prototype, "sort", void 0);
+    TicketAttachementsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ticket-attachements',
+            template: __webpack_require__(/*! ./ticket-attachements.component.html */ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.html"),
+            styles: [__webpack_require__(/*! ./ticket-attachements.component.scss */ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _services_shared_data_service__WEBPACK_IMPORTED_MODULE_3__["SharedDataService"], _attachment_service__WEBPACK_IMPORTED_MODULE_6__["AttachmentService"]])
+    ], TicketAttachementsComponent);
+    return TicketAttachementsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/attachment/ticket-attachements/ticket-attachements.module.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/main/attachment/ticket-attachements/ticket-attachements.module.ts ***!
+  \***********************************************************************************/
+/*! exports provided: TicketAttachementsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketAttachementsModule", function() { return TicketAttachementsModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _ticket_attachements_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ticket-attachements.component */ "./src/app/main/attachment/ticket-attachements/ticket-attachements.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var materialModules = [
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBadgeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDatepickerModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatGridListModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginatorModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSelectModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSlideToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSortModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTreeModule"]
+];
+var routes = [
+    {
+        path: 'attachment',
+        component: _ticket_attachements_component__WEBPACK_IMPORTED_MODULE_3__["TicketAttachementsComponent"]
+    }
+];
+var TicketAttachementsModule = /** @class */ (function () {
+    function TicketAttachementsModule() {
+    }
+    TicketAttachementsModule.prototype.ngOnInit = function () {
+        console.log("sssss");
+    };
+    TicketAttachementsModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes),
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                materialModules
+            ], exports: [
+                materialModules, _ticket_attachements_component__WEBPACK_IMPORTED_MODULE_3__["TicketAttachementsComponent"]
+            ],
+            declarations: [
+                _ticket_attachements_component__WEBPACK_IMPORTED_MODULE_3__["TicketAttachementsComponent"]
+            ]
+        })
+    ], TicketAttachementsModule);
+    return TicketAttachementsModule;
 }());
 
 
@@ -24179,7 +24918,7 @@ var HDURSDashboardModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{data.dialogName}}</h1>\n<div mat-dialog-content>\n  <p>{{data.dialogMessage}}</p>\n  <mat-form-field>\n    <input matInput [(ngModel)]=\"data.confirmationComment\">\n  </mat-form-field>\n</div>\n<div mat-dialog-actions>\n  <button mat-button [mat-dialog-close]=\"data\" (click)=\"onYesClick()\" cdkFocusInitial>{{data.dialogOkLabel}}</button>\n  <button mat-button [mat-dialog-close]=\"data\" (click)=\"onNoClick()\" cdkFocusInitial>{{data.dialogCancelLabel}}</button>\n</div>\n"
+module.exports = "<h1 mat-dialog-title>{{data.dialogName}}</h1>\r\n<div mat-dialog-content>\r\n  <p>{{data.dialogMessage}}</p>\r\n  <mat-form-field>\r\n    <input matInput [(ngModel)]=\"data.confirmationComment\">\r\n  </mat-form-field>\r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button [mat-dialog-close]=\"data\" (click)=\"onYesClick()\" cdkFocusInitial>{{data.dialogOkLabel}}</button>\r\n  <button mat-button [mat-dialog-close]=\"data\" (click)=\"onNoClick()\" cdkFocusInitial>{{data.dialogCancelLabel}}</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -24307,7 +25046,7 @@ var DialogOverviewExampleModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-table #table [dataSource]=\"childFilesData\" [@animateStagger]=\"{value:'50'}\">\n\n    <!-- Type Column -->\n    <ng-container cdkColumnDef=\"icon\">\n        <mat-header-cell *cdkHeaderCellDef fxFlex=\"64px\"></mat-header-cell>\n        <mat-cell *cdkCellDef=\"let row\" fxFlex=\"64px\">\n            <mat-icon class=\"type-icon\" [ngClass]=\"row.type\"></mat-icon>\n        </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container cdkColumnDef=\"name\">\n        <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>\n        <mat-cell *cdkCellDef=\"let row\"> {{row.name}}</mat-cell>\n    </ng-container>\n\n    <!-- Type Column -->\n    <ng-container cdkColumnDef=\"type\">\n        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Type</mat-header-cell>\n        <mat-cell *cdkCellDef=\"let row\" fxHide fxShow.gt-md> {{row.type}}</mat-cell>\n    </ng-container>\n\n    <!-- Size Column -->\n    <ng-container cdkColumnDef=\"size\">\n        <mat-header-cell *cdkHeaderCellDef fxHide.xs>Size</mat-header-cell>\n        <mat-cell *cdkCellDef=\"let row\" fxHide.xs>{{row.size === '' ? '-': row.size}}</mat-cell>\n    </ng-container>\n\n    <!-- Modified Column -->\n    <ng-container cdkColumnDef=\"modified\">\n        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Modified</mat-header-cell>\n        <mat-cell *cdkCellDef=\"let row\" fxHide fxShow.gt-md>{{row.ModifiedDate}}</mat-cell>\n    </ng-container>\n\n    <mat-header-row *cdkHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *cdkRowDef=\"let row; columns: displayedColumns;\"\n             (click)=\"onSelect(row)\"\n             [ngClass]=\"{'mat-accent-50-bg':row == selected}\"\n             matRipple [@animate]=\"{value:'*',params:{y:'100%'}}\">\n    </mat-row>\n</mat-table>\n"
+module.exports = "<mat-table #table [dataSource]=\"childFilesData\" [@animateStagger]=\"{value:'50'}\">\r\n\r\n    <!-- Type Column -->\r\n    <ng-container cdkColumnDef=\"icon\">\r\n        <mat-header-cell *cdkHeaderCellDef fxFlex=\"64px\"></mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let row\" fxFlex=\"64px\">\r\n            <mat-icon class=\"type-icon\" [ngClass]=\"row.type\"></mat-icon>\r\n        </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container cdkColumnDef=\"name\">\r\n        <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Type Column -->\r\n    <ng-container cdkColumnDef=\"type\">\r\n        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Type</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let row\" fxHide fxShow.gt-md> {{row.type}}</mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Size Column -->\r\n    <ng-container cdkColumnDef=\"size\">\r\n        <mat-header-cell *cdkHeaderCellDef fxHide.xs>Size</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let row\" fxHide.xs>{{row.size === '' ? '-': row.size}}</mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Modified Column -->\r\n    <ng-container cdkColumnDef=\"modified\">\r\n        <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Modified</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let row\" fxHide fxShow.gt-md>{{row.ModifiedDate}}</mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *cdkHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *cdkRowDef=\"let row; columns: displayedColumns;\"\r\n             (click)=\"onSelect(row)\"\r\n             [ngClass]=\"{'mat-accent-50-bg':row == selected}\"\r\n             matRipple [@animate]=\"{value:'*',params:{y:'100%'}}\">\r\n    </mat-row>\r\n</mat-table>\r\n"
 
 /***/ }),
 
@@ -24536,6 +25275,1524 @@ var FileListService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/main/team-inbox/contact.model.ts":
+/*!**************************************************!*\
+  !*** ./src/app/main/team-inbox/contact.model.ts ***!
+  \**************************************************/
+/*! exports provided: Contact */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contact", function() { return Contact; });
+/* harmony import */ var _fuse_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fuse/utils */ "./src/@fuse/utils/index.ts");
+
+var Contact = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param contact
+     */
+    function Contact(contact) {
+        {
+            this.ticketId = contact.ticketId || _fuse_utils__WEBPACK_IMPORTED_MODULE_0__["FuseUtils"].generateGUID();
+            this.title = contact.title;
+            this.creationdate = contact.creationdate;
+            this.description = contact.description;
+            this.status = contact.status;
+            this.ticketnumber = contact.ticketnumber;
+            this.severityList = contact.severityList;
+        }
+    }
+    return Contact;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/contacts.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/main/team-inbox/contacts.service.ts ***!
+  \*****************************************************/
+/*! exports provided: ContactsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactsService", function() { return ContactsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _fuse_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fuse/utils */ "./src/@fuse/utils/index.ts");
+/* harmony import */ var _contact_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact.model */ "./src/app/main/team-inbox/contact.model.ts");
+var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ContactsService = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param {HttpClient} _httpClient
+     */
+    function ContactsService(_httpClient) {
+        this._httpClient = _httpClient;
+        this.selectedContacts = [];
+        // Set the defaults
+        this.onContactsChanged = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+        this.onSelectedContactsChanged = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+        this.onUserDataChanged = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+        this.onSearchTextChanged = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.onFilterChanged = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+    /**
+     * Resolver
+     *
+     * @param {ActivatedRouteSnapshot} route
+     * @param {RouterStateSnapshot} state
+     * @returns {Observable<any> | Promise<any> | any}
+     */
+    ContactsService.prototype.resolve = function (route, state) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            Promise.all([
+                _this.getContacts(),
+            ]).then(function (_a) {
+                var files = _a[0];
+                _this.onSearchTextChanged.subscribe(function (searchText) {
+                    _this.searchText = searchText;
+                    _this.getContacts();
+                });
+                _this.onFilterChanged.subscribe(function (filter) {
+                    _this.filterBy = filter;
+                    _this.getContacts();
+                });
+                resolve();
+            }, reject);
+        });
+    };
+    /**
+     * Get contacts
+     *
+     * @returns {Promise<any>}
+     */
+    ContactsService.prototype.getContacts = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._httpClient.get('api/contacts-contacts')
+                .subscribe(function (response) {
+                _this.contacts = response;
+                if (_this.filterBy === 'starred') {
+                    _this.contacts = _this.contacts.filter(function (_contact) {
+                        return _this.user.starred.includes(_contact.ticketId);
+                    });
+                }
+                if (_this.filterBy === 'frequent') {
+                    _this.contacts = _this.contacts.filter(function (_contact) {
+                        return _this.user.frequentContacts.includes(_contact.ticketId);
+                    });
+                }
+                if (_this.searchText && _this.searchText !== '') {
+                    _this.contacts = _fuse_utils__WEBPACK_IMPORTED_MODULE_3__["FuseUtils"].filterArrayByString(_this.contacts, _this.searchText);
+                }
+                _this.contacts = _this.contacts.map(function (contact) {
+                    return new _contact_model__WEBPACK_IMPORTED_MODULE_4__["Contact"](contact);
+                });
+                _this.onContactsChanged.next(_this.contacts);
+                resolve(_this.contacts);
+            }, reject);
+        });
+    };
+    /**
+     * Get user data
+     *
+     * @returns {Promise<any>}
+     */
+    ContactsService.prototype.getUserData = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._httpClient.get('api/contacts-user/5725a6802d10e277a0f35724')
+                .subscribe(function (response) {
+                _this.user = response;
+                _this.onUserDataChanged.next(_this.user);
+                resolve(_this.user);
+            }, reject);
+        });
+    };
+    /**
+     * Toggle selected contact by id
+     *
+     * @param id
+     */
+    ContactsService.prototype.toggleSelectedContact = function (id) {
+        // First, check if we already have that contact as selected...
+        if (this.selectedContacts.length > 0) {
+            var index = this.selectedContacts.indexOf(id);
+            if (index !== -1) {
+                this.selectedContacts.splice(index, 1);
+                // Trigger the next event
+                this.onSelectedContactsChanged.next(this.selectedContacts);
+                // Return
+                return;
+            }
+        }
+        // If we don't have it, push as selected
+        this.selectedContacts.push(id);
+        // Trigger the next event
+        this.onSelectedContactsChanged.next(this.selectedContacts);
+    };
+    /**
+     * Toggle select all
+     */
+    ContactsService.prototype.toggleSelectAll = function () {
+        if (this.selectedContacts.length > 0) {
+            this.deselectContacts();
+        }
+        else {
+            this.selectContacts();
+        }
+    };
+    /**
+     * Select contacts
+     *
+     * @param filterParameter
+     * @param filterValue
+     */
+    ContactsService.prototype.selectContacts = function (filterParameter, filterValue) {
+        var _this = this;
+        this.selectedContacts = [];
+        // If there is no filter, select all contacts
+        if (filterParameter === undefined || filterValue === undefined) {
+            this.selectedContacts = [];
+            this.contacts.map(function (contact) {
+                _this.selectedContacts.push(contact.ticketId);
+            });
+        }
+        // Trigger the next event
+        this.onSelectedContactsChanged.next(this.selectedContacts);
+    };
+    /**
+     * Update contact
+     *
+     * @param contact
+     * @returns {Promise<any>}
+     */
+    ContactsService.prototype.updateContact = function (contact) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._httpClient.post('api/contacts-contacts/' + contact.id, __assign({}, contact))
+                .subscribe(function (response) {
+                _this.getContacts();
+                resolve(response);
+            });
+        });
+    };
+    /**
+     * Update user data
+     *
+     * @param userData
+     * @returns {Promise<any>}
+     */
+    ContactsService.prototype.updateUserData = function (userData) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._httpClient.post('api/contacts-user/' + _this.user.id, __assign({}, userData))
+                .subscribe(function (response) {
+                _this.getUserData();
+                _this.getContacts();
+                resolve(response);
+            });
+        });
+    };
+    /**
+     * Deselect contacts
+     */
+    ContactsService.prototype.deselectContacts = function () {
+        this.selectedContacts = [];
+        // Trigger the next event
+        this.onSelectedContactsChanged.next(this.selectedContacts);
+    };
+    /**
+     * Delete contact
+     *
+     * @param contact
+     */
+    ContactsService.prototype.deleteContact = function (contact) {
+        var contactIndex = this.contacts.indexOf(contact);
+        this.contacts.splice(contactIndex, 1);
+        this.onContactsChanged.next(this.contacts);
+    };
+    /**
+     * Delete selected contacts
+     */
+    ContactsService.prototype.deleteSelectedContacts = function () {
+        var _loop_1 = function (contactId) {
+            var contact = this_1.contacts.find(function (_contact) {
+                return _contact.ticketId === contactId;
+            });
+            var contactIndex = this_1.contacts.indexOf(contact);
+            this_1.contacts.splice(contactIndex, 1);
+        };
+        var this_1 = this;
+        for (var _i = 0, _a = this.selectedContacts; _i < _a.length; _i++) {
+            var contactId = _a[_i];
+            _loop_1(contactId);
+        }
+        this.onContactsChanged.next(this.contacts);
+        this.deselectContacts();
+    };
+    ContactsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ContactsService);
+    return ContactsService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/team-inbox.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/main/team-inbox/team-inbox.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"contacts\" class=\"page-layout simple left-sidebar inner-sidebar inner-scroll\">\r\n\r\n\r\n    <!-- CONTENT -->\r\n    <div class=\"content\">\r\n\r\n       \r\n        <!-- CENTER -->\r\n        <div class=\"center p-24 pb-56 pr-sm-92\" fusePerfectScrollbar>\r\n\r\n            <!-- CONTENT -->\r\n            <div class=\"content mat-white-bg mat-elevation-z4\">\r\n                <app-ticket-list></app-ticket-list>\r\n            </div>\r\n            <!-- / CONTENT -->\r\n\r\n        </div>\r\n        <!-- / CENTER -->\r\n\r\n    </div>\r\n    <!-- / CONTENT-->\r\n\r\n</div>\r\n\r\n<!-- ADD CONTACT BUTTON -->\r\n<!-- <button mat-fab class=\"mat-accent-bg\" id=\"add-contact-button\" (click)=\"newContact()\" aria-label=\"add contact\"\r\n        [@animate]=\"{value:'*', params:{delay:'300ms',scale:'.2'}}\">\r\n    <mat-icon>add_circle</mat-icon>\r\n</button> -->\r\n<!-- / ADD CONTACT BUTTON -->\r\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/team-inbox.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/main/team-inbox/team-inbox.component.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/* Structure */\n.example-container {\n  display: flex;\n  flex-direction: column;\n  min-width: 300px;\n  position: relative;\n  max-height: 500px;\n  overflow: auto; }\n.example-header {\n  min-height: 64px;\n  display: flex;\n  align-items: center;\n  padding-left: 24px;\n  font-size: 20px; }\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center; }\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px; }\n.mat-column-created {\n  max-width: 124px; }\nbutton.delete {\n  position: relative;\n  left: 194px;\n  top: -32px;\n  background-color: gray !important;\n  color: white; }\n#contacts .content {\n  overflow: hidden; }\n#contacts .content .sidebar:not(.locked-open) {\n    background: white; }\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/team-inbox.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/main/team-inbox/team-inbox.component.ts ***!
+  \*********************************************************/
+/*! exports provided: TeamInboxComponent, FilesDataSource */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamInboxComponent", function() { return TeamInboxComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilesDataSource", function() { return FilesDataSource; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+/* harmony import */ var _ticket_form_ticket_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ticket-form/ticket-form.component */ "./src/app/main/team-inbox/ticket-form/ticket-form.component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var TeamInboxComponent = /** @class */ (function () {
+    function TeamInboxComponent(http, dialog, _shareData, _ticketService, _matDialog) {
+        this.http = http;
+        this.dialog = dialog;
+        this._shareData = _shareData;
+        this._ticketService = _ticketService;
+        this._matDialog = _matDialog;
+        this.ticketDialogName = "Edit Ticket";
+        this.ticketDialogMessage = "Are you sure you want to edit this ticket ?";
+        this.ticketDialogOkLabel = "Ok";
+        this.ticketDialogCancelLabel = "Cancel";
+        this.ticketConfirmed = false;
+        this.displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber', 'updateTicketNumber'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+        this.resultsLength = 0;
+        this.isLoadingResults = true;
+        this.isRateLimitReached = false;
+    }
+    TeamInboxComponent.prototype.ngOnInit = function () {
+        console.log('on init');
+        // this.ngAfterViewInit();
+        //this._ticketService.getTicketsByProjectID().subscribe(data => this.dataSource.data = data.data);
+        //this.dataSource = new FilesDataSource(this._ticketService);
+        //console.log(this.dataSource.data);
+    };
+    TeamInboxComponent.prototype.ngAfterViewInit = function () {
+        //console.log('on after view init');
+    };
+    /**
+        *
+        * Edit Ticket     */
+    TeamInboxComponent.prototype.editTicket = function (ticketId) {
+        var _this = this;
+        this._ticketService.getTicketsByProjectID().subscribe(function (data) { return _this.dataSource.data = data.data; });
+        //  console.log('Ticket desc is : '+item.description);
+        this.dialogRef = this._matDialog.open(_ticket_form_ticket_form_component__WEBPACK_IMPORTED_MODULE_6__["TicketFormComponent"], {
+            panelClass: 'ticket-form-dialog',
+            data: {
+                // ticket:item.ticketIds,
+                dialogName: "this.deleteDialogName",
+                dialogMessage: "this.deleteDialogMessage",
+                dialogOkLabel: "this.deleteDialogOkLabel",
+                dialogCancelLabel: "this.deleteDialogCancelLabel",
+                confirmed: " this.deleteConfirmed",
+                confirmationComment: "this.deleteComment"
+            }
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('dialogContent'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"])
+    ], TeamInboxComponent.prototype, "dialogContent", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
+    ], TeamInboxComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"])
+    ], TeamInboxComponent.prototype, "sort", void 0);
+    TeamInboxComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-team-inbox',
+            template: __webpack_require__(/*! ./team-inbox.component.html */ "./src/app/main/team-inbox/team-inbox.component.html"),
+            styles: [__webpack_require__(/*! ./team-inbox.component.scss */ "./src/app/main/team-inbox/team-inbox.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _services_shared_data_service__WEBPACK_IMPORTED_MODULE_1__["SharedDataService"],
+            _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__["TicketService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
+    ], TeamInboxComponent);
+    return TeamInboxComponent;
+}());
+
+/* export interface TicketForm{
+  ticketId: number;
+  creationdate: string;
+  description: string;
+  status: string;
+  title: string;
+  ticketnumber: string;
+} */
+var FilesDataSource = /** @class */ (function (_super) {
+    __extends(FilesDataSource, _super);
+    /**
+     * Constructor
+     *
+     * @param {TicketService} _ticketService
+     */
+    function FilesDataSource(_ticketService, dialog) {
+        var _this = _super.call(this) || this;
+        _this._ticketService = _ticketService;
+        _this.dialog = dialog;
+        return _this;
+    }
+    FilesDataSource.prototype.connect = function () {
+        return this._ticketService.getTicketsByProjectID();
+    };
+    /**
+     * Disconnect
+     */
+    FilesDataSource.prototype.disconnect = function () {
+    };
+    return FilesDataSource;
+}(_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["DataSource"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/team-inbox.module.ts":
+/*!******************************************************!*\
+  !*** ./src/app/main/team-inbox/team-inbox.module.ts ***!
+  \******************************************************/
+/*! exports provided: TeamInboxModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamInboxModule", function() { return TeamInboxModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _team_inbox_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./team-inbox.component */ "./src/app/main/team-inbox/team-inbox.component.ts");
+/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
+/* harmony import */ var _fuse_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fuse/shared.module */ "./src/@fuse/shared.module.ts");
+/* harmony import */ var _fuse_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fuse/components */ "./src/@fuse/components/index.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ticket_form_ticket_form_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ticket-form/ticket-form.module */ "./src/app/main/team-inbox/ticket-form/ticket-form.module.ts");
+/* harmony import */ var _ticket_list_ticket_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ticket-list/ticket-list.component */ "./src/app/main/team-inbox/ticket-list/ticket-list.component.ts");
+/* harmony import */ var _contacts_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contacts.service */ "./src/app/main/team-inbox/contacts.service.ts");
+/* harmony import */ var _ticket_form_module_ticket_form_module_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ticket-form-module/ticket-form-module.component */ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.ts");
+/* harmony import */ var _attachment_ticket_attachements_ticket_attachements_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../attachment/ticket-attachements/ticket-attachements.module */ "./src/app/main/attachment/ticket-attachements/ticket-attachements.module.ts");
+/* harmony import */ var _ticket_comment_ticket_comment_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../ticket-comment/ticket-comment.module */ "./src/app/main/ticket-comment/ticket-comment.module.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var materialModules = [
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatBadgeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatBottomSheetModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatGridListModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatPaginatorModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSliderModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSlideToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSortModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTreeModule"],
+    _attachment_ticket_attachements_ticket_attachements_module__WEBPACK_IMPORTED_MODULE_13__["TicketAttachementsModule"], _ticket_comment_ticket_comment_module__WEBPACK_IMPORTED_MODULE_14__["TicketCommentModule"]
+];
+var routes = [
+    {
+        path: 'teaminbox',
+        component: _team_inbox_component__WEBPACK_IMPORTED_MODULE_3__["TeamInboxComponent"],
+        resolve: {
+            contacts: _contacts_service__WEBPACK_IMPORTED_MODULE_11__["ContactsService"]
+        }
+    }
+];
+var TeamInboxModule = /** @class */ (function () {
+    function TeamInboxModule() {
+    }
+    TeamInboxModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            declarations: [
+                _team_inbox_component__WEBPACK_IMPORTED_MODULE_3__["TeamInboxComponent"],
+                _ticket_list_ticket_list_component__WEBPACK_IMPORTED_MODULE_10__["TicketListComponent"],
+                _ticket_form_module_ticket_form_module_component__WEBPACK_IMPORTED_MODULE_12__["TicketFormModuleComponent"]
+            ],
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes),
+                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_4__["CdkTableModule"],
+                materialModules,
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatStepperModule"],
+                _fuse_shared_module__WEBPACK_IMPORTED_MODULE_5__["FuseSharedModule"],
+                _fuse_components__WEBPACK_IMPORTED_MODULE_6__["FuseConfirmDialogModule"],
+                _fuse_components__WEBPACK_IMPORTED_MODULE_6__["FuseSidebarModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"],
+                _ticket_form_ticket_form_module__WEBPACK_IMPORTED_MODULE_9__["TicketFormModule"]
+            ],
+            entryComponents: [
+                _ticket_form_module_ticket_form_module_component__WEBPACK_IMPORTED_MODULE_12__["TicketFormModuleComponent"]
+            ],
+            exports: [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                materialModules,
+                _team_inbox_component__WEBPACK_IMPORTED_MODULE_3__["TeamInboxComponent"]
+            ]
+        })
+    ], TeamInboxModule);
+    return TeamInboxModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.html":
+/*!**************************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"dashboard-project\" class=\"page-layout\">\r\n    <div class=\"content clearfix\">\r\n\r\n        <div class=\"tf-time-line mb-24\" aria-label=\"Time line\">\r\n\r\n            <div  class=\"vertical-stepper-wrapper\">\r\n\r\n                <!-- VERTICAL STEPPER EXAMPLE -->\r\n                <mat-vertical-stepper  [linear]=\"true\" *ngFor=\"let data of ticketHistory\">\r\n\r\n                    <mat-step [stepControl]=\"verticalStepperStep1\">\r\n\r\n                        <ng-template matStepLabel>{{data.stepId}}</ng-template>\r\n                      <p>This Ticket was </p> {{data.behaviorValue}}\r\n                                            {{data.behaviorName}}\r\n                   {{data.type}}  \r\n                  {{data.actionAt}}\r\n                    </mat-step>\r\n\r\n                   <!--  <mat-step [stepControl]=\"verticalStepperStep2\">\r\n                        <ng-template matStepLabel>{{data.stepId}}</ng-template>\r\n                         <i *ngFor=\"let data of ticketHistory \">\r\n                            {{data.behaviorValue}}\r\n                                    </i> \r\n                    </mat-step>\r\n                    \r\n                     <mat-step [stepControl]=\"verticalStepperStep3\">\r\n\r\n                        <ng-template matStepLabel>{{data.stepId}}</ng-template>\r\n                    </mat-step> -->\r\n\r\n                </mat-vertical-stepper>\r\n                <!-- / VERTICAL STEPPER EXAMPLE -->\r\n\r\n            </div>\r\n\r\n            <div class=\"navigate\">\r\n                <button class=\"mat-accent\" mat-raised-button (click)=\"stepTickBack()\">\r\n                    <mat-icon>arrow_back</mat-icon>\r\n                </button>\r\n\r\n                <button class=\"mat-accent\" mat-raised-button (click)=\"stepTickForward()\">\r\n                    <mat-icon>arrow_forward</mat-icon>\r\n                </button>\r\n            </div>\r\n\r\n        </div>\r\n\r\n\r\n        <!-- <div class=\"dialog-content-wrapper\">\r\n -->\r\n\r\n        <!-- \r\n    <mat-toolbar matDialogTitle class=\"mat-accent m-0\">\r\n       \r\n          <mat-toolbar-row fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n                  <span class=\"title dialog-title\">{{dialogTitle}}</span>\r\n                  <button mat-icon-button (click)=\"matDialogRef.close()\" aria-label=\"Close dialog\">\r\n                      <mat-icon>close</mat-icon>\r\n                  </button>\r\n              </mat-toolbar-row>\r\n  \r\n        <mat-toolbar-row class=\"toolbar-bottom py-16\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\r\n     \r\n            <div class=\"contact-name mt-8\">{{contact.title}}</div>\r\n        </mat-toolbar-row>\r\n    </mat-toolbar>\r\n   -->\r\n\r\n\r\n\r\n        <div class=\"tf-fields\">\r\n            <form [formGroup]=\"contactForm\">\r\n\r\n\r\n\r\n                <mat-form-field class=\"w-50-p\">\r\n                    <input name=\"ticketId\" [disabled]=\"true\" formControlName=\"ticketId\"  placeholder=\"ticket#\" matInput required  disabled>\r\n                        <button (click)=\"testMethod()\" style=\"float: right;\"><mat-icon>mode_edit</mat-icon></button>\r\n                    </mat-form-field>\r\n            \r\n\r\n                <mat-form-field class=\"w-50-p\">\r\n                    <input name=\"title\" formControlName=\"title\" placeholder=\"Title \" disabled matInput required>\r\n                    <button (click)=\"testMethod()\" style=\"float: right;\"><mat-icon>mode_edit</mat-icon></button>\r\n\r\n                </mat-form-field>\r\n               \r\n                <mat-form-field class=\"w-50-p\">\r\n                    <input name=\"creationdate\" formControlName=\"creationdate\" matInput placeholder=\"Created_On (disabled)\" required>\r\n                    <button (click)=\"testMethod()\" style=\"float: right;\"><mat-icon>mode_edit</mat-icon></button>\r\n                </mat-form-field>\r\n\r\n             \r\n                <mat-form-field class=\"w-50-p\">\r\n                        <input name=\"description\" \r\n                        formControlName=\"description\" matInput placeholder=\"Description\" required>\r\n                        <button (click)=\"testMethod()\" style=\"float: right;\"><mat-icon>mode_edit</mat-icon></button>\r\n                    </mat-form-field>\r\n\r\n              \r\n            </form>\r\n\r\n        </div>\r\n\r\n        <div class=\"tf-tabs my-24\">\r\n\r\n            <mat-tab-group dynamicHeight>\r\n\r\n                <mat-tab label=\"Comments\">\r\n                    <app-ticket-comment></app-ticket-comment>\r\n                </mat-tab>\r\n\r\n                <mat-tab label=\"Attachments\">\r\n                    <app-ticket-attachements></app-ticket-attachements>\r\n                </mat-tab>\r\n\r\n\r\n            </mat-tab-group>\r\n\r\n        </div>\r\n\r\n\r\n    </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.scss ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".mat-dialog-container {\n  width: 1024px !important; }\n\n.content.clearfix > div {\n  float: left;\n  width: 50%; }\n\n.content.clearfix .tf-time-line {\n  position: relative;\n  min-height: 340px; }\n\n.content.clearfix .tf-time-line .navigate {\n    position: absolute;\n    bottom: 1%;\n    right: 5%; }\n\n.content form {\n  width: 100%;\n  max-width: 800px !important; }\n\n.content .form-errors-model {\n  flex: 1; }\n\n.content .form-errors-model code {\n    background: none !important; }\n\n.content .horizontal-stepper-wrapper,\n.content .vertical-stepper-wrapper {\n  max-width: 500px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: State, TicketFormModuleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketFormModuleComponent", function() { return TicketFormModuleComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _fuse_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fuse/animations */ "./src/@fuse/animations/index.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _contact_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../contact.model */ "./src/app/main/team-inbox/contact.model.ts");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+var State = /** @class */ (function () {
+    function State(name, population, flag) {
+        this.name = name;
+        this.population = population;
+        this.flag = flag;
+    }
+    return State;
+}());
+
+var TicketFormModuleComponent = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param {FormBuilder} _formBuilder
+     */
+    function TicketFormModuleComponent(httpService, _ticketService, matDialogRef, _data, _formBuilder) {
+        var _this = this;
+        this.httpService = httpService;
+        this._ticketService = _ticketService;
+        this.matDialogRef = matDialogRef;
+        this._data = _data;
+        this._formBuilder = _formBuilder;
+        this.ticketStatusList = ["open", "close", "pending"];
+        this.formData = new FormData();
+        this.is_edit = false;
+        this.action = _data.action;
+        if (this.action === 'edit') {
+            this.dialogTitle = 'Edit Ticket';
+            this.contact = _data.contact;
+        }
+        else {
+            this.dialogTitle = 'New Ticket';
+            this.contact = new _contact_model__WEBPACK_IMPORTED_MODULE_5__["Contact"]({});
+        }
+        this.contactForm = this.createContactForm();
+        console.log('Before calling service...!');
+        this.httpService.get('api/Ticket-History')
+            .subscribe(function (response) {
+            _this.ticketHistory = response;
+        });
+        console.log('After calling service...!');
+    }
+    TicketFormModuleComponent.prototype.isDisabled = function () {
+        return this.is_edit;
+    };
+    TicketFormModuleComponent.prototype.testMethod = function () {
+        alert('Edit TicketID.....');
+    };
+    /**
+     * Create ticket form
+     *
+     * @returns {FormGroup}
+     */
+    TicketFormModuleComponent.prototype.createContactForm = function () {
+        return this._formBuilder.group({
+            ticketId: [this.contact.ticketId],
+            title: [this.contact.title],
+            creationdate: [this.contact.creationdate],
+            description: [this.contact.description],
+            status: [this.contact.status],
+            ticketnumber: [this.contact.ticketnumber],
+            ticketSeverity: [this.contact.severityList]
+        });
+    };
+    // Reactive form errors
+    TicketFormModuleComponent.prototype.stepTickBack = function () {
+        this._ticketService.stepTicketBackward(this.contact.ticketId).subscribe();
+    };
+    TicketFormModuleComponent.prototype.stepTickForward = function () {
+        this._ticketService.stepTicketForward(this.contact.ticketId).subscribe();
+    };
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+    /**
+     * On init
+     */
+    TicketFormModuleComponent.prototype.OnInit = function () {
+        var _this = this;
+        this._ticketService.getTicketPriority().subscribe(function (_ticketPriority) {
+            _this.ticketPeriorityList = _ticketPriority;
+        });
+        this._ticketService.getTicketSeverity().subscribe(function (_ticketSeverity) {
+            _this.ticketSeverityList = _ticketSeverity;
+        });
+    };
+    TicketFormModuleComponent.prototype.submitTicket = function () {
+        debugger;
+        this.formData.append('ticket', JSON.stringify(this.contact));
+        console.log('Before calling submit ticket...!');
+        this._ticketService.editTicket(this.formData).subscribe(function (_ticket) {
+            alert('updated successfully');
+        });
+    };
+    TicketFormModuleComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ticket-form-module',
+            template: __webpack_require__(/*! ./ticket-form-module.component.html */ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.html"),
+            styles: [__webpack_require__(/*! ./ticket-form-module.component.scss */ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.scss")],
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+            animations: _fuse_animations__WEBPACK_IMPORTED_MODULE_3__["fuseAnimations"]
+        }),
+        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _services_ticket_service__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+    ], TicketFormModuleComponent);
+    return TicketFormModuleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form/ticket-form.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form/ticket-form.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"dashboard-project\" class=\"page-layout\">\r\n    <div class=\"content clearfix\">\r\n\r\n        <div class=\"tf-time-line mb-24\">\r\n\r\n\r\n            <div class=\"vertical-stepper-wrapper\">\r\n\r\n                <!-- VERTICAL STEPPER EXAMPLE -->\r\n                <mat-vertical-stepper class=\"mat-elevation-z4\" [linear]=\"true\">\r\n\r\n                    <mat-step [stepControl]=\"verticalStepperStep1\">\r\n\r\n                        <div class=\"h2 m-16\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                            Fill out your name......\r\n                        </div>\r\n\r\n                    </mat-step>\r\n\r\n                    <mat-step [stepControl]=\"verticalStepperStep2\">\r\n\r\n                        <div class=\"h2 m-16\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                            Fill out your address.....\r\n                        </div>\r\n\r\n                    </mat-step>\r\n\r\n\r\n                    <mat-step>\r\n\r\n                        <ng-template matStepLabel>Done</ng-template>\r\n\r\n                        <div class=\"h2 m-16\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n                            Thank your for filling out our form.\r\n                        </div>\r\n\r\n\r\n                    </mat-step>\r\n\r\n                </mat-vertical-stepper>\r\n                <!-- / VERTICAL STEPPER EXAMPLE -->\r\n\r\n            </div>\r\n\r\n            <div class=\"navigate\">\r\n                <button class=\"mat-accent\" mat-button>\r\n                                        <mat-icon>arrow_back</mat-icon>\r\n                </button>\r\n\r\n                <button class=\"mat-accent\" mat-button>\r\n                    <mat-icon>arrow_forward</mat-icon>\r\n                </button>\r\n            </div>\r\n\r\n        </div>\r\n\r\n\r\n\r\n        <div class=\"tf-fields\">\r\n            <mat-form-field class=\"w-50-p\">\r\n                   \r\n                <textarea matInput placeholder=\"Title\" [(ngModel)]=\"ticket.title\" formControlName=\"title\" required></textarea>       \r\n                \r\n                <mat-icon>clear</mat-icon>\r\n                <mat-icon>done</mat-icon>\r\n                <mat-error *ngIf=\"formErrors.title.required\">\r\n                    Title is required!\r\n                </mat-error>\r\n\r\n            </mat-form-field>\r\n\r\n\r\n            <mat-form-field class=\"w-50-p\">\r\n                <textarea matInput placeholder=\"Status\" [(ngModel)]=\"ticket.status\" formControlName=\"status\"></textarea>\r\n                <mat-error *ngIf=\"formErrors.status.required\">\r\n                    Status is required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <!--  <mat-form-field class=\"w-100-p\">\r\n                <textarea *ngIf=\"isUpdate\" matInput placeholder=\"Ticket Number\" [(ngModel)]=\"ticket.ticketNO\" formControlName=\"ticketNO\"\r\n                    disabled=\"true\"></textarea>\r\n            </mat-form-field> -->\r\n            <mat-form-field class=\"w-50-p\">\r\n                <mat-select placeholder=\"Workflow\" [(ngModel)]=\"ticket.workflow\" formControlName=\"workflow\" required>\r\n                    <mat-option *ngFor=\"let item of workflowList\" [value]=\"item\">\r\n                        {{item.ticketType}}\r\n                    </mat-option>\r\n                </mat-select>\r\n                <mat-error *ngIf=\"formErrors.workflow.required\">\r\n                    WorkFlow is required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field class=\"w-50-p\">\r\n                <mat-select placeholder=\"Severity\" [(ngModel)]=\"ticket.ticketSeverity\" formControlName=\"severity\" required>\r\n                    <mat-option *ngFor=\"let item of ticketSeverityList\" [value]=\"item\">\r\n                        {{item.severityName}}\r\n                    </mat-option>\r\n                </mat-select>\r\n                <mat-error *ngIf=\"formErrors.severity.required\">\r\n                    Severity is required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field class=\"w-50-p\">\r\n                <mat-select placeholder=\"Priority\" [(ngModel)]=\"ticket.ticketPriority\" formControlName=\"priority\" required>\r\n                    <mat-option *ngFor=\"let item of ticketPeriorityList\" [value]=\"item\">\r\n                        {{item.priorityLevel}}\r\n                    </mat-option>\r\n                </mat-select>\r\n                <mat-error *ngIf=\"formErrors.priority.required\">\r\n                    Priority is required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field class=\"w-50-p\">\r\n                <textarea matInput placeholder=\"Description\" [(ngModel)]=\"ticket.description\" formControlName=\"description\"></textarea>\r\n                <mat-error *ngIf=\"formErrors.description.required\">\r\n                    Description is required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n            <button class=\"save-button mat-accent\" mat-button (click)=\"submitTicket()\" [disabled]=\"form.invalid\">Submit</button>\r\n\r\n\r\n         \r\n\r\n        </div>\r\n\r\n\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form/ticket-form.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form/ticket-form.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".mat-dialog-container {\n  width: 1024px !important; }\n\n.content.clearfix > div {\n  float: left;\n  width: 50%; }\n\n.content.clearfix .tf-time-line {\n  position: relative;\n  min-height: 340px; }\n\n.content.clearfix .tf-time-line .navigate {\n    position: absolute;\n    bottom: 1%;\n    right: 5%; }\n\n:host .content form {\n  width: 100%;\n  max-width: 800px !important; }\n\n:host .content .form-errors-model {\n  flex: 1; }\n\n:host .content .form-errors-model code {\n    background: none !important; }\n\n:host .content .horizontal-stepper-wrapper,\n:host .content .vertical-stepper-wrapper {\n  max-width: 500px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form/ticket-form.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form/ticket-form.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: TicketFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketFormComponent", function() { return TicketFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+/* harmony import */ var _models_ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../models/ticket */ "./src/app/models/ticket.ts");
+/* harmony import */ var _services_file_manager_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/file-manager.service */ "./src/app/services/file-manager.service.ts");
+/* harmony import */ var _fuse_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fuse/animations */ "./src/@fuse/animations/index.ts");
+/* harmony import */ var _model_fileData__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../model/fileData */ "./src/app/model/fileData.ts");
+/* harmony import */ var _file_list_file_list_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../file-list/file-list.service */ "./src/app/main/file-list/file-list.service.ts");
+/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var TicketFormComponent = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param {FormBuilder} _formBuilder
+     */
+    function TicketFormComponent(_fileManagerService, _formBuilder, _ticketService, route, router, fileListService, sharedDataService) {
+        this._fileManagerService = _fileManagerService;
+        this._formBuilder = _formBuilder;
+        this._ticketService = _ticketService;
+        this.route = route;
+        this.router = router;
+        this.fileListService = fileListService;
+        this.sharedDataService = sharedDataService;
+        this.ticket = new _models_ticket__WEBPACK_IMPORTED_MODULE_6__["Ticket"]({});
+        this.isUpdate = false;
+        this.formData = new FormData();
+        this.filesData = [];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTableDataSource"]();
+        // Reactive form errors
+        this.formErrors = {
+            title: {},
+            status: {},
+            description: {},
+            workflow: {},
+            severity: {},
+            priority: {}
+        };
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    }
+    /**
+     * On init
+     */
+    TicketFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log('Call get tickets service');
+        this._ticketService.getTicketsByProjectID().subscribe(function (data) { return _this.dataSource.data = data.data; });
+        // --------------- query params for update page ------------------
+        this.route.queryParams.subscribe(function (queryParams) {
+            _this.updatedTicketId = queryParams['id'];
+            //console.log(updatedTicketId);
+        });
+        this._fileManagerService.onFileSelected
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function (selected) {
+            _this.selected = selected;
+            //console.log("selected : " + JSON.stringify(selected) );
+            //this.pathArr = selected.location.split('>');
+        });
+        if (this.updatedTicketId != null && this.updatedTicketId.length > 0 && this.updatedTicketId != "undefined") {
+            // update
+            this.isUpdate = true;
+            this._ticketService.getTicketById(this.updatedTicketId).subscribe(function (_ticket) {
+                _this.ticket = _ticket;
+            });
+        }
+        console.log(this.updatedTicketId);
+        // Reactive Form
+        this.form = this._formBuilder.group({
+            title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            status: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            workflow: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            severity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            priority: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
+        });
+        this.form.valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function () {
+            _this.onFormValuesChanged();
+        });
+        this._ticketService.getTicketPriority().subscribe(function (_ticketPriority) {
+            _this.ticketPeriorityList = _ticketPriority;
+        });
+        this._ticketService.getTicketSeverity().subscribe(function (_ticketSeverity) {
+            _this.ticketSeverityList = _ticketSeverity;
+        });
+        this._ticketService.getWorkflow().subscribe(function (_workflowlist) {
+            _this.workflowList = _workflowlist;
+        });
+    };
+    TicketFormComponent.prototype.ngOnDestroy = function () {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    };
+    /**
+     * On form values changed
+     */
+    TicketFormComponent.prototype.onFormValuesChanged = function () {
+        for (var field in this.formErrors) {
+            if (!this.formErrors.hasOwnProperty(field)) {
+                continue;
+            }
+            // Clear previous errors
+            this.formErrors[field] = {};
+            // Get the control
+            var control = this.form.get(field);
+            if (control && control.dirty && !control.valid) {
+                this.formErrors[field] = control.errors;
+            }
+        }
+    };
+    TicketFormComponent.prototype.submitTicket = function () {
+        var _this = this;
+        debugger;
+        if (this.isUpdate) {
+            this.formData.append('ticket', JSON.stringify(this.ticket));
+            if (this.filelist != null && this.filelist.length > 0) {
+                for (var index = 0; index < this.filelist.length; index++) {
+                    this.formData.append('files', this.filelist.item(index));
+                }
+                this.formData.append('files', this.filelist.item(0));
+            }
+            this._ticketService.editTicket(this.formData).subscribe(function (_ticket) {
+                alert('updated successfully');
+            });
+        }
+        else {
+            this.ticket.project = this.sharedDataService.selectedProject;
+            this.formData.append('ticket', JSON.stringify(this.ticket));
+            if (this.filelist != null && this.filelist.length > 0) {
+                for (var index = 0; index < this.filelist.length; index++) {
+                    this.formData.append('files', this.filelist.item(index));
+                }
+                this.formData.append('files', this.filelist.item(0));
+            }
+            this._ticketService.addTicket(this.formData).subscribe(function (_ticket) {
+                alert('added successfully');
+                _this.ticket = null;
+            });
+        }
+        // forward to ticketView
+        this.router.navigate(['/ticketview']);
+    };
+    TicketFormComponent.prototype.fileChange = function (files) {
+        //this.formData.append('files', event.target.files);
+        this.filelist = files;
+        console.log("files : " + files.length);
+        for (var i = 0; i < files.length; i++) {
+            /*  this.filesData[i].name = files.item(i).name;
+             this.filesData[i].size = files.item(i).size;
+             this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+             this.filesData[i].type = files.item(i).type; */
+            var file = new _model_fileData__WEBPACK_IMPORTED_MODULE_9__["FileData"]();
+            file.name = files.item(i).name;
+            file.size = files.item(i).size;
+            file.ModifiedDate = files.item(i).lastModifiedDate;
+            file.type = files.item(i).type;
+            this.filesData.push(file);
+            this.addFilesData();
+        }
+    };
+    TicketFormComponent.prototype.addFilesData = function () {
+        debugger;
+        this.fileListService.viewFilesData(this.filesData);
+    };
+    TicketFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ticket-form',
+            template: __webpack_require__(/*! ./ticket-form.component.html */ "./src/app/main/team-inbox/ticket-form/ticket-form.component.html"),
+            styles: [__webpack_require__(/*! ./ticket-form.component.scss */ "./src/app/main/team-inbox/ticket-form/ticket-form.component.scss")],
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+            animations: _fuse_animations__WEBPACK_IMPORTED_MODULE_8__["fuseAnimations"]
+        }),
+        __metadata("design:paramtypes", [_services_file_manager_service__WEBPACK_IMPORTED_MODULE_7__["FileManagerService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__["TicketService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _file_list_file_list_service__WEBPACK_IMPORTED_MODULE_10__["FileListService"],
+            _services_shared_data_service__WEBPACK_IMPORTED_MODULE_11__["SharedDataService"]])
+    ], TicketFormComponent);
+    return TicketFormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-form/ticket-form.module.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-form/ticket-form.module.ts ***!
+  \*******************************************************************/
+/*! exports provided: TicketFormModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketFormModule", function() { return TicketFormModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _fuse_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fuse/shared.module */ "./src/@fuse/shared.module.ts");
+/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _fuse_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fuse/components */ "./src/@fuse/components/index.ts");
+/* harmony import */ var _fuse_components_widget_widget_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fuse/components/widget/widget.module */ "./src/@fuse/components/widget/widget.module.ts");
+/* harmony import */ var _ticket_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ticket-form.component */ "./src/app/main/team-inbox/ticket-form/ticket-form.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: 'editTicket',
+        component: _ticket_form_component__WEBPACK_IMPORTED_MODULE_7__["TicketFormComponent"]
+    }
+];
+var TicketFormModule = /** @class */ (function () {
+    function TicketFormModule() {
+    }
+    TicketFormModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes),
+                _fuse_shared_module__WEBPACK_IMPORTED_MODULE_2__["FuseSharedModule"],
+                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_3__["CdkTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBadgeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSlideToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTreeModule"],
+                _fuse_shared_module__WEBPACK_IMPORTED_MODULE_2__["FuseSharedModule"],
+                _fuse_components__WEBPACK_IMPORTED_MODULE_5__["FuseSidebarModule"],
+                _fuse_components_widget_widget_module__WEBPACK_IMPORTED_MODULE_6__["FuseWidgetModule"]
+            ],
+            declarations: [_ticket_form_component__WEBPACK_IMPORTED_MODULE_7__["TicketFormComponent"]],
+        })
+    ], TicketFormModule);
+    return TicketFormModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-list/ticket-list.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-list/ticket-list.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-table #table [dataSource]=\"dataSource\"\r\n           [@animateStagger]=\"{value:'50'}\">\r\n\r\n\r\n    \r\n\r\n    <!-- ID Column -->\r\n    <ng-container cdkColumnDef=\"ticketId\">\r\n            <mat-header-cell *cdkHeaderCellDef  class=\" font-weight-600\">ID</mat-header-cell>\r\n            <mat-cell *cdkCellDef=\"let ticket\">\r\n                <p class=\"text-truncate\">{{ticket.ticketId}} </p>\r\n            </mat-cell>\r\n        </ng-container>\r\n    \r\n\r\n\r\n    <!-- Title Column -->\r\n   \r\n    <ng-container cdkColumnDef=\"title\">\r\n        <mat-header-cell *cdkHeaderCellDef class=\" font-weight-600\">Title</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let ticket\">\r\n            <p class=\"text-truncate\">{{ticket.title}} </p>\r\n        </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- creationdate Column -->\r\n    <ng-container cdkColumnDef=\"creationdate\">\r\n        <mat-header-cell class=\" font-weight-600\" *cdkHeaderCellDef>Created_On</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let ticket\" >\r\n            <p class=\"email text-truncate\">\r\n                {{ticket.creationdate}}\r\n            </p>\r\n        </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Descrption Column -->\r\n    <ng-container cdkColumnDef=\"description\">\r\n        <mat-header-cell class=\" font-weight-600\" *cdkHeaderCellDef >Descrption</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let ticket\" >\r\n            <p class=\"phone text-truncate\">\r\n                {{ticket.description}}\r\n            </p>\r\n        </mat-cell>\r\n    </ng-container> \r\n \r\n    <!-- Status Column -->\r\n    <ng-container cdkColumnDef=\"status\">\r\n        <mat-header-cell class=\" font-weight-600\" *cdkHeaderCellDef >Status</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let ticket\" >\r\n            <p class=\"job-title text-truncate\">\r\n                {{ticket.status.status}}\r\n            </p>\r\n        </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- ticketnumber Column -->\r\n    <ng-container cdkColumnDef=\"ticketnumber\">\r\n        <mat-header-cell class=\" font-weight-600\" *cdkHeaderCellDef >Ticket Number</mat-header-cell>\r\n        <mat-cell *cdkCellDef=\"let ticket\">\r\n            <p class=\"company text-truncate\">\r\n                {{ticket.ticketnumber}}\r\n            </p>\r\n        </mat-cell>\r\n    </ng-container>\r\n\r\n\r\n     \r\n\r\n     <mat-header-row *cdkHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *cdkRowDef=\"let ticket; columns: displayedColumns;\"\r\n             class=\"ticket\"\r\n             (click)=\"editTicket(ticket)\"\r\n             [ngClass]=\"{'mat-accent-50-bg':checkboxes[ticket.ticketId]}\"\r\n             matRipple\r\n             [@animate]=\"{value:'*',params:{y:'100%'}}\">\r\n    </mat-row>\r\n     \r\n</mat-table>\r\n\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-list/ticket-list.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-list/ticket-list.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/**\n * Applies styles for users in high contrast mode. Note that this only applies\n * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n * attribute, however Chrome handles high contrast differently.\n */\n/* Theme for the ripple elements.*/\n/* stylelint-disable material/no-prefixes */\n/* stylelint-enable */\napp-ticket-list {\n  display: flex;\n  flex: 1 1 auto;\n  width: 100%; }\napp-ticket-list .mat-table {\n    width: 100%;\n    background: transparent;\n    box-shadow: none; }\napp-ticket-list .mat-table .mat-column-checkbox {\n      flex: 0 1 64px;\n      padding-left: 18px; }\napp-ticket-list .mat-table .mat-column-avatar {\n      flex: 0 1 64px; }\napp-ticket-list .mat-table .mat-column-buttons {\n      flex: 0 1 80px; }\napp-ticket-list .mat-table .mat-row {\n      position: relative;\n      cursor: pointer;\n      padding: 8px; }\napp-ticket-list .mat-table .mat-row .mat-cell {\n        min-width: 0; }\napp-ticket-list .mat-table .mat-row .mat-cell.mat-column-detail-button {\n          flex: 0 1 auto;\n          padding: 0 24px 0 0; }\n@media screen and (min-width: 1280px) {\n            app-ticket-list .mat-table .mat-row .mat-cell.mat-column-detail-button {\n              display: none; } }\n#add-contact-button {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  padding: 0;\n  z-index: 99; }\n"
+
+/***/ }),
+
+/***/ "./src/app/main/team-inbox/ticket-list/ticket-list.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/main/team-inbox/ticket-list/ticket-list.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: TicketListComponent, FilesDataSource */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketListComponent", function() { return TicketListComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilesDataSource", function() { return FilesDataSource; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _fuse_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fuse/animations */ "./src/@fuse/animations/index.ts");
+/* harmony import */ var _ticket_form_module_ticket_form_module_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ticket-form-module/ticket-form-module.component */ "./src/app/main/team-inbox/ticket-form-module/ticket-form-module.component.ts");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var TicketListComponent = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param {MatDialog} _matDialog
+     */
+    function TicketListComponent(_ticketService, _matDialog) {
+        this._ticketService = _ticketService;
+        this._matDialog = _matDialog;
+        this.displayedColumns = ['ticketId', 'title', 'status', 'description', 'ticketnumber', 'creationdate'];
+        // Set the private defaults
+        //   this._ticketService.getTicketsByProjectID;
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    }
+    // -----------------------------------------------------------------------------------------------------
+    // @ Lifecycle hooks
+    // -----------------------------------------------------------------------------------------------------
+    /**
+     * On init
+     */
+    TicketListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // console.log('Start OnInit method...!')
+        //  this._ticketService.getTicketsByProjectID;
+        /* this._ticketService.getTicketsByProjectID().subscribe(_tickets =>{
+            this.tickets = _tickets.data;
+            console.log(_tickets.data);
+         
+        }); */
+        this._ticketService.getTicketsByProjectID().subscribe(function (_result) {
+            _this.tickets = _result.data;
+            _this.dataSource = _result.data;
+        });
+        this._ticketService.getTicketPriority().subscribe(function (_ticketPriority) {
+            _this.ticketPeriorityList = _ticketPriority;
+        });
+        console.log('Test....!');
+        // this.dataSource = new FilesDataSource(this._ticketService)
+        console.log('after datasource...!');
+        this._ticketService.onTicketsChanged
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function (tickets) {
+            _this.tickets = tickets;
+            _this.checkboxes = {};
+            tickets.map(function (ticket) {
+                _this.checkboxes[ticket.id] = false;
+            });
+        });
+        this._ticketService.onSelectedTicketsChanged
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function (selectedContacts) {
+            for (var id in _this.checkboxes) {
+                if (!_this.checkboxes.hasOwnProperty(id)) {
+                    continue;
+                }
+                _this.checkboxes[id] = selectedContacts.includes(id);
+            }
+            _this.selectedTickets = selectedContacts;
+        });
+        this._ticketService.onUserDataChanged
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function (user) {
+            _this.user = user;
+        });
+        this._ticketService.onFilterChanged
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function () {
+            _this._ticketService.deselectTickets();
+        });
+    };
+    TicketListComponent.prototype.ngAfterViewInit = function () {
+        this._ticketService.getTickets;
+    };
+    /**
+     * On destroy
+     */
+    TicketListComponent.prototype.ngOnDestroy = function () {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    };
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+    /**
+     * Edit contact
+     *
+     * @param ticket
+     */
+    TicketListComponent.prototype.editTicket = function (ticket) {
+        this.dialogRef = this._matDialog.open(_ticket_form_module_ticket_form_module_component__WEBPACK_IMPORTED_MODULE_6__["TicketFormModuleComponent"], {
+            panelClass: 'ticket-form-dialog',
+            data: {
+                contact: ticket,
+                action: 'edit'
+            }
+        });
+        this.dialogRef.afterClosed()
+            .subscribe(function (response) {
+            if (!response) {
+                return;
+            }
+        });
+    };
+    /**
+     * On selected change
+     *
+     * @param ticketId
+     */
+    TicketListComponent.prototype.onSelectedChange = function (ticketId) {
+        this._ticketService.toggleSelectedTicket(ticketId);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('dialogContent'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"])
+    ], TicketListComponent.prototype, "dialogContent", void 0);
+    TicketListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ticket-list',
+            template: __webpack_require__(/*! ./ticket-list.component.html */ "./src/app/main/team-inbox/ticket-list/ticket-list.component.html"),
+            styles: [__webpack_require__(/*! ./ticket-list.component.scss */ "./src/app/main/team-inbox/ticket-list/ticket-list.component.scss")],
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+            animations: _fuse_animations__WEBPACK_IMPORTED_MODULE_5__["fuseAnimations"]
+        }),
+        __metadata("design:paramtypes", [_services_ticket_service__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+    ], TicketListComponent);
+    return TicketListComponent;
+}());
+
+var FilesDataSource = /** @class */ (function (_super) {
+    __extends(FilesDataSource, _super);
+    /**
+     * Constructor
+     *
+     * @param {TicketService} _ticketService
+     */
+    function FilesDataSource(_ticketService) {
+        var _this = _super.call(this) || this;
+        _this._ticketService = _ticketService;
+        return _this;
+    }
+    /**
+     * Connect function called by the table to retrieve one stream containing the data to render.
+     * @returns {Observable<any[]>}
+     */
+    FilesDataSource.prototype.connect = function () {
+        return this._ticketService.onTicketsChanged;
+    };
+    /**
+     * Disconnect
+     */
+    FilesDataSource.prototype.disconnect = function () {
+    };
+    return FilesDataSource;
+}(_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["DataSource"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/ticket-comment/ticket-comment.module.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/main/ticket-comment/ticket-comment.module.ts ***!
+  \**************************************************************/
+/*! exports provided: TicketCommentModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketCommentModule", function() { return TicketCommentModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _ticket_comment_ticket_comment_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ticket-comment/ticket-comment.component */ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var materialModules = [
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBadgeModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatChipsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDatepickerModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatGridListModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginatorModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSelectModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSlideToggleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSortModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatStepperModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTooltipModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTreeModule"]
+];
+var routes = [
+    {
+        path: 'comment',
+        component: _ticket_comment_ticket_comment_component__WEBPACK_IMPORTED_MODULE_2__["TicketCommentComponent"]
+    }
+];
+var TicketCommentModule = /** @class */ (function () {
+    function TicketCommentModule() {
+    }
+    TicketCommentModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes),
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                materialModules
+            ], exports: [
+                materialModules,
+                _ticket_comment_ticket_comment_component__WEBPACK_IMPORTED_MODULE_2__["TicketCommentComponent"]
+            ],
+            declarations: [_ticket_comment_ticket_comment_component__WEBPACK_IMPORTED_MODULE_2__["TicketCommentComponent"]]
+        })
+    ], TicketCommentModule);
+    return TicketCommentModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\" fxFlex=\"1 1 100%\">\r\n\r\n  <div class=\"example-container mat-elevation-z8\" fxFlex=\"1 1 100%\">\r\n    <!-- <div class=\"example-loading-shade\"  *ngIf=\"isLoadingResults || isRateLimitReached\">\r\n        <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\r\n        <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\r\n          GitHub's API rate limit has been reached. It will be reset in one minute.\r\n        </div>\r\n      </div> -->\r\n\r\n    <table  mat-table #table [dataSource]=\"comments\" class=\"example-table\" matSort matSortActive=\"created\" matSortDisableClear\r\n      matSortDirection=\"asc\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n              The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Number Column -->\r\n      <ng-container matColumnDef=\"commentValue\">\r\n        <th mat-header-cell *matHeaderCellDef>Comment</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.commentValue }}</td>\r\n      </ng-container>\r\n\r\n      <!-- Title Column -->\r\n      <ng-container matColumnDef=\"user\">\r\n        <th mat-header-cell *matHeaderCellDef>Written By</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.hduser.userName }}</td>\r\n      </ng-container>\r\n\r\n\r\n\r\n      <!-- Delete Column -->\r\n      <ng-container matColumnDef=\"delete\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Delete</th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <button mat-raised-button (click)=\"delete(row)\">Delete</button>\r\n        </td>\r\n      </ng-container>\r\n\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n    </table>\r\n\r\n    \r\n  </div>\r\n  <div class=\"center\" fxFlex>\r\n\r\n      <!-- HEADER -->\r\n      <div class=\"header mat-accent-bg p-25\" fxLayout=\"column\" fxLayoutAlign=\"space-between start\">\r\n\r\n        <div class=\"text\">\r\n          <button mat-fab class=\"add-file-button mat-warn\" (click)=\"openDialog(row)\" aria-label=\"Add Comment\" [@animate]=\"{value:'*', params:{delay:'300ms',scale:'0.2'}}\">\r\n            <mat-icon>add</mat-icon>\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: TicketCommentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketCommentComponent", function() { return TicketCommentComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _services_shared_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var _services_ticket_comment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/ticket-comment.service */ "./src/app/services/ticket-comment.service.ts");
+/* harmony import */ var _model_TicketComment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../model/TicketComment */ "./src/app/model/TicketComment.ts");
+/* harmony import */ var _dialog_overview_dialog_overview_example_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../dialog-overview/dialog-overview-example.component */ "./src/app/main/dialog-overview/dialog-overview-example.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var TicketCommentComponent = /** @class */ (function () {
+    function TicketCommentComponent(http, dialog, _shareData, commentService) {
+        this.http = http;
+        this.dialog = dialog;
+        this._shareData = _shareData;
+        this.commentService = commentService;
+        this.formData = new FormData();
+        this.displayedColumns = ['commentValue', 'user', 'delete'];
+        this.comments = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"]();
+        this.resultsLength = 0;
+        this.isLoadingResults = true;
+        this.isRateLimitReached = false;
+        this.commentsResponse = new _services_ticket_comment_service__WEBPACK_IMPORTED_MODULE_4__["CommentResponse"]();
+        this.commentDialogName = "Comment";
+        this.commentDialogMessage = "Add Your Comment here";
+        this.commentDialogOkLabel = "Ok";
+        this.commentDialogCancelLabel = "Cancel";
+        this.commentConfirmed = false;
+    }
+    TicketCommentComponent.prototype.ngOnInit = function () {
+        this.commentsResponse.data = new Array();
+    };
+    TicketCommentComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        //get ticket id and user id to add comment
+        this.ticketID = 4952;
+        //this.user.userId = 1;
+        console.log('on after view init');
+        this.commentService.getCommentByTickId(this.ticketID).subscribe(function (_commentsResponse) {
+            _this.commentsResponse.status = _commentsResponse.status;
+            for (var index = 0; index < _commentsResponse.data.length; index++) {
+                _this.commentsResponse.data[index] = _commentsResponse.data[index];
+            }
+            _this.comments.data = _this.commentsResponse.data;
+        });
+        // to moved inside the success senario in the above request
+        //this. isLoadingResults = false;
+    };
+    TicketCommentComponent.prototype.addComment = function (comment) {
+        var _this = this;
+        //var newComment : TicketComment;
+        this.commentService.addTicketComment(comment).subscribe(function (_ticket) {
+            alert('comment added successfully');
+            _this.commentsResponse.data[_this.commentsResponse.data.length] = comment;
+            _this.comments.data = _this.commentsResponse.data;
+            _this.addedComment = null;
+        });
+    };
+    TicketCommentComponent.prototype.delete = function (comment) {
+        this.commentService.deleteComment(comment).subscribe();
+        this.comments.data = this.comments.data.filter(function (h) { return h !== comment; });
+        location.reload;
+    };
+    TicketCommentComponent.prototype.openDialog = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(_dialog_overview_dialog_overview_example_component__WEBPACK_IMPORTED_MODULE_6__["DialogOverviewExampleDialog"], {
+            width: '250px',
+            data: { dialogName: this.commentDialogName, dialogMessage: this.commentDialogMessage, dialogOkLabel: this.commentDialogOkLabel, dialogCancelLabel: this.commentDialogCancelLabel, confirmed: this.commentConfirmed, confirmationComment: this.commentInDialog }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log('The dialog was closed');
+            console.log(result);
+            _this.commentConfirmed = result.confirmed;
+            console.log(_this.commentConfirmed);
+            if (_this.commentConfirmed) {
+                _this.addedComment = new _model_TicketComment__WEBPACK_IMPORTED_MODULE_5__["TicketComment"]();
+                _this.addedComment.commentValue = result.confirmationComment;
+                _this.addedComment.hduser = _this._shareData.user;
+                _this.addedComment.ticketId = _this.ticketID;
+                _this.addComment(_this.addedComment);
+            }
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], TicketCommentComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], TicketCommentComponent.prototype, "sort", void 0);
+    TicketCommentComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ticket-comment',
+            template: __webpack_require__(/*! ./ticket-comment.component.html */ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.html"),
+            styles: [__webpack_require__(/*! ./ticket-comment.component.scss */ "./src/app/main/ticket-comment/ticket-comment/ticket-comment.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _services_shared_data_service__WEBPACK_IMPORTED_MODULE_3__["SharedDataService"], _services_ticket_comment_service__WEBPACK_IMPORTED_MODULE_4__["TicketCommentService"]])
+    ], TicketCommentComponent);
+    return TicketCommentComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/main/ticket/submitticket/submitTicket.component.html":
 /*!**********************************************************************!*\
   !*** ./src/app/main/ticket/submitticket/submitTicket.component.html ***!
@@ -24543,7 +26800,7 @@ var FileListService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24\" fxLayout=\"column\" fxLayoutAlign=\"start\" fxFlex=\"1 0 auto\" name=\"form\"\r\n    [formGroup]=\"form\">\r\n\r\n    <div class=\"h2 mb-24\">Submit Ticket</div>\r\n\r\n\r\n\r\n    <div fxLayout=\"row wrap\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n        <mat-form-field fxFlex=\"100\">\r\n            <textarea matInput placeholder=\"Title\" [(ngModel)]=\"ticket.title\" formControlName=\"title\" required>\r\n                            1600 Amphitheatre Pkwy\r\n                        </textarea>\r\n            <mat-error *ngIf=\"formErrors.title.required\">\r\n                Title is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field fxFlex=\"100\">\r\n            <textarea matInput placeholder=\"Status\" [(ngModel)]=\"ticket.status\" formControlName=\"status\"></textarea>\r\n            <mat-error *ngIf=\"formErrors.status.required\">\r\n                Status is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n       <!--  <mat-form-field fxFlex=\"100\">\r\n            <textarea *ngIf=\"isUpdate\" matInput placeholder=\"Ticket Number\" [(ngModel)]=\"ticket.ticketNO\" formControlName=\"ticketNO\"\r\n                disabled=\"true\"></textarea>\r\n        </mat-form-field> -->\r\n\r\n\r\n    </div>\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        \r\n        <mat-form-field fxFlex=\"100\">\r\n            <mat-select placeholder=\"Workflow\" [(ngModel)]=\"ticket.workflow\" formControlName=\"workflow\" required>\r\n                <mat-option *ngFor=\"let item of workflowList\" [value]=\"item\">\r\n                    {{item.ticketType}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.workflow.required\">\r\n                WorkFlow is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        <mat-form-field fxFlex=\"100\">\r\n            <mat-select placeholder=\"Severity\" [(ngModel)]=\"ticket.ticketSeverity\" formControlName=\"severity\" required>\r\n                <mat-option *ngFor=\"let item of ticketSeverityList\" [value]=\"item\">\r\n                    {{item.severityName}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.severity.required\">\r\n                Severity is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n\r\n\r\n\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n        <mat-form-field fxFlex=\"100\">\r\n            <mat-select placeholder=\"Priority\" [(ngModel)]=\"ticket.ticketPriority\" formControlName=\"priority\" required>\r\n                <mat-option *ngFor=\"let item of ticketPeriorityList\" [value]=\"item\">\r\n                    {{item.priorityLevel}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.priority.required\">\r\n                Priority is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n\r\n    <div fxLayout=\"row wrap\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n\r\n\r\n        <mat-form-field fxFlex=\"100\">\r\n            <textarea matInput placeholder=\"Description\" [(ngModel)]=\"ticket.description\" formControlName=\"description\"></textarea>\r\n            <mat-error *ngIf=\"formErrors.description.required\">\r\n                Description is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n    <div class=\"center\" fxFlex>\r\n\r\n            <!-- HEADER -->\r\n            <div class=\"header mat-accent-bg p-24\" fxLayout=\"column\" fxLayoutAlign=\"space-between start\">\r\n                <!-- ADD FILE BUTTON -->\r\n                <!--<input type=\"file\" (change)=\"fileChange($event.target.files)\" placeholder=\"Upload file\" accept=\".pdf,.doc,.docx\">-->\r\n\r\n                <div class=\"file-uploader\">\r\n                    <input hidden type=\"file\" multiple (change)=\"fileChange($event.target.files)\" placeholder=\"Upload file\" accept=\".pdf,.doc,.docx\" #fileInput/>\r\n                    <button mat-fab\r\n                            class=\"add-file-button mat-warn\"\r\n                            (click)=\"fileInput.click()\"\r\n                            aria-label=\"Add file\"\r\n                            [@animate]=\"{value:'*', params:{delay:'300ms',scale:'0.2'}}\">\r\n                        <mat-icon>add</mat-icon>\r\n                    </button>\r\n                </div>\r\n                <!-- / ADD FILE BUTTON -->\r\n            </div>\r\n            <!-- / HEADER -->\r\n            <!-- CONTENT -->\r\n            <div class=\"content mat-white-bg\" fusePerfectScrollbar>\r\n                <file-list [(childFilesData)]=\"filesData\"></file-list>\r\n            </div>\r\n            <!-- / CONTENT -->\r\n    </div>\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        <button mat-button (click)=\"submitTicket()\" [disabled]=\"form.invalid\">Submit</button>\r\n    </div>\r\n    \r\n</form>"
+module.exports = "<form class=\"mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24\" fxLayout=\"column\" fxLayoutAlign=\"start\" fxFlex=\"1 0 auto\" name=\"form\"\r\n    [formGroup]=\"form\">\r\n\r\n    <div class=\"h2 mb-24\">Submit Ticket</div>\r\n\r\n\r\n\r\n    <div class=\"row\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n        <mat-form-field fxFlex=\"50\">\r\n            <input type=\"text\" matInput placeholder=\"Title\" [(ngModel)]=\"ticket.title\" formControlName=\"title\" required>\r\n            <mat-error *ngIf=\"formErrors.title.required\">\r\n                Title is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field fxFlex=\"50\">\r\n            <input type=\"text\" matInput placeholder=\"Status\" [(ngModel)]=\"ticket.status\" formControlName=\"status\">\r\n            <mat-error *ngIf=\"formErrors.status.required\">\r\n                Status is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n       <!--  <mat-form-field fxFlex=\"50\">\r\n            <textarea *ngIf=\"isUpdate\" matInput placeholder=\"Ticket Number\" [(ngModel)]=\"ticket.ticketNO\" formControlName=\"ticketNO\"\r\n                disabled=\"true\"></textarea>\r\n        </mat-form-field> -->\r\n\r\n\r\n    </div>\r\n    <div class=\"row\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        \r\n        <mat-form-field fxFlex=\"33.3333\">\r\n            <mat-select placeholder=\"Workflow\" [(ngModel)]=\"ticket.workflow\" formControlName=\"workflow\" required>\r\n                <mat-option *ngFor=\"let item of workflowList\" [value]=\"item\">\r\n                    {{item.ticketType}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.workflow.required\">\r\n                WorkFlow is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field fxFlex=\"33.3333\">\r\n            <mat-select placeholder=\"Severity\" [(ngModel)]=\"ticket.ticketSeverity\" formControlName=\"severity\" required>\r\n                <mat-option *ngFor=\"let item of ticketSeverityList\" [value]=\"item\">\r\n                    {{item.severityName}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.severity.required\">\r\n                Severity is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field fxFlex=\"33.3333\">\r\n            <mat-select placeholder=\"Priority\" [(ngModel)]=\"ticket.ticketPriority\" formControlName=\"priority\" required>\r\n                <mat-option *ngFor=\"let item of ticketPeriorityList\" [value]=\"item\">\r\n                    {{item.priorityLevel}}\r\n                </mat-option>\r\n            </mat-select>\r\n            <mat-error *ngIf=\"formErrors.priority.required\">\r\n                Priority is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n\r\n    <div class=\"row\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n\r\n    </div>\r\n    <div class=\"row\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        <mat-form-field fxFlex=\"100\">\r\n            <textarea matInput placeholder=\"Description\" [(ngModel)]=\"ticket.description\" formControlName=\"description\"></textarea>\r\n            <mat-error *ngIf=\"formErrors.description.required\">\r\n                Description is required!\r\n            </mat-error>\r\n        </mat-form-field>\r\n\r\n    </div>\r\n\r\n    <div class=\"center\" fxFlex>\r\n\r\n            <!-- HEADER -->\r\n                <!-- ADD FILE BUTTON -->\r\n                <!--<input type=\"file\" (change)=\"fileChange($event.target.files)\" placeholder=\"Upload file\" accept=\".pdf,.doc,.docx\">-->\r\n\r\n                <div class=\"file-uploader\" id=\"uploadDropArea\">\r\n                    <input type=\"file\" multiple (change)=\"fileChange($event.target.files)\" placeholder=\"Upload file\" accept=\".pdf,.doc,.docx\" #fileInput/>\r\n                    <div class=\"drop-area-cont\">\r\n                        <mat-icon>add</mat-icon>\r\n                        <span class=\"hint\">Click or Drop your files here</span>\r\n                    </div><!-- /.drop-area-cont -->\r\n                    <!-- <button mat-fab \r\n                            class=\"add-file-button mat-warn\"\r\n                            (click)=\"fileInput.click()\"\r\n                            aria-label=\"Add file\"\r\n                            [@animate]=\"{value:'*', params:{delay:'300ms',scale:'0.2'}}\">\r\n                    </button> -->\r\n                </div>\r\n                <!-- / ADD FILE BUTTON -->\r\n            <!-- / HEADER -->\r\n            <!-- CONTENT -->\r\n            <div class=\"content mat-white-bg\" fusePerfectScrollbar>\r\n                <file-list [(childFilesData)]=\"filesData\"></file-list>\r\n            </div>\r\n            <!-- / CONTENT -->\r\n    </div>\r\n    <div class=\"row\" fxLayout=\"row\" fxLayoutAlign=\"start center\" fxFlex=\"1 0 auto\">\r\n        <button mat-button (click)=\"submitTicket()\" [disabled]=\"form.invalid\">Submit</button>\r\n    </div>\r\n    \r\n</form>"
 
 /***/ }),
 
@@ -24615,7 +26872,7 @@ var SubmitTicketComponent = /** @class */ (function () {
         this.router = router;
         this.fileListService = fileListService;
         this.sharedDataService = sharedDataService;
-        this.ticket = new _models_ticket__WEBPACK_IMPORTED_MODULE_6__["Ticket"]();
+        this.ticket = new _models_ticket__WEBPACK_IMPORTED_MODULE_6__["Ticket"](this.ticket);
         this.isUpdate = false;
         this.formData = new FormData();
         this.filesData = [];
@@ -24753,17 +27010,18 @@ var SubmitTicketComponent = /** @class */ (function () {
         this.filelist = files;
         console.log("files : " + files.length);
         for (var i = 0; i < files.length; i++) {
-            /*  this.filesData[i].name = files.item(i).name;
-             this.filesData[i].size = files.item(i).size;
-             this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
-             this.filesData[i].type = files.item(i).type; */
+            debugger;
+            //    this.filesData[i].name = files.item(i).name;
+            //    this.filesData[i].size = files.item(i).size;
+            //    this.filesData[i].ModifiedDate = files.item(i).lastModifiedDate;
+            //    this.filesData[i].type = files.item(i).type;
             var file = new _model_fileData__WEBPACK_IMPORTED_MODULE_9__["FileData"]();
             file.name = files.item(i).name;
             file.size = files.item(i).size;
             file.ModifiedDate = files.item(i).lastModifiedDate;
             file.type = files.item(i).type;
             this.filesData.push(file);
-            this.addFilesData();
+            //    this.addFilesData();
         }
     };
     SubmitTicketComponent.prototype.addFilesData = function () {
@@ -24864,6 +27122,46 @@ var SubmitTicketModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/model/TicketComment.ts":
+/*!****************************************!*\
+  !*** ./src/app/model/TicketComment.ts ***!
+  \****************************************/
+/*! exports provided: TicketComment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketComment", function() { return TicketComment; });
+var TicketComment = /** @class */ (function () {
+    function TicketComment() {
+    }
+    return TicketComment;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/model/attachment.ts":
+/*!*************************************!*\
+  !*** ./src/app/model/attachment.ts ***!
+  \*************************************/
+/*! exports provided: Attachment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Attachment", function() { return Attachment; });
+var Attachment = /** @class */ (function () {
+    function Attachment() {
+    }
+    return Attachment;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/model/fileData.ts":
 /*!***********************************!*\
   !*** ./src/app/model/fileData.ts ***!
@@ -24935,7 +27233,7 @@ var LoginParam = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ticket", function() { return Ticket; });
 var Ticket = /** @class */ (function () {
-    function Ticket() {
+    function Ticket(ticket) {
     }
     return Ticket;
 }());
@@ -25100,14 +27398,6 @@ var navigation = [
                 ]
             },
             {
-                id: 'Permission',
-                title: 'Permission',
-                translate: 'NAV.PERMISSION',
-                type: 'item',
-                icon: 'flag',
-                url: '/perm'
-            },
-            {
                 id: 'dashboard',
                 title: 'User-DashBoard',
                 translate: 'NAV.USERDASHBOARDS',
@@ -25130,7 +27420,24 @@ var navigation = [
                 type: 'item',
                 icon: 'flag',
                 url: '/manager'
+            },
+            {
+                id: 'teamtickets',
+                title: 'Team Inbox',
+                translate: 'Team Inbox',
+                type: 'item',
+                icon: 'account_box',
+                url: '/teaminbox'
             }
+            /*
+            {
+                id       : 'teamtinboxickets',
+                title    : 'Team Inbox Temp',
+                translate: 'Team Inbox Temp',
+                type     : 'item',
+                icon     : 'account_box',
+                url      : '/teaminboxticket'
+            } */
         ]
     }
 ];
@@ -25314,19 +27621,21 @@ var SharedDataService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/ticket.service.ts":
-/*!********************************************!*\
-  !*** ./src/app/services/ticket.service.ts ***!
-  \********************************************/
-/*! exports provided: TicketService */
+/***/ "./src/app/services/ticket-comment.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/services/ticket-comment.service.ts ***!
+  \****************************************************/
+/*! exports provided: TicketCommentService, CommentResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketService", function() { return TicketService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketCommentService", function() { return TicketCommentService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentResponse", function() { return CommentResponse; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _shared_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared-data.service */ "./src/app/services/shared-data.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25339,26 +27648,316 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var TicketService = /** @class */ (function () {
-    function TicketService(_http, _shredData) {
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+};
+var TicketCommentService = /** @class */ (function () {
+    function TicketCommentService(_http) {
         this._http = _http;
-        this._shredData = _shredData;
-        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' });
+        this.commentUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketcomment'; // URL to web api
+        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' });
     }
+    TicketCommentService.prototype.getCommentByTickId = function (ticketID) {
+        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketcommentByTicId/' + ticketID;
+        return this._http.get(href, {
+            headers: this.headers
+        })
+            .pipe();
+    };
+    TicketCommentService.prototype.addTicketComment = function (comment) {
+        //----------------------------------------
+        return this._http.post('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketcomment', comment, {})
+            .pipe();
+    };
+    TicketCommentService.prototype.deleteComment = function (comment) {
+        var _this = this;
+        var id = typeof comment === 'number' ? comment : comment.ticketcommentId;
+        var url = this.commentUrl + "/" + id;
+        return this._http.delete(url, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (_) { return _this.log("Deleted Comment id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('deleteAttachment')));
+    };
+    TicketCommentService.prototype.handleError = function (operation, result) {
+        var _this = this;
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            _this.log(operation + " failed: " + error.message);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(result);
+        };
+    };
+    TicketCommentService.prototype.log = function (message) {
+        // this.messageService.add(`HeroService: ${message}`);
+    };
+    TicketCommentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], TicketCommentService);
+    return TicketCommentService;
+}());
+
+var CommentResponse = /** @class */ (function () {
+    function CommentResponse() {
+    }
+    return CommentResponse;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/ticket.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/ticket.service.ts ***!
+  \********************************************/
+/*! exports provided: TicketService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketService", function() { return TicketService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var TicketService = /** @class */ (function () {
+    /**
+     * Constructor
+     *
+     * @param {HttpClient} _httpClient
+     */
+    function TicketService(_httpClient) {
+        // Set the defaults
+        this._httpClient = _httpClient;
+        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' });
+        this.selectedTickets = [];
+        this.onTicketsChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.onSelectedTicketsChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.onUserDataChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.onSearchTextChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.onFilterChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    }
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+    /**
+     * Resolver
+     *
+     * @param {ActivatedRouteSnapshot} route
+     * @param {RouterStateSnapshot} state
+     * @returns {Observable<any> | Promise<any> | any}
+     */
+    TicketService.prototype.resolve = function (route, state) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            Promise.all([
+                _this.getTickets(),
+            ]).then(function (_a) {
+                var files = _a[0];
+                resolve();
+            }, reject);
+        });
+    };
+    /**
+     * Get tickets
+     *
+     * @returns {Promise<any>}
+     */
+    TicketService.prototype.getTickets = function () {
+        console.log('from ticket service..!');
+        this.getTicketsByProjectID;
+        return new Promise(function (resolve, reject) {
+            /*   this._httpClient.get('getTicketsByProjectID()').subscribe(response=>{
+                  debugger;
+                  this.tickets=response;
+                  console.log("tickets : "+this.tickets);
+  
+              });
+  
+   */
+            /*   this.getTicketsByProjectID().subscribe(_tickets => {
+                  this.tickets = _tickets.data;
+                  console.log(_tickets.data);
+  
+              }); */
+            /*  this._httpClient.get('api/contacts-contacts')
+                 .subscribe((response: any) => {
+ 
+                     this.tickets = response;
+ 
+                     if (this.filterBy === 'starred') {
+                         this.tickets = this.tickets.filter(_ticket => {
+                             return this.user.starred.includes(_ticket.ticketId);
+                         });
+                     }
+ 
+                     if (this.filterBy === 'frequent') {
+                         this.tickets = this.tickets.filter(_tickets => {
+                             return this.user.frequentContacts.includes(_tickets.ticketId);
+                         });
+                     }
+ 
+                     if (this.searchText && this.searchText !== '') {
+                         this.tickets = FuseUtils.filterArrayByString(this.tickets, this.searchText);
+                     }
+ 
+                     this.tickets = this.tickets.map(ticket => {
+                         return new Ticket();
+                     });
+ 
+                     this.onTicketsChanged.next(this.tickets);
+                     resolve(this.tickets);
+                 }, reject); */
+        });
+    };
+    /**
+     * Get user data
+     *
+     * @returns {Promise<any>}
+     */
+    TicketService.prototype.getUserData = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._httpClient.get('api/tickets-user/5725a6802d10e277a0f35724')
+                .subscribe(function (response) {
+                _this.user = response;
+                _this.onUserDataChanged.next(_this.user);
+                resolve(_this.user);
+            }, reject);
+        });
+    };
+    /**
+     * Toggle selected ticket by id
+     *
+     * @param id
+     */
+    TicketService.prototype.toggleSelectedTicket = function (id) {
+        // First, check if we already have that ticket as selected...
+        if (this.selectedTickets.length > 0) {
+            var index = this.selectedTickets.indexOf(id);
+            if (index !== -1) {
+                this.selectedTickets.splice(index, 1);
+                // Trigger the next event
+                this.onSelectedTicketsChanged.next(this.selectedTickets);
+                // Return
+                return;
+            }
+        }
+        // If we don't have it, push as selected
+        this.selectedTickets.push(id);
+        // Trigger the next event
+        this.onSelectedTicketsChanged.next(this.selectedTickets);
+    };
+    /**
+     * Toggle select all
+     */
+    TicketService.prototype.toggleSelectAll = function () {
+        if (this.selectedTickets.length > 0) {
+            this.deselectTickets();
+        }
+        else {
+            // this.selectTickets();
+        }
+    };
+    /**
+     * Select tickets
+     *
+     * @param filterParameter
+     * @param filterValue
+     */
+    TicketService.prototype.selectTickets = function (filterParameter, filterValue) {
+        var _this = this;
+        this.selectedTickets = [];
+        // If there is no filter, select all tickets
+        if (filterParameter === undefined || filterValue === undefined) {
+            this.selectedTickets = [];
+            this.tickets.map(function (ticket) {
+                _this.selectedTickets.push(ticket.ticketId);
+            });
+        }
+        // Trigger the next event
+        this.onSelectedTicketsChanged.next(this.selectedTickets);
+    };
+    /**
+     * Deselect tickets
+     */
+    TicketService.prototype.deselectTickets = function () {
+        this.selectedTickets = [];
+        // Trigger the next event
+        this.onSelectedTicketsChanged.next(this.selectedTickets);
+    };
+    /**
+     * Delete ticket
+     *
+     * @param ticket
+     */
+    TicketService.prototype.deleteTicket = function (ticket) {
+        var ticketIndex = this.tickets.indexOf(ticket);
+        this.tickets.splice(ticketIndex, 1);
+        this.onTicketsChanged.next(this.tickets);
+    };
+    /**
+     * Delete selected tickets
+     */
+    TicketService.prototype.deleteSelectedTickets = function () {
+        var _loop_1 = function (ticketId) {
+            var ticket = this_1.tickets.find(function (ticket) {
+                return ticket.ticketId === ticketId;
+            });
+            var ticketIndex = this_1.tickets.indexOf(ticket);
+            this_1.tickets.splice(ticketIndex, 1);
+        };
+        var this_1 = this;
+        for (var _i = 0, _a = this.selectedTickets; _i < _a.length; _i++) {
+            var ticketId = _a[_i];
+            _loop_1(ticketId);
+        }
+        this.onTicketsChanged.next(this.tickets);
+        this.deselectTickets();
+    };
     TicketService.prototype.getTicketSeverity = function () {
-        return this._http.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketseverity', {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
+            headers: this.headers
+        })
+            .pipe();
+    };
+    TicketService.prototype.stepTicketForward = function (ticketID) {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketForward?TICKET_ID=' + ticketID, {
+            headers: this.headers
+        })
+            .pipe();
+    };
+    TicketService.prototype.stepTicketBackward = function (ticketID) {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketBackward?TICKET_ID=' + ticketID, {
             headers: this.headers
         })
             .pipe();
     };
     TicketService.prototype.getUserDetails = function () {
-        return this._http.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value=ahmed.farrag', {
             headers: this.headers
         })
             .pipe();
     };
     TicketService.prototype.getWorkflow = function () {
-        return this._http.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/workflow', {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/workflow', {
             headers: this.headers
         })
             .pipe();
@@ -25368,32 +27967,61 @@ var TicketService = /** @class */ (function () {
         var identifier = "TICKET_ID";
         //let value = "1953";
         var requestUrl = href + "?identifier=" + identifier + "&value=" + value;
-        return this._http.get(requestUrl, {
+        return this._httpClient.get(requestUrl, {
             headers: this.headers
         })
             .pipe();
     };
     TicketService.prototype.getTicketPriority = function () {
-        return this._http.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticketpriority', {
+        return this._httpClient.get('http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
             headers: this.headers
         })
             .pipe();
     };
     TicketService.prototype.addTicket = function (formData) {
-        return this._http.post('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {})
+        return this._httpClient.post('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {})
             .pipe();
     };
     TicketService.prototype.editTicket = function (formData) {
-        return this._http.put('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
+        return this._httpClient.put('http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket', formData, {
             headers: this.headers
-        })
-            .pipe();
+        });
+    };
+    TicketService.prototype.getTicketsByProjectID = function () {
+        console.log('Start Calling getTicketsByProjectID service...!');
+        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
+        var requestUrl = href + "?PROJECT_ID=1&USER_EMAIL=ahmed.farrag";
+        console.log('inside getTicketsByProjectID');
+        return this._httpClient.get(requestUrl, { headers: this.headers })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(this.handleError('getTicketsByProjectID')));
+    };
+    /**
+     * Handle Http operation that failed.
+     * Let the app continue.
+     * @param operation - name of the operation that failed
+     * @param result - optional value to return as the observable result
+     */
+    TicketService.prototype.handleError = function (operation, result) {
+        var _this = this;
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            _this.log(operation + " failed: " + error.message);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    };
+    /** Log a HeroService message with the MessageService */
+    TicketService.prototype.log = function (message) {
+        // this.messageService.add(`HeroService: ${message}`);
     };
     TicketService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _shared_data_service__WEBPACK_IMPORTED_MODULE_2__["SharedDataService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], TicketService);
     return TicketService;
 }());
@@ -25409,7 +28037,7 @@ var TicketService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\" fxFlex=\"1 1 100%\">\n\n  <div class=\"example-container mat-elevation-z8\" fxFlex=\"1 1 100%\">\n    <div class=\"example-loading-shade\"\n        *ngIf=\"isLoadingResults || isRateLimitReached\">\n      <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n      <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\n        GitHub's API rate limit has been reached. It will be reset in one minute.\n      </div>\n    </div>\n\n    <table mat-table #table [dataSource]=\"dataSource\" class=\"example-table\"\n              matSort matSortActive=\"created\" matSortDisableClear matSortDirection=\"asc\">\n\n      <!--- Note that these columns can be defined in any order.\n            The actual rendered columns are set as a property on the row definition\" -->\n\n      <!-- Number Column -->\n      <ng-container matColumnDef=\"ticketId\">\n        <th mat-header-cell *matHeaderCellDef>#</th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.ticketId }}</td>\n      </ng-container>\n\n      <!-- Title Column -->\n      <ng-container matColumnDef=\"description\">\n        <th mat-header-cell *matHeaderCellDef>description</th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.description }}</td>\n      </ng-container>\n\n      <!-- State Column -->\n      <ng-container matColumnDef=\"status\">\n        <th mat-header-cell *matHeaderCellDef>status</th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.status }}</td>\n      </ng-container>\n      \n      <!-- Title Column -->\n      <ng-container matColumnDef=\"title\">\n        <th mat-header-cell *matHeaderCellDef>title</th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.title }}</td>\n      </ng-container>\n\n      <!-- State Column -->\n      <ng-container matColumnDef=\"ticketnumber\">\n        <th mat-header-cell *matHeaderCellDef>ticketnumber</th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.ticketnumber }}</td>\n      </ng-container>\n\n      <!-- Creationdate Column -->\n      <ng-container matColumnDef=\"creationdate\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\"> Created </th>\n        <td mat-cell *matCellDef=\"let row\">{{ row.creationdate }}</td>\n      </ng-container>\n\n      <!-- Update Column -->\n      <ng-container matColumnDef=\"updateTicketNumber\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Update</th>\n        <td mat-cell *matCellDef=\"let row\">\n          <!--<button mat-raised-button (click)=\"ticketview/row.ticketnumber\">Update</button>-->\n          <a href=\"/submitTicket?id={{ row.ticketId }}\">Update</a>\n        </td>\n      </ng-container>\n\n      <!-- Delete Column -->\n      <ng-container matColumnDef=\"item\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Delete</th>\n          <td mat-cell *matCellDef=\"let row\">\n            <button mat-raised-button (click)=\"openDialog(row)\">Delete</button>\n          </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n\n    <mat-paginator [length]=\"resultsLength\" [pageSize]=\"30\">\n    </mat-paginator>\n  </div>\n  <!--<button mat-raised-button (click)=\"openDialog()\">Pick one</button>-->\n</div>\n<!--<div><dialog-overview-example-dialog></dialog-overview-example-dialog></div>-->\n"
+module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"start start\" fxLayout.gt-md=\"row\" fxFlex=\"1 1 100%\">\r\n\r\n  <div class=\"example-container mat-elevation-z8 relative\" fxFlex=\"1 1 100%\">\r\n    <div class=\"example-loading-shade\"\r\n        *ngIf=\"isLoadingResults || isRateLimitReached\">\r\n      <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\r\n      <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\r\n        GitHub's API rate limit has been reached. It will be reset in one minute.\r\n      </div>\r\n    </div>\r\n\r\n    <table mat-table #table [dataSource]=\"dataSource\" class=\"fixed-header\"\r\n              matSort matSortActive=\"created\" matSortDisableClear matSortDirection=\"asc\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n            The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Number Column -->\r\n<!--       <ng-container matColumnDef=\"ticketId\">\r\n        <th mat-header-cell *matHeaderCellDef>#</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.ticketId }}</td>\r\n      </ng-container>\r\n -->\r\n      <!-- Title Column -->\r\n      <ng-container matColumnDef=\"description\">\r\n        <th mat-header-cell *matHeaderCellDef>description</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{ row.description }}</td>\r\n      </ng-container>\r\n\r\n      <!-- State Column -->\r\n      <ng-container matColumnDef=\"status\">\r\n        <th class=\"narrow\" mat-header-cell *matHeaderCellDef>status</th>\r\n        <td class=\"center\" mat-cell *matCellDef=\"let row\">\r\n          <span class=\"status-pullet {{ row.status.status }}\" matTooltip=\"{{ row.status.status }}\" matTooltipPosition=\"above\"></span>\r\n        </td>\r\n      </ng-container>\r\n      \r\n      <!-- Title Column -->\r\n      <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef>title</th>\r\n        <td class=\"narrow one-line\" mat-cell *matCellDef=\"let row\">{{ row.title }}</td>\r\n      </ng-container>\r\n\r\n      <!-- State Column -->\r\n      <ng-container matColumnDef=\"ticketnumber\">\r\n        <th mat-header-cell *matHeaderCellDef>ticketnumber</th>\r\n        <td class=\"narrow\" mat-cell *matCellDef=\"let row\">{{ row.ticketnumber }}</td>\r\n      </ng-container>\r\n\r\n      <!-- Creationdate Column -->\r\n      <ng-container matColumnDef=\"creationdate\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\"> Created </th>\r\n        <td class=\"narrow\" mat-cell *matCellDef=\"let row\">{{ row.creationdate }}</td>\r\n      </ng-container>\r\n\r\n  <!-- Update Column -->\r\n<!--   <ng-container matColumnDef=\"updateTicketNumber\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear=\"true\">Update</th>\r\n      <td mat-cell *matCellDef=\"let row\">\r\n -->        <!--<button mat-raised-button (click)=\"ticketview/row.ticketnumber\">Update</button>-->\r\n<!--       </td>\r\n    </ng-container>\r\n -->\r\n    <!-- Delete Column -->\r\n    <ng-container matColumnDef=\"item\">\r\n        <th class=\"narrow\" mat-header-cell *matHeaderCellDef disableClear=\"true\">Options</th>\r\n        <td class=\"options\" mat-cell *matCellDef=\"let row\">\r\n        <a href=\"/submitTicket?id={{ row.ticketId }}\" matTooltip=\"Update time\" matTooltipPosition=\"above\">\r\n          <mat-icon>update</mat-icon>\r\n\r\n        </a>\r\n        <a href=\"javascript:void(0)\" (click)=\"openDialog(row)\" matTooltip=\"Delete\" matTooltipPosition=\"above\">\r\n            <mat-icon>delete_outline</mat-icon>\r\n        </a>\r\n        </td>\r\n    </ng-container>\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n    \r\n    </table>\r\n\r\n    <mat-paginator [length]=\"resultsLength\" [pageSize]=\"30\">\r\n    </mat-paginator>\r\n  </div>\r\n  <!--<button mat-raised-button (click)=\"openDialog()\">Pick one</button>-->\r\n</div>\r\n<!--<div><dialog-overview-example-dialog></dialog-overview-example-dialog></div>-->\r\n"
 
 /***/ }),
 
@@ -25464,17 +28092,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var TicketViewComponent = /** @class */ (function () {
-    function TicketViewComponent(http, ticketService, dialog, _shareData) {
+    function TicketViewComponent(http, ticketService, dialog, _shareData, _matDialog) {
         this.http = http;
         this.ticketService = ticketService;
         this.dialog = dialog;
         this._shareData = _shareData;
+        this._matDialog = _matDialog;
         this.deleteDialogName = "Delete";
         this.deleteDialogMessage = "Are you sure you want to delete this item ?";
         this.deleteDialogOkLabel = "Ok";
         this.deleteDialogCancelLabel = "Cancel";
         this.deleteConfirmed = false;
-        this.displayedColumns = ['ticketId', 'creationdate', 'description', 'status', 'title', 'ticketnumber', "updateTicketNumber", 'item'];
+        this.displayedColumns = ['creationdate', 'description', 'status', 'title', 'ticketnumber', 'item'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
         this.resultsLength = 0;
         this.isLoadingResults = true;
@@ -25505,7 +28134,9 @@ var TicketViewComponent = /** @class */ (function () {
             // Catch if the GitHub API has reached its rate limit. Return empty data.
             _this.isRateLimitReached = true;
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])([]);
-        })).subscribe(function (data) { return _this.dataSource.data = data; });
+        })).subscribe(function (data) {
+            _this.dataSource.data = data.data;
+        });
     };
     TicketViewComponent.prototype.delete = function (ticket) {
         this.dataSource.data = this.dataSource.data.filter(function (h) { return h !== ticket; });
@@ -25528,6 +28159,10 @@ var TicketViewComponent = /** @class */ (function () {
         });
     };
     __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('dialogContent'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"])
+    ], TicketViewComponent.prototype, "dialogContent", void 0);
+    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
     ], TicketViewComponent.prototype, "paginator", void 0);
@@ -25542,7 +28177,7 @@ var TicketViewComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./ticketview.component.scss */ "./src/app/ticketview/ticketview.component.scss")],
             animations: _fuse_animations__WEBPACK_IMPORTED_MODULE_2__["fuseAnimations"]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _ticketview_service__WEBPACK_IMPORTED_MODULE_7__["TicketService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _services_shared_data_service__WEBPACK_IMPORTED_MODULE_8__["SharedDataService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _ticketview_service__WEBPACK_IMPORTED_MODULE_7__["TicketService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _services_shared_data_service__WEBPACK_IMPORTED_MODULE_8__["SharedDataService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
     ], TicketViewComponent);
     return TicketViewComponent;
 }());
@@ -25556,7 +28191,7 @@ var ExampleHttpDao = /** @class */ (function () {
     }
     ExampleHttpDao.prototype.ngOnInit = function () { };
     ExampleHttpDao.prototype.getRepoIssues = function (sort, order, page) {
-        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/tickets';
+        var href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/ticket/list';
         var identifier = "PROJECT_NAME";
         var value = this._sharedService.selectedProject.name;
         var requestUrl = href + "?identifier=" + identifier + "&value=" + value;
@@ -25745,6 +28380,9 @@ var TicketService = /** @class */ (function () {
         catchError(this.handleError<any>('updateHero'))
       );
     }
+  
+  /**
+      
   
     /**
      * Handle Http operation that failed.
@@ -25941,7 +28579,7 @@ var ProjectDashboardService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- HEADER -->\n<div class=\"header mat-accent-bg p-16 p-sm-24\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\n\n  <div class=\"hero-text\">\n      <mat-icon class=\"hero-icon\">account_balance</mat-icon>\n      <h1 [@animate]=\"{value:'*',params:{delay:'100ms', y:'25px'}}\">\n          WELCOME TO SBM HelpDesk \n      </h1>\n      <h3 [@animate]=\"{value:'*',params:{delay:'100ms', y:'25px'}}\">\n          Our apps will step you through the process of SBM HelpDesk\n      </h3>\n  </div>\n\n</div>\n<!-- / HEADER -->"
+module.exports = "<!-- HEADER -->\r\n<div class=\"header mat-accent-bg p-16 p-sm-24\" fxLayout=\"column\" fxLayoutAlign=\"center center\">\r\n\r\n  <div class=\"hero-text\">\r\n      <mat-icon class=\"hero-icon\">account_balance</mat-icon>\r\n      <h1 [@animate]=\"{value:'*',params:{delay:'100ms', y:'25px'}}\">\r\n          WELCOME TO SBM HelpDesk \r\n      </h1>\r\n      <h3 [@animate]=\"{value:'*',params:{delay:'100ms', y:'25px'}}\">\r\n          Our apps will step you through the process of SBM HelpDesk\r\n      </h3>\r\n  </div>\r\n\r\n</div>\r\n<!-- / HEADER -->"
 
 /***/ }),
 
@@ -26178,7 +28816,7 @@ else {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Essam Tarek\git\Git-Source-HelpDesk\HelpDeskParent\ShuraUIPresentation\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\HelpDeskWorkSpace\GitHelpdesk\Git-Source-HelpDesk\HelpDeskParent\ShuraUIPresentation\src\main.ts */"./src/main.ts");
 
 
 /***/ })
