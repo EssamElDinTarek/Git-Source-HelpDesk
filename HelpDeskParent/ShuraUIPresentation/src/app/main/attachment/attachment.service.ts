@@ -19,7 +19,7 @@ export class AttachmentService {
 
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  private attachmentsUrl = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment';  // URL to web api
+  private attachmentsUrl = 'http://localhost:8081/HelpDeskIntegrationAPI/api/attachment';  // URL to web api
 
 
   apiEndPoint:string;
@@ -29,7 +29,7 @@ export class AttachmentService {
   constructor(private _http: HttpClient) { }
 
   getAttachmentByTickId(ticketID: number): Observable<AttachmentResponse> {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment/ticid/'+ticketID;
+    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/attachment/ticid/'+ticketID;
     let identifier = "TICKET_ID";
     //let value = "1953";
     const requestUrl = `${href}`;//?identifier=` + identifier + `&value=` + ticketID;
@@ -44,7 +44,7 @@ export class AttachmentService {
   }
 
   addAttachment(formData: FormData) {
-    const href = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/api/attachment';
+    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/attachment';
 
     return this._http.post(href, formData,{
       //headers: this.headers
@@ -106,7 +106,7 @@ export class AttachmentService {
   /* addAttachment(formData: FormData): Observable<FormData> {
     headers.append('Content-Type', 'undefined');
             headers.append('Accept', 'application/json');
-    this.apiEndPoint = 'http://192.168.3.164:8082/HelpDeskIntegrationAPI/ticket';
+    this.apiEndPoint = 'http://localhost:8081/HelpDeskIntegrationAPI/ticket';
     return this._http.post<FormData>(`${this.apiEndPoint}`, formData, {
       headers: this.headers
     })

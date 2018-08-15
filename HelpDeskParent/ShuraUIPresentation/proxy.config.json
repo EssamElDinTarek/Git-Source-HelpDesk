@@ -1,6 +1,6 @@
 {
     "/api/*": {
-      "target": "http://192.168.3.164:8082/HelpDeskIntegrationAPI",
+      "target": "http://localhost:8081/HelpDeskIntegrationAPI",
       "secure": false
     }
   }
