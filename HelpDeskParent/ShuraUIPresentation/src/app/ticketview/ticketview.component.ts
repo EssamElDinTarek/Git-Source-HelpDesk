@@ -190,7 +190,7 @@ export class ExampleHttpDao implements OnInit {
 
 
   getRepoIssues(sort: string, order: string, page: number): Observable<TicketResponse[]> {
-    const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
+    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
 
     const requestUrl = `${href}?PROJECT_ID=` + this.projectId + `&USER_EMAIL=ahmed.farrag`;
 
