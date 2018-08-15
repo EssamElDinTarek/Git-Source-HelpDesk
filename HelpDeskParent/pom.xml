@@ -153,6 +153,7 @@
 	</build>
 	<modules>
 		<module>com.sbm.helpdesk.common</module>
+		<module>com.sbm.helpdesk.persistence</module>
 		<module>com.sbm.helpdesk.service</module>
 		<module>com.sbm.helpdesk.integration</module>
 		
