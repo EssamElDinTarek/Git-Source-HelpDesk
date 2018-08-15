@@ -55,6 +55,7 @@
                 <!-- / NOW WIDGET -->
 
                 <!-- WEATHER WIDGET -->
+              
                 <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="p-0">
 
                     <!-- Front -->
@@ -150,6 +151,7 @@
                     <!-- / Front -->
 
                 </fuse-widget>
+
                 <!-- / WEATHER WIDGET -->
 
             </div>
@@ -359,7 +361,8 @@
 
                                       *fuseIfOnDom
                                           [scheme]="widget5.scheme"
-                                          [results]="this.widgets.widget5.mainChart[this.widget5.currentRange]"
+                                          [results]= "this.widgets.widget5.mainChart[this.widget5.currentRange]"
+                                        
                                           [gradient]="widget5.gradient"
                                           [xAxis]="widget5.xAxis"
                                           [yAxis]="widget5.yAxis"
@@ -374,34 +377,28 @@
 
                                   <div class="my-16" fxFlex="100" fxLayout="row wrap" fxFlex.gt-sm="50">
 
+
                                       <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center"
-                                           *ngFor="let widget of widgets.widget5.supporting | keys"
+                                           *ngFor="let task of weeklyTasks"
                                            class="mb-24">
-
+ 
                                           <div class="px-24">
-                                              <div class="h4 secondary-text">{{widget.value.label}}</div>
-                                              <div class="mat-display-1 m-0">
-                                                  {{widget.value.count[widget5.currentRange]}}
-                                              </div>
-                                          </div>
+                                              <div class="h4 secondary-text">{{task.name}}</div>
+                                              <div class="h4 secondary-text">{{task.value}}</div>
+                                              <div>{{task.date | date: 'dd-MM-yyyy'}}</div>
+                                          </div> 
 
+                                        
                                           <div class="h-64">
-                                              <ngx-charts-area-chart
-                                                  *fuseIfOnDom
-                                                  [results]="widget.value.chart[widget5.currentRange]"
-                                                  [scheme]="widget5.supporting.scheme"
-                                                  [gradient]="widget5.supporting.gradient"
-                                                  [xAxis]="widget5.supporting.xAxis"
-                                                  [yAxis]="widget5.supporting.yAxis"
-                                                  [legend]="widget5.supporting.legend"
-                                                  [showXAxisLabel]="widget5.supporting.showXAxisLabel"
-                                                  [showYAxisLabel]="widget5.supporting.showYAxisLabel"
-                                                  [xAxisLabel]="widget5.supporting.xAxisLabel"
-                                                  [yAxisLabel]="widget5.supporting.yAxisLabel"
-                                                  [curve]="widget5.supporting.curve">
+                                              <ngx-charts-area-chart 
+                                              *fuseIfOnDom
+                                              [scheme]="widget5.supporting.scheme" >
                                               </ngx-charts-area-chart>
-                                          </div>
+                                          </div> 
+                                          
+                                          
                                       </div>
+                                      
                                   </div>
                               </div>
                           </div>

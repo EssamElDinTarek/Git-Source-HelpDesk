@@ -81,16 +81,38 @@ export class TicketCommentComponent implements OnInit {
    });
   }
 
+  postComment(comment:string){
+
+    if (comment != null && comment != undefined && comment != "") {
+
+    this.addedComment = new TicketComment();
+    this.addedComment.commentValue = comment;
+    this.addedComment.hduser = this._shareData.user;
+    this.addedComment.ticketId = this.ticketID;
+    this.addComment(this.addedComment);
+    } else {
+      alert("No Comment Added to Post");
+    }
+
+  }
+
   delete(comment: TicketComment): void {
     this.commentService.deleteComment(comment).subscribe();
     this.comments.data = this.comments.data.filter(h => h !== comment);
     location.reload;
   }
 
-  openDialog(): void {
+  /* openDialog(): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: { dialogName: this.commentDialogName, dialogMessage: this.commentDialogMessage, dialogOkLabel: this.commentDialogOkLabel, dialogCancelLabel: this.commentDialogCancelLabel, confirmed: this.commentConfirmed, confirmationComment: this.commentInDialog }
+      data: { 
+        dialogName: this.commentDialogName, 
+        dialogMessage: this.commentDialogMessage, 
+        dialogOkLabel: this.commentDialogOkLabel, 
+        dialogCancelLabel: this.commentDialogCancelLabel, 
+        conbfirmed: this.commentConfirmed, 
+        confirmationComment: this.commentInDialog 
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -106,6 +128,6 @@ export class TicketCommentComponent implements OnInit {
         this.addComment(this.addedComment);
       }
     });
-  }
+  } */
 
 }

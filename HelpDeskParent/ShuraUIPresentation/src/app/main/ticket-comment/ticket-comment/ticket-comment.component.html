@@ -1,38 +1,34 @@
 <div fxLayout="column" fxLayoutAlign="start start" fxLayout.gt-md="row" fxFlex="1 1 100%">
-
-  <div class="example-container" fxFlex="1 1 100%">
-    <!-- <div class="example-loading-shade"  *ngIf="isLoadingResults || isRateLimitReached">
-        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-          GitHub's API rate limit has been reached. It will be reset in one minute.
+  <div class="content">
+    <div class="example-container" fxFlex="1 1 100%">
+      <!-- <div class="example-loading-shade"  *ngIf="isLoadingResults || isRateLimitReached">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+          <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            GitHub's API rate limit has been reached. It will be reset in one minute.
+          </div>
+        </div> -->
+        <div class="form row" fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxFlex.gt-md="100">
+          <mat-form-field class="mat-form-field" fxFlex="100">
+              <textarea matInput placeholder="Type Your Comment" formControlName="Type Your Comment" #comment></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="accent" (click)="postComment(comment.value)">Post</button>
         </div>
-      </div> -->
-    <div class="comment">
-      <ul class="comment-list">
-        <li *ngFor="let comment of commentsResponse.data">
-          <div class="cont-img">
-            <img src="" alt="" />
-          </div><!-- /.cont-img -->
-          <div class="cont-txt">
-            <h3>{{ comment.hduser.userName }}</h3>
-            <span class="date"></span>
-            <p>{{ comment.commentValue }}</p>
-          </div><!-- /.cont-txt -->
-        </li>
-      </ul><!-- /.comment-list -->
-    </div><!-- /.comment -->
     
-  </div>
-  <div class="center" fxFlex>
-
-      <!-- HEADER -->
-       <div class="header mat-accent-bg p-25" fxLayout="column" fxLayoutAlign="space-between start">
-
-        <div class="text">
-          <button mat-fab class="add-file-button mat-warn" (click)="openDialog(row)" aria-label="Add Comment" [@animate]="{value:'*', params:{delay:'300ms',scale:'0.2'}}">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-      </div>
+      <div class="comment">
+        <ul class="comment-list">
+          <li *ngFor="let comment of commentsResponse.data">
+            <div class="cont-img">
+              <img src="" alt="" />
+            </div><!-- /.cont-img -->
+            <div class="cont-txt">
+              <h3>{{ comment.hduser.userName }}</h3>
+              <span class="date">29 / 2 / 2020</span>
+              <p>{{ comment.commentValue }}</p>
+            </div><!-- /.cont-txt -->
+          </li>
+        </ul><!-- /.comment-list -->
+      </div><!-- /.comment -->
+      
     </div>
+  </div>
 </div>

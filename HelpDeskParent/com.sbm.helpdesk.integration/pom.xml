@@ -23,6 +23,9 @@
 		<cglib.version>2.2.2</cglib.version>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
+    <org.springframework-version>5.0.0.RELEASE</org.springframework-version> <!-- wanted Spring version -->
+<!--   <hibernate.version>5.1.0.Final</hibernate.version> wanted Hibernate version -->
+
 	</properties>
 
 	<dependencies>

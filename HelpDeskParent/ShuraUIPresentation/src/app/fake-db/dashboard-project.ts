@@ -82,7 +82,7 @@ export class ProjectDashboardDb
             'title'     : 'Weekely Tasks',
             'ranges'    : {
                  'TW': 'Last Week',
-                '2W': '2 Weeks Ago'
+                'lW': '2 Weeks Ago'
             },
             'mainChart' : {
                 '2W': [

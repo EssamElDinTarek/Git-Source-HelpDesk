@@ -22,11 +22,11 @@
         
                     <div class="navigate">
                         <button class="mat-accent" mat-raised-button (click)="openStepBackDialog()">
-                            <mat-icon>arrow_back</mat-icon>
+                            <mat-icon class="back">arrow_back</mat-icon> Back
                         </button>
         
                         <button class="mat-accent" mat-raised-button (click)="openStepForwardDialog()">
-                            <mat-icon>arrow_forward</mat-icon>
+                            Forward <mat-icon class="forward">arrow_forward</mat-icon> 
                         </button>
                     </div>
         
@@ -107,7 +107,7 @@
             <mat-tab-group dynamicHeight>
 
                 <mat-tab label="Comments">
-                    <app-ticket-comment [updatedTicketId]="updatedTicketId"></app-ticket-comment>
+                    <app-ticket-comment class="app-ticket-comment" [updatedTicketId]="updatedTicketId"></app-ticket-comment>
                 </mat-tab>
 
                 <mat-tab label="Attachments">
