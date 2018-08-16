@@ -1,14 +1,15 @@
 export class User {
     id: string;
     avatar:string;
-    username: string;
-    email: string;
+    userName: string;
+    emailAddress: string;
     password: string;
     groups: string;
     menus: string;
     permissions: string;
     firstName:string;
     lastName:string;
+    userId:number;
     
     constructor() { 
    }

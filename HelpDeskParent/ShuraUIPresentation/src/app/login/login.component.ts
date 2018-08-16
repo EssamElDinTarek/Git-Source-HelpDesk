@@ -144,7 +144,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 error => this.errorMessage = <any>error);
         this._ticketservice.getUserDetails(this.logParam.email).subscribe(_user => {
             this._sharedData.user = _user;
-            this._sharedData.user.emailAddress = _user.email;
+            this._sharedData.user.emailAddress = _user.emailAddress;
             this._sharedData.projects = _user.projects;
 
             if (this._sharedData.projects != null && this._sharedData.projects.length > 0) {

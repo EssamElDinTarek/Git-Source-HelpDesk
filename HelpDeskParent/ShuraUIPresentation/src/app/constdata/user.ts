@@ -4,7 +4,6 @@ export const UserData: User = {
 
   userId: 123,
   firstName: '',
-  email:'ahmed.farrag',
   lastName: '',
   emailAddress: 'ahmed.farrag',
   userPassword: '123456',
