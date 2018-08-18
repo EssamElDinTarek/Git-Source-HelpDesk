@@ -293,11 +293,10 @@ export class HDURSDashboardComponent implements OnInit {
 
     weatherData: WeatherModel = new WeatherModel;
 
-    completedList:any[];
-    createdList:any[];
-    inprogressList:any[];
+    completedList:any=[];
+    createdList:any=[];
+    inprogressList:any=[];
 
-    
 
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _dashBoardService: DashBoardService,
@@ -482,9 +481,8 @@ export class HDURSDashboardComponent implements OnInit {
               for (let index = 0; index < this.weeklyTasks.length; index++) {   
                   debugger
                  if(this.weeklyTasks[index].name=='created') {
-                  //  console.log('Craeted Tickets : '+this.weeklyTasks[index].value);
                     this.createdList.push(this.weeklyTasks[index]);
-                    console.log('Craeted Tickets : '+this.createdList);
+                    console.log('Created Tickets : '+this.weeklyTasks[index].value);
                  }else if(this.weeklyTasks[index].name=='completed'){
                      debugger;
                      this.completedList.push(this.weeklyTasks[index]);
@@ -494,12 +492,10 @@ export class HDURSDashboardComponent implements OnInit {
                     this.inprogressList.push(this.weeklyTasks[index]);
                      console.log('All other are inprogress status...!');
                  }
-               /*   
-               this.weekelytaskDate= this.weeklyTasks[index].date;   
-               console.log('Date is : '+this.weekelytaskDate);
-                this.weekelyTaskFullDate=(new Date(this.weekelytaskDate).getDay()+'-'+new Date(this.weekelytaskDate).getMonth()+'-'+new Date(this.weekelytaskDate).getUTCFullYear()); 
-                */  
             }  
+            console.log('Created List Size = '+this.createdList.length);
+            console.log('Completed List Size ='+this.completedList.length);
+            console.log('In-progress List Size ='+this.inprogressList.length);
       });
  
           
