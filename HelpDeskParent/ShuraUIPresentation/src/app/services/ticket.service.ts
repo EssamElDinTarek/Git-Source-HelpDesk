@@ -296,7 +296,6 @@ export class TicketService //implements Resolve<any>
             headers: this.headers
         })
             .pipe(
-                //catchError(/*this.handleError('addHero', ticket)*/)
             );
     }
 
@@ -307,7 +306,6 @@ export class TicketService //implements Resolve<any>
             headers: this.headers
         })
             .pipe(
-                //catchError(/*this.handleError('addHero', ticket)*/)
             );
     }
 
@@ -318,7 +316,6 @@ export class TicketService //implements Resolve<any>
             headers: this.headers
         })
             .pipe(
-                //catchError(/*this.handleError('addHero', ticket)*/)
             );
 
     }

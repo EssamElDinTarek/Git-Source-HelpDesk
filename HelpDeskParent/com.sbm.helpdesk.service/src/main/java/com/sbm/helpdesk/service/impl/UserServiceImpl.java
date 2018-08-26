@@ -95,7 +95,7 @@ public class UserServiceImpl extends BasicServiceImpl<UserDTO, Hduser> implement
 	{
 		modelMapper.addMappings(new PropertyMap<Hduser, UserDTO>() {
 			protected void configure() {
-				map().setUsername(source.getUsername());
+				map().setUserName(source.getUsername());
 				}
 		});
 	}

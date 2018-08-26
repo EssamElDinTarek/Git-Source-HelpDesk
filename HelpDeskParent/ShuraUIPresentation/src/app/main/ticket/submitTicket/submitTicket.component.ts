@@ -15,6 +15,7 @@ import { RequestOptions } from '@angular/http';
 import { FileData } from '../../../model/fileData';
 import { FileListService } from '../../file-list/file-list.service';
 import { SharedDataService } from '../../../services/shared-data.service';
+import { User } from '../../../models/user';
 
 
 
@@ -229,6 +230,9 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
     //   }
 
     submitTicket(): void {
+
+        this.ticket.hduser= new User();
+	
          
         if (this.isUpdate) {
             this.ticket.hduser.userId = this.sharedDataService.user.userId;
@@ -243,6 +247,8 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                 alert('updated successfully');
                 this.router.navigate(['/ticketview']);
 
+            },_error =>{
+                alert('Error Updating The ticket');
             });
         } else {
             this.ticket.project = this.sharedDataService.selectedProject;

@@ -1,5 +1,6 @@
 package com.sbm.helpdesk.common.dto;
 
+import java.util.List;
 import java.util.Set;
 
 public class HduserDTO extends BaseDTO  {
@@ -11,6 +12,22 @@ public class HduserDTO extends BaseDTO  {
 	private String firstName;
 	private String lastName;
 	private String userName;
+	private String userPassword;
+	
+	private List<ProjectDTO> projects;
+
+	public List<ProjectDTO> getProjects() {
+		return projects;
+	}
+	public void setProjects(List<ProjectDTO> projects) {
+		this.projects = projects;
+	}
+	public String getUserPassword() {
+		return userPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
 	//private String userPassword;
 	//private Set<AttachmentDTO> attachments;
 //	private Set<HdgroupDTO> hdgroups;
