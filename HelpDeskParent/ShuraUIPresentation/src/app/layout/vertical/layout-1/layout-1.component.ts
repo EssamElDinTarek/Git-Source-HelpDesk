@@ -86,5 +86,12 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
     // {
     //    this._sharedService.selectedProject =  this.selectedProject ;
     // }
-
+    
+    // objectKeys = Object.keys;
+    // project={
+    //     PortfolioName : "Project 1",
+    //     projects: {
+    //         projectName: ["Project 1","Project 2"]
+    //     }
+    // }
 }

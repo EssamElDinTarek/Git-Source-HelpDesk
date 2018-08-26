@@ -66,3 +66,61 @@ vertical-layout-1 {
         }
     }
 }
+
+ul{
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px 0px 10px;
+    li{
+        list-style: none;
+        &.name{
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, .9);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, .1)
+        }
+        &.project{
+            position: relative;
+            width: calc(50% - 10px);
+            margin: 5px;
+            float: left;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 3px 0px;
+            .project-img{
+                height: 70px;
+                background-color: rgba(0, 0, 0, .2);
+            }
+            .project-name{
+                font-size: 12px;
+                padding: 15px 10px;
+                font-weight: bold;
+            }
+            input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                cursor: pointer;
+                opacity: 0;
+                ~ span{
+                    display: block;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 50%;
+                    right: 50%;
+                    bottom: 0px;
+                    height: 2px;
+                    background: #03A9F4;
+                    transition: .3s ease-in-out;
+                }
+                &:checked{
+                    ~ span{
+                        right: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
