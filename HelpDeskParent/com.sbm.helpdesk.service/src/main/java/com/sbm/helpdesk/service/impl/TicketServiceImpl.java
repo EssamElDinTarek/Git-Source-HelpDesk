@@ -129,8 +129,9 @@ public class TicketServiceImpl extends BasicServiceImpl<TicketDTO, Ticket> imple
 			ticket.setHduser(userDao.findById(ticket.getHduser().getUserId()));
 			ticket.setStep(stepDao.findById(ticket.getStep().getStepId()));
 			ticket.setUpdateDate(new Date());
-			result = ticketDao.update(ticket);
 			createInformationalDetailsHistory(oldTicket, ticket);
+			result = ticketDao.update(ticket);
+			
 		
 		} catch (RespositoryException e) {
 			e.printStackTrace();

@@ -10,9 +10,9 @@ public class UserDTO extends BaseDTO{
 	private static final long serialVersionUID = 6104011990509049339L;
 
 	private long userId;
-	private String email;
-	private String password;
-	private String username;
+	private String emailAddress;
+	private String userPassword;
+	private String userName;
 	
 //	private List<GroupDTO> groups;
 //	private Team team;
@@ -25,34 +25,41 @@ public class UserDTO extends BaseDTO{
 	
 	public UserDTO(long id , String username ,String password) {
 		this.userId = id;
-		this.username = username;
-		this.password = password;
+		this.userName = username;
+		this.userPassword = password;
 	}
 	
 	public UserDTO(long id , String email,String password, String username) {
 		this.userId = id;
-		this.email = email;
-		this.username = username;
-		this.password = password;
+		this.emailAddress = email;
+		this.userName = username;
+		this.userPassword = password;
 	}
 	
-	public String getEmail() {
-		return email;
+	
+
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getUsername() {
-		return username;
+
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public long getUserId() {
