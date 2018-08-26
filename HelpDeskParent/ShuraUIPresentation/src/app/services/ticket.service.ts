@@ -272,7 +272,7 @@ export class TicketService //implements Resolve<any>
 
 
     getTicketSeverity(): Observable<SeverityResponse> {
-        return this._httpClient.get<SeverityResponse>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticketseverity', {
+        return this._httpClient.get<SeverityResponse>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticketseverity', {
             headers: this.headers
         })
             .pipe(
@@ -282,7 +282,7 @@ export class TicketService //implements Resolve<any>
 
     stepTicketForward(ticketID: number): Observable<Ticket> {
 
-        return this._httpClient.get<Ticket>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/stepTicketForward?TICKET_ID=' + ticketID, {
+        return this._httpClient.get<Ticket>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketForward?TICKET_ID=' + ticketID, {
             headers: this.headers
         })
             .pipe(
@@ -292,7 +292,7 @@ export class TicketService //implements Resolve<any>
 
     stepTicketBackward(ticketID: number): Observable<Ticket> {
 
-        return this._httpClient.get<Ticket>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/stepTicketBackward?TICKET_ID=' + ticketID, {
+        return this._httpClient.get<Ticket>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/stepTicketBackward?TICKET_ID=' + ticketID, {
             headers: this.headers
         })
             .pipe(
@@ -302,7 +302,7 @@ export class TicketService //implements Resolve<any>
 
     getUserDetails(userMail: string): Observable<User> {
 
-        return this._httpClient.get<User>('http://localhost:8081/HelpDeskIntegrationAPI/api/getUserByEmail?value='+userMail, {
+        return this._httpClient.get<User>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/getUserByEmail?value='+userMail, {
             headers: this.headers
         })
             .pipe(
@@ -312,7 +312,7 @@ export class TicketService //implements Resolve<any>
     getWorkflow(): Observable<WorkFlowResponse> {
 
 
-        return this._httpClient.get<WorkFlowResponse>('http://localhost:8081/HelpDeskIntegrationAPI/api/workflow', {
+        return this._httpClient.get<WorkFlowResponse>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/workflow', {
             headers: this.headers
         })
             .pipe(
@@ -322,7 +322,7 @@ export class TicketService //implements Resolve<any>
 
     getTicketById(value: string): Observable<Ticket> {
 
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket';
         let identifier = "TICKET_ID";
         //let value = "1953";
         const requestUrl = `${href}?identifier=` + identifier + `&value=` + value;
@@ -338,7 +338,7 @@ export class TicketService //implements Resolve<any>
 
     getTicketToUpdate(ticketId: string): Observable<UpdatedTicketResponse> {
 
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket';
         let identifier = "TICKET_ID";
         //let value = "1953";
         const requestUrl = `${href}?identifier=` + identifier + `&value=` + ticketId;
@@ -357,7 +357,7 @@ export class TicketService //implements Resolve<any>
     getTicketPriority(): Observable<PriorityResponse> {
 
 
-        return this._httpClient.get<PriorityResponse>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticketpriority', {
+        return this._httpClient.get<PriorityResponse>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticketpriority', {
             headers: this.headers
         })
             .pipe(
@@ -367,7 +367,7 @@ export class TicketService //implements Resolve<any>
 
     addTicket(formData: FormData): Observable<Ticket> {
 
-        return this._httpClient.post<Ticket>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticket', formData, {
+        return this._httpClient.post<Ticket>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket', formData, {
 
         })
             .pipe(
@@ -378,7 +378,7 @@ export class TicketService //implements Resolve<any>
 
     editTicket(formData: FormData): Observable<Ticket> {
 
-        return this._httpClient.post<Ticket>('http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/update', formData, {
+        return this._httpClient.post<Ticket>('http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/update', formData, {
         })
 
     }
@@ -386,7 +386,7 @@ export class TicketService //implements Resolve<any>
 
 
     getTicketsByProjectID(projectId:number,userEmail:string): Observable<any> {
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/ticketbyproidanduser';
         //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
         const requestUrl = `${href}?PROJECT_ID=` + projectId + `&USER_EMAIL=`+userEmail
         console.log('inside getTicketsByProjectID');
@@ -398,7 +398,7 @@ export class TicketService //implements Resolve<any>
     }
 
     getTicketsByProjectName(projectName:string): Observable<any> {
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/list';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/list';
         //const requestUrl = `${href}?PROJECT_ID=1&USER_EMAIL=ahmed.farrag`;
         const requestUrl = `${href}?identifier=PROJECT_NAME&value=`+projectName;
         console.log('inside getTicketsByProjectID');
@@ -411,7 +411,7 @@ export class TicketService //implements Resolve<any>
 
     getTicketsByWorkFlowID(): Observable<any> {
         console.log('Start Calling getTicketsByWorkFlowID service...!');
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/ticketbywfidanduser';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/ticketbywfidanduser';
         const requestUrl = `${href}?WORKFLOW_ID=2&USER_EMAIL=ahmed.farrag`;
         console.log('inside getTicketsByWorkFlowID');
 
@@ -423,7 +423,7 @@ export class TicketService //implements Resolve<any>
 
     getWorkFlowList(): Observable<any> {
         console.log('Start Calling getWorkFlowList service...!');
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/workflow';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/workflow';
         //const requestUrl = `${href}?WORKFLOW_ID=2&USER_EMAIL=ahmed.farrag`;
         console.log('inside getWorkFlowList');
 
@@ -435,7 +435,7 @@ export class TicketService //implements Resolve<any>
 
     getCategorizationList(): Observable<any> {
         console.log('Start Calling getCategorizationList service...!');
-        const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/severityprioritystatusbyuser';
+        const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/severityprioritystatusbyuser';
         const requestUrl = `${href}?USER_EMAIL=ahmed.farrag`;
         console.log('inside getCategorizationList');
 
@@ -474,7 +474,7 @@ export class TicketService //implements Resolve<any>
 
         getUsersByProjectID():Observable<any>{
             console.log('Start Calling getCategorizationList service...!');
-            const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/user/allbyprojectid';
+            const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/user/allbyprojectid';
             const requestUrl = `${href}?PROJECT_ID=1`;
             console.log('End Calling getCategorizationList');
     
@@ -487,7 +487,7 @@ export class TicketService //implements Resolve<any>
 
         getTicketHistoryByID(ticketID):Observable<any>{
             console.log('Start Calling getTicketHistoryByID service...!');
-            const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticket/history?TICKET_ID='+ticketID;
+            const href = 'http://192.168.3.125:8082/HelpDeskIntegrationAPI/api/ticket/history?TICKET_ID='+ticketID;
             console.log('End Calling getTicketHistoryByID');
     
             return this._httpClient.get<any>(href, { headers: this.headers })

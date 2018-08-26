@@ -194,6 +194,9 @@ export class FuseSidebarComponent implements OnInit, OnDestroy
 
         // Setup folded
         this._setupFolded();
+        
+
+
     }
 
     /**
