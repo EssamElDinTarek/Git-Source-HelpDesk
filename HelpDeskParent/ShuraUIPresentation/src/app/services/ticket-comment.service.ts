@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class TicketCommentService {
 
-  private commentUrl = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticketcomment';  // URL to web api
+  private commentUrl = 'http://localhost:8082/HelpDeskIntegrationAPI/api/ticketcomment';  // URL to web api
 
 
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -21,7 +21,7 @@ export class TicketCommentService {
   constructor(private _http: HttpClient) { }
 
   getCommentByTickId(ticketID: number): Observable<CommentResponse> {
-    const href = 'http://localhost:8081/HelpDeskIntegrationAPI/api/ticketcomment/tickid/' + ticketID;
+    const href = 'http://localhost:8082/HelpDeskIntegrationAPI/api/ticketcomment/tickid/' + ticketID;
     return this._http.get<CommentResponse>(href, {
       headers: this.headers
     })
@@ -37,7 +37,7 @@ export class TicketCommentService {
     );*/
     //----------------------------------------
     
-    return this._http.post('http://localhost:8081/HelpDeskIntegrationAPI/api/ticketcomment', comment, {
+    return this._http.post('http://localhost:8082/HelpDeskIntegrationAPI/api/ticketcomment', comment, {
 
     })
       .pipe(

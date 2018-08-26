@@ -294,6 +294,7 @@ export class HDURSDashboardComponent implements OnInit {
     weatherData: WeatherModel = new WeatherModel;
 
     completedList:any=[];
+    noCompletedTickets:number;
     createdList:any=[];
     inprogressList:any=[];
 
@@ -486,6 +487,7 @@ export class HDURSDashboardComponent implements OnInit {
                  }else if(this.weeklyTasks[index].name=='completed'){
                      debugger;
                      this.completedList.push(this.weeklyTasks[index]);
+                     this.noCompletedTickets=this.weeklyTasks[index].value
                      console.log('Completed Tickets : '+this.weeklyTasks[index].value);
                  }else{
                      debugger;
