@@ -81,8 +81,8 @@ export class ProjectDashboardDb
         'widget5'      : {
             'title'     : 'Weekely Tasks',
             'ranges'    : {
-                 'TW': 'Last Week',
-                'lW': '2 Weeks Ago'
+                 'lW': 'Last Week',
+                 '2W': '2 Weeks Ago'
             },
             'mainChart' : {
                 '2W': [
@@ -178,95 +178,67 @@ export class ProjectDashboardDb
                         ]
                     }            
                 ],
-                'TW': [
+                'lW': [
                     {
-                        'name'  : '12-07-2018',
+                        'name'  : '19-08-2018',
                         'series': [
                             {
                                 'name' : 'Tickets',
                                 'value': 37
-                            },
-                            {
-                                'name' : 'closed tickets',
-                                'value': 9
                             }
                         ]
                     },
                     {
-                        'name'  : '13-07-2018',
+                        'name'  : '20-08-2018',
                         'series': [
                             {
                                 'name' : 'Tickets',
                                 'value': 32
-                            },
-                            {
-                                'name' : 'closed tickets',
-                                'value': 12
                             }
                         ]
                     },
                     {
-                        'name'  : '14-07-2018',
+                        'name'  : '21-08-2018',
                         'series': [
                             {
                                 'name' : 'ticket',
                                 'value': 39
-                            },
-                            {
-                                'name' : 'closed ticket',
-                                'value': 9
                             }
                         ]
                     },
                     {
-                        'name'  : '15-07-2018',
+                        'name'  : '22-08-2018',
                         'series': [
                             {
                                 'name' : 'ticket',
                                 'value': 27
-                            },
-                            {
-                                'name' : 'closed ticket',
-                                'value': 12
                             }
                         ]
                     },
                     {
-                        'name'  : '16-07-2018',
+                        'name'  : '23-08-2018',
                         'series': [
                             {
                                 'name' : 'ticket',
                                 'value': 18
-                            },
-                            {
-                                'name' : 'closed ticket',
-                                'value': 7
                             }
                         ]
                     },
                     {
-                        'name'  : '17-07-2018',
+                        'name'  : '24-08-2018',
                         'series': [
                             {
                                 'name' : 'ticket',
                                 'value': 24
-                            },
-                            {
-                                'name' : 'closed ticket',
-                                'value': 8
                             }
                         ]
                     },
                     {
-                        'name'  : '18-07-2018',
+                        'name'  : '25-08-2018',
                         'series': [
                             {
                                 'name' : 'ticket',
                                 'value': 20
-                            },
-                            {
-                                'name' : 'closed ticket',
-                                'value': 16
                             }
                         ]
                     }
@@ -283,7 +255,7 @@ export class ProjectDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'CREATED',
+                                'name'  : 'Created',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -351,7 +323,7 @@ export class ProjectDashboardDb
                                 ]
                             }
                         ],
-                        'TW': [
+                        'lW': [
                             {
                                 'name'  : 'Created',
                                 'series': [
@@ -388,8 +360,8 @@ export class ProjectDashboardDb
                         ]
                     }
                 },
-                'closed'   : {
-                    'label': 'CLOSED',
+                'completed'   : {
+                    'label': 'COMPLETED',
                     'count': {
                         '2W': 27,
                         'LW': 31,
@@ -398,7 +370,7 @@ export class ProjectDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'COMPLETED',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -431,9 +403,9 @@ export class ProjectDashboardDb
                                 ]
                             }
                         ],
-                        'LW': [
+                        'lW': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'COMPLETED',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -468,7 +440,7 @@ export class ProjectDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'COMPLETED',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -503,17 +475,17 @@ export class ProjectDashboardDb
                         ]
                     }
                 },
-                'reOpened' : {
-                    'label': 'RE-OPENED',
+                'inProgress' : {
+                    'label': 'IN-PROGRESS',
                     'count': {
                         '2W': 4,
-                        'LW': 5,
+                        'lW': 5,
                         'TW': 2
                     },
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'IN-PROGRESS',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -546,9 +518,9 @@ export class ProjectDashboardDb
                                 ]
                             }
                         ],
-                        'LW': [
+                        'lW': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'IN-PROGRESS',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -583,7 +555,7 @@ export class ProjectDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'IN-PROGRESS',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -612,351 +584,6 @@ export class ProjectDashboardDb
                                     {
                                         'name' : 'Sun',
                                         'value': 4
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                'wontFix'  : {
-                    'label': 'WON\'T FIX',
-                    'count': {
-                        '2W': 6,
-                        'LW': 3,
-                        'TW': 4
-                    },
-                    'chart': {
-                        '2W': [
-                            {
-                                'name'  : 'WON\'T FIX',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 3
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 2
-                                    }
-                                ]
-                            }
-                        ],
-                        'LW': [
-                            {
-                                'name'  : 'WON\'T FIX',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 3
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 7
-                                    }
-                                ]
-                            }
-                        ],
-                        'TW': [
-                            {
-                                'name'  : 'WON\'T FIX',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 7
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                'needsTest': {
-                    'label': 'NEEDS TEST',
-                    'count': {
-                        '2W': 10,
-                        'LW': 7,
-                        'TW': 8
-                    },
-                    'chart': {
-                        '2W': [
-                            {
-                                'name'  : 'NEEDS TEST',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 7
-                                    }
-                                ]
-                            }
-                        ],
-                        'LW': [
-                            {
-                                'name'  : 'NEEDS TEST',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 8
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 8
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 1
-                                    }
-                                ]
-                            }
-                        ],
-                        'TW': [
-                            {
-                                'name'  : 'NEEDS TEST',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 3
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 7
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                'fixed'    : {
-                    'label': 'FIXED',
-                    'count': {
-                        '2W': 21,
-                        'LW': 17,
-                        'TW': 14
-                    },
-                    'chart': {
-                        '2W': [
-                            {
-                                'name'  : 'FIXED',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 8
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 8
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 1
-                                    }
-                                ]
-                            }
-                        ],
-                        'LW': [
-                            {
-                                'name'  : 'FIXED',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 7
-                                    }
-                                ]
-                            }
-                        ],
-                        'TW': [
-                            {
-                                'name'  : 'FIXED',
-                                'series': [
-                                    {
-                                        'name' : 'Mon',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Tue',
-                                        'value': 7
-                                    },
-                                    {
-                                        'name' : 'Wed',
-                                        'value': 4
-                                    },
-                                    {
-                                        'name' : 'Thu',
-                                        'value': 6
-                                    },
-                                    {
-                                        'name' : 'Fri',
-                                        'value': 5
-                                    },
-                                    {
-                                        'name' : 'Sat',
-                                        'value': 3
-                                    },
-                                    {
-                                        'name' : 'Sun',
-                                        'value': 2
                                     }
                                 ]
                             }

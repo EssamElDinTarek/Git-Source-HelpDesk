@@ -28,6 +28,8 @@ import { MatTableDataSource } from '../../../../../node_modules/@angular/materia
 })
 export class HDURSDashboardComponent implements OnInit {
 
+    alphas:string[]= ["1","2","3","4"] ;
+
     projects: any[];
     selectedProject: any;
     tickets: Ticket[];
@@ -46,10 +48,12 @@ export class HDURSDashboardComponent implements OnInit {
     
     workflowID:Number;
     ticketsOfWorkflow: any[];
-    weeklyTasks:any;
+    weeklyTasks:any[];
     weekelytaskDate:any;
     weekelyTaskFullDate:any[];
     countOfTickets:any[];
+
+    
 
     widgets: any;
     widget5: any = {};
@@ -303,6 +307,7 @@ export class HDURSDashboardComponent implements OnInit {
         private _dashBoardService: DashBoardService,
         private _shareData: SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
+            
      
         this.chart = {
             currentRange: 'status',
@@ -318,7 +323,7 @@ export class HDURSDashboardComponent implements OnInit {
            * Widget 5
            */
         this.widget5 = {
-            currentRange: 'TW',
+            currentRange: 'lW',
             xAxis: true,
             yAxis: true,
             gradient: false,
@@ -470,34 +475,29 @@ export class HDURSDashboardComponent implements OnInit {
                
             });
         }
-    
-
-    // debugger;
-    
+        
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
 
        this._dashBoardService.getWeeklyTickets(this.projectId).subscribe(_result=>{
              this.weeklyTasks=_result.data;
               for (let index = 0; index < this.weeklyTasks.length; index++) {   
-                  debugger
                  if(this.weeklyTasks[index].name=='created') {
                     this.createdList.push(this.weeklyTasks[index]);
                     console.log('Created Tickets : '+this.weeklyTasks[index].value);
                  }else if(this.weeklyTasks[index].name=='completed'){
-                     debugger;
                      this.completedList.push(this.weeklyTasks[index]);
                      this.noCompletedTickets=this.weeklyTasks[index].value
                      console.log('Completed Tickets : '+this.weeklyTasks[index].value);
                  }else{
-                     debugger;
                     this.inprogressList.push(this.weeklyTasks[index]);
                      console.log('All other are inprogress status...!');
                  }
             }  
-            console.log('Created List Size = '+this.createdList.length);
-            console.log('Completed List Size ='+this.completedList.length);
-            console.log('In-progress List Size ='+this.inprogressList.length);
+            
+            console.log('Weekely Tasks : '+this.weeklyTasks);
+            console.log('Weekely Tasks list size = '+this.weeklyTasks.length);
+            
       });
  
           

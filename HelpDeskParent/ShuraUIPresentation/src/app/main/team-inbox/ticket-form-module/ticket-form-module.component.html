@@ -6,14 +6,25 @@
                     <div  class="vertical-stepper-wrapper">
         
                         <ul class="timeline">
+                            
+                            <!--
                             <li *ngFor="let data of ticketHistory">
-                                <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
+                                <h3 class="title">{{data.stepId}}</h3>
                                 <p>{{data.behaviorValue}}
                                     {{data.behaviorName}}
                                     {{data.type}}  action applied at
                                     {{data.actionAt | date: "dd/MM/yyyy"}}
                                 </p>
                             </li>
+
+                            -->
+
+                            <li *ngFor="let data of ticketHistory">
+                                    <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
+                                    <p>{{data.stepdetails}}
+                                    </p>
+                                </li>
+
         
                         </ul>
                         <!-- / VERTICAL STEPPER EXAMPLE -->

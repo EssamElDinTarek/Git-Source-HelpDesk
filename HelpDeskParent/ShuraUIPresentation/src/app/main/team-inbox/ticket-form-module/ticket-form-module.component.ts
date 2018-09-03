@@ -51,7 +51,7 @@ export class TicketFormModuleComponent implements OnInit{
     stepBackDialogOkLabel: string = "Ok";
     stepBackDialogCancelLabel: string = "Cancel";
     stepBackConfirmed: boolean = false;
-
+    currentStep:string;
     //step forward dialoug
     stepForwardComment: string;
     stepForwardDialogName: string = "Next";
@@ -104,10 +104,11 @@ export class TicketFormModuleComponent implements OnInit{
 
         this._ticketService.getTicketHistoryByID(this.updatedTicketId).subscribe((response: any) => {
             this.ticketHistory = response.data;
-            for (let index = 0; index < this.ticketHistory.length; index++) {
-                const element = this.ticketHistory[index];
+            this.currentStep = this.ticketHistory[0].stepId;
+            //for (let index = 0; index < this.ticketHistory.length; index++) {
+            //    const element = this.ticketHistory[index];
                 //this.ticketHistoryModified
-            }
+           // }
             console.log("inside service calling")
         });
 
