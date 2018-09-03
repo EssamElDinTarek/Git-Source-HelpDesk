@@ -61,7 +61,7 @@ public class AttachmentServiceFacade {
 		ResponseDTO result = null;
 		try {
 			System.out.println("Test 2 Upload Attachment "+ userId + "  " + "  " + files.length + "  " + ticketId);
-			service.uploadAttachment(Long.parseLong(userId), files, Long.parseLong(ticketId));
+			service.uploadAttachment(Long.parseLong(userId.trim()), files, Long.parseLong(ticketId.trim()));
 			ResponseStatusDTO status = new ResponseStatusDTO("helpdesk.business.code.3001", 
 					"Tickets has been retrived successfully", 
 					"Tickets has been retrived successfully", null);

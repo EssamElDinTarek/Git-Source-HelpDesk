@@ -43,6 +43,7 @@ public class TicketcommentServiceImpl extends BasicServiceImpl<TicketcommentDTO,
 	@Override
 	@Transactional
 	public TicketcommentDTO addTicketcomment(TicketcommentDTO ticketcommentDTO) throws BusinessException {
+		ticketcommentDTO.setWrittenOn(new Date());
 		ticketcomment = convertToEntity(ticketcomment, ticketcommentDTO);
 		try {
 			ticketcomment = ticketcommentDao.persist(ticketcomment);

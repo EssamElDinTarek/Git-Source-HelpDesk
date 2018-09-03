@@ -13,8 +13,26 @@ public class UserDTO extends BaseDTO{
 	private String emailAddress;
 	private String userPassword;
 	private String userName;
+	private String firstName;
+	private String lastName;
 	
-//	private List<GroupDTO> groups;
+public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	//	private List<GroupDTO> groups;
 //	private Team team;
 //	private List<MenuDTO> menus;
 //	private List<PermissionDTO> permissions;

@@ -52,6 +52,7 @@ export class TicketAttachementsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     //get ticket id and user id to upload attachment
     this.userID = this._shareData.user.userId;
+    this.ticketID = +this.ticketID;
     console.log('on after view init');
     // If the user changes the sort order, reset back to the first page.
     this.attachService.getAttachmentByTickId(this.ticketID).subscribe(_attachmentResponse => {

@@ -22,7 +22,7 @@
             </div><!-- /.cont-img -->
             <div class="cont-txt">
               <h3>{{ comment.hduser.userName }}</h3>
-              <span class="date">29 / 2 / 2020</span>
+              <span class="date">{{ comment.writtenOn | date:'hh:mm dd-MM-yyyy'}}</span>
               <p>{{ comment.commentValue }}</p>
             </div><!-- /.cont-txt -->
           </li>

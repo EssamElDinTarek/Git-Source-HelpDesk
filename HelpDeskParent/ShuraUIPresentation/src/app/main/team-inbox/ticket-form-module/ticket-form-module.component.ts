@@ -301,7 +301,7 @@ editTicket(control){
                 if (this.stepBackConfirmed) {
 
                     this.addedStepBackComment = new TicketComment();
-                    this.addedStepBackComment.commentValue = this.sharedService.user.firstName+" returned the ticket to previous step with comment :- \n"+result.confirmationComment;
+                    this.addedStepBackComment.commentValue =  this.sharedService.user.firstName +" "+ this.sharedService.user.lastName+" returned the ticket to previous step with comment :- '"+result.confirmationComment+"'";
                     this.addedStepBackComment.hduser = this.sharedService.user;
                     this.addedStepBackComment.ticketId = this.updatedTicketId;
                     this.ticketCommentService.addTicketComment(this.addedStepBackComment);
@@ -332,7 +332,7 @@ editTicket(control){
                 if (this.stepForwardConfirmed) {
 
                     this.addedStepForwardComment = new TicketComment();
-                    this.addedStepForwardComment.commentValue = this.sharedService.user.userName+" has sent the ticket to next step with comment :- \n"+result.confirmationComment;result.confirmationComment;
+                    this.addedStepForwardComment.commentValue = this.sharedService.user.firstName +" "+ this.sharedService.user.lastName+" has sent the ticket to next step with comment :- "+result.confirmationComment;
                     this.addedStepForwardComment.hduser = this.sharedService.user;
                     this.addedStepForwardComment.ticketId = this.updatedTicketId;
                     this.ticketCommentService.addTicketComment(this.addedStepForwardComment);

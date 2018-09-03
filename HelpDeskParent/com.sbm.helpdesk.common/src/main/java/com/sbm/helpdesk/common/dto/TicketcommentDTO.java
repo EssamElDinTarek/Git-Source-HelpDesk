@@ -1,5 +1,6 @@
 package com.sbm.helpdesk.common.dto;
 
+import java.util.Date;
 
 public class TicketcommentDTO extends BaseDTO  {
 
@@ -8,6 +9,13 @@ public class TicketcommentDTO extends BaseDTO  {
 	private String commentValue;
 	private HduserDTO hduser;
 	private Long ticketId;
+    private Date writtenOn;
+	public Date getWrittenOn() {
+		return writtenOn;
+	}
+	public void setWrittenOn(Date writtenOn) {
+		this.writtenOn = writtenOn;
+	}
 	public long getTicketcommentId() {
 		return ticketcommentId;
 	}

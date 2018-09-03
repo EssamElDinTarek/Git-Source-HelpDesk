@@ -241,7 +241,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                 for (let index = 0; index < this.filelist.length; index++) {
                     this.formData.append('files', this.filelist.item(index));
                 }
-                this.formData.append('files', this.filelist.item(0));
+               // this.formData.append('files', this.filelist.item(0));
             }
             this._ticketService.editTicket(this.formData).subscribe(_ticket => {
                 alert('updated successfully');
@@ -262,7 +262,7 @@ export class SubmitTicketComponent implements OnInit, OnDestroy {
                     this.formData.append('files', this.filelist.item(index));
 
                 }
-                this.formData.append('files', this.filelist.item(0));
+                //this.formData.append('files', this.filelist.item(0));
             }
             this._ticketService.addTicket(this.formData).subscribe(_ticket => {
                 alert('Ticket Created successfully');
