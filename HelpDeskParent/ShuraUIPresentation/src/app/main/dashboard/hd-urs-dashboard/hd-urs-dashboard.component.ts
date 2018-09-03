@@ -28,8 +28,6 @@ import { MatTableDataSource } from '../../../../../node_modules/@angular/materia
 })
 export class HDURSDashboardComponent implements OnInit {
 
-    alphas:string[]= ["1","2","3","4"] ;
-
     projects: any[];
     selectedProject: any;
     tickets: Ticket[];
@@ -48,12 +46,10 @@ export class HDURSDashboardComponent implements OnInit {
     
     workflowID:Number;
     ticketsOfWorkflow: any[];
-    weeklyTasks:any[];
+    weeklyTasks:any;
     weekelytaskDate:any;
     weekelyTaskFullDate:any[];
     countOfTickets:any[];
-
-    
 
     widgets: any;
     widget5: any = {};
@@ -114,7 +110,7 @@ export class HDURSDashboardComponent implements OnInit {
 }
 
 
-    teamWidget:any={
+    teamWidget: any = {
         'title': 'Team Members',
         'table': {
             'columns': [ 'username',  'email', ],
@@ -302,12 +298,10 @@ export class HDURSDashboardComponent implements OnInit {
     createdList:any=[];
     inprogressList:any=[];
 
-
     constructor(private _fuseSidebarService: FuseSidebarService,
         private _dashBoardService: DashBoardService,
         private _shareData: SharedDataService,
         private _projectDashboardService: ProjectDashboardService) {
-            
      
         this.chart = {
             currentRange: 'status',
@@ -421,10 +415,10 @@ export class HDURSDashboardComponent implements OnInit {
 
 
     workFlowChanged(): void {
-        //debugger;
+        //
         this.workflowID=this.selectedWorkflow.flowId;
         this._dashBoardService.getTicketsByWorkFlowID(this.workflowID,this.userEmail).subscribe(_result => {
-            //debugger;
+            //
             this.ticketsOfWorkflowList = _result.data;
         });
     }
@@ -475,7 +469,10 @@ export class HDURSDashboardComponent implements OnInit {
                
             });
         }
-        
+    
+
+    // 
+    
     this.projectId = this._shareData.selectedProject.projectId;
     this.userEmail = this._shareData.user.emailAddress;
 
@@ -486,10 +483,12 @@ export class HDURSDashboardComponent implements OnInit {
                     this.createdList.push(this.weeklyTasks[index]);
                     console.log('Created Tickets : '+this.weeklyTasks[index].value);
                  }else if(this.weeklyTasks[index].name=='completed'){
+                     
                      this.completedList.push(this.weeklyTasks[index]);
                      this.noCompletedTickets=this.weeklyTasks[index].value
                      console.log('Completed Tickets : '+this.weeklyTasks[index].value);
                  }else{
+                     
                     this.inprogressList.push(this.weeklyTasks[index]);
                      console.log('All other are inprogress status...!');
                  }
@@ -539,12 +538,12 @@ export class HDURSDashboardComponent implements OnInit {
 
           //users per project service...
            this._dashBoardService.getUsersByProjectID(1).subscribe(_result => {
-            debugger;
+            
             this.usersPerProjects = _result.data;
             this.dataSourceArray1=this.usersPerProjects;
-            debugger;
+            
             this.numberOfRows=this.usersPerProjects.length;
-            debugger;
+            
            });
 
             /*

@@ -96,9 +96,19 @@
 
     </div> -->
     <div class="projects">
-        <!-- <ul *ngfor="let project for projects">
-            <li>{{ PortfolioName }}</li>
-        </ul> -->
+        <ul *ngFor="let potofolioItem of tempPortofolios">
+            <li class="name">{{potofolioItem.portofolioName}}</li>
+            <li *ngFor="let item of potofolioItem.projects" class="project">
+                <div class="project-img">
+                </div>
+                <div class="project-name">{{item.name}}</div>
+                <input type="radio">
+                <span></span>
+            </li>
+            </ul>
+    </div>
+
+    <!-- <div class="projects">
 
         <ul>
             <li class="name">Portfolio-1</li>
@@ -135,7 +145,7 @@
                 <span></span>
             </li>
         </ul>
-    </div>
+    </div> -->
 </fuse-sidebar>
 <!-- / QUICK PANEL -->
 
