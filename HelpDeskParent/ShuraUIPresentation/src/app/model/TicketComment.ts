@@ -6,4 +6,5 @@ export class TicketComment {
 	hduser: User;
 	ticketId : number;
 	ss:any;
+	writtenOn:string;
 }

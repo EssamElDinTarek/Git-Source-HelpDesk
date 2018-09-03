@@ -75,6 +75,7 @@ export class TicketCommentComponent implements OnInit {
     comment.hduser = this._shareData.user;
     this.commentService.addTicketComment(comment).subscribe(_ticket => {
       alert('comment added successfully');
+      comment.writtenOn = new Date()+'';
       this.commentsResponse.data[this.commentsResponse.data.length] = comment;
       this.comments.data = this.commentsResponse.data;
       this.addedComment = null;

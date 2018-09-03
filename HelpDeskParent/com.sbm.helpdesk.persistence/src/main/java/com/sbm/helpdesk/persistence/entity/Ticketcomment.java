@@ -1,6 +1,8 @@
 package com.sbm.helpdesk.persistence.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -35,6 +37,18 @@ public class Ticketcomment extends BaseEntity implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="TICKET_ID")
 	private Ticket ticket;
+	
+	@Column(name = "WRITTEN_ON")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date writtenOn;
+
+	public Date getWrittenOn() {
+		return writtenOn;
+	}
+
+	public void setWrittenOn(Date writtenOn) {
+		this.writtenOn = writtenOn;
+	}
 
 	@Column(name="IS_DELETED")
 	private long deleted;
