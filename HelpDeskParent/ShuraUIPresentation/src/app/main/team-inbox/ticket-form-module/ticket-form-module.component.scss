@@ -72,13 +72,15 @@
                 background: none !important;
             }
         }
-        .timeline{
+        .scroll{
+            overflow: auto;
+            max-height: 340px;
             padding: 5px 0px;
+        }
+        .timeline{
             margin: 0px;
             position: relative;
             padding-left: 30px;
-            overflow: auto;
-            max-height: 340px;
             &:before{
                 content: "";
                 display: block;

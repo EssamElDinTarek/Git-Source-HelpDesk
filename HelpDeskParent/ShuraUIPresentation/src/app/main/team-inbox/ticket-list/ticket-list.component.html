@@ -29,7 +29,7 @@
  <ng-container cdkColumnDef="creationdate">
      <mat-header-cell class="th" *cdkHeaderCellDef>Created_On</mat-header-cell>
      <mat-cell class="td" *cdkCellDef="let ticket" >
-             {{ticket.creationdate}}
+             {{ticket.creationdate | date : "dd/MM/yyyy"}}
      </mat-cell>
  </ng-container>
 

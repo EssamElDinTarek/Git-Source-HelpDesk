@@ -4,38 +4,39 @@
             <div class="tf-time-line mb-24 t-cell" aria-label="Time line">
 
                     <div  class="vertical-stepper-wrapper">
-        
-                        <ul class="timeline">
-                            <li *ngFor="let data of ticketHistory">
-                                <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
-                                <p>{{data.behaviorValue}}
-                                    {{data.behaviorName}}
-                                    {{data.type}}  action applied at
-                                    {{data.actionAt | date: "dd/MM/yyyy"}}
-                                </p>
-                            </li>
-
-                            -->
-
-                            <li *ngFor="let data of ticketHistory">
+                        <div class="scroll">
+                            <ul class="timeline">
+                                <li *ngFor="let data of ticketHistory">
+                                    <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
+                                    <p>{{data.behaviorValue}}
+                                        {{data.behaviorName}}
+                                        {{data.type}}  action applied at
+                                        {{data.actionAt | date: "dd/MM/yyyy"}}
+                                    </p>
+                                </li>
+    
+                                -->
+    
+                                <li *ngFor="let data of ticketHistory">
                                     <h3 class="title">{{data.stepId}}</h3><!-- /.title -->
                                     <p>{{data.stepdetails}}
                                     </p>
                                 </li>
-
-        
-                        </ul>
+    
+            
+                            </ul>
+                        </div>
                         <!-- / VERTICAL STEPPER EXAMPLE -->
         
                     </div>
         
                     <div class="navigate">
                         <button class="mat-accent" mat-raised-button (click)="openStepBackDialog()">
-                            <mat-icon class="back">arrow_back</mat-icon> Back
+                            <mat-icon class="back">arrow_back</mat-icon> Move Backward
                         </button>
         
                         <button class="mat-accent" mat-raised-button (click)="openStepForwardDialog()">
-                            Forward <mat-icon class="forward">arrow_forward</mat-icon> 
+                            Move Forward<mat-icon class="forward">arrow_forward</mat-icon> 
                         </button>
                     </div>
         

@@ -50,7 +50,7 @@
       <!-- Creationdate Column -->
       <ng-container matColumnDef="creationdate">
         <th class="th" mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> Created </th>
-        <td class="td narrow" mat-cell *matCellDef="let row">{{ row.creationdate }}</td>
+        <td class="td narrow" mat-cell *matCellDef="let row">{{ row.creationdate | date : "d/MM/y" }}</td>
       </ng-container>
 
   <!-- Update Column -->
